@@ -1,3 +1,0 @@
-# Website
-
-www.joaquinoviedo.com

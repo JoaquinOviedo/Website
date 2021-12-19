@@ -12,6 +12,10 @@ p{
     color:black;
 }
 .redessociales{
-    align-items: center;
+    display: inline;
+    margin: 10px 100px;
+}
+footer{
     text-align: center;
+    margin: 100px 0px;
 }

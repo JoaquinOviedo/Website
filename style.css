@@ -5,9 +5,13 @@ body{
 
 h1{
     text-align: center;
-    color:white;
+    color:black;
 }
 p{
     text-align: center;
-    color:white;
+    color:black;
+}
+.redessociales{
+    align-items: center;
+    text-align: center;
 }

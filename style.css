@@ -26,6 +26,10 @@ footer{
 header{
     background-color: black;
     overflow: hidden;
+    padding: 0px 50px;
+    margin: 0px 500px;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px
 }
 .Menu a{
     background-color: black;

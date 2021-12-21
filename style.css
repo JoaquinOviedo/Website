@@ -15,7 +15,7 @@ p{
     text-align: center;
     color:black;
 }
-.redessociales{
+.Redessociales{
     display: inline;
     margin: 10px 100px;
 }
@@ -46,6 +46,15 @@ header{
 }
 .Menu-izquierda a{
     float: right;
+}
+
+.Proyectos, h4 {
+    text-align: center;
+    color: black;
+    margin: 10px;
+}
+h2{
+    text-align: center;
 }
 
 a{

@@ -20,20 +20,17 @@ table{
 }
 td{
     background-color: white;
-    border:1px solid black;
-    padding: 25px 100px;
-    font-size: 25px;
-    width: 200px;
-    height: 30px !important;
+    border:5px solid black ;
+    padding: 10px 100px;
+    font-size: 30px;
+    font-weight: bold;
 
 }
 .blanco{
-    height: 30px !important;
     background-color: white;
-    padding: 0px 200px;
+    padding: 0px 350px;
 }
 .espacio{
-    height: 30px;
     padding: 0px 100px;
     border: 0px solid white;
 }
@@ -41,6 +38,8 @@ td{
     border: 0px solid white;
     margin: 50px;
 }
-.Mes{
-    border: 0px solid white;
+.Mes td {
+    border: solid white;
+    font-size: 50px;
+    padding: 5px 0px;
 }

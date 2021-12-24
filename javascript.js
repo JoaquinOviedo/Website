@@ -1,16 +1,14 @@
-function Thisyear() {
-    var botonesvar=0;
-    Program();
-}
-function Nextyear() {
-    var botonesvar=1;
-    Program();
-}
-    function Program(){
+function Thisyear(){    
+    var botonvar=0;
+    Program(botonvar);}
+function Nextyear(){    
+    var botonvar=1;
+    Program(botonvar);}
+
+    function Program(botonesvar){
         
     var today = new Date();
     var day = today.getDate();
-    botonesvar=1;
 
     var year = today.getFullYear() + botonesvar;
     var cuentadias=1,cuentameses=0;

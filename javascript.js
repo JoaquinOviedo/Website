@@ -4,6 +4,12 @@ function Thisyear(){
 function Nextyear(){    
     var botonvar=1;
     Program(botonvar);}
+function inputyear(){
+        var input = document.getElementById("inputyear").value;
+        var today = new Date();
+        var year = today.getFullYear();
+        var botonvar= input-year;
+        Program(botonvar);}
 
     function Program(botonesvar){
         
@@ -54,24 +60,34 @@ function Nextyear(){
     var table = document.getElementById("Tabla");
     var Meses = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
 
+    // '<td class="Mes">'+Meses[cuentameses] +" "+ String(year)+'</td>'
+
+
     for(i=0;cuentameses<=11;cuentameses++,i++){
         var row = table.insertRow(-1);
-        var cell7 = row.insertCell(-1).innerHTML = Meses[cuentameses] +" "+ String(year) ;
-        var cell7 = row.className = "Mes";
+        var cell7 = row.insertCell(-1);
+        cell7.innerHTML = Meses[cuentameses] +" "+ String(year);
+        cell7.className = "Mes";
         var cell3 = row.insertCell(-1).className = "espacio";
         var cell3 = row.insertCell(-1).className = "espacio";
         cuentameses++;
-        var cell8 = row.insertCell(-1).innerHTML = Meses[cuentameses] +" "+ String(year) ;
+        var cell8 = row.insertCell(-1);
+        cell8.innerHTML = Meses[cuentameses] +" "+ String(year);
+        cell8.className = "Mes";
         cuentameses--;
         var cell3 = row.insertCell(-1).className = "espacio";
         for(;cuentadias<=31;cuentadias++){
             
             var row = table.insertRow(-1);
-            var cell1 = row.insertCell(-1).innerHTML = Boolean(Añoguardado[cuentameses][cuentadias]) ?  Añoguardado[cuentameses][cuentadias] : "";
+            var cell1 = row.insertCell(-1);
+            cell1.innerHTML = Boolean(Añoguardado[cuentameses][cuentadias]) ?  Añoguardado[cuentameses][cuentadias] : "";
+            cell1.className = Boolean(Añoguardado[cuentameses][cuentadias]) ? "Dia":"";
             var cell2 = row.insertCell(-1).className = "blanco";
             var cell3 = row.insertCell(-1).className = "espacio";
             cuentameses++;
-            var cell4 = row.insertCell(-1).innerHTML = Boolean(Añoguardado[cuentameses][cuentadias]) ?  Añoguardado[cuentameses][cuentadias] : "";
+            var cell4 = row.insertCell(-1);           
+            cell4.innerHTML = Boolean(Añoguardado[cuentameses][cuentadias]) ?  Añoguardado[cuentameses][cuentadias] : "";
+            cell4.className = Boolean(Añoguardado[cuentameses][cuentadias]) ? "Dia":"";
             var cell5 = row.insertCell(-1).className = "blanco";
             cuentameses--;
         }

@@ -1,24 +1,30 @@
+*{
+    margin: 0;
+       font-family: Arial, Helvetica, sans-serif ;
+}
 body{
     background-color: #EFB923;
     margin: 0;
 }
 div{
-    margin: 50px 33.33%;    
+    margin: 50px 30%;    
     background-color: #9F5E33;
-    border-radius: 100px;
+    border-radius: 50px;
     word-wrap: break-word;
 }
 h1{
-    padding: 20px 15%;
+    padding: 50px 15% 0px;
     color: #FEE528;
     text-align: center;
  }
  p{
-    padding: 20px 15%;
+    padding: 20px 50px 50px;
     color: #FFD314;
     text-align: justify;
     
  }
- a{
+.link{
      color: #FEE528 ;
+     text-decoration: none;
+     
  }

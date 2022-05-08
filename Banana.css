@@ -7,7 +7,7 @@ body{
     margin: 0;
 }
 div{
-    margin: 50px 30%;    
+    margin: 50px 25%;    
     background-color: #9F5E33;
     border-radius: 50px;
     word-wrap: break-word;
@@ -21,7 +21,7 @@ h1{
     padding: 20px 50px 50px;
     color: #FFD314;
     text-align: justify;
-    
+    font-size: 20px;
  }
 .link{
      color: #FEE528 ;

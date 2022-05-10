@@ -27,6 +27,7 @@ p{
 }
 
 .calculadorainterescompuesto{
+    border: 2px solid yellowgreen;
     display: flex;
     background-color: white;
     width: 1000px;
@@ -46,7 +47,6 @@ p{
     display: grid;
     width: 200px;
     height: 100px;
-    ;
 }
 button , input{
     display: grid;

@@ -27,7 +27,7 @@ p{
 }
 
 .calculadorainterescompuesto{
-    border: 2px solid yellowgreen;
+    border: 5px solid yellowgreen;
     display: flex;
     background-color: white;
     width: 1000px;

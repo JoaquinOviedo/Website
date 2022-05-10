@@ -10,16 +10,73 @@
 
 </head>
 <body>
-    <section>
-        <div class="Libros">
-
-            <a href=""><p>The Intelligent Investor 10%</p></a>
-            <a href=""><p>Rich Dad Poor Dad 100%</p></a>
-            <a href=""><p>I Will Teach You to Be Rich 100%</p></a>
-            <a href=""><p>The Richest Man in Babylon 100%</p></a>
-            <a href=""><p>The Psychology of Money 10%</p></a>
+    <div class="calculadorainterescompuesto">
+        <div class="ingresosdiv">
+        <input type="number" class="ingresos" id="balanceinicial"placeholder="Initial balance" >
+        <input type="number" class="ingresos" id="aportacionanual"placeholder="Yearly Contributions" >
+        <input type="number" class="ingresos" id="años"placeholder="Years" >
+        <input type="number" class="ingresos" id="interes"placeholder="Interest Rate" >        
+        <button type="submit" class="ingresos"onclick="Graficar()">Submit</button>
         </div>
-    </section>
+    <div class="canvasdiv"><canvas id="Grafica_Interes_Compuesto" ></canvas></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js"></script>
+    <script type="text/javascript" id="Grafico" type="module">
+
+            function Graficar(){
+                
+                var balanceinicial=0;
+                var aportacionanual=0;
+                var años=0;
+                var interes=0;
+                var datos=0;
+                var balanceinicial = document.getElementById("balanceinicial").value ;
+                var aportacionanual = parseInt(document.getElementById("aportacionanual").value) ;
+                var años = document.getElementById("años").value ;
+                var interes = document.getElementById("interes").value ;
+                var capital = balanceinicial;
+            var datos = {years:[]};
+
+            for(let i=0; i<=años;i++){
+                datos.years.push({"año": String(i),"Capital": Math.round(capital)});
+                var capital = balanceinicial*(1+interes/100);
+                capital += aportacionanual;
+                balanceinicial= capital;
+                
+            }
+            //var jsondatos = JSON.stringify(datos.years);              para hacerlo json (no se esta utilizando)
+            console.log(datos.years);
+            let idgrafica= document.getElementById("Grafica_Interes_Compuesto").getContext("2d");
+
+            var grafica = new Chart(idgrafica,{
+                type: 'bar',
+                data: {
+                    labels: datos.years.map(item => item.año),
+                    datasets: [{
+                        label: 'Capital',
+                        data: datos.years.map(item => item.Capital),
+                        backgroundColor: [
+                            'rgba(75, 192, 192, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(75, 192, 192, 1)',
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+
+            });
+        }
+    </script>
+        <section>
+            <div class="Libros">
     
+                <a href=""><p>The Intelligent Investor 10%</p></a>
+                <a href=""><p>Rich Dad Poor Dad 100%</p></a>
+                <a href=""><p>I Will Teach You to Be Rich 100%</p></a>
+                <a href=""><p>The Richest Man in Babylon 100%</p></a>
+                <a href=""><p>The Psychology of Money 10%</p></a>
+            </div>
+        </section>
 </body>
 </html>

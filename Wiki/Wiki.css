@@ -6,10 +6,15 @@ body{
     background-color:aliceblue;
 }
 
-.Git {
-    margin: 50px;
-}
-.Git h4{
-    margin: 10px 5px 0px 10px;
+h4{
+    margin: 50px 20px 50px;
+    color: black;
 
+}
+
+section{
+    display: block;
+}
+a{
+    text-decoration: none;
 }

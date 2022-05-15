@@ -45,16 +45,16 @@ header{
 .Menu-izquierda a{
     float: right;
 }
-.Proyectos,.Blog,.Wiki{   
+.Projects,.Blog,.Wiki{   
     text-align: center;
     margin: 20px 0px ;
 }
-.Proyectos h4 ,.Blog h4, .Wiki h2{
+.Projects h4 ,.Blog h4, .Wiki h2{
     color: black;
     display: inline-block;
     margin: 10px;
 }
-.Proyectos a,.Blog a,.Wiki a{
+.Projects a,.Blog a,.Wiki a{
     margin: 10px;
 }
 

@@ -5,13 +5,19 @@
 .Azul,.Verde,.Amarillo,.Naranja,.Rojo,.Violeta,.Blanco,.Rosa,.Celeste,.Gris,.Marron,.royalblue,.cornflowerblue,.royalblue,.darkblue,.Navy,.steelblue,.mediumblue,
 .deepskyblue,.dodgerblue,.darkturquoise,.paleturquoise,.azure,.aquamarine,.powderblue,.lightskyblue,.greenyellow,.chartreuse,.palegreen,.lawngreen,.gold,.lightyellow,.beige,.lemonchiffon,
 .khaki,.palegoldenrod,.darkorange,.coral,.darksalmon,.salmon,.tomato,.crimson,.hotpink,.deeppink,.fuchsia,.palevioletred,.mediumorchid,.lavender,.orchid,.indigo,.white,.tan,
-.saddlebrown,.peru,.navajowhite,.antiquewhite,.blanchedalmond,.linen,.sandybrown,.cdcdcd,.ebecf0,.gray,.silver,.lightgray,.lightslategray,.Negro,.black,.color_090909,.color_131313,.color_1A1A1A,.color_202020{
+.saddlebrown,.peru,.navajowhite,.antiquewhite,.blanchedalmond,.linen,.sandybrown,.cdcdcd,.ebecf0,.gray,.silver,.lightgray,.lightslategray,.Negro,.black,.color_090909,.color_131313,.color_1A1A1A,.color_202020,.aliceblue{
     
     padding: 50px 0%;
     text-align: center;
-    font-size: 25px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    font-family: 'Lobster';
 }
+
+@font-face {
+    font-family:'Lobster' ;
+    src: url(/Fonts/Lobster/Lobster-Regular.ttf);
+}
+
 
 h4{
     margin: 10px 45%;
@@ -76,6 +82,9 @@ p{
 }
 .powderblue{
     background-color: powderblue;
+}
+.aliceblue{
+    background-color: aliceblue;
 }
 
 .Verde{

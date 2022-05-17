@@ -1,0 +1,85 @@
+*{
+    margin: 0px;
+}
+
+@font-face {
+    font-family:'Amarante' ;
+    src: url(/Fonts/Amarante/Amarante-Regular.ttf);
+}
+@font-face {
+    font-family:'CherrySwash' ;
+    src: url(/Fonts/Cherry_Swash/CherrySwash-Regular.ttf);
+}
+@font-face {
+    font-family:'Courier_Prime' ;
+    src: url(/Fonts/Courier_Prime/CourierPrime-Regular.ttf);
+}
+@font-face {
+    font-family:'EB_Garamond' ;
+    src: url(/Fonts/EB_Garamond/EBGaramond-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family:'Lobster' ;
+    src: url(/Fonts/Lobster/Lobster-Regular.ttf);
+}
+@font-face {
+    font-family:'Oleo_Script' ;
+    src: url(/Fonts/Oleo_Script/OleoScript-Regular.ttf);
+}
+@font-face {
+    font-family:'Poppins' ;
+    src: url(/Fonts/Poppins/Poppins-Regular.ttf);
+}
+
+.Serif,.Sans_Serif,.Moderna,.Script,.Decorativa{
+    text-align: center;
+    padding: 50px;
+    font-size: 40px;
+}
+.Uso{
+    font-size: 25px;
+}
+.Representa p,.Cuales p{
+    display: inline;
+    margin: 10px;
+    font-size: 20px;
+}
+
+.Serif{
+    font-family: 'Times New Roman', Times, serif;
+
+    background-color: cornflowerblue;
+}
+
+.Sans_Serif{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: Crimson;
+}
+.Moderna{
+    
+    font-family: 'Poppins';
+    background-color:thistle;
+}
+.Script{
+    font-family: 'Oleo_Script';
+    background-color: Darkturquoise;
+}
+.Decorativa{
+    font-family: 'Amarante';
+    background-color: darkorange;
+}
+.Courier{
+    font-family: 'Courier_Prime';
+}
+.Garamond{
+    font-family: 'EB_Garamond';
+}
+.Lobster{
+    font-family: 'Lobster';
+}
+.Amarante{
+    font-family: 'Amarante';
+}
+.Cherry_Swash{
+    font-family: 'CherrySwash';
+}

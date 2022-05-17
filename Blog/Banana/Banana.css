@@ -1,6 +1,5 @@
 *{
     margin: 0;
-       font-family: Arial, Helvetica, sans-serif ;
 }
 body{
     background-color: #EFB923;
@@ -16,13 +15,19 @@ h1{
     padding: 50px 15% 0px;
     color: #FEE528;
     text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
  }
  p{
     padding: 20px 50px 50px;
     color: #FFD314;
     text-align: justify;
     font-size: 20px;
+    font-family: 'EBGaramond';
  }
+ @font-face {
+    font-family:'EBGaramond' ;
+    src: url(/Fonts/EB_Garamond/EBGaramond-VariableFont_wght.ttf);
+}
 .link{
      color: #FEE528 ;
      text-decoration: none;

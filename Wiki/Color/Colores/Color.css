@@ -3,7 +3,9 @@
 }
 
 .Azul,.Verde,.Amarillo,.Naranja,.Rojo,.Violeta,.Blanco,.Rosa,.Celeste,.Gris,.Marron,.royalblue,.cornflowerblue,.royalblue,.darkblue,.Navy,.steelblue,.mediumblue,
-.deepskyblue,.dodgerblue,.darkturquoise,.paleturquoise,.azure,.aquamarine,.powderblue,.lightskyblue{
+.deepskyblue,.dodgerblue,.darkturquoise,.paleturquoise,.azure,.aquamarine,.powderblue,.lightskyblue,.greenyellow,.chartreuse,.palegreen,.lawngreen,.gold,.lightyellow,.beige,.lemonchiffon,
+.khaki,.palegoldenrod,.darkorange,.coral,.darksalmon,.salmon,.tomato,.crimson,.hotpink,.deeppink,.fuchsia,.palevioletred,.mediumorchid,.lavender,.orchid,.indigo,.white,.tan,
+.saddlebrown,.peru,.navajowhite,.antiquewhite,.blanchedalmond,.linen,.sandybrown,.cdcdcd,.ebecf0,.gray,.silver,.lightgray,.lightslategray,.Negro,.black,.color_090909,.color_131313,.color_1A1A1A,.color_202020{
     
     padding: 50px 0%;
     text-align: center;
@@ -78,36 +80,174 @@ p{
 
 .Verde{
     background-color: greenyellow;
-    /*chartreuse,palegreen,lawngreen*/
 }
+.greenyellow{
+    background-color: greenyellow;
+}
+.chartreuse{
+    background-color: chartreuse;
+}
+.palegreen{
+    background-color: palegreen;
+}
+.lawngreen{
+    background-color: lawngreen;
+}
+
 .Amarillo{
     background-color: gold;
-    /*khaki,lightyellow,beige,lemonchiffon,palegoldenrod*/
+}
+.gold{
+    background-color: gold;
+}
+.lightyellow{
+    background-color: lightyellow;
+}
+.beige{
+    background-color: beige;
+}
+.lemonchiffon{
+    background-color: lemonchiffon;
+}
+.khaki{
+    background-color: khaki;
+}
+.palegoldenrod{
+    background-color: palegoldenrod;
 }
 .Naranja{
     background-color:darkorange;
-    /*coral,darksalmon,tomato*/
+}
+.darkorange{
+    background-color: darkorange;
+}
+.coral{
+    background-color: coral;
+}
+.darksalmon{
+    background-color: darksalmon;
+}
+.salmon{
+    background-color: salmon;
+}
+.tomato{
+    background-color: tomato;
 }
 .Rojo{
     background-color:crimson;
 }
+.crimson{
+    background-color: crimson;
+}
+
 .Rosa{
     background-color:hotpink;
-    /*deeppink,fuchsia,palevioletred*/
 }
+.hotpink{
+    background-color: hotpink;
+}
+.deeppink{
+    background-color: deeppink;
+}
+.fuchsia{
+    background-color: fuchsia;
+}
+.palevioletred{
+    background-color: palevioletred;
+}
+
 .Violeta{
     background-color:mediumorchid;
     /*lavender,orchid,indigo*/
 }
+.mediumorchid{
+    background-color: mediumorchid;
+}
+.lavender{
+    background-color: lavender;
+}
+.orchid{
+    background-color: orchid;
+}
+.indigo{
+    background-color: indigo;
+}
+
 .Blanco{
     background-color:white;
 }
-.Marron{
-    background-color: tan;
-    /*tan,saddlebrown,peru,navajowhite,antiquewhite,blanchedalmond,linen,sandybrown*/
-}
-.Gris{
-    background-color:#cdcdcd ;
-    /*lightslategray,lightgray,silver,gray,#EBECF0,#cdcdcd*/
+.white{
+    background-color: white;
 }
 
+.Marron{
+    background-color: tan;
+}
+.tan{
+    background-color: tan;
+}
+.saddlebrown{
+    background-color: saddlebrown;
+}
+.peru{
+    background-color: peru;
+}
+.navajowhite{
+    background-color: navajowhite;
+}
+.antiquewhite{
+    background-color: antiquewhite;
+}
+.blanchedalmond{
+    background-color: blanchedalmond;
+}
+.linen{
+    background-color: linen;
+}
+.sandybrown{
+    background-color: sandybrown;
+}
+
+.Gris{
+    background-color:#cdcdcd ;
+}
+.cdcdcd{
+    background-color: #cdcdcd;
+}
+.ebecf0{
+    background-color: #ebecf0;
+}
+.gray{
+    background-color: gray;
+}
+.silver{
+    background-color: silver;
+}
+.lightgray{
+    background-color: lightgray;
+}
+.lightslategray{
+    background-color: lightslategray;
+}
+
+.Negro a,.Negro p,.black,.color_090909,.color_131313,.color_1A1A1A,.color_202020{
+    color: white;
+}
+.Negro{
+    background-color: black;
+}
+.black{
+    background-color: black;
+}
+.color_090909{
+    background-color: #090909;
+}
+.color_131313{
+    background-color: #131313;
+}
+.color_1A1A1A{
+    background-color: #1A1A1A;
+}
+.color_202020{
+    background-color: #202020;
+}

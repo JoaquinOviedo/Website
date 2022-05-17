@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+}
+
+.Azul,.Verde,.Amarillo,.Naranja,.Rojo,.Violeta,.Blanco,.Rosa,.Celeste,.Gris,.Marron,.royalblue,.cornflowerblue,.royalblue,.darkblue,.Navy,.steelblue,.mediumblue,
+.deepskyblue,.dodgerblue,.darkturquoise,.paleturquoise,.azure,.aquamarine,.powderblue,.lightskyblue{
+    
+    padding: 50px 0%;
+    text-align: center;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h4{
+    margin: 10px 45%;
+    padding: 0%;
+}
+a{
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    padding: 0px 0px;
+}
+p{
+    margin: 20px;
+    padding: 0px;
+    display: inline;
+}
+.Azul{
+    background-color:royalblue;
+}
+.royalblue{
+    background-color: royalblue;
+}
+.cornflowerblue{
+    background-color: cornflowerblue;
+}
+.darkblue{
+    background-color: darkblue;
+}
+.Navy{
+    background-color: Navy;
+}
+.steelblue{
+    background-color: steelblue;
+}
+.mediumblue{
+    background-color: mediumblue;
+}
+
+.Celeste{
+    background-color: deepskyblue;
+}
+.deepskyblue{
+    background-color: deepskyblue;
+}
+.dodgerblue{
+    background-color: dodgerblue;
+}
+.lightskyblue{
+    background-color: lightskyblue;
+}
+.darkturquoise{
+    background-color: darkturquoise;
+}
+.paleturquoise{
+    background-color: paleturquoise;
+}
+.azure{
+    background-color: azure;
+}
+.aquamarine{
+    background-color: aquamarine;
+}
+.powderblue{
+    background-color: powderblue;
+}
+
+.Verde{
+    background-color: greenyellow;
+    /*chartreuse,palegreen,lawngreen*/
+}
+.Amarillo{
+    background-color: gold;
+    /*khaki,lightyellow,beige,lemonchiffon,palegoldenrod*/
+}
+.Naranja{
+    background-color:darkorange;
+    /*coral,darksalmon,tomato*/
+}
+.Rojo{
+    background-color:crimson;
+}
+.Rosa{
+    background-color:hotpink;
+    /*deeppink,fuchsia,palevioletred*/
+}
+.Violeta{
+    background-color:mediumorchid;
+    /*lavender,orchid,indigo*/
+}
+.Blanco{
+    background-color:white;
+}
+.Marron{
+    background-color: tan;
+    /*tan,saddlebrown,peru,navajowhite,antiquewhite,blanchedalmond,linen,sandybrown*/
+}
+.Gris{
+    background-color:#cdcdcd ;
+    /*lightslategray,lightgray,silver,gray,#EBECF0,#cdcdcd*/
+}
+

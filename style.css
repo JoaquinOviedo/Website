@@ -3,7 +3,7 @@
        font-family: Arial, Helvetica, sans-serif ;
 }
 body{
-    background-color:deepskyblue;
+    background-color:Dodgerblue;
 }
 
 h1{
@@ -34,13 +34,13 @@ header{
 }
 .Menu a{
     font-size: 20px;
-    color: deepskyblue;
+    color: Dodgerblue;
     float: left;
     margin: 0px 1%;
     padding: 15px 1%;
 }
 .Menu a:hover{
-    color:white
+    color:white;
 }
 .Menu-izquierda a{
     float: right;

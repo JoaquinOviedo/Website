@@ -30,6 +30,9 @@
     font-family:'Poppins' ;
     src: url(/Fonts/Poppins/Poppins-Regular.ttf);
 }
+section{
+    display: block;
+}
 
 .Serif,.Sans_Serif,.Moderna,.Script,.Decorativa{
     text-align: center;
@@ -47,7 +50,6 @@
 
 .Serif{
     font-family: 'Times New Roman', Times, serif;
-
     background-color: cornflowerblue;
 }
 

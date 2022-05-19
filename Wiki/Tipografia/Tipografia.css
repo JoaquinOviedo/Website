@@ -43,7 +43,7 @@ section{
     font-size: 25px;
 }
 .Representa p,.Cuales p{
-    display: inline;
+    display: inline-block;
     margin: 10px;
     font-size: 20px;
 }
@@ -63,7 +63,7 @@ section{
     background-color:thistle;
 }
 .Script{
-    font-family: 'Oleo_Script';
+    font-family: 'Lobster';
     background-color: Darkturquoise;
 }
 .Decorativa{

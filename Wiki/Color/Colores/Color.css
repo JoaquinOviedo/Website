@@ -260,3 +260,7 @@ p{
 .color_202020{
     background-color: #202020;
 }
+
+h4:hover{
+    color: #333333;
+}

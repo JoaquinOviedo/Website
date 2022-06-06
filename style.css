@@ -44,8 +44,11 @@ header{
     margin: 0px 1%;
     padding: 15px 1%;
 }
-.Menu a:hover{
-    color:white;
+.Menu a:hover {
+    color:Dodgerblue;
+}
+.Projects h4:hover ,.Blog h4:hover, .Wiki h2:hover{
+    color: Azure;
 }
 .Menu-izquierda a{
     float: right;

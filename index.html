@@ -1,59 +1,281 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Joaquin Oviedo</title>
+    <title>Joaquín Oviedo | Portafolio</title>
     <link rel="icon" type="image" href="img/profilepicture.jfif">
 </head>
-<body>
-    <header>
-        <div class="Menu">
-            <a href="#Home">Home</a>
-            <a href="#Proyectos">Projects</a>
-            <a href="mailto:contact@joaquinoviedo.com">Contact</a>
-            <div class="Menu-izquierda">
-                <a href="#Social-Media">Social Media</a>
-                <a href="">About</a>
+<body data-theme="dark" data-palette="blue">
+    <header class="site-header">
+        <div class="brand">
+            <span class="brand__dot"></span>
+            <div>
+                <p class="brand__name" data-i18n="name">Joaquín Oviedo</p>
+                <p class="brand__role" data-i18n="role">Desarrollador Full-Stack</p>
             </div>
         </div>
+        <nav class="nav">
+            <a href="#home" data-i18n="nav.home">Inicio</a>
+            <a href="#about" data-i18n="nav.about">Sobre mí</a>
+            <a href="#portfolio" data-i18n="nav.portfolio">Portafolio</a>
+            <a href="#resume" data-i18n="nav.resume">Currículum</a>
+            <a href="#contact" data-i18n="nav.contact">Contacto</a>
+        </nav>
+        <div class="controls">
+            <button class="chip" id="theme-toggle" type="button" aria-pressed="false" data-i18n="actions.theme">Modo claro</button>
+            <div class="palette-switch">
+                <label class="palette-switch__label" for="palette-select" data-i18n="actions.palette">Paleta</label>
+                <select id="palette-select" aria-label="Selector de paleta">
+                    <option value="blue" selected>Azul</option>
+                    <option value="red">Rojo</option>
+                    <option value="violet">Violeta</option>
+                </select>
+            </div>
+            <button class="chip" id="lang-toggle" type="button" aria-pressed="false">EN</button>
+        </div>
     </header>
-    <h1 id="Home">Joaquin Oviedo</h1>
-    <section>
-        <h2>Projects</h2>
-        <div class="Projects">
-            <a href="./Projects/Rutinario/Rutinario.html"><h4>Rutinario</h4></a>
-            <a href="./Projects/Calendario/calendario.html"><h4>Calendario</h4></a>
-            <a href="https://github.com/Joaco853/S-C-P"><h4>S-C-P</h4></a>
-            <a href="https://github.com/Joaco853/r-place"><h4>r/Place</h4></a>
-            </h4></a>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero__content">
+                <p class="eyebrow" data-i18n="hero.eyebrow">Disponible para nuevas oportunidades</p>
+                <h1 data-i18n="hero.title">Construyo productos digitales con estética neon, foco en UX y rendimiento.</h1>
+                <p class="hero__subtitle" data-i18n="hero.subtitle">Diseño y desarrollo experiencias web para marcas y startups que buscan destacar con identidad propia.</p>
+                <div class="hero__actions">
+                    <a class="btn btn-primary" href="#portfolio" data-i18n="hero.ctaPrimary">Ver portafolio</a>
+                    <a class="btn btn-outline" href="#contact" data-i18n="hero.ctaSecondary">Hablemos</a>
+                </div>
+                <div class="hero__stats">
+                    <div>
+                        <p class="stat__number">6+</p>
+                        <p class="stat__label" data-i18n="hero.stats.projects">Proyectos destacados</p>
+                    </div>
+                    <div>
+                        <p class="stat__number">4</p>
+                        <p class="stat__label" data-i18n="hero.stats.years">Años de experiencia</p>
+                    </div>
+                    <div>
+                        <p class="stat__number">12</p>
+                        <p class="stat__label" data-i18n="hero.stats.tech">Tecnologías</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero__card">
+                <div class="glow"></div>
+                <h3 data-i18n="hero.cardTitle">Stack principal</h3>
+                <div class="tags">
+                    <span class="tag">Angular</span>
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">Tailwind</span>
+                    <span class="tag">Figma</span>
+                </div>
+                <p data-i18n="hero.cardText">Trabajo con sistemas de diseño escalables, micro-interacciones y arquitectura limpia.</p>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="section__header">
+                <h2 data-i18n="about.title">Sobre mí</h2>
+                <p data-i18n="about.subtitle">Me especializo en crear interfaces memorables y productos con foco en negocio.</p>
+            </div>
+            <div class="about-grid">
+                <div class="panel">
+                    <h3 data-i18n="about.storyTitle">Historia profesional</h3>
+                    <p data-i18n="about.storyText">He liderado proyectos web para startups y empresas, desde la investigación UX hasta el despliegue. Me enfoco en convertir objetivos de negocio en experiencias claras.</p>
+                </div>
+                <div class="panel">
+                    <h3 data-i18n="about.valueTitle">Lo que aporto</h3>
+                    <ul>
+                        <li data-i18n="about.value1">Arquitectura frontend escalable</li>
+                        <li data-i18n="about.value2">Colaboración con diseño y producto</li>
+                        <li data-i18n="about.value3">Implementación de sistemas de diseño</li>
+                        <li data-i18n="about.value4">Optimización de performance</li>
+                    </ul>
+                </div>
+                <div class="panel">
+                    <h3 data-i18n="about.goalTitle">Objetivo actual</h3>
+                    <p data-i18n="about.goalText">Busco integrarme a un equipo internacional donde pueda aportar visión de producto y ejecutar soluciones end-to-end.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="section">
+            <div class="section__header">
+                <h2 data-i18n="portfolio.title">Portafolio</h2>
+                <p data-i18n="portfolio.subtitle">Cada proyecto incluye tecnologías clave y enlaces a su página dedicada.</p>
+            </div>
+            <div class="filters">
+                <button class="chip is-active" data-filter="all" type="button" data-i18n="portfolio.filterAll">Todos</button>
+                <button class="chip" data-filter="angular" type="button">Angular</button>
+                <button class="chip" data-filter="node" type="button">Node.js</button>
+                <button class="chip" data-filter="figma" type="button">Figma</button>
+                <button class="chip" data-filter="tailwind" type="button">Tailwind</button>
+                <button class="chip" data-filter="firebase" type="button">Firebase</button>
+            </div>
+            <div class="portfolio-grid">
+                <article class="project" data-tech="angular,tailwind,figma">
+                    <div class="project__header">
+                        <h3>Neon Finance</h3>
+                        <span class="project__type" data-i18n="portfolio.typeApp">App fintech</span>
+                    </div>
+                    <p data-i18n="portfolio.neonFinance">Dashboard financiero con visualizaciones en tiempo real y onboarding inteligente.</p>
+                    <div class="tags">
+                        <span class="tag">Angular</span>
+                        <span class="tag">Tailwind</span>
+                        <span class="tag">Figma</span>
+                    </div>
+                    <a class="btn btn-outline" href="Projects/NeonFinance.html" data-i18n="portfolio.viewProject">Ver proyecto</a>
+                </article>
+                <article class="project" data-tech="angular,node,firebase">
+                    <div class="project__header">
+                        <h3>Talent Flow</h3>
+                        <span class="project__type" data-i18n="portfolio.typePlatform">Plataforma HR</span>
+                    </div>
+                    <p data-i18n="portfolio.talentFlow">Portal para recruiters con flujo de entrevistas automatizado y analytics.</p>
+                    <div class="tags">
+                        <span class="tag">Angular</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Firebase</span>
+                    </div>
+                    <a class="btn btn-outline" href="Projects/TalentFlow.html" data-i18n="portfolio.viewProject">Ver proyecto</a>
+                </article>
+                <article class="project" data-tech="angular,figma,tailwind">
+                    <div class="project__header">
+                        <h3>Pulse Studio</h3>
+                        <span class="project__type" data-i18n="portfolio.typeBrand">Brand site</span>
+                    </div>
+                    <p data-i18n="portfolio.pulseStudio">Sitio de marca con narrativa visual, micro-interacciones y SEO optimizado.</p>
+                    <div class="tags">
+                        <span class="tag">Angular</span>
+                        <span class="tag">Figma</span>
+                        <span class="tag">Tailwind</span>
+                    </div>
+                    <a class="btn btn-outline" href="Projects/PulseStudio.html" data-i18n="portfolio.viewProject">Ver proyecto</a>
+                </article>
+                <article class="project" data-tech="node,firebase,tailwind">
+                    <div class="project__header">
+                        <h3>Atlas Commerce</h3>
+                        <span class="project__type" data-i18n="portfolio.typeEcommerce">E-commerce</span>
+                    </div>
+                    <p data-i18n="portfolio.atlasCommerce">Marketplace modular con checkout rápido y panel de control.</p>
+                    <div class="tags">
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Firebase</span>
+                        <span class="tag">Tailwind</span>
+                    </div>
+                    <a class="btn btn-outline" href="Projects/AtlasCommerce.html" data-i18n="portfolio.viewProject">Ver proyecto</a>
+                </article>
+                <article class="project" data-tech="angular,figma,node">
+                    <div class="project__header">
+                        <h3>Orbit Ops</h3>
+                        <span class="project__type" data-i18n="portfolio.typeSaas">SaaS</span>
+                    </div>
+                    <p data-i18n="portfolio.orbitOps">Suite de operaciones con paneles personalizables y flujos colaborativos.</p>
+                    <div class="tags">
+                        <span class="tag">Angular</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Figma</span>
+                    </div>
+                    <a class="btn btn-outline" href="Projects/OrbitOps.html" data-i18n="portfolio.viewProject">Ver proyecto</a>
+                </article>
+                <article class="project" data-tech="tailwind,figma">
+                    <div class="project__header">
+                        <h3>Glow Resume</h3>
+                        <span class="project__type" data-i18n="portfolio.typeResume">CV interactivo</span>
+                    </div>
+                    <p data-i18n="portfolio.glowResume">Currículum digital con storytelling y secciones configurables.</p>
+                    <div class="tags">
+                        <span class="tag">Tailwind</span>
+                        <span class="tag">Figma</span>
+                    </div>
+                    <a class="btn btn-outline" href="Projects/GlowResume.html" data-i18n="portfolio.viewProject">Ver proyecto</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="resume" class="section">
+            <div class="section__header">
+                <h2 data-i18n="resume.title">Currículum</h2>
+                <p data-i18n="resume.subtitle">Experiencia, educación y logros clave.</p>
+            </div>
+            <div class="resume-grid">
+                <div class="panel">
+                    <h3 data-i18n="resume.expTitle">Experiencia</h3>
+                    <ul>
+                        <li>
+                            <strong>Lead Frontend</strong> — Neon Labs <span>(2022 - Hoy)</span>
+                            <p data-i18n="resume.exp1">Diseño de sistema UI modular y migración a arquitectura basada en componentes.</p>
+                        </li>
+                        <li>
+                            <strong>UX Engineer</strong> — Pulse Studio <span>(2020 - 2022)</span>
+                            <p data-i18n="resume.exp2">Integración de prototipos de Figma a producción con métricas de uso.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel">
+                    <h3 data-i18n="resume.eduTitle">Educación</h3>
+                    <ul>
+                        <li>
+                            <strong>Ingeniería en Sistemas</strong> — UBA
+                            <p data-i18n="resume.edu1">Especialización en arquitectura web y diseño centrado en el usuario.</p>
+                        </li>
+                        <li>
+                            <strong>Certificación UX</strong> — Google
+                            <p data-i18n="resume.edu2">Investigación, prototipado y validación de producto.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel">
+                    <h3 data-i18n="resume.skillsTitle">Tecnologías</h3>
+                    <div class="tags">
+                        <span class="tag">Angular</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Tailwind</span>
+                        <span class="tag">Figma</span>
+                        <span class="tag">Firebase</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">Jest</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact">
+            <div class="section__header">
+                <h2 data-i18n="contact.title">Contacto</h2>
+                <p data-i18n="contact.subtitle">¿Quieres hablar sobre un proyecto o propuesta laboral?</p>
+            </div>
+            <div class="contact-card">
+                <div>
+                    <p data-i18n="contact.emailLabel">Email</p>
+                    <a href="mailto:contact@joaquinoviedo.com">contact@joaquinoviedo.com</a>
+                </div>
+                <div>
+                    <p data-i18n="contact.locationLabel">Ubicación</p>
+                    <span data-i18n="contact.location">Buenos Aires, AR · Remoto global</span>
+                </div>
+                <div class="contact-actions">
+                    <a class="btn btn-primary" href="mailto:contact@joaquinoviedo.com" data-i18n="contact.cta">Escríbeme</a>
+                    <a class="btn btn-outline" href="#portfolio" data-i18n="contact.ctaPortfolio">Ver portafolio</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a rel="icon" href="https://github.com/Joaco853" target="_blank">GitHub</a>
+            <a rel="icon" href="https://www.linkedin.com/in/joaquin-oviedo-a544a2200/" target="_blank">LinkedIn</a>
+            <a rel="icon" href="mailto:contact@joaquinoviedo.com">Email</a>
         </div>
-        <h2>Blog</h2>
-        <div class="Blog">
-            <a href="./Blog/Finances/Finance.html"><h4>Finances</h4></a>
-            <a href="./Blog/Banana/Banana.html"><h4>Banana</h4></a>
-        </div>
-    </section>
-    <div class="Wiki">
-    <a href="Wiki/Wiki.html" class="Wiki"><h2>Wiki</h2></a>
-    </div>
-<footer id="Social-Media">
-    <div  class="Redessociales"><a rel="icon" href="https://github.com/Joaco853" target="_blaml" ><img alt="github" height="50" width="50" src="https://cdn-icons-png.flaticon.com/512/25/25231.png"></a></div>
-    <div  class="Redessociales"><a rel="icon" href="https://www.linkedin.com/in/joaquin-oviedo-a544a2200/" target="_blaml" ><img alt="linkedin" height="50"  width="50" src="https://cdn-icons-png.flaticon.com/512/61/61109.png"></a></div>    
-    
-    <!–Todolist
-        Curso de Git
-        Banana
-        Cursos de Finanzas + Libros(quotes)
-        The Dragonclaw Journey
-        Inicio 2.0
-        Buscar Ideas de Proyectos de Bases de Datos/apis/json/etc. Alguna pagina tipo tienda. Libreria. datos de r/place
-        Cursos de escuela web
-        Cursos de diseño/escritura/habilidades blandas/marca personal–>
-</footer>
+        <p>© 2024 Joaquín Oviedo</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
-
 </html>
-

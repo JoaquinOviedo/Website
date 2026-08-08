@@ -1,11 +1,25 @@
 "use client";
 
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useState, useSyncExternalStore, type FormEvent } from "react";
 import { FrameworkPrototype } from "@/components/FrameworkPrototype";
 import { copy } from "@/content/copy";
 import { profile, projects, type Locale } from "@/content/portfolio";
 
 type Theme = "system" | "light" | "dark";
+
+function getThemePreference(): Theme {
+  if (typeof window === "undefined") return "system";
+  return (localStorage.getItem("theme") as Theme | null) ?? "system";
+}
+
+function subscribeThemePreference(onChange: () => void) {
+  window.addEventListener("storage", onChange);
+  window.addEventListener("portfolio-theme", onChange);
+  return () => {
+    window.removeEventListener("storage", onChange);
+    window.removeEventListener("portfolio-theme", onChange);
+  };
+}
 
 function Icon({ name }: { name: "arrow" | "external" | "copy" | "mail" }) {
   const glyph = { arrow: "→", external: "↗", copy: "⎘", mail: "@" }[name];
@@ -15,10 +29,10 @@ function Icon({ name }: { name: "arrow" | "external" | "copy" | "mail" }) {
 export function Portfolio({ locale }: { locale: Locale }) {
   const t = copy[locale];
   const otherLocale = locale === "es" ? "en" : "es";
-  const [theme, setTheme] = useState<Theme>(() =>
-    typeof window === "undefined"
-      ? "system"
-      : ((localStorage.getItem("theme") as Theme | null) ?? "system"),
+  const theme = useSyncExternalStore(
+    subscribeThemePreference,
+    getThemePreference,
+    () => "system",
   );
   const [copied, setCopied] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -32,14 +46,21 @@ export function Portfolio({ locale }: { locale: Locale }) {
     localStorage.setItem("locale", locale);
   }, [locale]);
 
+  useEffect(() => {
+    const media = matchMedia("(prefers-color-scheme: dark)");
+    const updateDocumentTheme = () => {
+      const dark = theme === "dark" || (theme === "system" && media.matches);
+      document.documentElement.dataset.theme = dark ? "dark" : "light";
+      document.documentElement.style.colorScheme = dark ? "dark" : "light";
+    };
+    updateDocumentTheme();
+    if (theme === "system") media.addEventListener("change", updateDocumentTheme);
+    return () => media.removeEventListener("change", updateDocumentTheme);
+  }, [theme]);
+
   function applyTheme(next: Theme) {
-    setTheme(next);
     localStorage.setItem("theme", next);
-    const dark =
-      next === "dark" ||
-      (next === "system" && matchMedia("(prefers-color-scheme: dark)").matches);
-    document.documentElement.dataset.theme = dark ? "dark" : "light";
-    document.documentElement.style.colorScheme = dark ? "dark" : "light";
+    window.dispatchEvent(new Event("portfolio-theme"));
   }
 
   async function copyEmail() {
@@ -123,21 +144,25 @@ export function Portfolio({ locale }: { locale: Locale }) {
           >
             {otherLocale.toUpperCase()}
           </a>
-          <label className="theme-control">
-            <span className="sr-only">{t.theme}</span>
-            <select
-              value={theme}
-              suppressHydrationWarning
-              onChange={(e) => applyTheme(e.target.value as Theme)}
-              aria-label={t.theme}
-            >
-              {t.themes.map((label, i) => (
-                <option key={label} value={["system", "light", "dark"][i]}>
-                  {label}
-                </option>
-              ))}
-            </select>
-          </label>
+          <div className="theme-control" role="group" aria-label={t.theme} suppressHydrationWarning>
+            {(["light", "system", "dark"] as Theme[]).map((option) => {
+              const copyIndex = { system: 0, light: 1, dark: 2 }[option];
+              const icon = { light: "☀", system: "◐", dark: "☾" }[option];
+              return (
+                <button
+                  key={option}
+                  type="button"
+                  className={theme === option ? "active" : ""}
+                  aria-label={t.themes[copyIndex]}
+                  aria-pressed={theme === option}
+                  title={t.themes[copyIndex]}
+                  onClick={() => applyTheme(option)}
+                >
+                  <span aria-hidden="true">{icon}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
       </header>
 

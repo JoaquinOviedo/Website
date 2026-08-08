@@ -88,6 +88,12 @@ img {
   outline: 3px solid var(--accent);
   outline-offset: 4px;
 }
+:is(input, textarea, select):focus,
+:is(input, textarea, select):focus-visible {
+  border-color: var(--accent);
+  outline: 0;
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
 .site-header {
   position: sticky;
   top: 0;
@@ -1090,7 +1096,8 @@ details > p {
 .prototype-tools { display: flex; align-items: center; gap: .55rem; }
 .prototype-tools > button { display: flex; align-items: center; gap: .35rem; padding: .35rem .55rem; border: 1px solid #b7c8dc; border-radius: 999px; background: #fff; color: #07539b; font-size: .58rem; font-weight: 800; cursor: pointer; }
 .framework-window { position: relative; }
-.framework-window :is(input, textarea, select):focus { border-color: #0f6cbd !important; outline: 0; box-shadow: 0 0 0 3px rgb(15 108 189 / .2); }
+.framework-window :is(input, textarea, select):focus,
+.framework-window :is(input, textarea, select):focus-visible { border-color: #0f6cbd !important; outline: 0; box-shadow: inset 0 0 0 1px #0f6cbd; }
 .framework-window :focus-visible { outline: 2px solid #2899f5; outline-offset: 2px; }
 .framework-dark { color-scheme: dark; background: #111923; }
 .framework-dark :is(.prototype-header, .prototype-body, .framework-layout, .initiative-approval, .standard-screen, .replace-screen, .icon-preview, .color-token, .component-states input, .icon-grid button, .initiative-screen, .initiative-panel, .initiative-fields input, .initiative-fields textarea, .replace-editors textarea, .standard-form input, .standard-form select, .standard-form textarea) { background-color: #172333; color: #eaf3ff; border-color: #34485f; }

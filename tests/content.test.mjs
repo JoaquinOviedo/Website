@@ -67,3 +67,16 @@ test("language switching preserves the current section and deployment base path"
   assert.match(source, /window\.location\.hash/);
   assert.match(source, /onClick=\{switchLanguage\}/);
 });
+
+test("each featured project renders a bilingual interactive prototype", async () => {
+  const [portfolio, prototype] = await Promise.all([
+    readFile("components/Portfolio.tsx", "utf8"),
+    readFile("components/ProjectPrototype.tsx", "utf8"),
+  ]);
+  assert.match(portfolio, /ProjectPrototype/);
+  assert.match(prototype, /FinancePrototype/);
+  assert.match(prototype, /WirinPrototype/);
+  assert.match(prototype, /CareerPrototype/);
+  assert.match(prototype, /role="tablist"/);
+  assert.doesNotMatch(prototype, /C:\\Users|Juan Perez|Joaquin/i);
+});

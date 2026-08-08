@@ -8,6 +8,7 @@ import {
   type MouseEvent,
 } from "react";
 import { FrameworkPrototype } from "@/components/FrameworkPrototype";
+import { ProjectPrototype } from "@/components/ProjectPrototype";
 import { copy } from "@/content/copy";
 import { profile, projects, type Locale } from "@/content/portfolio";
 
@@ -269,20 +270,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
             .map((project) => (
               <article className={`project-card project-${project.slug}`} key={project.slug}>
                 <div className={`project-visual visual-${project.slug}`}>
-                  {project.image ? (
-                    <img
-                      src={project.image}
-                      alt={locale === "es" ? `Imagen conceptual del proyecto ${project.title}` : `Conceptual image for the ${project.title} project`}
-                      width="960"
-                      height="640"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div className="local-app-visual" aria-hidden="true">
-                      <span>{project.slug === "finanzas-personales" ? "$" : "UNLaM"}</span>
-                      <div><i /><i /><i /></div>
-                    </div>
-                  )}
+                  <ProjectPrototype slug={project.slug} locale={locale} />
                   <p>{project.slug === "wirin" ? "ACCESSIBILITY · OCR · COLLABORATION" : "LOCAL FIRST · PRIVATE · AI ASSISTED"}</p>
                 </div>
                 <div className="project-copy">

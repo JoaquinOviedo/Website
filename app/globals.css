@@ -406,8 +406,9 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 1rem;
 }
+.project-visual .mini-app + p { width: 100%; margin: .75rem 0 0; color: #fff; text-align: left; }
 .project-visual > img {
   width: 100%;
   height: 100%;
@@ -418,18 +419,69 @@ h1 {
   padding: 0;
 }
 .visual-wirin::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 55%, rgb(8 39 69 / 0.72));
+  display: none;
 }
 .visual-wirin > p {
-  position: absolute;
-  z-index: 1;
-  bottom: 1.5rem;
-  left: 1.5rem;
+  position: static;
   color: #fff;
 }
+.mini-app { position: relative; width: 100%; min-height: 470px; overflow: hidden; border: 1px solid rgb(255 255 255 / .13); border-radius: 12px; background: #101827; color: #dbe5f4; box-shadow: 0 18px 45px rgb(0 0 0 / .26); font-size: .66rem; }
+.mini-app > header { display: flex; align-items: center; gap: .55rem; min-height: 48px; padding: .65rem .8rem; border-bottom: 1px solid #26334a; }
+.mini-app > header > span { display: grid; width: 27px; height: 27px; place-items: center; border-radius: 8px; background: #6953f5; color: #fff; font-weight: 900; }
+.mini-app > header div { display: grid; }
+.mini-app > header b { color: #f2f5fb; font-size: .72rem; }
+.mini-app > header small { color: #8795aa; font-size: .52rem; }
+.mini-app > .mini-tabs { display: flex; gap: .2rem; padding: .45rem .6rem; overflow-x: auto; border-bottom: 1px solid #26334a; }
+.mini-app > .mini-tabs button, .wirin-layout > nav button { min-width: max-content; padding: .42rem .55rem; border: 0; border-radius: 6px; background: transparent; color: #95a3b8; font-size: .57rem; font-weight: 750; cursor: pointer; }
+.mini-app > .mini-tabs button[aria-selected="true"] { background: #24224f; color: #9c91ff; }
+.mini-app-body { padding: .75rem; }
+.finance-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: .6rem; }
+.finance-grid > section, .finance-grid > aside, .mini-table, .career-body > section, .career-calendar > div, .career-calendar > aside, .career-data { padding: .7rem; border: 1px solid #2a3850; border-radius: 9px; background: #172235; }
+.finance-grid label { display: grid; gap: .3rem; color: #aeb9c9; font-weight: 700; }
+.finance-grid input, .mini-add input, .mini-toolbar input, .mini-toolbar select { min-width: 0; padding: .48rem; border: 1px solid #35455f; border-radius: 6px; background: #121d30; color: #e7eef9; font: inherit; }
+.finance-grid h5, .mini-table h5, .career-body h5, .ranking-list h5 { margin: .55rem 0; color: #eef3fa; font-size: .66rem; }
+.expense-row { display: flex; width: 100%; justify-content: space-between; margin-bottom: .3rem; padding: .48rem; border: 1px solid #34435c; border-radius: 6px; background: transparent; color: #d7e1ef; font: inherit; cursor: pointer; }
+.mini-add { display: grid; grid-template-columns: 1fr auto; gap: .35rem; }
+.mini-add button, .mini-toolbar button, .task-card button, .mini-table button, .career-data button { border: 0; border-radius: 6px; background: #5c4cf0; color: #fff; font-size: .56rem; font-weight: 750; cursor: pointer; }
+.budget-ring { display: grid; width: 110px; height: 110px; margin: .7rem auto; place-content: center; border-radius: 50%; background: radial-gradient(circle, #172235 54%, transparent 56%), conic-gradient(#33d0a2 0 var(--spent), #3f82ef var(--spent) 78%, #fb4561 78%); text-align: center; }
+.budget-ring b, .budget-ring small { display: block; }
+.budget-ring b { color: #32d4a2; font-size: .8rem; }
+.budget-ring small { max-width: 60px; color: #9ba9bc; font-size: .47rem; }
+.finance-grid aside p { display: flex; justify-content: space-between; margin: .35rem 0; padding-top: .35rem; border-top: 1px solid #2c394e; color: #99a7bb; }
+.metric-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; }
+.metric-strip span { display: grid; padding: .65rem; border: 1px solid #2a3850; border-radius: 8px; background: #172235; color: #93a1b4; }
+.metric-strip b { margin-top: .25rem; color: #31d5a1; font-size: .74rem; }
+.mini-chart { display: flex; height: 255px; align-items: end; gap: .4rem; margin-top: .65rem; padding: 1rem; border: 1px solid #2a3850; border-radius: 9px; background: linear-gradient(180deg,#172235,#102b2c); }
+.mini-chart i { flex: 1; min-height: 8px; border-radius: 4px 4px 0 0; background: linear-gradient(#32d5a1,#087d66); }
+.mini-table-head, .mini-table > div { display: grid; grid-template-columns: 1fr .7fr .7fr; gap: .4rem; align-items: center; padding: .5rem; border-bottom: 1px solid #2b3950; }
+.mini-table-head { color: #8290a4; font-weight: 750; }
+.positive { color: #31d5a1; }.negative { color: #ff6476; }.tag { width: max-content; padding: .15rem .35rem; border-radius: 999px; background: #292455; color: #aaa1ff; }
+.wirin-layout { display: grid; grid-template-columns: 105px 1fr; min-height: 421px; background: #f3f4f6; color: #263142; }
+.wirin-layout > nav { display: grid; align-content: start; gap: .25rem; padding: .7rem .4rem; border-right: 1px solid #dde1e7; background: #fff; }
+.wirin-layout > nav button { color: #586272; text-align: left; }
+.wirin-layout > nav button.active { background: #eaf2ff; color: #347cf4; }
+.wirin-main { padding: .75rem; }
+.wirin-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: .5rem; }
+.wirin-stats span { display: grid; padding: 1rem .5rem; border-radius: 8px; background: #fff; box-shadow: 0 2px 8px rgb(0 0 0 / .08); text-align: center; }
+.wirin-stats b { color: #347cf4; font-size: 1.1rem; }
+.wirin-summary { display: flex; min-height: 180px; align-items: center; justify-content: center; gap: 1rem; margin-top: .6rem; border-radius: 8px; background: #fff; }
+.mini-donut { width: 95px; height: 95px; border-radius: 50%; background: radial-gradient(circle,#fff 54%,transparent 56%),conic-gradient(#347cf4 0 67%,#e7ebf1 67%); }
+.wirin-summary p { display: grid; }.wirin-summary b { color: #347cf4; font-size: 1.2rem; }
+.mini-toolbar { display: flex; gap: .4rem; margin-bottom: .55rem; padding: .5rem; border: 1px solid #dde2e9; border-radius: 7px; background: #fff; }
+.wirin-main .mini-toolbar input, .wirin-main .mini-toolbar select { border-color: #d2d8e1; background: #fff; color: #344054; }
+.mini-toolbar label { display: flex; align-items: center; gap: .25rem; margin-left: auto; }
+.mini-toolbar button { padding: .45rem .65rem; background: #347cf4; }
+.task-card { position: relative; width: min(100%, 340px); margin-bottom: .45rem; padding: .7rem; border: 1px solid #ff6d70; border-radius: 8px; background: #fff; }
+.task-card > span { position: absolute; top: .4rem; right: .4rem; color: #236ee8; font-weight: 800; }.task-card h5 { margin: .6rem 0 .2rem; }.task-card p { color: #697487; }.task-card button { float: right; padding: .35rem .5rem; background: #347cf4; }
+.user-list details { padding: .55rem; border-bottom: 1px solid #dbe1e8; background: #fff; }.user-list summary { cursor: pointer; }.user-list p { margin: .4rem 0 0; color: #697487; }
+.ranking-list { padding: .75rem; border-radius: 8px; background: #fff; }.ranking-list p { display: grid; grid-template-columns: 25px 1fr 1fr auto; align-items: center; gap: .4rem; }.ranking-list p > b { display: grid; width: 22px; height: 22px; place-items: center; border-radius: 50%; background: #f0b700; color: #fff; }.ranking-list i { height: 5px; border-radius: 99px; background: #347cf4; }
+.mini-wirin .mini-table { border-color: #dce1e8; background: #fff; }.mini-wirin .mini-table button { padding: .35rem; background: #4ecf8a; }
+.mini-mi-carrera-tech { background: #090a0d; }.mini-mi-carrera-tech > header, .mini-mi-carrera-tech > .mini-tabs { border-color: #2a2b31; }.mini-mi-carrera-tech > .mini-tabs button[aria-selected="true"] { border-bottom: 2px solid #9e72ff; border-radius: 0; background: transparent; color: #b594ff; }
+.career-body { min-height: 370px; background: #090a0d; }.career-metrics { display: grid; grid-template-columns: repeat(4,1fr); gap: .45rem; }.career-metrics span { display: grid; padding: .8rem; border: 1px solid #2a2c32; border-radius: 9px; background: #19191c; color: #777b87; }.career-metrics b { color: #36b7f4; font-size: 1rem; }
+.career-body > section { margin-top: .6rem; border-color: #2a2c32; background: #19191c; }.career-body > section p { display: flex; gap: .6rem; padding: .45rem; border-top: 1px solid #282a30; }.career-body time { color: #777b87; }.career-body p span { display: grid; }.career-body p small { color: #8f6dd7; }
+.course-list details { margin-bottom: .45rem; border: 1px solid #06664f; border-radius: 8px; background: #071d19; }.course-list summary { display: flex; gap: .55rem; align-items: center; padding: .65rem; color: #45e3ae; cursor: pointer; }.course-list summary b { margin-left: auto; padding: .15rem .35rem; border-radius: 99px; background: #07513f; font-size: .5rem; }.course-list p { padding: 0 .7rem .7rem; color: #8ba5a0; }
+.career-calendar { display: grid; grid-template-columns: 1fr .45fr; gap: .6rem; }.career-calendar > div, .career-calendar > aside, .career-data { border-color: #2a2c32; background: #19191c; }.career-calendar > div { display: grid; grid-template-columns: repeat(7,1fr); gap: .3rem; }.career-calendar h5 { grid-column: 1/-1; text-align: center; }.career-calendar button { aspect-ratio: 1; border: 0; border-radius: 7px; background: transparent; color: #a7abb5; cursor: pointer; }.career-calendar button.selected { background: #118fd0; color: #fff; }.career-calendar aside p { color: #777b87; text-align: center; }
+.career-data p { color: #8a8f9a; }.career-data button { padding: .55rem; background: #118fd0; }.career-data pre { max-height: 170px; overflow: auto; padding: .65rem; border-radius: 7px; background: #08090b; color: #9fdfff; font-size: .5rem; }.mini-notice { position: absolute; right: .7rem; bottom: .7rem; padding: .55rem .7rem; border-radius: 6px; background: #19a979; color: #fff; font-weight: 800; }
 .visual-finanzas-personales {
   background: #123d35;
 }
@@ -1482,6 +1534,7 @@ footer div {
   .project-visual {
     min-height: 360px;
   }
+  .mini-app { min-height: 440px; }
   .timeline {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -1581,6 +1634,11 @@ footer div {
   .framework-window {
     border-radius: 9px;
   }
+  .finance-grid, .career-calendar { grid-template-columns: 1fr; }
+  .metric-strip, .career-metrics { grid-template-columns: repeat(2, 1fr); }
+  .wirin-layout { grid-template-columns: 1fr; }
+  .wirin-layout > nav { display: flex; overflow-x: auto; border-right: 0; border-bottom: 1px solid #dde1e7; }
+  .mini-chart { height: 210px; }
   .framework-toolbar i {
     font-size: 0.5rem;
   }

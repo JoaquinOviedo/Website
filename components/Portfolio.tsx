@@ -1,6 +1,12 @@
 "use client";
 
-import { useEffect, useState, useSyncExternalStore, type FormEvent } from "react";
+import {
+  useEffect,
+  useState,
+  useSyncExternalStore,
+  type FormEvent,
+  type MouseEvent,
+} from "react";
 import { FrameworkPrototype } from "@/components/FrameworkPrototype";
 import { copy } from "@/content/copy";
 import { profile, projects, type Locale } from "@/content/portfolio";
@@ -61,6 +67,17 @@ export function Portfolio({ locale }: { locale: Locale }) {
   function applyTheme(next: Theme) {
     localStorage.setItem("theme", next);
     window.dispatchEvent(new Event("portfolio-theme"));
+  }
+
+  function switchLanguage(event: MouseEvent<HTMLAnchorElement>) {
+    event.preventDefault();
+    const localizedPath = window.location.pathname.replace(
+      /\/(es|en)(?=\/|$)/,
+      `/${otherLocale}`,
+    );
+    window.location.assign(
+      `${localizedPath}${window.location.search}${window.location.hash}`,
+    );
   }
 
   async function copyEmail() {
@@ -141,6 +158,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
             href={`/${otherLocale}`}
             hrefLang={otherLocale}
             aria-label={`${t.language}: ${otherLocale.toUpperCase()}`}
+            onClick={switchLanguage}
           >
             {otherLocale.toUpperCase()}
           </a>

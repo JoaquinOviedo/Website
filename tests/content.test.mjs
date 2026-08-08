@@ -38,3 +38,10 @@ test("theme selection uses accessible icon buttons and preserves system mode", a
   assert.match(source, /aria-pressed/);
   assert.doesNotMatch(source, /<select[\s\S]*?applyTheme/);
 });
+
+test("language switching preserves the current section and deployment base path", async () => {
+  const source = await readFile("components/Portfolio.tsx", "utf8");
+  assert.match(source, /window\.location\.pathname\.replace/);
+  assert.match(source, /window\.location\.hash/);
+  assert.match(source, /onClick=\{switchLanguage\}/);
+});

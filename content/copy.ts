@@ -143,13 +143,11 @@ export const copy = {
     email: "Email",
     subject: "Asunto",
     message: "Mensaje",
-    send: "Preparar email",
+    send: "Enviar mensaje",
     sending: "Enviando…",
     sent: "Mensaje enviado correctamente.",
     prepared: "Email preparado en tu aplicación de correo.",
     sendError: "No se pudo enviar. Usá el enlace de email alternativo.",
-    emailProtected:
-      "La dirección se mantiene oculta hasta que decidas verla para reducir el spam.",
     revealEmail: "Mostrar email",
     copyEmail: "Copiar email",
     copied: "Email copiado",
@@ -157,8 +155,6 @@ export const copy = {
     invalidEmail: "Ingresá un email válido.",
     privacy:
       "Los datos se usan únicamente para responder tu mensaje. Sin rastreo invasivo.",
-    formFallback:
-      "Sin proveedor configurado, se abrirá tu aplicación de correo.",
     language: "Idioma",
     theme: "Tema",
     themes: ["Sistema", "Claro", "Oscuro"],
@@ -304,13 +300,11 @@ export const copy = {
     email: "Email",
     subject: "Subject",
     message: "Message",
-    send: "Prepare email",
+    send: "Send message",
     sending: "Sending…",
     sent: "Message sent successfully.",
     prepared: "Email prepared in your email application.",
     sendError: "The message could not be sent. Use the alternative email link.",
-    emailProtected:
-      "The address stays hidden until you choose to reveal it to reduce spam.",
     revealEmail: "Show email",
     copyEmail: "Copy email",
     copied: "Email copied",
@@ -318,8 +312,6 @@ export const copy = {
     invalidEmail: "Enter a valid email address.",
     privacy:
       "Your data is only used to reply to your message. No invasive tracking.",
-    formFallback:
-      "Without a configured provider, your email application will open.",
     language: "Language",
     theme: "Theme",
     themes: ["System", "Light", "Dark"],

@@ -20,6 +20,7 @@ import {
   type Locale,
 } from "@/content/portfolio";
 import { withBasePath } from "@/lib/basePath";
+import { deliverContactMessage } from "@/lib/contactDelivery";
 
 type Theme = "system" | "light" | "dark";
 const DEFAULT_THEME: Theme = "system";
@@ -97,7 +98,8 @@ export function Portfolio({ locale }: { locale: Locale }) {
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const form = new FormData(event.currentTarget);
+    const formElement = event.currentTarget;
+    const form = new FormData(formElement);
     if (form.get("website")) return;
     const next: Record<string, string> = {};
     for (const key of ["name", "email", "subject", "message"])
@@ -106,33 +108,27 @@ export function Portfolio({ locale }: { locale: Locale }) {
     if (email && !/^\S+@\S+\.\S+$/.test(email)) next.email = t.invalidEmail;
     setErrors(next);
     if (Object.keys(next).length) return;
-    const endpoint = process.env.NEXT_PUBLIC_FORM_ENDPOINT;
-    if (endpoint) {
-      setFormStatus("sending");
-      try {
-        const response = await fetch(endpoint, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify(Object.fromEntries(form)),
-        });
-        if (!response.ok) throw new Error("Form provider rejected the request");
+
+    setFormStatus("sending");
+    try {
+      const delivery = await deliverContactMessage({
+        name: String(form.get("name")),
+        email,
+        subject: String(form.get("subject")),
+        message: String(form.get("message")),
+      });
+
+      if (delivery.kind === "sent") {
         setFormStatus("success");
-        event.currentTarget.reset();
-        return;
-      } catch {
-        setFormStatus("error");
+        formElement.reset();
         return;
       }
+
+      setFormStatus("prepared");
+      window.location.href = delivery.url;
+    } catch {
+      setFormStatus("error");
     }
-    const subject = encodeURIComponent(String(form.get("subject")));
-    const body = encodeURIComponent(
-      `${String(form.get("message"))}\n\n${String(form.get("name"))} <${email}>`,
-    );
-    setFormStatus("prepared");
-    window.location.href = `mailto:${getPublicEmail()}?subject=${subject}&body=${body}`;
   }
 
   return (
@@ -401,7 +397,6 @@ export function Portfolio({ locale }: { locale: Locale }) {
               </div>
             ) : (
               <div className="protected-email">
-                <p>{t.emailProtected}</p>
                 <button
                   className="reveal-email-button"
                   type="button"
@@ -492,10 +487,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
               />
             </div>
             <div className="form-footer">
-              <div>
-                <p>{t.formFallback}</p>
-                <p>{t.privacy}</p>
-              </div>
+              <p>{t.privacy}</p>
               <button
                 className="button primary"
                 type="submit"

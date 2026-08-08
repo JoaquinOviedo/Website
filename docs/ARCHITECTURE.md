@@ -27,6 +27,7 @@ This is a bilingual professional portfolio for recruiter evaluation. The landing
 | `content/types.ts` | Shared content contracts. |
 | `content/pending.ts` | Private development reminders; never render these publicly. |
 | `content/frameworkPrototype.ts` | Sanitized fictional data for the Power Apps design-system prototype. |
+| `lib/contactDelivery.ts` | Typed contact-delivery boundary and mail fallback; future providers connect here. |
 | `public/` | Deployable images, CV PDFs, icons, and other static assets. |
 | `tests/` | Content invariants, accessibility-oriented source checks, and rendered smoke tests. |
 
@@ -64,4 +65,3 @@ Content must not import React components. Reusable components may import content
 4. Run `npm run validate`.
 5. Inspect `/es`, `/en`, and every changed localized case-study route at desktop and mobile widths.
 6. Review `git diff` for accidental secrets, private paths, real records, and unrelated edits.
-

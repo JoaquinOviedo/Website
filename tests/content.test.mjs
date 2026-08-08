@@ -277,6 +277,21 @@ test("public email is hidden from initial markup and revealed by user action", a
   assert.match(portfolioComponent, /getPublicEmail\(\)/);
 });
 
+test("contact delivery is provider-ready without exposing implementation details", async () => {
+  const [portfolio, delivery, copy] = await Promise.all([
+    readFile("components/Portfolio.tsx", "utf8"),
+    readFile("lib/contactDelivery.ts", "utf8"),
+    readFile("content/copy.ts", "utf8"),
+  ]);
+
+  assert.match(portfolio, /deliverContactMessage/);
+  assert.match(delivery, /NEXT_PUBLIC_FORM_ENDPOINT/);
+  assert.match(delivery, /kind: "mailto"/);
+  assert.match(delivery, /getPublicEmail\(\)/);
+  assert.doesNotMatch(portfolio, /Form provider|NEXT_PUBLIC_FORM_ENDPOINT/);
+  assert.doesNotMatch(copy, /Sin proveedor configurado|Without a configured provider|dirección se mantiene oculta|address stays hidden/);
+});
+
 test("the localized résumé is downloadable from the sticky header", async () => {
   const [portfolioComponent, css] = await Promise.all([
     readFile("components/Portfolio.tsx", "utf8"),

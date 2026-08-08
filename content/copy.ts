@@ -88,7 +88,7 @@ export const copy = {
       "Representación conceptual — sin interfaces ni información interna.",
     about: "Sobre mí",
     aboutText:
-      "Soy desarrollador de software con experiencia en soluciones empresariales y formación en desarrollo web. Me interesa especialmente el backend y la visión integral de producto: entender la necesidad, construir una solución mantenible y acompañar al equipo para que pueda evolucionarla.",
+      "Soy desarrollador de software con experiencia en soluciones empresariales y formación en desarrollo web. Me interesa asumir los problemas de punta a punta: comprender la necesidad, definir qué aporta valor y coordinar su evolución. Utilizo la IA como herramienta para explorar, construir y validar soluciones, manteniendo bajo mi responsabilidad las decisiones de producto, la calidad y el resultado.",
     education: "Educación",
     educationItems: [
       [
@@ -245,7 +245,7 @@ export const copy = {
       "Conceptual representation — no internal interfaces or information.",
     about: "About me",
     aboutText:
-      "I am a software developer with experience in enterprise solutions and a web development background. I am particularly interested in backend work and the complete product perspective: understanding the need, building a maintainable solution, and supporting the team that will evolve it.",
+      "I am a software developer with experience in enterprise solutions and a web development background. I am drawn to owning problems end to end: understanding the need, deciding what creates value, and coordinating their evolution. I use AI as a tool to explore, build, and validate solutions while retaining responsibility for product decisions, quality, and outcomes.",
     education: "Education",
     educationItems: [
       [

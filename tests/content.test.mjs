@@ -27,6 +27,10 @@ test("professional content keeps both locales and safe CV state", async () => {
   assert.doesNotMatch(copy, /HABILITAR|ENABLE|principles:/);
   assert.match(portfolio, /cv:\s*\{\s*es:/); assert.match(portfolio, /joaquin-oviedo-en\.pdf/);
   assert.doesNotMatch(portfolio, /\+5411/);
+  assert.match(copy, /asumir los problemas de punta a punta/);
+  assert.match(copy, /owning problems end to end/);
+  assert.match(copy, /IA como herramienta/);
+  assert.doesNotMatch(copy, /Me interesa especialmente el backend|particularly interested in backend work/);
 });
 
 test("WIRIN records backend ownership and only verified public repositories", async () => {

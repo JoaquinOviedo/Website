@@ -11,6 +11,7 @@ These decisions capture the current direction so future changes do not gradually
 - The landing page places professional experience before projects. Recruiters see verified work responsibilities first, then project evidence that supports the technical narrative.
 - WIRIN remains an academic project until a formal role or agreement exists. Its current institutional validation with the UNLaM library may be stated, but a formal implementation, client relationship, payment, or teaching hours must not be implied before confirmation.
 - The about section uses one concise, human paragraph. Avoid abstract principle lists when the same ideas can be stated concretely.
+- The professional direction emphasizes end-to-end problem ownership, product judgment, and responsible use of AI as a tool. Do not frame backend development as Joaquín's defining career preference.
 - The page ending stays compact: community evidence is preserved, trailing section space is limited, and the footer behaves as a utility strip rather than another content section.
 - Formal education leads the education hierarchy. Certifications stay compact and secondary; a verified average may remain visible as supporting evidence without becoming a headline.
 - The contribution/technology overview remains a compact band, not a full-height section. It provides technical fit before project evidence without slowing navigation.

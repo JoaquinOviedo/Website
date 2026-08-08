@@ -1607,8 +1607,19 @@ details > p {
   padding: 1.35rem 0;
   border-top: 1px solid var(--line);
 }
-.community-list article > span {
+.community-list article > .community-arrow {
+  display: inline-grid;
+  flex: 0 0 auto;
+  place-items: center;
+  align-self: center;
+  margin: 0;
+  padding: 0.25rem;
   color: var(--accent);
+  border-radius: 50%;
+  text-decoration: none;
+}
+.community-list article > .community-arrow:hover {
+  background: var(--soft);
 }
 .community-list h4 {
   margin: 0 0 0.4rem;

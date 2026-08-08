@@ -118,7 +118,7 @@ export const copy = {
     community: "Charlas y comunidad",
     communityLead:
       "Compartir lo aprendido también forma parte de construir soluciones con impacto.",
-    communityLink: "Ver publicación en LinkedIn",
+    communityLink: "Ver en LinkedIn",
     communityItems: [
       [
         "WIRIN en la 23.ª Jornada sobre la Biblioteca Digital Universitaria",
@@ -278,7 +278,7 @@ export const copy = {
     community: "Talks and community",
     communityLead:
       "Sharing what I learn is also part of building solutions with meaningful impact.",
-    communityLink: "View post on LinkedIn",
+    communityLink: "View on LinkedIn",
     communityItems: [
       [
         "WIRIN at the 23rd University Digital Library Conference",

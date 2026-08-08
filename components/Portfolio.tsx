@@ -248,7 +248,15 @@ export function Portfolio({ locale }: { locale: Locale }) {
             <div className="community-list">
               {t.communityItems.map(([title, detail, href]) => (
                 <article key={title}>
-                  <span aria-hidden="true">↗</span>
+                  <a
+                    className="community-arrow"
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${t.communityLink}: ${title}`}
+                  >
+                    <span aria-hidden="true">↗</span>
+                  </a>
                   <div>
                     <h4>{title}</h4>
                     <p>{detail}</p>

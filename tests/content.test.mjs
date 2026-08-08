@@ -292,8 +292,10 @@ test("community highlights are bilingual and point to clean public evidence", as
     assert.match(copy, new RegExp(postId));
   }
 
-  assert.match(copy, /Ver publicación en LinkedIn/);
-  assert.match(copy, /View post on LinkedIn/);
+  assert.match(copy, /Ver en LinkedIn/);
+  assert.match(copy, /View on LinkedIn/);
+  assert.match(portfolioComponent, /className="community-arrow"/);
+  assert.match(portfolioComponent, /aria-label={`\$\{t\.communityLink\}: \$\{title\}`}/);
   assert.doesNotMatch(copy, /utm_(source|medium|campaign)=/);
   assert.match(portfolioComponent, /target="_blank" rel="noreferrer"/);
 });

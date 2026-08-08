@@ -29,6 +29,12 @@ export interface Project {
   aiContribution?: Record<Locale, string>;
 }
 
+const publicEmailParts = ["joaquin.oviedo.fernandez", "gmail.com"] as const;
+
+export function getPublicEmail() {
+  return `${publicEmailParts[0]}@${publicEmailParts[1]}`;
+}
+
 export const profile = {
   name: "Joaquín Nicolás Oviedo",
   location: "Argentina",
@@ -40,7 +46,6 @@ export const profile = {
     es: "Actualmente trabajando · abierto a nuevas oportunidades",
     en: "Currently employed · open to new opportunities",
   },
-  email: "joaquin.oviedo.fernandez@gmail.com",
   linkedin: "https://www.linkedin.com/in/joaquin-oviedo/",
   github: "https://github.com/JoaquinOviedo",
   photo: "/images/joaquin-oviedo.png",

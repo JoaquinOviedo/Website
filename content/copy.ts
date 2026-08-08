@@ -137,6 +137,9 @@ export const copy = {
     sent: "Mensaje enviado correctamente.",
     prepared: "Email preparado en tu aplicación de correo.",
     sendError: "No se pudo enviar. Usá el enlace de email alternativo.",
+    emailProtected:
+      "La dirección se mantiene oculta hasta que decidas verla para reducir el spam.",
+    revealEmail: "Mostrar email",
     copyEmail: "Copiar email",
     copied: "Email copiado",
     required: "Este campo es obligatorio.",
@@ -284,6 +287,9 @@ export const copy = {
     sent: "Message sent successfully.",
     prepared: "Email prepared in your email application.",
     sendError: "The message could not be sent. Use the alternative email link.",
+    emailProtected:
+      "The address stays hidden until you choose to reveal it to reduce spam.",
+    revealEmail: "Show email",
     copyEmail: "Copy email",
     copied: "Email copied",
     required: "This field is required.",

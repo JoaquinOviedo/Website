@@ -11,7 +11,12 @@ import { FrameworkPrototype } from "@/components/FrameworkPrototype";
 import { CustomCursor } from "@/components/CustomCursor";
 import { LocalContext } from "@/components/LocalContext";
 import { copy } from "@/content/copy";
-import { profile, projects, type Locale } from "@/content/portfolio";
+import {
+  getPublicEmail,
+  profile,
+  projects,
+  type Locale,
+} from "@/content/portfolio";
 import { withBasePath } from "@/lib/basePath";
 
 type Theme = "system" | "light" | "dark";
@@ -48,6 +53,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
     () => DEFAULT_THEME,
   );
   const [copied, setCopied] = useState(false);
+  const [emailRevealed, setEmailRevealed] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formStatus, setFormStatus] = useState<
     "idle" | "sending" | "success" | "prepared" | "error"
@@ -88,7 +94,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
   }
 
   async function copyEmail() {
-    await navigator.clipboard.writeText(profile.email);
+    await navigator.clipboard.writeText(getPublicEmail());
     setCopied(true);
     window.setTimeout(() => setCopied(false), 2200);
   }
@@ -130,7 +136,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
       `${String(form.get("message"))}\n\n${String(form.get("name"))} <${email}>`,
     );
     setFormStatus("prepared");
-    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${getPublicEmail()}?subject=${subject}&body=${body}`;
   }
 
   return (
@@ -456,10 +462,25 @@ export function Portfolio({ locale }: { locale: Locale }) {
             </p>
             <h2 id="contact-title">{t.contactTitle}</h2>
             <p>{t.contactLead}</p>
-            <a href={`mailto:${profile.email}`}>{profile.email}</a>
-            <button className="copy-button" type="button" onClick={copyEmail}>
-              <Icon name="copy" /> {copied ? t.copied : t.copyEmail}
-            </button>
+            {emailRevealed ? (
+              <div className="revealed-email">
+                <a href={`mailto:${getPublicEmail()}`}>{getPublicEmail()}</a>
+                <button className="copy-button" type="button" onClick={copyEmail}>
+                  <Icon name="copy" /> {copied ? t.copied : t.copyEmail}
+                </button>
+              </div>
+            ) : (
+              <div className="protected-email">
+                <p>{t.emailProtected}</p>
+                <button
+                  className="reveal-email-button"
+                  type="button"
+                  onClick={() => setEmailRevealed(true)}
+                >
+                  <Icon name="mail" /> {t.revealEmail}
+                </button>
+              </div>
+            )}
             <div className="cv-block">
               {profile.cv[locale] ? (
                 <a

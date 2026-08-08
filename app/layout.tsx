@@ -45,7 +45,6 @@ export default function RootLayout({
         "@id": `${siteUrl}/#person`,
         name: "Joaquín Nicolás Oviedo",
         url: siteUrl,
-        email: "mailto:joaquin.oviedo.fernandez@gmail.com",
         homeLocation: { "@type": "Country", name: "Argentina" },
         sameAs: [
           "https://www.linkedin.com/in/joaquin-oviedo/",

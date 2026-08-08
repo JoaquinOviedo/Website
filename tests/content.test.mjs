@@ -198,3 +198,19 @@ test("public assets use the deployment-aware base path helper", async () => {
   assert.match(workflow, /NEXT_PUBLIC_BASE_PATH: \/Website/g);
   assert.match(exporter, /path\.startsWith\(`\$\{basePath\}\/`\)/);
 });
+
+test("public email is hidden from initial markup and revealed by user action", async () => {
+  const [portfolioData, portfolioComponent, layout] = await Promise.all([
+    readFile("content/portfolio.ts", "utf8"),
+    readFile("components/Portfolio.tsx", "utf8"),
+    readFile("app/layout.tsx", "utf8"),
+  ]);
+
+  const completeEmail = "joaquin.oviedo.fernandez@gmail.com";
+  for (const source of [portfolioData, portfolioComponent, layout]) {
+    assert.equal(source.includes(completeEmail), false);
+  }
+  assert.match(portfolioComponent, /emailRevealed/);
+  assert.match(portfolioComponent, /setEmailRevealed\(true\)/);
+  assert.match(portfolioComponent, /getPublicEmail\(\)/);
+});

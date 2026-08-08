@@ -17,11 +17,10 @@ export const profile = {
   },
   linkedin: "https://www.linkedin.com/in/joaquin-oviedo/",
   github: "https://github.com/JoaquinOviedo",
-  photo: "/images/joaquin-oviedo.png",
+  photo: "/images/joaquin-oviedo-profile.png",
   cv: {
     es: "/cv/joaquin-oviedo-es.pdf",
     en: "/cv/joaquin-oviedo-en.pdf",
   },
   cvUpdated: { es: "2026-08-08", en: "2026-08-08" },
 } as const;
-

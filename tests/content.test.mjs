@@ -33,7 +33,7 @@ test("professional content keeps both locales and safe CV state", async () => {
   assert.match(copy, /Integro la IA en ese proceso/);
   assert.match(copy, /Power Platform, \.NET, React y TypeScript/);
   assert.match(copy, /Power Platform, \.NET, React, and TypeScript/);
-  assert.match(copy, /portraitNoteLabel: "Enfoque actual"/);
+  assert.match(portfolio, /joaquin-oviedo-profile\.png/);
   assert.doesNotMatch(copy, /Me interesa especialmente el backend|particularly interested in backend work/);
 });
 
@@ -182,6 +182,7 @@ test("homepage keeps recruiter evidence compact and moves depth into case studie
   assert.match(portfolio, /project\.type !== "personal"/);
   assert.match(portfolio, /className="project-contribution"/);
   assert.match(portfolio, /className="project-logo"/);
+  assert.doesNotMatch(portfolio, /portrait-note/);
   assert.match(portfolio, /className=\{project\.logo \? "sr-only" : undefined\}/);
   assert.match(portfolio, /className="button primary" href="#experiencia"/);
   assert.match(copy, /viewExperience: "Ver experiencia"/);

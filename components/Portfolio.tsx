@@ -179,10 +179,6 @@ export function Portfolio({ locale }: { locale: Locale }) {
                 fetchPriority="high"
               />
             </div>
-            <div className="portrait-note">
-              <span>{t.portraitNoteLabel}</span>
-              <p>{t.portraitNoteValue}</p>
-            </div>
           </div>
         </section>
 

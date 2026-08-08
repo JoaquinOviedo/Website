@@ -189,6 +189,9 @@ test("homepage keeps recruiter evidence compact and moves depth into case studie
   assert.match(css, /\.project-visual \{[\s\S]*?min-height: 390px/);
   assert.match(css, /\.education\.section \{[\s\S]*?padding-bottom:/);
   assert.match(css, /footer \{[\s\S]*?padding: \.95rem/);
+  assert.match(css, /\.timeline \{[\s\S]*?border-top: 1px solid var\(--line\)/);
+  assert.match(css, /\.community-block \{[\s\S]*?border-top: 1px solid var\(--line\)/);
+  assert.doesNotMatch(css, /border-(?:top|bottom): 1px solid var\(--ink\)/);
 });
 
 test("all featured projects have localized recruiter-friendly case-study routes", async () => {

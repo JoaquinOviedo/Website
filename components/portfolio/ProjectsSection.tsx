@@ -10,7 +10,7 @@ export function ProjectsSection({ locale }: { locale: Locale }) {
     <section className="projects section" id="proyectos" aria-labelledby="projects-title">
       <header className="section-heading split">
         <div>
-          <p>02 /</p>
+          <p>03 /</p>
           <h2 id="projects-title">{t.projects}</h2>
         </div>
         <p>{t.projectsLead}</p>
@@ -69,4 +69,3 @@ export function ProjectsSection({ locale }: { locale: Locale }) {
     </section>
   );
 }
-

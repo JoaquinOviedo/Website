@@ -7,9 +7,9 @@ import {
   type FormEvent,
   type MouseEvent,
 } from "react";
-import { FrameworkPrototype } from "@/components/FrameworkPrototype";
 import { CustomCursor } from "@/components/CustomCursor";
 import { LocalContext } from "@/components/LocalContext";
+import { ExperienceSection } from "@/components/portfolio/ExperienceSection";
 import { FocusSection } from "@/components/portfolio/FocusSection";
 import { Icon } from "@/components/portfolio/Icon";
 import { ProjectsSection } from "@/components/portfolio/ProjectsSection";
@@ -150,7 +150,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
             {t.nav.map((item, index) => (
               <li key={item}>
                 <a
-                  href={`#${["inicio", "proyectos", "experiencia", "sobre-mi", "educacion", "contacto"][index]}`}
+                  href={`#${["inicio", "experiencia", "proyectos", "sobre-mi", "educacion", "contacto"][index]}`}
                 >
                   {item}
                 </a>
@@ -252,56 +252,9 @@ export function Portfolio({ locale }: { locale: Locale }) {
 
         <FocusSection locale={locale} />
 
-        <ProjectsSection locale={locale} />
+        <ExperienceSection locale={locale} />
 
-        <section
-          className="experience section"
-          id="experiencia"
-          aria-labelledby="experience-title"
-        >
-          <header className="section-heading split">
-            <div>
-              <p>03 /</p>
-              <h2 id="experience-title">{t.experience}</h2>
-            </div>
-            <p>{t.experienceLead}</p>
-          </header>
-          <article className="timeline">
-            <div className="timeline-period">{t.current}</div>
-            <div className="timeline-content">
-              <p className="company">{t.company}</p>
-              <h3>{t.role}</h3>
-              <p className="summary">{t.expSummary}</p>
-              <ul className="contributions">
-                {t.expBullets.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-              <ul className="tech-list">
-                <li>Power Apps</li>
-                <li>Power Automate</li>
-                <li>SharePoint</li>
-                <li>Azure DevOps</li>
-                <li>Git</li>
-                <li>PowerShell</li>
-              </ul>
-            </div>
-          </article>
-          <details className="framework-disclosure">
-            <summary>
-              <span>
-                <small>{t.frameworkEyebrow}</small>
-                <strong>{t.frameworkTitle}</strong>
-                <i>{t.frameworkText}</i>
-              </span>
-              <b>{t.explorePrototype} <Icon name="arrow" /></b>
-            </summary>
-            <aside className="framework-showcase" aria-label={t.frameworkEyebrow}>
-              <FrameworkPrototype locale={locale} />
-              <p className="framework-caption">{t.frameworkCaption}</p>
-            </aside>
-          </details>
-        </section>
+        <ProjectsSection locale={locale} />
 
         <section
           className="about section"

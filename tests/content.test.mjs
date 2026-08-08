@@ -16,6 +16,7 @@ async function readHomepageSources() {
   return (await Promise.all([
     readFile("components/Portfolio.tsx", "utf8"),
     readFile("components/portfolio/FocusSection.tsx", "utf8"),
+    readFile("components/portfolio/ExperienceSection.tsx", "utf8"),
     readFile("components/portfolio/ProjectsSection.tsx", "utf8"),
   ])).join("\n");
 }
@@ -36,6 +37,10 @@ test("WIRIN records backend ownership and only verified public repositories", as
   assert.match(source, /wirin-landing/);
   assert.doesNotMatch(source, /thomasloader1\/wirin-api/);
   assert.match(source, /aiAssisted:\s*true/);
+  assert.match(source, /validación institucional en curso/);
+  assert.match(source, /institutional validation in progress/);
+  assert.match(source, /biblioteca de la UNLaM/);
+  assert.doesNotMatch(source, /horas (como )?docente|teaching hours|paid|payment/i);
 });
 
 test("the framework prototype stays bilingual, sanitized, and data-driven", async () => {
@@ -153,6 +158,10 @@ test("homepage keeps recruiter evidence compact and moves depth into case studie
   ]);
 
   assert.match(portfolio, /className="project-contribution"/);
+  assert.ok(
+    portfolio.indexOf("<ExperienceSection locale={locale} />") < portfolio.indexOf("<ProjectsSection locale={locale} />"),
+    "professional experience should appear before project evidence",
+  );
   assert.match(portfolio, /focus-compact/);
   assert.match(portfolio, /index < 2 \? "primary-tech"/);
   assert.match(portfolio, /<details className="framework-disclosure">/);

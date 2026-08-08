@@ -3,8 +3,8 @@ export const copy = {
     skip: "Saltar al contenido",
     nav: [
       "Inicio",
-      "Proyectos",
       "Experiencia",
+      "Proyectos",
       "Sobre mí",
       "Educación",
       "Contacto",
@@ -164,7 +164,7 @@ export const copy = {
   },
   en: {
     skip: "Skip to content",
-    nav: ["Home", "Projects", "Experience", "About", "Education", "Contact"],
+    nav: ["Home", "Experience", "Projects", "About", "Education", "Contact"],
     heroEyebrow: "Software Developer · Argentina",
     heroTitle:
       "I build and manage enterprise solutions across Power Platform, backend, and React.",

@@ -8,6 +8,8 @@ These decisions capture the current direction so future changes do not gradually
 - The landing page is a summary. Project cards remain compact; galleries, detailed AI transparency, and interactive prototypes live in individual case studies.
 - Three strong projects are more useful than many incomplete ones.
 - Experience and contribution evidence matter more than decorative technology logos.
+- The contribution/technology overview remains a compact band, not a full-height section. It provides technical fit before project evidence without slowing navigation.
+- Experience details stay visible in the summary and contribution bullets; do not add a secondary "more context" disclosure unless it introduces genuinely new evidence.
 
 ## Visual language
 

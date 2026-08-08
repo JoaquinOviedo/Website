@@ -2227,6 +2227,87 @@ footer div {
   }
 }
 
+/* Compact capability band: technical fit without a full extra viewport. */
+.focus-compact.section {
+  padding-block: clamp(2.25rem, 4vw, 3.5rem);
+}
+.focus-compact .section-heading {
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+.focus-compact .section-heading h2 {
+  font-size: clamp(1.45rem, 2.3vw, 2rem);
+}
+.focus-compact .focus-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.focus-compact .focus-grid article,
+.focus-compact .focus-grid article:nth-child(2n),
+.focus-compact .focus-grid article:nth-last-child(-n + 2) {
+  min-height: 0;
+  padding: 1.25rem;
+  border-right: 1px solid var(--line);
+  border-bottom: 0;
+}
+.focus-compact .focus-grid article:last-child {
+  border-right: 0;
+}
+.focus-compact .focus-grid h3 {
+  margin: 0 0 .45rem;
+  font-size: 1.05rem;
+}
+.focus-compact .focus-grid p {
+  font-size: .86rem;
+  line-height: 1.5;
+}
+.focus-compact .focus-tech-list {
+  gap: .3rem;
+  margin-top: .75rem;
+}
+.focus-compact .focus-tech-list li {
+  padding: .22rem .4rem;
+  font-size: .68rem;
+}
+
+@media (max-width: 1050px) {
+  .focus-compact .focus-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .focus-compact .focus-grid article,
+  .focus-compact .focus-grid article:nth-child(2n),
+  .focus-compact .focus-grid article:nth-last-child(-n + 2) {
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .focus-compact .focus-grid article:nth-child(2n) {
+    border-right: 0;
+  }
+  .focus-compact .focus-grid article:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .focus-compact.section {
+    padding-block: 2rem;
+  }
+  .focus-compact .section-heading {
+    margin-bottom: 1rem;
+  }
+  .focus-compact .focus-grid {
+    grid-template-columns: 1fr;
+  }
+  .focus-compact .focus-grid article,
+  .focus-compact .focus-grid article:nth-child(2n),
+  .focus-compact .focus-grid article:nth-last-child(-n + 2) {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .focus-compact .focus-grid article:last-child {
+    border-bottom: 0;
+  }
+}
+
 /* Header utility controls share the same compact pill silhouette. */
 .header-actions > a.header-cv,
 .header-actions > a.language {

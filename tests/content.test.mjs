@@ -15,6 +15,7 @@ async function readProjectSources() {
 async function readHomepageSources() {
   return (await Promise.all([
     readFile("components/Portfolio.tsx", "utf8"),
+    readFile("components/portfolio/FocusSection.tsx", "utf8"),
     readFile("components/portfolio/ProjectsSection.tsx", "utf8"),
   ])).join("\n");
 }
@@ -152,8 +153,10 @@ test("homepage keeps recruiter evidence compact and moves depth into case studie
   ]);
 
   assert.match(portfolio, /className="project-contribution"/);
+  assert.match(portfolio, /focus-compact/);
   assert.match(portfolio, /index < 2 \? "primary-tech"/);
   assert.match(portfolio, /<details className="framework-disclosure">/);
+  assert.doesNotMatch(portfolio, /experience-details|detailsText/);
   assert.match(portfolio, /communityItems\.slice\(0, 3\)/);
   assert.match(copy, /\["Power Apps", "Power Automate", "SharePoint"\]/);
   assert.match(copy, /\["Azure", "Git", "Azure DevOps", "PowerShell"\]/);

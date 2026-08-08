@@ -55,7 +55,6 @@ export function Portfolio({ locale }: { locale: Locale }) {
   const [formStatus, setFormStatus] = useState<
     "idle" | "sending" | "success" | "prepared" | "error"
   >("idle");
-  const [experienceOpen, setExperienceOpen] = useState(false);
 
   useEffect(() => {
     document.documentElement.lang = locale;
@@ -282,20 +281,6 @@ export function Portfolio({ locale }: { locale: Locale }) {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-              <details
-                onToggle={(event) =>
-                  setExperienceOpen(event.currentTarget.open)
-                }
-              >
-                <summary
-                  aria-expanded={experienceOpen}
-                  aria-controls="experience-details"
-                >
-                  {t.details}
-                  <span aria-hidden="true">+</span>
-                </summary>
-                <p id="experience-details">{t.detailsText}</p>
-              </details>
               <ul className="tech-list">
                 <li>Power Apps</li>
                 <li>Power Automate</li>

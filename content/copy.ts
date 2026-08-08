@@ -74,9 +74,6 @@ export const copy = {
       "Desarrollé un framework UX reutilizable para Power Apps junto al equipo de diseño, mejorando consistencia y reutilización.",
       "Capacito a ingresantes y delego evoluciones del framework, compartiendo criterios y buenas prácticas.",
     ],
-    details: "Más contexto",
-    detailsText:
-      "La experiencia amplió mi mirada desde la implementación hacia el producto: prever necesidades, detectar complicaciones futuras y equilibrar valor, viabilidad y mantenimiento. También tuve una aproximación a React, TypeScript y SharePoint Framework, una línea de formación que puede retomarse.",
     frameworkEyebrow: "Sistema de diseño · Power Apps",
     frameworkTitle: "Una base compartida para construir con consistencia.",
     frameworkText:
@@ -239,9 +236,6 @@ export const copy = {
       "Built a reusable Power Apps UX framework with the design team, improving consistency and reuse.",
       "Train new team members and delegate framework improvements, sharing standards and practices.",
     ],
-    details: "More context",
-    detailsText:
-      "This experience broadened my view from implementation to product: anticipating needs, spotting future complications, and balancing value, feasibility, and maintenance. I also gained exposure to React, TypeScript, and SharePoint Framework, a learning path that may resume.",
     frameworkEyebrow: "Design system · Power Apps",
     frameworkTitle: "A shared foundation for consistent delivery.",
     frameworkText:

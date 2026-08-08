@@ -16,6 +16,15 @@ const weatherIcon = (code: number) => {
   return "ϟ";
 };
 
+const weatherTone = (code: number) => {
+  if (code === 0) return "clear";
+  if (code <= 3) return "cloudy";
+  if (code <= 48) return "fog";
+  if (code <= 67 || (code >= 80 && code <= 82)) return "rain";
+  if (code <= 77 || (code >= 85 && code <= 86)) return "snow";
+  return "storm";
+};
+
 export function LocalContext({ locale }: { locale: Locale }) {
   const [time, setTime] = useState("--:--");
   const [weather, setWeather] = useState<WeatherState>({ status: "idle" });
@@ -56,13 +65,14 @@ export function LocalContext({ locale }: { locale: Locale }) {
   }
 
   const weatherLabel = weather.status === "loading" ? copy.loading : weather.status === "error" ? copy.error : weather.status === "success" ? `${copy.current}: ${weather.temperature} °C` : copy.weather;
+  const weatherClass = weather.status === "success" ? weatherTone(weather.code) : weather.status;
 
   return (
     <div className="local-context">
       <time aria-label={`${copy.time}: ${time}`} title={copy.time}>{time}</time>
-      <button type="button" onClick={requestWeather} disabled={weather.status === "loading"} aria-label={weatherLabel} title={weatherLabel}>
+      <button className={`weather-button weather-${weatherClass}`} type="button" onClick={requestWeather} disabled={weather.status === "loading"} aria-label={weatherLabel} title={weatherLabel}>
         <span aria-hidden="true">{weather.status === "loading" ? "…" : weather.status === "success" ? weatherIcon(weather.code) : weather.status === "error" ? "↻" : "⌖"}</span>
-        {weather.status === "success" ? <b>{weather.temperature}°</b> : null}
+        {weather.status === "success" ? <b>{weather.temperature}°C</b> : null}
       </button>
       <span className="sr-only" role="status" aria-live="polite">{weather.status === "idle" ? "" : weatherLabel}</span>
     </div>

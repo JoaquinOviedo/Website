@@ -173,6 +173,9 @@ test("local time and opt-in weather preserve location privacy", async () => {
   assert.match(context, /latitude\.toFixed\(2\)/);
   assert.match(context, /api\.open-meteo\.com\/v1\/forecast/);
   assert.match(context, /current=temperature_2m,weather_code/);
+  assert.match(context, /weatherTone/);
+  assert.match(context, /weather-\$\{weatherClass\}/);
+  assert.match(context, /\{weather\.temperature\}°C/);
   assert.doesNotMatch(context, /localStorage|sessionStorage/);
 });
 

@@ -46,6 +46,11 @@ export const frameworkPrototypeCopy: Record<Locale, {
   activeStatus: string;
   iconSearch: string;
   iconPreview: string;
+  iconColors: string;
+  iconColorHelp: string;
+  darkMode: string;
+  lightMode: string;
+  saved: string;
   screenTabs: Record<ScreenView, string>;
   formTitle: string;
   formLead: string;
@@ -79,7 +84,7 @@ export const frameworkPrototypeCopy: Record<Locale, {
     title: string; lead: string; stages: string[]; panels: string[];
     fields: string[]; values: string[]; approvers: string; approved: string;
     pendingApproval: string; attachments: string; attachmentHelp: string;
-    history: string; historyItems: string[]; nextLevel: string;
+    history: string; historyItems: string[]; nextLevel: string; completed: string;
   };
 }> = {
   es: {
@@ -105,6 +110,11 @@ export const frameworkPrototypeCopy: Record<Locale, {
     activeStatus: "Estado · Activo",
     iconSearch: "Filtrar iconos",
     iconPreview: "Icono seleccionado",
+    iconColors: "Colores del icono",
+    iconColorHelp: "Los colores alternan entre fondo e icono.",
+    darkMode: "Modo oscuro",
+    lightMode: "Modo claro",
+    saved: "Cambios guardados correctamente",
     screenTabs: { initiative: "Flujo de iniciativa", form: "Formulario", gallery: "Galería", replace: "Reemplazar código" },
     formTitle: "Solicitud de mejora",
     formLead: "Ejemplo de pantalla estándar para relevar y acompañar una iniciativa.",
@@ -150,6 +160,7 @@ export const frameworkPrototypeCopy: Record<Locale, {
       attachments: "Adjuntar evidencia", attachmentHelp: "Documentos, imágenes o material de soporte",
       history: "Historial y conversación", historyItems: ["La iniciativa fue enviada a revisión.", "El referente solicitó ampliar el alcance.", "Se actualizó la documentación del nivel."],
       nextLevel: "Continuar al siguiente nivel",
+      completed: "Iniciativa completada",
     },
   },
   en: {
@@ -175,6 +186,11 @@ export const frameworkPrototypeCopy: Record<Locale, {
     activeStatus: "Status · Active",
     iconSearch: "Filter icons",
     iconPreview: "Selected icon",
+    iconColors: "Icon colors",
+    iconColorHelp: "Colors alternate between background and icon.",
+    darkMode: "Dark mode",
+    lightMode: "Light mode",
+    saved: "Changes saved successfully",
     screenTabs: { initiative: "Initiative flow", form: "Form", gallery: "Gallery", replace: "Replace code" },
     formTitle: "Improvement request",
     formLead: "A standardized screen example for discovering and supporting an initiative.",
@@ -220,6 +236,7 @@ export const frameworkPrototypeCopy: Record<Locale, {
       attachments: "Attach evidence", attachmentHelp: "Documents, images, or supporting material",
       history: "History and conversation", historyItems: ["The initiative was submitted for review.", "The reviewer requested a broader scope.", "The level documentation was updated."],
       nextLevel: "Continue to the next level",
+      completed: "Initiative completed",
     },
   },
 };

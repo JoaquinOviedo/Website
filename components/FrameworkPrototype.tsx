@@ -30,12 +30,35 @@ export function FrameworkPrototype({ locale }: { locale: Locale }) {
   const [replacement, setReplacement] = useState("Secondary");
   const [initiativeStage, setInitiativeStage] = useState(2);
   const [openInitiativePanel, setOpenInitiativePanel] = useState(0);
+  const [prototypeDark, setPrototypeDark] = useState(false);
+  const [initiativeComplete, setInitiativeComplete] = useState(false);
+  const [saved, setSaved] = useState(false);
+  const [galleryPage, setGalleryPage] = useState(0);
+  const [iconColor, setIconColor] = useState("#ffffff");
+  const [iconBackground, setIconBackground] = useState("#0968d7");
 
   const filteredIcons = useMemo(
     () => frameworkIcons.filter(([name]) => name.includes(iconFilter.toLowerCase().trim())),
     [iconFilter],
   );
   const transformed = search ? source.split(search).join(replacement) : source;
+  const visiblePanels = t.initiative.panels.slice(0, Math.min(2 + (initiativeStage % 3), t.initiative.panels.length));
+  const approverCount = 1 + (initiativeStage % 3);
+  const galleryRows = t.galleryRows.slice(galleryPage * 2, galleryPage * 2 + 2);
+
+  function showSaved() {
+    setSaved(true);
+    window.setTimeout(() => setSaved(false), 2200);
+  }
+
+  function advanceInitiative() {
+    if (initiativeStage < t.initiative.stages.length - 1) {
+      setInitiativeStage((current) => current + 1);
+      setOpenInitiativePanel(0);
+    } else {
+      setInitiativeComplete(true);
+    }
+  }
 
   async function copyVariable(variable: string) {
     try {
@@ -47,7 +70,7 @@ export function FrameworkPrototype({ locale }: { locale: Locale }) {
   }
 
   return (
-    <div className="framework-window">
+    <div className={`framework-window ${prototypeDark ? "framework-dark" : ""}`}>
       <div className="framework-toolbar">
         <span aria-hidden="true" />
         <span aria-hidden="true" />
@@ -62,7 +85,7 @@ export function FrameworkPrototype({ locale }: { locale: Locale }) {
             <span aria-hidden="true">←</span> {t.back}
           </button>
         ) : <span />}
-        <span className="prototype-badge">POWER APPS · UX SYSTEM</span>
+        <div className="prototype-tools"><button type="button" aria-pressed={prototypeDark} onClick={() => setPrototypeDark((current) => !current)}><span aria-hidden="true">{prototypeDark ? "☀" : "☾"}</span>{prototypeDark ? t.lightMode : t.darkMode}</button><span className="prototype-badge">POWER APPS · UX SYSTEM</span></div>
       </div>
 
       {view === "home" && (
@@ -157,9 +180,10 @@ export function FrameworkPrototype({ locale }: { locale: Locale }) {
           </div>
           <aside className="icon-preview" aria-label={t.iconPreview}>
             <p>{t.iconPreview}</p>
-            <span aria-hidden="true">{selectedIcon[1]}</span>
+            <span aria-hidden="true" style={{ color: iconColor, background: iconBackground }}>{selectedIcon[1]}</span>
             <strong>{selectedIcon[0]}</strong>
-            <div><i /><i /><i /><i /></div>
+            <div className="icon-color-picker" aria-label={t.iconColors}>{frameworkPalette.slice(0, 8).map((color, index) => <button type="button" key={color.hex} aria-label={color.hex} style={{ background: color.hex }} onClick={() => index % 2 ? setIconColor(color.hex) : setIconBackground(color.hex)} />)}</div>
+            <small>{t.iconColorHelp}</small>
           </aside>
         </div>
       )}
@@ -193,7 +217,7 @@ export function FrameworkPrototype({ locale }: { locale: Locale }) {
               </div>
               <div className="initiative-workspace">
                 <div className="initiative-panels">
-                  {t.initiative.panels.map((panel, index) => {
+                  {visiblePanels.map((panel, index) => {
                     const expanded = openInitiativePanel === index;
                     return <section key={panel} className="initiative-panel">
                       <button type="button" aria-expanded={expanded} onClick={() => setOpenInitiativePanel(expanded ? -1 : index)}><span>{panel}</span><i aria-hidden="true">{expanded ? "−" : "+"}</i></button>
@@ -208,10 +232,9 @@ export function FrameworkPrototype({ locale }: { locale: Locale }) {
                 </div>
                 <aside className="initiative-approval">
                   <h5>{t.initiative.approvers}</h5>
-                  <div><span>✓</span><p><b>{t.review}</b><small>{t.initiative.approved}</small></p></div>
-                  <div><span>2</span><p><b>{t.approval}</b><small>{t.initiative.pendingApproval}</small></p></div>
+                  {Array.from({ length: approverCount }, (_, index) => <div key={index}><span>{index === 0 ? "✓" : index + 1}</span><p><b>{index === 0 ? t.review : t.approval} {index + 1}</b><small>{index === 0 ? t.initiative.approved : t.initiative.pendingApproval}</small></p></div>)}
                   <section><h6>◌ {t.initiative.history}</h6>{t.initiative.historyItems.map((item, index) => <p key={item}><b>{index + 1}</b>{item}</p>)}</section>
-                  <button type="button">{t.initiative.nextLevel} →</button>
+                  <button type="button" className={initiativeComplete ? "complete" : ""} onClick={advanceInitiative}>{initiativeComplete ? t.initiative.completed : `${t.initiative.nextLevel} →`}</button>
                 </aside>
               </div>
             </section>
@@ -227,15 +250,15 @@ export function FrameworkPrototype({ locale }: { locale: Locale }) {
                 <label>{t.fields[3]}<select defaultValue={t.priorityOptions[1]}>{t.priorityOptions.map((option) => <option key={option}>{option}</option>)}</select></label>
                 <aside><span /><p><b>{t.review}</b><small>{t.discovery}</small></p><span /><p><b>{t.approval}</b><small>{t.pending}</small></p></aside>
               </div>
-              <footer><button type="button">{t.cancel}</button><button type="button" className="primary">{t.save}</button></footer>
+              <footer><button type="button">{t.cancel}</button><button type="button" className="primary" onClick={showSaved}>{t.save}</button></footer>
             </section>
           )}
 
           {screen === "gallery" && (
             <section className="standard-screen gallery-screen" role="tabpanel">
               <header><div><span>{t.dataView}</span><h4>{t.galleryTitle}</h4><p>{t.galleryLead}</p></div><button type="button">{t.newItem}</button></header>
-              <div className="prototype-table-wrap"><table><thead><tr>{t.galleryColumns.map((column) => <th key={column}>{column}</th>)}</tr></thead><tbody>{t.galleryRows.map((row) => <tr key={row[0]}>{row.map((cell, index) => <td key={cell}>{index === 3 ? <span className="table-status">{cell}</span> : cell}</td>)}</tr>)}</tbody></table></div>
-              <nav className="table-pagination" aria-label="Pagination"><button type="button">←</button><button type="button" aria-current="page">1</button><button type="button">2</button><button type="button">→</button></nav>
+              <div className="prototype-table-wrap"><table><thead><tr>{t.galleryColumns.map((column) => <th key={column}>{column}</th>)}</tr></thead><tbody>{galleryRows.map((row) => <tr key={row[0]}>{row.map((cell, index) => <td key={cell}>{index === 3 ? <span className="table-status">{cell}</span> : cell}</td>)}</tr>)}</tbody></table></div>
+              <nav className="table-pagination" aria-label="Pagination"><button type="button" disabled={galleryPage === 0} onClick={() => setGalleryPage(0)}>←</button><button type="button" aria-current={galleryPage === 0 ? "page" : undefined} onClick={() => setGalleryPage(0)}>1</button><button type="button" aria-current={galleryPage === 1 ? "page" : undefined} onClick={() => setGalleryPage(1)}>2</button><button type="button" disabled={galleryPage === 1} onClick={() => setGalleryPage(1)}>→</button></nav>
             </section>
           )}
 
@@ -255,6 +278,7 @@ export function FrameworkPrototype({ locale }: { locale: Locale }) {
           )}
         </div>
       )}
+      {saved && <div className="prototype-toast" role="status">✓ {t.saved}</div>}
     </div>
   );
 }

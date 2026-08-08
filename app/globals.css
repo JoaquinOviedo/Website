@@ -22,6 +22,24 @@
   --paper: #17201e;
   --shadow: 0 24px 70px rgb(0 0 0 / 0.32);
 }
+:root[data-palette="fluent"] {
+  --bg: #f5f8fc; --surface: #e8f1fb; --ink: #17243a; --muted: #53657d;
+  --line: #c7d5e5; --accent: #0f6cbd; --deep: #084b83; --paper: #ffffff;
+  --shadow: 0 24px 70px rgb(15 108 189 / 0.14);
+}
+:root[data-palette="professional-blue"] {
+  --bg: #f1f4f8; --surface: #e2e8f0; --ink: #152033; --muted: #536176;
+  --line: #c5ceda; --accent: #2f6fed; --deep: #173b70; --paper: #fafcff;
+  --shadow: 0 24px 70px rgb(23 59 112 / 0.14);
+}
+:root[data-theme="dark"][data-palette="fluent"] {
+  --bg: #111923; --surface: #192534; --ink: #edf5ff; --muted: #a8bad0;
+  --line: #33465c; --accent: #56a8e8; --deep: #9bcdf4; --paper: #16212e;
+}
+:root[data-theme="dark"][data-palette="professional-blue"] {
+  --bg: #101722; --surface: #192230; --ink: #edf2fa; --muted: #aab6c8;
+  --line: #354255; --accent: #79a4ff; --deep: #aec8ff; --paper: #161f2c;
+}
 * {
   box-sizing: border-box;
 }
@@ -175,6 +193,13 @@ nav ul a:hover {
   font-size: 0.82rem;
   line-height: 1;
 }
+.palette-control { display: inline-flex; gap: 3px; padding: 4px; border: 1px solid var(--line); border-radius: 999px; background: color-mix(in srgb, var(--surface) 82%, transparent); }
+.palette-control button { display: grid; width: 23px; height: 23px; padding: 0; place-items: center; border: 0; border-radius: 50%; background: transparent; cursor: pointer; }
+.palette-control button span { width: 13px; height: 13px; border: 2px solid color-mix(in srgb, var(--ink) 22%, transparent); border-radius: 50%; background: #e75b3f; }
+.palette-control button.fluent span { background: #0f6cbd; }
+.palette-control button.professional-blue span { background: #2f6fed; }
+.palette-control button.active { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent); }
+.palette-control button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .section {
   width: min(1180px, calc(100% - 2rem));
   margin-inline: auto;
@@ -747,6 +772,18 @@ details > p {
   border-bottom: 1px solid #e4e7ed;
   background: #fbfcfe;
 }
+.prototype-tools { display: flex; align-items: center; gap: .55rem; }
+.prototype-tools > button { display: flex; align-items: center; gap: .35rem; padding: .35rem .55rem; border: 1px solid #b7c8dc; border-radius: 999px; background: #fff; color: #07539b; font-size: .58rem; font-weight: 800; cursor: pointer; }
+.framework-window { position: relative; }
+.framework-window :is(input, textarea, select):focus { border-color: #0f6cbd !important; outline: 0; box-shadow: 0 0 0 3px rgb(15 108 189 / .2); }
+.framework-window :focus-visible { outline: 2px solid #2899f5; outline-offset: 2px; }
+.framework-dark { color-scheme: dark; background: #111923; }
+.framework-dark :is(.prototype-header, .prototype-body, .framework-layout, .initiative-approval, .standard-screen, .replace-screen, .icon-preview, .color-token, .component-states input, .icon-grid button, .initiative-screen, .initiative-panel, .initiative-fields input, .initiative-fields textarea, .replace-editors textarea, .standard-form input, .standard-form select, .standard-form textarea) { background-color: #172333; color: #eaf3ff; border-color: #34485f; }
+.framework-dark :is(.prototype-section-head h4, .type-components h4, .standard-screen h4, .replace-screen h4, .initiative-heading h4, .initiative-approval h5, .initiative-approval h6, .icon-preview strong) { color: #9dcef5; }
+.framework-dark :is(.prototype-section-head p, .standard-screen header p, .replace-screen header p, .initiative-heading p, .type-components p b, .initiative-approval p, .initiative-approval p small) { color: #a9b9cb; }
+.framework-dark :is(.screen-tabs button, .initiative-stages, .initiative-panels, .gallery-screen th, .initiative-assessment span) { background: #111b28; color: #c7d6e7; }
+.framework-dark .screen-tabs button[aria-selected="true"], .framework-dark .initiative-panel > button { background: #203c58; color: #8ec9f5; }
+.framework-dark .prototype-tools > button { border-color: #48637f; background: #203047; color: #9dcef5; }
 .prototype-back {
   border: 0;
   background: transparent;
@@ -1011,6 +1048,9 @@ details > p {
 .icon-preview i:nth-child(2) { background: #8253ad; }
 .icon-preview i:nth-child(3) { background: #dc4c4c; }
 .icon-preview i:nth-child(4) { background: #30343a; }
+.icon-color-picker { display: grid !important; grid-template-columns: repeat(4, 22px); gap: .4rem !important; }
+.icon-color-picker button { width: 22px; height: 22px; padding: 0; border: 2px solid #fff; border-radius: 50%; box-shadow: 0 0 0 1px #aab4c0; cursor: pointer; }
+.icon-preview > small { margin-top: .6rem; color: #667085; font-size: .55rem; text-align: center; }
 .screen-tabs {
   display: flex;
   gap: 0.4rem;
@@ -1073,6 +1113,9 @@ details > p {
 .initiative-approval section p { display: flex; gap: .45rem; margin-bottom: .55rem; line-height: 1.35; }
 .initiative-approval section p b { display: grid; flex: 0 0 18px; height: 18px; place-items: center; border-radius: 50%; background: #eef4fc; color: #07539b; }
 .initiative-approval > button { width: 100%; padding: .65rem; border: 0; border-radius: 6px; background: #0968d7; color: #fff; font-size: .62rem; font-weight: 800; cursor: pointer; }
+.initiative-approval > button.complete { background: #087552; }
+.prototype-toast { position: absolute; z-index: 5; right: 1rem; bottom: 1rem; padding: .7rem 1rem; border-radius: 6px; background: #0a9b71; color: #fff; box-shadow: 0 10px 30px rgb(0 0 0 / .22); font-size: .68rem; font-weight: 800; animation: toast-in .2s ease-out; }
+@keyframes toast-in { from { opacity: 0; transform: translateY(8px); } }
 .standard-screen,
 .replace-screen {
   border: 1px solid #dfe4eb;
@@ -1146,6 +1189,7 @@ details > p {
 .table-pagination { display: flex; justify-content: center; gap: 0.35rem; padding: 0.8rem; }
 .table-pagination button { width: 30px; height: 30px; border: 1px solid #cbd2dc; border-radius: 50%; background: #fff; color: #07539b; }
 .table-pagination button[aria-current="page"] { border-color: #0968d7; background: #0968d7; color: #fff; }
+.table-pagination button:disabled { opacity: .38; cursor: not-allowed; }
 .replace-screen > header { display: block; }
 .replace-editors { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; padding: 1rem; }
 .replace-editors textarea { width: 100%; margin-top: 0.35rem; padding: 0.8rem; border: 1px solid #cbd2dc; border-radius: 7px; background: #f8fafc; color: #344054; font: 0.65rem/1.55 monospace; resize: vertical; }

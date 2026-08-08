@@ -38,7 +38,10 @@ test("the framework prototype stays bilingual, sanitized, and data-driven", asyn
   assert.match(component, /setGalleryPage/);
   assert.match(component, /prototypeDark/);
   assert.match(component, /role="status"/);
-  assert.match(component, /setIconBackground/);
+  assert.match(component, /setIconVariant/);
+  assert.match(component, /@fluentui\/react-icons/);
+  assert.match(component, /icon-pagination/);
+  assert.match(component, /iconVariants/);
   assert.match(prototype, /Historial y conversación/);
   assert.doesNotMatch(prototype, /YPF|Circo Studio/i);
 });

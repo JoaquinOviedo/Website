@@ -46,8 +46,12 @@ export const frameworkPrototypeCopy: Record<Locale, {
   activeStatus: string;
   iconSearch: string;
   iconPreview: string;
-  iconColors: string;
-  iconColorHelp: string;
+  iconVariants: string;
+  iconVariantNames: string[];
+  iconSize: string;
+  iconPagination: string;
+  small: string;
+  large: string;
   darkMode: string;
   lightMode: string;
   saved: string;
@@ -110,8 +114,12 @@ export const frameworkPrototypeCopy: Record<Locale, {
     activeStatus: "Estado · Activo",
     iconSearch: "Filtrar iconos",
     iconPreview: "Icono seleccionado",
-    iconColors: "Colores del icono",
-    iconColorHelp: "Los colores alternan entre fondo e icono.",
+    iconVariants: "Variante de color",
+    iconVariantNames: ["Azul sólido", "Azul suave", "Azul con contorno", "Rojo sólido", "Naranja sólido"],
+    iconSize: "Tamaño",
+    iconPagination: "Páginas de iconos",
+    small: "Pequeño",
+    large: "Grande",
     darkMode: "Modo oscuro",
     lightMode: "Modo claro",
     saved: "Cambios guardados correctamente",
@@ -186,8 +194,12 @@ export const frameworkPrototypeCopy: Record<Locale, {
     activeStatus: "Status · Active",
     iconSearch: "Filter icons",
     iconPreview: "Selected icon",
-    iconColors: "Icon colors",
-    iconColorHelp: "Colors alternate between background and icon.",
+    iconVariants: "Color variant",
+    iconVariantNames: ["Solid blue", "Soft blue", "Outlined blue", "Solid red", "Solid orange"],
+    iconSize: "Size",
+    iconPagination: "Icon pages",
+    small: "Small",
+    large: "Large",
     darkMode: "Dark mode",
     lightMode: "Light mode",
     saved: "Changes saved successfully",

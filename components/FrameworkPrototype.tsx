@@ -2,6 +2,14 @@
 
 import { useMemo, useState, type CSSProperties } from "react";
 import {
+  Add24Regular, Alert24Regular, ArrowLeft24Regular, ArrowRight24Regular,
+  Bookmark24Regular, Checkmark24Regular, Copy24Regular, DataBarVertical24Regular,
+  Dismiss24Regular, Edit24Regular, Folder24Regular, Globe24Regular,
+  Heart24Regular, Home24Regular, Info24Regular, Location24Regular,
+  LockClosed24Regular, Mail24Regular, MoreHorizontal24Regular, Person24Regular,
+  Search24Regular, Settings24Regular, Star24Regular, Warning24Regular,
+} from "@fluentui/react-icons";
+import {
   frameworkIcons,
   frameworkPalette,
   frameworkPrototypeCopy,
@@ -17,6 +25,25 @@ const codeExample = `Container:
 Button:
   Fill: _color.Brand.Primary
   Color: _color.Surface.Raised`;
+
+const fluentIconComponents = {
+  plus: Add24Regular, check: Checkmark24Regular, close: Dismiss24Regular,
+  search: Search24Regular, settings: Settings24Regular, person: Person24Regular,
+  home: Home24Regular, favorite: Heart24Regular, bookmark: Bookmark24Regular,
+  chart: DataBarVertical24Regular, notification: Alert24Regular, star: Star24Regular,
+  location: Location24Regular, globe: Globe24Regular, folder: Folder24Regular,
+  mail: Mail24Regular, copy: Copy24Regular, edit: Edit24Regular, info: Info24Regular,
+  warning: Warning24Regular, "arrow-right": ArrowRight24Regular,
+  "arrow-left": ArrowLeft24Regular, more: MoreHorizontal24Regular, lock: LockClosed24Regular,
+};
+
+const iconVariants = {
+  blue: { background: "#0968d7", color: "#ffffff", border: "2px solid #0968d7" },
+  soft: { background: "#edf6ff", color: "#0968d7", border: "2px solid #edf6ff" },
+  outline: { background: "#ffffff", color: "#0968d7", border: "2px solid #0968d7" },
+  red: { background: "#ef4d4d", color: "#ffffff", border: "2px solid #ef4d4d" },
+  orange: { background: "#ff850d", color: "#ffffff", border: "2px solid #ff850d" },
+} as const;
 
 export function FrameworkPrototype({ locale }: { locale: Locale }) {
   const t = frameworkPrototypeCopy[locale];
@@ -34,14 +61,18 @@ export function FrameworkPrototype({ locale }: { locale: Locale }) {
   const [initiativeComplete, setInitiativeComplete] = useState(false);
   const [saved, setSaved] = useState(false);
   const [galleryPage, setGalleryPage] = useState(0);
-  const [iconColor, setIconColor] = useState("#ffffff");
-  const [iconBackground, setIconBackground] = useState("#0968d7");
+  const [iconVariant, setIconVariant] = useState<keyof typeof iconVariants>("blue");
+  const [iconSize, setIconSize] = useState<"small" | "large">("large");
+  const [iconPage, setIconPage] = useState(0);
 
   const filteredIcons = useMemo(
     () => frameworkIcons.filter(([name]) => name.includes(iconFilter.toLowerCase().trim())),
     [iconFilter],
   );
   const transformed = search ? source.split(search).join(replacement) : source;
+  const iconPageSize = 12;
+  const iconPageCount = Math.max(1, Math.ceil(filteredIcons.length / iconPageSize));
+  const pagedIcons = filteredIcons.slice(iconPage * iconPageSize, (iconPage + 1) * iconPageSize);
   const visiblePanels = t.initiative.panels.slice(0, Math.min(2 + (initiativeStage % 3), t.initiative.panels.length));
   const approverCount = 1 + (initiativeStage % 3);
   const galleryRows = t.galleryRows.slice(galleryPage * 2, galleryPage * 2 + 2);
@@ -164,26 +195,32 @@ export function FrameworkPrototype({ locale }: { locale: Locale }) {
         <div className="prototype-body icon-lab">
           <div className="icon-gallery">
             <label htmlFor="icon-filter">{t.iconSearch}</label>
-            <input id="icon-filter" value={iconFilter} onChange={(event) => setIconFilter(event.target.value)} />
+            <input id="icon-filter" value={iconFilter} onChange={(event) => { setIconFilter(event.target.value); setIconPage(0); }} />
             <div className="icon-grid">
-              {filteredIcons.map((icon) => (
-                <button
+              {pagedIcons.map((icon) => {
+                const FluentIcon = fluentIconComponents[icon[0]];
+                return <button
                   type="button"
                   key={icon[0]}
                   className={selectedIcon[0] === icon[0] ? "selected" : ""}
                   aria-label={icon[0]}
                   aria-pressed={selectedIcon[0] === icon[0]}
                   onClick={() => setSelectedIcon(icon)}
-                >{icon[1]}</button>
-              ))}
+                ><FluentIcon aria-hidden="true" /></button>;
+              })}
             </div>
+            <nav className="icon-pagination" aria-label={t.iconPagination}>
+              <button type="button" disabled={iconPage === 0} onClick={() => setIconPage((page) => page - 1)}>←</button>
+              <span>{iconPage + 1} / {iconPageCount}</span>
+              <button type="button" disabled={iconPage >= iconPageCount - 1} onClick={() => setIconPage((page) => page + 1)}>→</button>
+            </nav>
           </div>
           <aside className="icon-preview" aria-label={t.iconPreview}>
             <p>{t.iconPreview}</p>
-            <span aria-hidden="true" style={{ color: iconColor, background: iconBackground }}>{selectedIcon[1]}</span>
+            <span aria-hidden="true" className={iconSize} style={iconVariants[iconVariant]}>{(() => { const SelectedIcon = fluentIconComponents[selectedIcon[0]]; return <SelectedIcon />; })()}</span>
             <strong>{selectedIcon[0]}</strong>
-            <div className="icon-color-picker" aria-label={t.iconColors}>{frameworkPalette.slice(0, 8).map((color, index) => <button type="button" key={color.hex} aria-label={color.hex} style={{ background: color.hex }} onClick={() => index % 2 ? setIconColor(color.hex) : setIconBackground(color.hex)} />)}</div>
-            <small>{t.iconColorHelp}</small>
+            <fieldset className="icon-variant-picker"><legend>{t.iconVariants}</legend><div>{(Object.keys(iconVariants) as (keyof typeof iconVariants)[]).map((variant, index) => <button type="button" key={variant} className={iconVariant === variant ? "selected" : ""} aria-label={t.iconVariantNames[index]} aria-pressed={iconVariant === variant} style={iconVariants[variant]} onClick={() => setIconVariant(variant)}><Heart24Regular aria-hidden="true" /></button>)}</div></fieldset>
+            <fieldset className="icon-size-picker"><legend>{t.iconSize}</legend><button type="button" aria-pressed={iconSize === "small"} onClick={() => setIconSize("small")}>{t.small}</button><button type="button" aria-pressed={iconSize === "large"} onClick={() => setIconSize("large")}>{t.large}</button></fieldset>
           </aside>
         </div>
       )}

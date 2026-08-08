@@ -77,6 +77,7 @@ export const copy = {
     about: "Sobre mí",
     aboutText:
       "Soy desarrollador de software con una base tradicional en desarrollo web y experiencia en el entorno low-code empresarial. Me interesa especialmente el backend, sin perder la visión completa del producto. Hoy combino decisiones técnicas con relevamiento, coordinación y acompañamiento de personas para crear soluciones sostenibles y fáciles de usar.",
+    principles: ["CONSTRUIR", "COMPRENDER", "HABILITAR"],
     education: "Educación",
     educationItems: [
       [
@@ -205,6 +206,7 @@ export const copy = {
     about: "About me",
     aboutText:
       "I am a software developer with a traditional web development foundation and experience in enterprise low-code environments. I am particularly interested in backend work without losing sight of the whole product. Today I combine technical decisions with discovery, coordination, and mentoring to build sustainable, usable solutions.",
+    principles: ["BUILD", "UNDERSTAND", "ENABLE"],
     education: "Education",
     educationItems: [
       [

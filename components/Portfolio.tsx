@@ -424,9 +424,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
           <div className="about-grid">
             <p className="about-lead">{t.aboutText}</p>
             <div className="principles">
-              <p>BUILD</p>
-              <p>UNDERSTAND</p>
-              <p>ENABLE</p>
+              {t.principles.map((principle) => <p key={principle}>{principle}</p>)}
             </div>
           </div>
         </section>

@@ -34,7 +34,7 @@ test("professional content keeps both locales and safe CV state", async () => {
   assert.match(copy, /Integro la IA en ese proceso/);
   assert.match(copy, /Power Platform, \.NET, React y TypeScript/);
   assert.match(copy, /Power Platform, \.NET, React, and TypeScript/);
-  assert.match(portfolio, /joaquin-oviedo-profile\.png/);
+  assert.match(portfolio, /joaquin-oviedo-profile\.webp/);
   assert.doesNotMatch(copy, /Me interesa especialmente el backend|particularly interested in backend work/);
 });
 
@@ -299,9 +299,10 @@ test("community highlights are bilingual and point to clean public evidence", as
 });
 
 test("public assets use the deployment-aware base path helper", async () => {
-  const [helper, portfolio, gallery, layout, manifest, workflow, exporter] = await Promise.all([
+  const [helper, portfolio, profile, gallery, layout, manifest, workflow, exporter] = await Promise.all([
     readFile("lib/basePath.ts", "utf8"),
     readHomepageSources(),
+    readFile("content/profile.ts", "utf8"),
     readFile("components/ProjectGallery.tsx", "utf8"),
     readFile("app/layout.tsx", "utf8"),
     readFile("app/manifest.ts", "utf8"),
@@ -314,8 +315,9 @@ test("public assets use the deployment-aware base path helper", async () => {
   assert.match(portfolio, /withBasePath\(project\.image\)/);
   assert.match(portfolio, /withBasePath\(profile\.cv\[locale\]!\)/);
   assert.match(gallery, /withBasePath\(slide\.src\)/);
-  assert.match(layout, /absoluteAsset\("\/images\/joaquin-oviedo\.png"\)/);
-  assert.match(manifest, /withBasePath\("\/images\/joaquin-oviedo\.png"\)/);
+  assert.match(profile, /photo: "\/images\/joaquin-oviedo-profile\.webp"/);
+  assert.match(layout, /absoluteAsset\("\/images\/joaquin-oviedo-icon\.png"\)/);
+  assert.match(manifest, /withBasePath\("\/images\/joaquin-oviedo-icon\.png"\)/);
   assert.match(workflow, /NEXT_PUBLIC_BASE_PATH: \/Website/g);
   assert.match(exporter, /path\.startsWith\(`\$\{basePath\}\/`\)/);
 });

@@ -34,6 +34,7 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: "Segoe UI", Inter, Arial, sans-serif;
+  font-size: 1rem;
   line-height: 1.6;
 }
 body::before {
@@ -224,7 +225,7 @@ nav ul a:hover {
   display: flex;
   align-items: center;
   gap: 0.7rem;
-  font-size: 0.73rem;
+  font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.13em;
   text-transform: uppercase;
@@ -1621,7 +1622,7 @@ details > p {
   align-items: center;
   margin-top: 0.8rem;
   color: var(--accent);
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   font-weight: 700;
   text-underline-offset: 0.24em;
 }
@@ -2211,5 +2212,86 @@ footer div {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* Balanced type scale: faster scanning without sacrificing supporting detail. */
+.button {
+  font-size: 0.9rem;
+}
+.social-links a,
+.text-link {
+  font-size: 0.88rem;
+}
+.section-heading h2 {
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+}
+.section-heading > p,
+.section-heading > div > p,
+.case-grid section > p:first-child {
+  font-size: 0.78rem;
+}
+.tags span,
+.tech-list li {
+  font-size: 0.78rem;
+}
+.project-copy h3 {
+  font-size: clamp(2.15rem, 3.8vw, 3.6rem);
+}
+.project-card:not(.project-wirin) .project-copy h3 {
+  font-size: clamp(1.95rem, 3vw, 2.8rem);
+}
+.project-copy > p {
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+.contact h2 {
+  font-size: clamp(2.75rem, 5vw, 4.8rem);
+}
+.case-nav a {
+  font-size: 0.88rem;
+}
+.case-hero h1 {
+  max-width: 820px;
+  font-size: clamp(2.75rem, 5.2vw, 4.9rem);
+  line-height: 1;
+}
+.case-repositories {
+  font-size: 0.86rem;
+}
+.case-grid h2 {
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+}
+.case-grid section > p:last-child,
+.case-grid li {
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: normal;
+}
+.case-ai-note strong {
+  font-size: 0.78rem;
+}
+.case-ai-note p,
+.case-evidence > header > p:last-child,
+.case-prototype > header > p:last-child {
+  font-size: 1rem;
+  line-height: 1.65;
+}
+.case-evidence h2,
+.case-prototype h2 {
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+}
+
+@media (max-width: 560px) {
+  .case-hero h1 {
+    font-size: clamp(2.45rem, 12vw, 3.35rem);
+  }
+  .case-grid section > p:last-child,
+  .case-grid li,
+  .case-ai-note p {
+    font-size: 0.98rem;
   }
 }

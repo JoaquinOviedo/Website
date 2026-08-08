@@ -1642,6 +1642,44 @@ details > p {
 .community-list a:hover {
   text-decoration-thickness: 2px;
 }
+.community-evidence {
+  max-width: 28rem;
+  margin-top: 0.8rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  background: color-mix(in srgb, var(--soft) 58%, transparent);
+}
+.community-evidence summary {
+  padding: 0.7rem 0.85rem;
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+.community-evidence[open] summary {
+  border-bottom: 1px solid var(--line);
+}
+.community-evidence figure {
+  margin: 0;
+  padding: 0.75rem;
+}
+.community-evidence figure > a {
+  display: block;
+  margin: 0;
+}
+.community-evidence img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.55rem;
+}
+.community-evidence figcaption {
+  margin-top: 0.65rem;
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
 .education-list h3 {
   font-size: 1.25rem;
   margin-bottom: 0.45rem;

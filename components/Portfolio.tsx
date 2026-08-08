@@ -246,7 +246,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
               <p>{t.communityLead}</p>
             </div>
             <div className="community-list">
-              {t.communityItems.map(([title, detail, href]) => (
+              {t.communityItems.map(([title, detail, href, media]) => (
                 <article key={title}>
                   <a
                     className="community-arrow"
@@ -260,6 +260,29 @@ export function Portfolio({ locale }: { locale: Locale }) {
                   <div>
                     <h4>{title}</h4>
                     <p>{detail}</p>
+                    {media ? (
+                      <details className="community-evidence">
+                        <summary>{media.label}</summary>
+                        <figure>
+                          <a
+                            href={withBasePath(media.src)}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={media.alt}
+                          >
+                            <img
+                              src={withBasePath(media.src)}
+                              alt={media.alt}
+                              width="790"
+                              height="1200"
+                              loading="lazy"
+                              decoding="async"
+                            />
+                          </a>
+                          <figcaption>{media.caption}</figcaption>
+                        </figure>
+                      </details>
+                    ) : null}
                     <a href={href} target="_blank" rel="noreferrer">
                       {t.communityLink}
                       <span aria-hidden="true"> ↗</span>

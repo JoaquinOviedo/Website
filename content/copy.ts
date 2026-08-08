@@ -124,6 +124,12 @@ export const copy = {
         "WIRIN en la 23.ª Jornada sobre la Biblioteca Digital Universitaria",
         "Presentación académica en equipo sobre accesibilidad bibliográfica y el aprendizaje de resolver una necesidad real en un equipo multidisciplinario · UNLaM · noviembre de 2025",
         "https://www.linkedin.com/posts/ceditunlam_egresados-del-diit-en-la-23-jbdu-ugcPost-7399482208429948928-Wj7P",
+        {
+          src: "/images/projects/wirin/presentation.webp",
+          label: "Ver foto de la presentación",
+          alt: "Joaquín Oviedo exponiendo WIRIN durante la 23.ª Jornada sobre la Biblioteca Digital Universitaria.",
+          caption: "Presentación pública de WIRIN y del trabajo colaborativo desarrollado por el equipo.",
+        },
       ],
       [
         "Charla en la Feria Educativa 2026",
@@ -285,6 +291,12 @@ export const copy = {
         "WIRIN at the 23rd University Digital Library Conference",
         "Team presentation on bibliographic accessibility and the lessons learned from addressing a real need within a multidisciplinary team · UNLaM · November 2025",
         "https://www.linkedin.com/posts/ceditunlam_egresados-del-diit-en-la-23-jbdu-ugcPost-7399482208429948928-Wj7P",
+        {
+          src: "/images/projects/wirin/presentation.webp",
+          label: "View presentation photo",
+          alt: "Joaquín Oviedo presenting WIRIN at the 23rd University Digital Library Conference.",
+          caption: "Public presentation of WIRIN and the collaborative work developed by the team.",
+        },
       ],
       [
         "Talk at the 2026 Education Fair",

@@ -264,11 +264,14 @@ export function Portfolio({ locale }: { locale: Locale }) {
             <h2 id="focus-title">{t.focus}</h2>
           </header>
           <div className="focus-grid">
-            {t.focusItems.map(([title, text], i) => (
+            {t.focusItems.map(([title, text, technologies], i) => (
               <article key={title}>
                 <span>0{i + 1}</span>
                 <h3>{title}</h3>
                 <p>{text}</p>
+                <ul className="focus-tech-list" aria-label={title}>
+                  {technologies.map((technology) => <li key={technology}>{technology}</li>)}
+                </ul>
               </article>
             ))}
           </div>
@@ -312,9 +315,10 @@ export function Portfolio({ locale }: { locale: Locale }) {
                   </div>
                   <h3>{project.title}</h3>
                   <p>{project.summary[locale]}</p>
+                  <p className="project-contribution"><strong>{t.contribution}:</strong> {project.role[locale]}</p>
                   <ul className="tech-list">
-                    {project.technologies.slice(0, 5).map((tech) => (
-                      <li key={tech}>{tech}</li>
+                    {project.technologies.slice(0, 6).map((tech, index) => (
+                      <li className={index < 2 ? "primary-tech" : undefined} key={tech}>{tech}</li>
                     ))}
                   </ul>
                   <div className="project-links">
@@ -394,10 +398,20 @@ export function Portfolio({ locale }: { locale: Locale }) {
               </ul>
             </div>
           </article>
-          <aside className="framework-showcase" aria-label={t.frameworkEyebrow}>
-            <FrameworkPrototype locale={locale} />
-            <p className="framework-caption">{t.frameworkCaption}</p>
-          </aside>
+          <details className="framework-disclosure">
+            <summary>
+              <span>
+                <small>{t.frameworkEyebrow}</small>
+                <strong>{t.frameworkTitle}</strong>
+                <i>{t.frameworkText}</i>
+              </span>
+              <b>{t.explorePrototype} <Icon name="arrow" /></b>
+            </summary>
+            <aside className="framework-showcase" aria-label={t.frameworkEyebrow}>
+              <FrameworkPrototype locale={locale} />
+              <p className="framework-caption">{t.frameworkCaption}</p>
+            </aside>
+          </details>
         </section>
 
         <section
@@ -459,7 +473,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
               <p>{t.communityLead}</p>
             </div>
             <div className="community-list">
-              {t.communityItems.map(([title, detail, href]) => (
+              {t.communityItems.slice(0, 3).map(([title, detail, href]) => (
                 <article key={title}>
                   <span aria-hidden="true">↗</span>
                   <div>

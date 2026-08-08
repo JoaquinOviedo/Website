@@ -126,6 +126,24 @@ test("case studies prioritize recruiter scanning and defer interactive depth", a
   assert.match(css, /width: min\(860px, 100%\)/);
 });
 
+test("homepage keeps recruiter evidence compact and moves depth into case studies", async () => {
+  const [portfolio, copy, css] = await Promise.all([
+    readFile("components/Portfolio.tsx", "utf8"),
+    readFile("content/copy.ts", "utf8"),
+    readFile("app/globals.css", "utf8"),
+  ]);
+
+  assert.match(portfolio, /className="project-contribution"/);
+  assert.match(portfolio, /index < 2 \? "primary-tech"/);
+  assert.match(portfolio, /<details className="framework-disclosure">/);
+  assert.match(portfolio, /communityItems\.slice\(0, 3\)/);
+  assert.match(copy, /\["Power Apps", "Power Automate", "SharePoint"\]/);
+  assert.match(copy, /\["Azure", "Git", "Azure DevOps", "PowerShell"\]/);
+  assert.match(css, /\.focus-tech-list/);
+  assert.match(css, /\.tech-list li\.primary-tech/);
+  assert.match(css, /\.project-visual \{[\s\S]*?min-height: 390px/);
+});
+
 test("all featured projects have localized recruiter-friendly case-study routes", async () => {
   const [content, sitemap, exporter] = await Promise.all([
     readFile("content/portfolio.ts", "utf8"),

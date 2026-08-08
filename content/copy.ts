@@ -24,14 +24,22 @@ export const copy = {
       [
         "Soluciones empresariales",
         "Power Apps, automatización y aplicaciones corporativas centradas en procesos reales.",
+        ["Power Apps", "Power Automate", "SharePoint"],
       ],
       [
-        "Backend y arquitectura",
-        "APIs con .NET, datos, integraciones y decisiones orientadas a la mantenibilidad.",
+        "Frontend",
+        "Interfaces web y extensiones empresariales con componentes tipados y mantenibles.",
+        ["React", "TypeScript", "Angular", "SPFx"],
       ],
       [
-        "Gestión y producto",
-        "Relevamiento, estimación, priorización, delegación y acompañamiento del equipo.",
+        "Backend y datos",
+        "APIs, persistencia e integraciones orientadas a resolver flujos completos.",
+        [".NET", "ASP.NET Core", "Node.js", "SQL"],
+      ],
+      [
+        "Plataforma y entrega",
+        "Herramientas para colaborar, automatizar y sostener la evolución de las soluciones.",
+        ["Azure", "Git", "Azure DevOps", "PowerShell"],
       ],
     ],
     projects: "Proyectos",
@@ -180,14 +188,22 @@ export const copy = {
       [
         "Enterprise solutions",
         "Power Apps, automation, and corporate applications grounded in real processes.",
+        ["Power Apps", "Power Automate", "SharePoint"],
       ],
       [
-        "Backend and architecture",
-        ".NET APIs, data, integrations, and maintainability-focused decisions.",
+        "Frontend",
+        "Web interfaces and enterprise extensions built with typed, maintainable components.",
+        ["React", "TypeScript", "Angular", "SPFx"],
       ],
       [
-        "Delivery and product",
-        "Discovery, estimation, prioritization, delegation, and team support.",
+        "Backend and data",
+        "APIs, persistence, and integrations designed around complete workflows.",
+        [".NET", "ASP.NET Core", "Node.js", "SQL"],
+      ],
+      [
+        "Platform and delivery",
+        "Tools for collaboration, automation, and sustainable solution delivery.",
+        ["Azure", "Git", "Azure DevOps", "PowerShell"],
       ],
     ],
     projects: "Projects",

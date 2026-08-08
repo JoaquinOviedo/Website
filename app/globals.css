@@ -1880,6 +1880,12 @@ footer div {
 .case-grid section:nth-child(3) {
   border-right: 0;
 }
+.case-grid.personal-project {
+  grid-template-columns: repeat(2, 1fr);
+}
+.case-grid.personal-project section:nth-child(2) {
+  border-right: 0;
+}
 .case-grid h2 {
   margin: .8rem 0 1rem;
   font-size: 1.4rem;

@@ -13,6 +13,10 @@ export function CaseStudy({ locale, slug }: { locale: Locale; slug: GallerySlug 
   const localizedPath = project.path[locale];
   const otherLocale = locale === "es" ? "en" : "es";
   const detailLabel = project.type === "academic" ? t.caseStudyLabel : t.projectDetailsLabel;
+  const hasContribution = project.type !== "personal";
+  const sectionNumbers = hasContribution
+    ? { outcome: "03", stack: "04", evidence: "05", prototype: "06" }
+    : { outcome: "02", stack: "03", evidence: "04", prototype: "05" };
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -73,25 +77,27 @@ export function CaseStudy({ locale, slug }: { locale: Locale; slug: GallerySlug 
             </div>
           )}
         </header>
-        <div className="case-grid">
+        <div className={`case-grid${hasContribution ? "" : " personal-project"}`}>
           <section>
             <p>01 /</p>
             <h2>{t.problem}</h2>
             <p>{project.problem[locale]}</p>
           </section>
+          {hasContribution && (
+            <section>
+              <p>02 /</p>
+              <h2>{t.contribution}</h2>
+              <p>{project.role[locale]}</p>
+            </section>
+          )}
           <section>
-            <p>02 /</p>
-            <h2>{t.contribution}</h2>
-            <p>{project.role[locale]}</p>
-          </section>
-          <section>
-            <p>03 /</p>
+            <p>{sectionNumbers.outcome} /</p>
             <h2>{t.outcome}</h2>
             <p>{project.learnings[locale]}</p>
           </section>
           <section className="wide case-stack">
             <div>
-              <p>04 /</p>
+              <p>{sectionNumbers.stack} /</p>
               <h2>{t.stackAndProcess}</h2>
             </div>
             <ul className="tech-list">
@@ -110,7 +116,7 @@ export function CaseStudy({ locale, slug }: { locale: Locale; slug: GallerySlug 
         </div>
         <section className="case-evidence" aria-labelledby="case-evidence-title">
           <header>
-            <p>05 /</p>
+            <p>{sectionNumbers.evidence} /</p>
             <h2 id="case-evidence-title">{t.evidence}</h2>
           </header>
           <ProjectGallery slug={slug} locale={locale} />
@@ -118,7 +124,7 @@ export function CaseStudy({ locale, slug }: { locale: Locale; slug: GallerySlug 
         <section className="case-prototype" aria-labelledby="case-prototype-title">
           <header>
             <div>
-              <p>06 /</p>
+              <p>{sectionNumbers.prototype} /</p>
               <h2 id="case-prototype-title">{t.prototypeTitle}</h2>
             </div>
             <p>{t.prototypeLead}</p>

@@ -50,7 +50,9 @@ export function ProjectsSection({ locale }: { locale: Locale }) {
                 <h3 className={project.logo ? "sr-only" : undefined}>{project.title}</h3>
               </div>
               <p>{project.summary[locale]}</p>
-              <p className="project-contribution"><strong>{t.contribution}:</strong> {project.role[locale]}</p>
+              {project.type !== "personal" && (
+                <p className="project-contribution"><strong>{t.contribution}:</strong> {project.role[locale]}</p>
+              )}
               <ul className="tech-list">
                 {project.technologies.slice(0, 6).map((technology, index) => (
                   <li className={index < 2 ? "primary-tech" : undefined} key={technology}>{technology}</li>

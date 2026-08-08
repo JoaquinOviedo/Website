@@ -155,6 +155,9 @@ test("case studies prioritize recruiter scanning and defer interactive depth", a
   assert.doesNotMatch(caseStudy, /\{t\.solution\}|\{t\.technical\}/);
   assert.match(caseStudy, /\{t\.problem\}/);
   assert.match(caseStudy, /\{t\.contribution\}/);
+  assert.match(caseStudy, /hasContribution/);
+  assert.match(caseStudy, /personal-project/);
+  assert.match(caseStudy, /outcome: "02", stack: "03", evidence: "04", prototype: "05"/);
   assert.match(caseStudy, /\{t\.outcome\}/);
   assert.match(caseStudy, /\{t\.stackAndProcess\}/);
   assert.match(caseStudy, /<details className="prototype-disclosure">/);
@@ -172,6 +175,7 @@ test("homepage keeps recruiter evidence compact and moves depth into case studie
     readFile("app/globals.css", "utf8"),
   ]);
 
+  assert.match(portfolio, /project\.type !== "personal"/);
   assert.match(portfolio, /className="project-contribution"/);
   assert.match(portfolio, /className="project-logo"/);
   assert.match(portfolio, /className=\{project\.logo \? "sr-only" : undefined\}/);

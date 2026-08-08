@@ -33,9 +33,15 @@ test("the framework prototype stays bilingual, sanitized, and data-driven", asyn
 });
 
 test("theme selection uses accessible icon buttons and preserves system mode", async () => {
-  const source = await readFile(new URL("../components/Portfolio.tsx", import.meta.url), "utf8");
+  const [source, layout] = await Promise.all([
+    readFile(new URL("../components/Portfolio.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
+  ]);
+  assert.match(source, /DEFAULT_THEME: Theme = "system"/);
   assert.match(source, /\["light", "system", "dark"\]/);
   assert.match(source, /aria-pressed/);
+  assert.match(layout, /prefers-color-scheme: dark/);
+  assert.match(layout, /\?s:'system'/);
   assert.doesNotMatch(source, /<select[\s\S]*?applyTheme/);
 });
 

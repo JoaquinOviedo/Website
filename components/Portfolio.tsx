@@ -12,10 +12,14 @@ import { copy } from "@/content/copy";
 import { profile, projects, type Locale } from "@/content/portfolio";
 
 type Theme = "system" | "light" | "dark";
+const DEFAULT_THEME: Theme = "system";
 
 function getThemePreference(): Theme {
-  if (typeof window === "undefined") return "system";
-  return (localStorage.getItem("theme") as Theme | null) ?? "system";
+  if (typeof window === "undefined") return DEFAULT_THEME;
+  const storedTheme = localStorage.getItem("theme");
+  return storedTheme === "light" || storedTheme === "dark" || storedTheme === "system"
+    ? storedTheme
+    : DEFAULT_THEME;
 }
 
 function subscribeThemePreference(onChange: () => void) {
@@ -38,7 +42,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
   const theme = useSyncExternalStore(
     subscribeThemePreference,
     getThemePreference,
-    () => "system",
+    () => DEFAULT_THEME,
   );
   const [copied, setCopied] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});

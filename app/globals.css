@@ -2639,13 +2639,8 @@ footer a {
   background: var(--accent);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent);
 }
-.timeline .tech-list li.primary-tech {
-  border-color: color-mix(in srgb, var(--accent) 72%, var(--line));
-  background: color-mix(in srgb, var(--accent) 8%, var(--surface));
-  color: var(--accent);
-}
 .timeline .tech-list li[data-tech] {
-  transition: color var(--transition), border-color var(--transition), background var(--transition);
+  transition: border-color var(--transition);
 }
 .timeline .tech-list li[data-tech="power-apps"] { --tech-accent: #8b4b9f; }
 .timeline .tech-list li[data-tech="power-automate"] { --tech-accent: #1672ec; }
@@ -2655,12 +2650,6 @@ footer a {
 .timeline .tech-list li[data-tech="powershell"] { --tech-accent: #3978bd; }
 .timeline .tech-list li[data-tech]:hover {
   border-color: var(--tech-accent);
-  background: color-mix(in srgb, var(--tech-accent) 10%, var(--surface));
-  color: var(--tech-accent);
-}
-.timeline .tech-list li[data-tech]:hover::before {
-  background: var(--tech-accent);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--tech-accent) 15%, transparent);
 }
 .contributions {
   margin: 1.4rem 0;

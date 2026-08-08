@@ -242,6 +242,9 @@ test("homepage keeps recruiter evidence compact and moves depth into case studie
   assert.match(css, /\.tech-list li\.primary-tech/);
   assert.match(css, /data-tech="power-apps"/);
   assert.match(css, /--tech-accent: #8b4b9f/);
+  assert.match(css, /\.timeline \.tech-list li\[data-tech\]:hover \{\s*border-color: var\(--tech-accent\);\s*\}/);
+  assert.doesNotMatch(css, /\.timeline \.tech-list li\[data-tech\]:hover \{[^}]*background:/);
+  assert.doesNotMatch(css, /\.timeline \.tech-list li\[data-tech\]:hover::before/);
   assert.match(css, /\.visual-finanzas-personales \{[\s\S]*?#18283d/);
   assert.match(css, /\.task-card-head/);
   assert.doesNotMatch(css, /\.task-card[^\n]*#ff6d70/);

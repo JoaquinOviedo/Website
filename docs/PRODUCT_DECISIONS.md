@@ -31,6 +31,7 @@ These decisions capture the current direction so future changes do not gradually
 - A complete project wordmark may replace the visible project heading, but the semantic heading must remain for accessibility and SEO. When a transparent wordmark contains dark text, provide a dedicated dark-theme asset instead of placing it on a permanent light box or applying a filter that distorts brand colors.
 
 - The professional blue palette is the single global accent system.
+- Typography favors recruiter scanning over display-scale impact: keep body copy near 16-17 px, use a restrained hero title, and keep section headings clearly subordinate to it. Reduce excessive vertical rhythm before shrinking readable supporting text.
 - Technology labels use the portfolio system rather than a wall of official brand colors. The two primary technologies per project receive additional emphasis.
 - Motion is subtle and disabled when reduced motion is requested.
 - The custom cursor is progressive enhancement for fine pointers only; it must never hide the native cursor on touch or reduced-motion devices.

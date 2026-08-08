@@ -9,7 +9,7 @@
   --paper: #fafcff;
   --shadow: 0 24px 70px rgb(23 59 112 / 0.14);
   --radius: 3px;
-  --space: clamp(3.5rem, 6.5vw, 6.5rem);
+  --space: clamp(3rem, 5.5vw, 5.5rem);
 }
 :root[data-theme="dark"] {
   --bg: #101722;
@@ -261,7 +261,7 @@ h3 {
 }
 h1 {
   max-width: 760px;
-  font-size: clamp(2.75rem, 4.6vw, 4.6rem);
+  font-size: clamp(2.4rem, 4vw, 4rem);
   margin: 0.7rem 0 1.5rem;
   font-weight: 760;
 }
@@ -390,7 +390,7 @@ h1 {
   display: flex;
   gap: 1rem;
   align-items: baseline;
-  margin-bottom: 3rem;
+  margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
 }
 .section-heading > p,
 .section-heading > div > p,
@@ -399,7 +399,7 @@ h1 {
   color: var(--accent);
 }
 .section-heading h2 {
-  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  font-size: clamp(1.9rem, 3.3vw, 3.15rem);
   margin: 0;
 }
 .section-heading.split {
@@ -2619,7 +2619,7 @@ footer a {
   border-left: 1px solid var(--line);
 }
 .about.section {
-  padding-block: clamp(3.25rem, 5vw, 5rem);
+  padding-block: clamp(2.75rem, 4.2vw, 4.25rem);
 }
 .about .section-heading {
   margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
@@ -2638,7 +2638,7 @@ footer a {
   }
 }
 .contact.section {
-  padding-block: clamp(3.5rem, 5vw, 5rem);
+  padding-block: clamp(3rem, 4.2vw, 4.25rem);
 }
 .contact {
   gap: clamp(2.5rem, 5vw, 5rem);
@@ -2687,7 +2687,7 @@ footer a {
   font-size: 0.88rem;
 }
 .section-heading h2 {
-  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  font-size: clamp(1.9rem, 3.3vw, 3.15rem);
 }
 .section-heading > p,
 .section-heading > div > p,
@@ -2709,7 +2709,7 @@ footer a {
   line-height: 1.65;
 }
 .contact h2 {
-  font-size: clamp(2.75rem, 5vw, 4.8rem);
+  font-size: clamp(2.35rem, 4.2vw, 4rem);
 }
 .case-nav a {
   font-size: 0.88rem;
@@ -2749,6 +2749,9 @@ footer a {
 }
 
 @media (max-width: 560px) {
+  .hero {
+    padding-top: 2.75rem;
+  }
   .case-hero h1 {
     font-size: clamp(2.45rem, 12vw, 3.35rem);
   }

@@ -20,6 +20,9 @@ These decisions capture the current direction so future changes do not gradually
 
 ## Visual language
 
+- Theme preference is global: the portfolio and every localized case study share the persisted light, system, or dark selection. Case-study navigation must retain an accessible theme control.
+- Contact controls use moderately rounded fields and actions to match the compact header controls without turning the interface into oversized pills.
+
 - The professional blue palette is the single global accent system.
 - Technology labels use the portfolio system rather than a wall of official brand colors. The two primary technologies per project receive additional emphasis.
 - Motion is subtle and disabled when reduced motion is requested.

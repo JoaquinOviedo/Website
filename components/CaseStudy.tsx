@@ -2,6 +2,7 @@ import { copy } from "@/content/copy";
 import { profile, projects, type Locale } from "@/content/portfolio";
 import { ProjectGallery, type GallerySlug } from "@/components/ProjectGallery";
 import { ProjectPrototype } from "@/components/ProjectPrototype";
+import { ThemeControl } from "@/components/ThemeControl";
 import { withBasePath } from "@/lib/basePath";
 
 export function CaseStudy({ locale, slug }: { locale: Locale; slug: GallerySlug }) {
@@ -31,6 +32,7 @@ export function CaseStudy({ locale, slug }: { locale: Locale; slug: GallerySlug 
       <nav className="case-nav">
         <a href={withBasePath(`/${locale}`)}>{profile.name}</a>
         <div>
+          <ThemeControl locale={locale} compact />
           <a href={withBasePath(project.path[otherLocale])} hrefLang={otherLocale}>{otherLocale.toUpperCase()}</a>
           <a href={`${withBasePath(`/${locale}`)}#proyectos`}>← {t.back}</a>
         </div>

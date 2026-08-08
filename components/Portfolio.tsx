@@ -3,7 +3,6 @@
 import {
   useEffect,
   useState,
-  useSyncExternalStore,
   type FormEvent,
   type MouseEvent,
 } from "react";
@@ -13,6 +12,7 @@ import { ExperienceSection } from "@/components/portfolio/ExperienceSection";
 import { FocusSection } from "@/components/portfolio/FocusSection";
 import { Icon } from "@/components/portfolio/Icon";
 import { ProjectsSection } from "@/components/portfolio/ProjectsSection";
+import { ThemeControl } from "@/components/ThemeControl";
 import { copy } from "@/content/copy";
 import {
   getPublicEmail,
@@ -22,34 +22,9 @@ import {
 import { withBasePath } from "@/lib/basePath";
 import { deliverContactMessage } from "@/lib/contactDelivery";
 
-type Theme = "system" | "light" | "dark";
-const DEFAULT_THEME: Theme = "system";
-
-function getThemePreference(): Theme {
-  if (typeof window === "undefined") return DEFAULT_THEME;
-  const storedTheme = localStorage.getItem("theme");
-  return storedTheme === "light" || storedTheme === "dark" || storedTheme === "system"
-    ? storedTheme
-    : DEFAULT_THEME;
-}
-
-function subscribeThemePreference(onChange: () => void) {
-  window.addEventListener("storage", onChange);
-  window.addEventListener("portfolio-theme", onChange);
-  return () => {
-    window.removeEventListener("storage", onChange);
-    window.removeEventListener("portfolio-theme", onChange);
-  };
-}
-
 export function Portfolio({ locale }: { locale: Locale }) {
   const t = copy[locale];
   const otherLocale = locale === "es" ? "en" : "es";
-  const theme = useSyncExternalStore(
-    subscribeThemePreference,
-    getThemePreference,
-    () => DEFAULT_THEME,
-  );
   const [copied, setCopied] = useState(false);
   const [emailRevealed, setEmailRevealed] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -61,23 +36,6 @@ export function Portfolio({ locale }: { locale: Locale }) {
     document.documentElement.lang = locale;
     localStorage.setItem("locale", locale);
   }, [locale]);
-
-  useEffect(() => {
-    const media = matchMedia("(prefers-color-scheme: dark)");
-    const updateDocumentTheme = () => {
-      const dark = theme === "dark" || (theme === "system" && media.matches);
-      document.documentElement.dataset.theme = dark ? "dark" : "light";
-      document.documentElement.style.colorScheme = dark ? "dark" : "light";
-    };
-    updateDocumentTheme();
-    if (theme === "system") media.addEventListener("change", updateDocumentTheme);
-    return () => media.removeEventListener("change", updateDocumentTheme);
-  }, [theme]);
-
-  function applyTheme(next: Theme) {
-    localStorage.setItem("theme", next);
-    window.dispatchEvent(new Event("portfolio-theme"));
-  }
 
   function switchLanguage(event: MouseEvent<HTMLAnchorElement>) {
     event.preventDefault();
@@ -180,25 +138,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
           >
             {otherLocale.toUpperCase()}
           </a>
-          <div className="theme-control" role="group" aria-label={t.theme} suppressHydrationWarning>
-            {(["light", "system", "dark"] as Theme[]).map((option) => {
-              const copyIndex = { system: 0, light: 1, dark: 2 }[option];
-              const icon = { light: "☀", system: "◐", dark: "☾" }[option];
-              return (
-                <button
-                  key={option}
-                  type="button"
-                  className={theme === option ? "active" : ""}
-                  aria-label={t.themes[copyIndex]}
-                  aria-pressed={theme === option}
-                  title={t.themes[copyIndex]}
-                  onClick={() => applyTheme(option)}
-                >
-                  <span aria-hidden="true">{icon}</span>
-                </button>
-              );
-            })}
-          </div>
+          <ThemeControl locale={locale} />
         </div>
       </header>
 

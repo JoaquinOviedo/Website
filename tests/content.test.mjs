@@ -78,8 +78,10 @@ test("the framework prototype stays bilingual, sanitized, and data-driven", asyn
 });
 
 test("theme selection uses accessible icon buttons and preserves system mode", async () => {
-  const [source, layout] = await Promise.all([
+  const [source, portfolio, caseStudy, layout] = await Promise.all([
+    readFile(new URL("../components/ThemeControl.tsx", import.meta.url), "utf8"),
     readFile(new URL("../components/Portfolio.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../components/CaseStudy.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
   ]);
   assert.match(source, /DEFAULT_THEME: Theme = "system"/);
@@ -87,6 +89,8 @@ test("theme selection uses accessible icon buttons and preserves system mode", a
   assert.match(source, /aria-pressed/);
   assert.match(layout, /prefers-color-scheme: dark/);
   assert.match(layout, /\?s:'system'/);
+  assert.match(portfolio, /<ThemeControl locale=\{locale\}/);
+  assert.match(caseStudy, /<ThemeControl locale=\{locale\} compact/);
   assert.doesNotMatch(source, /<select[\s\S]*?applyTheme/);
   assert.doesNotMatch(source, /portfolio-palette|palette-control/);
   assert.doesNotMatch(layout, /dataset\.palette/);

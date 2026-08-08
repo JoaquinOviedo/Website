@@ -259,6 +259,10 @@ h1 {
   margin: 0.7rem 0 1.5rem;
   font-weight: 760;
 }
+.theme-control.compact button {
+  width: 26px;
+  height: 26px;
+}
 .hero-lead {
   max-width: 660px;
   color: var(--muted);
@@ -1727,7 +1731,25 @@ details > p {
   border: 1px solid var(--line);
   background: var(--paper);
   padding: 0.8rem;
-  border-radius: 0;
+  border-radius: .65rem;
+}
+.contact .button {
+  border-radius: .65rem;
+}
+.contact .reveal-email-button,
+.contact .copy-button {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  padding: .6rem .8rem;
+  border: 1px solid var(--line);
+  border-radius: .65rem;
+  background: color-mix(in srgb, var(--surface) 72%, transparent);
+  text-decoration: none;
+}
+.contact .reveal-email-button:hover,
+.contact .copy-button:hover {
+  border-color: var(--accent);
 }
 .field textarea {
   resize: vertical;

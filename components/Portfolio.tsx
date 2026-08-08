@@ -271,7 +271,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
             .map((project) => (
               <article className={`project-card project-${project.slug}`} key={project.slug}>
                 <div className={`project-visual visual-${project.slug}`}>
-                  {project.slug === "wirin" || project.slug === "finanzas-personales" ? (
+                  {project.slug === "wirin" || project.slug === "finanzas-personales" || project.slug === "mi-carrera-tech" ? (
                     <ProjectGallery slug={project.slug} locale={locale} />
                   ) : (
                     <ProjectPrototype slug={project.slug} locale={locale} />

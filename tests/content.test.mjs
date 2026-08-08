@@ -96,5 +96,8 @@ test("WIRIN and finance use accessible sanitized image galleries", async () => {
   assert.match(gallery, /Conceptual example prototype/);
   assert.match(gallery, /<ProjectPrototype slug=\{slug\}/);
   assert.match(gallery, /slides\.length \+ 1/);
+  assert.match(gallery, /career\/dashboard-sanitized\.webp/);
+  assert.match(gallery, /wirin\/bibliographies-sanitized\.webp/);
+  assert.match(gallery, /finance\/history-sanitized\.webp/);
   assert.doesNotMatch(gallery, /autoplay|setInterval/);
 });

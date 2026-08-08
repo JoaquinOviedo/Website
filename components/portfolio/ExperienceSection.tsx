@@ -1,7 +1,6 @@
 import { FrameworkPrototype } from "@/components/FrameworkPrototype";
 import { copy } from "@/content/copy";
 import type { Locale } from "@/content/portfolio";
-import { Icon } from "./Icon";
 
 export function ExperienceSection({ locale }: { locale: Locale }) {
   const t = copy[locale];
@@ -41,7 +40,10 @@ export function ExperienceSection({ locale }: { locale: Locale }) {
             <strong>{t.frameworkTitle}</strong>
             <i>{t.frameworkText}</i>
           </span>
-          <b>{t.explorePrototype} <Icon name="arrow" /></b>
+          <b>
+            {t.explorePrototype}
+            <span className="disclosure-chevron" aria-hidden="true" />
+          </b>
         </summary>
         <aside className="framework-showcase" aria-label={t.frameworkEyebrow}>
           <FrameworkPrototype locale={locale} />

@@ -200,6 +200,8 @@ test("homepage keeps recruiter evidence compact and moves depth into case studie
   assert.match(portfolio, /index === 0 \? "about-intro"/);
   assert.match(portfolio, /index < 2 \? "primary-tech"/);
   assert.match(portfolio, /<details className="framework-disclosure">/);
+  assert.match(portfolio, /className="disclosure-chevron"/);
+  assert.doesNotMatch(portfolio, /t\.explorePrototype\} <Icon name="arrow"/);
   assert.doesNotMatch(portfolio, /experience-details|detailsText/);
   assert.match(portfolio, /communityItems\.map/);
   assert.doesNotMatch(portfolio, /communityItems\.slice/);

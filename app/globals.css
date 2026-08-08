@@ -2621,6 +2621,9 @@ footer a {
   color: var(--accent);
   font-size: .82rem;
 }
+.framework-disclosure[open] > summary .disclosure-chevron {
+  transform: translateY(2px) rotate(225deg);
+}
 .framework-disclosure .framework-showcase {
   margin: 0;
   padding: 0 1.5rem 1.5rem;

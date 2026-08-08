@@ -10,11 +10,13 @@ import {
 import { FrameworkPrototype } from "@/components/FrameworkPrototype";
 import { CustomCursor } from "@/components/CustomCursor";
 import { LocalContext } from "@/components/LocalContext";
+import { FocusSection } from "@/components/portfolio/FocusSection";
+import { Icon } from "@/components/portfolio/Icon";
+import { ProjectsSection } from "@/components/portfolio/ProjectsSection";
 import { copy } from "@/content/copy";
 import {
   getPublicEmail,
   profile,
-  projects,
   type Locale,
 } from "@/content/portfolio";
 import { withBasePath } from "@/lib/basePath";
@@ -37,11 +39,6 @@ function subscribeThemePreference(onChange: () => void) {
     window.removeEventListener("storage", onChange);
     window.removeEventListener("portfolio-theme", onChange);
   };
-}
-
-function Icon({ name }: { name: "arrow" | "external" | "copy" | "mail" }) {
-  const glyph = { arrow: "→", external: "↗", copy: "⎘", mail: "@" }[name];
-  return <span aria-hidden="true">{glyph}</span>;
 }
 
 export function Portfolio({ locale }: { locale: Locale }) {
@@ -258,98 +255,9 @@ export function Portfolio({ locale }: { locale: Locale }) {
           </div>
         </section>
 
-        <section className="focus section" aria-labelledby="focus-title">
-          <header className="section-heading">
-            <p>01 /</p>
-            <h2 id="focus-title">{t.focus}</h2>
-          </header>
-          <div className="focus-grid">
-            {t.focusItems.map(([title, text, technologies], i) => (
-              <article key={title}>
-                <span>0{i + 1}</span>
-                <h3>{title}</h3>
-                <p>{text}</p>
-                <ul className="focus-tech-list" aria-label={title}>
-                  {technologies.map((technology) => <li key={technology}>{technology}</li>)}
-                </ul>
-              </article>
-            ))}
-          </div>
-        </section>
+        <FocusSection locale={locale} />
 
-        <section
-          className="projects section"
-          id="proyectos"
-          aria-labelledby="projects-title"
-        >
-          <header className="section-heading split">
-            <div>
-              <p>02 /</p>
-              <h2 id="projects-title">{t.projects}</h2>
-            </div>
-            <p>{t.projectsLead}</p>
-          </header>
-          {projects
-            .filter((p) => p.featured)
-            .map((project) => {
-              const projectPath = withBasePath(project.path[locale]);
-              return (
-              <article className={`project-card project-${project.slug}`} key={project.slug}>
-                <div className={`project-visual visual-${project.slug}`}>
-                  <a className="project-preview" href={projectPath} aria-label={`${t.caseStudy}: ${project.title}`}>
-                    <span>{t.previewCase}</span>
-                    <div className="project-preview-window">
-                      <i aria-hidden="true"><b /><b /><b /></i>
-                      {project.image && (
-                        <img src={withBasePath(project.image)} alt="" width="1792" height="1024" loading="lazy" decoding="async" />
-                      )}
-                    </div>
-                    <strong>{t.caseStudy} <Icon name="arrow" /></strong>
-                  </a>
-                </div>
-                <div className="project-copy">
-                  <div className="tags">
-                    <span>{project.status[locale]}</span>
-                    <span>{project.year}</span>
-                    {project.aiAssisted && <span className="ai-tag">{t.ai}</span>}
-                  </div>
-                  <h3>{project.title}</h3>
-                  <p>{project.summary[locale]}</p>
-                  <p className="project-contribution"><strong>{t.contribution}:</strong> {project.role[locale]}</p>
-                  <ul className="tech-list">
-                    {project.technologies.slice(0, 6).map((tech, index) => (
-                      <li className={index < 2 ? "primary-tech" : undefined} key={tech}>{tech}</li>
-                    ))}
-                  </ul>
-                  <div className="project-links">
-                    {project.caseStudy ? (
-                      <a
-                        className="text-link"
-                        href={projectPath}
-                      >
-                        {t.caseStudy} <Icon name="arrow" />
-                      </a>
-                    ) : project.repositories?.[0] ? (
-                      <a className="text-link" href={project.repositories[0].url} target="_blank" rel="noreferrer">
-                        {t.sourceCode} <Icon name="external" />
-                      </a>
-                    ) : null}
-                    {project.demo && (
-                      <a
-                        className="text-link muted"
-                        href={project.demo}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        {t.demo} <Icon name="external" />
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </article>
-              );
-            })}
-        </section>
+        <ProjectsSection locale={locale} />
 
         <section
           className="experience section"

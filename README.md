@@ -27,24 +27,31 @@ Open the local URL shown in the terminal. Main routes are `/es`, `/en`, `/es/pro
 
 - `app/` contains routes and search/social metadata.
 - `components/` contains reusable UI and interaction logic.
-- `content/portfolio.ts` contains typed professional data, projects, links, CV paths, and private development TODOs.
+- `content/profile.ts` contains public profile data, links, CV paths, and contact configuration.
+- `content/projects/` contains one typed record per project and its ordered registry.
+- `content/projectMedia.ts` contains sanitized gallery evidence and bilingual descriptions.
+- `content/pending.ts` contains private development reminders that are never rendered.
+- `content/portfolio.ts` is a compatibility barrel for existing imports.
 - `content/copy.ts` contains all visible Spanish and English strings.
 - `content/frameworkPrototype.ts` contains the sanitized, bilingual data used by the interactive Power Apps design-system prototype.
 - `public/` contains the real portrait, social card, and CV assets.
 - `AGENTS.md` protects the product goal during future automated changes.
 - `docs/CONTENT_GUIDE.md` explains safe content maintenance.
+- `docs/ARCHITECTURE.md` maps dependencies, folder ownership, and known hotspots.
+- `docs/ADDING_PROJECTS.md` is the end-to-end project onboarding checklist and template.
+- `docs/PRODUCT_DECISIONS.md` records the recruiter-first UX and privacy decisions to preserve.
 
 ## Editing content
 
-Edit facts only in `content/portfolio.ts` and translations in `content/copy.ts`. Every visible addition must have natural Spanish and English versions. Incomplete professional data stays out of production and is recorded in `pendingContent` or the maintenance guide.
+Edit facts in their focused files under `content/` and translations in `content/copy.ts`. Every visible addition must have natural Spanish and English versions. Incomplete professional data stays out of production and is recorded in `content/pending.ts` or the maintenance guide.
 
-Projects are typed and data-driven. Add a `Project` object with title, summary, problem, personal role, features, technologies, optional image/demo/repository, status, year, learning, type, and optional AI-assistance disclosure. Components do not need modification.
+Projects are typed and data-driven. Follow `docs/ADDING_PROJECTS.md`: create one record under `content/projects/`, register it in `content/projects/index.ts`, add sanitized media to `content/projectMedia.ts`, and create paired localized routes when it has a case study. The landing-page component does not need modification.
 
 The interactive design-system showcase lives in `components/FrameworkPrototype.tsx`. Edit its labels, fictional table rows, color tokens, and icon catalog through `content/frameworkPrototype.ts`. Keep it conceptual: never paste internal application names, screenshots, real records, user identities, or proprietary code into the public prototype.
 
 ## CVs
 
-The current Spanish and English PDFs live under `public/cv/` at stable URLs. Editable Harvard-style sources live under `documents/cv/`. Rebuild them with `scripts/build_cvs.py` and `scripts/build_cv_pdfs.py`, then update `profile.cvUpdated`. If a language is unavailable, keep its value `null` so the UI never produces a broken download.
+The current Spanish and English PDFs live under `public/cv/` at stable URLs. Editable Harvard-style sources live under `documents/cv/`. Rebuild them with `scripts/build_cvs.py` and `scripts/build_cv_pdfs.py`, then update `profile.cvUpdated` in `content/profile.ts`. If a language is unavailable, keep its value `null` so the UI never produces a broken download.
 
 ## Contact form
 

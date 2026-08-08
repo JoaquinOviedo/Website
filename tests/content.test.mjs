@@ -2,8 +2,25 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
+const projectFiles = [
+  "../content/projects/wirin.ts",
+  "../content/projects/personalFinance.ts",
+  "../content/projects/myTechDegree.ts",
+];
+
+async function readProjectSources() {
+  return (await Promise.all(projectFiles.map((path) => readFile(new URL(path, import.meta.url), "utf8")))).join("\n");
+}
+
+async function readHomepageSources() {
+  return (await Promise.all([
+    readFile("components/Portfolio.tsx", "utf8"),
+    readFile("components/portfolio/ProjectsSection.tsx", "utf8"),
+  ])).join("\n");
+}
+
 test("professional content keeps both locales and safe CV state", async () => {
-  const [portfolio, copy] = await Promise.all([readFile(new URL("../content/portfolio.ts", import.meta.url), "utf8"), readFile(new URL("../content/copy.ts", import.meta.url), "utf8")]);
+  const [portfolio, copy] = await Promise.all([readFile(new URL("../content/profile.ts", import.meta.url), "utf8"), readFile(new URL("../content/copy.ts", import.meta.url), "utf8")]);
   assert.match(copy, /es:\s*\{/); assert.match(copy, /en:\s*\{/);
   assert.match(copy, /principles: \["CONSTRUIR", "COMPRENDER", "HABILITAR"\]/);
   assert.doesNotMatch(portfolio, /<p>BUILD<\/p>/);
@@ -12,7 +29,7 @@ test("professional content keeps both locales and safe CV state", async () => {
 });
 
 test("WIRIN records backend ownership and only verified public repositories", async () => {
-  const source = await readFile(new URL("../content/portfolio.ts", import.meta.url), "utf8");
+  const source = await readProjectSources();
   assert.match(source, /main contribution was the backend/i);
   assert.match(source, /wirinadapta\.vercel\.app/);
   assert.match(source, /WIRIN-FrontEnd/);
@@ -85,31 +102,32 @@ test("each featured case study renders a bilingual interactive prototype", async
 });
 
 test("WIRIN and finance use accessible sanitized image galleries", async () => {
-  const [portfolio, gallery, caseStudy] = await Promise.all([
-    readFile("components/Portfolio.tsx", "utf8"),
+  const [portfolio, gallery, media, caseStudy] = await Promise.all([
+    readHomepageSources(),
     readFile("components/ProjectGallery.tsx", "utf8"),
+    readFile("content/projectMedia.ts", "utf8"),
     readFile("components/CaseStudy.tsx", "utf8"),
   ]);
   assert.match(portfolio, /className="project-preview"/);
   assert.doesNotMatch(portfolio, /<ProjectGallery/);
   assert.match(gallery, /aria-roledescription="carousel"/);
   assert.match(gallery, /loading="lazy"/);
-  assert.match(gallery, /sanitized\.webp/);
+  assert.match(media, /sanitized\.webp/);
   assert.match(gallery, /Open full-size screenshot/);
   assert.doesNotMatch(gallery, /ProjectPrototype/);
   assert.match(caseStudy, /<ProjectGallery slug=\{slug\}/);
   assert.match(caseStudy, /<ProjectPrototype slug=\{slug\}/);
   assert.match(caseStudy, /prototypeLead/);
-  assert.match(gallery, /career\/dashboard-sanitized\.webp/);
-  assert.match(gallery, /wirin\/bibliographies-sanitized\.webp/);
-  assert.match(gallery, /finance\/history-sanitized\.webp/);
+  assert.match(media, /career\/dashboard-sanitized\.webp/);
+  assert.match(media, /wirin\/bibliographies-sanitized\.webp/);
+  assert.match(media, /finance\/history-sanitized\.webp/);
   assert.doesNotMatch(gallery, /autoplay|setInterval/);
 });
 
 test("case studies prioritize recruiter scanning and defer interactive depth", async () => {
   const [caseStudy, portfolioData, css] = await Promise.all([
     readFile("components/CaseStudy.tsx", "utf8"),
-    readFile("content/portfolio.ts", "utf8"),
+    readProjectSources(),
     readFile("app/globals.css", "utf8"),
   ]);
 
@@ -128,7 +146,7 @@ test("case studies prioritize recruiter scanning and defer interactive depth", a
 
 test("homepage keeps recruiter evidence compact and moves depth into case studies", async () => {
   const [portfolio, copy, css] = await Promise.all([
-    readFile("components/Portfolio.tsx", "utf8"),
+    readHomepageSources(),
     readFile("content/copy.ts", "utf8"),
     readFile("app/globals.css", "utf8"),
   ]);
@@ -146,7 +164,7 @@ test("homepage keeps recruiter evidence compact and moves depth into case studie
 
 test("all featured projects have localized recruiter-friendly case-study routes", async () => {
   const [content, sitemap, exporter] = await Promise.all([
-    readFile("content/portfolio.ts", "utf8"),
+    readProjectSources(),
     readFile("app/sitemap.ts", "utf8"),
     readFile("scripts/export-github-pages.mjs", "utf8"),
   ]);
@@ -183,7 +201,7 @@ test("custom cursor is progressive and respects input preferences", async () => 
 test("local time and opt-in weather preserve location privacy", async () => {
   const [context, portfolio] = await Promise.all([
     readFile("components/LocalContext.tsx", "utf8"),
-    readFile("components/Portfolio.tsx", "utf8"),
+    readHomepageSources(),
   ]);
   assert.match(portfolio, /<LocalContext locale=\{locale\}/);
   assert.match(context, /Intl\.DateTimeFormat/);
@@ -221,7 +239,7 @@ test("community highlights are bilingual and point to clean public evidence", as
 test("public assets use the deployment-aware base path helper", async () => {
   const [helper, portfolio, gallery, layout, manifest, workflow, exporter] = await Promise.all([
     readFile("lib/basePath.ts", "utf8"),
-    readFile("components/Portfolio.tsx", "utf8"),
+    readHomepageSources(),
     readFile("components/ProjectGallery.tsx", "utf8"),
     readFile("app/layout.tsx", "utf8"),
     readFile("app/manifest.ts", "utf8"),
@@ -242,7 +260,7 @@ test("public assets use the deployment-aware base path helper", async () => {
 
 test("public email is hidden from initial markup and revealed by user action", async () => {
   const [portfolioData, portfolioComponent, layout] = await Promise.all([
-    readFile("content/portfolio.ts", "utf8"),
+    readFile("content/profile.ts", "utf8"),
     readFile("components/Portfolio.tsx", "utf8"),
     readFile("app/layout.tsx", "utf8"),
   ]);

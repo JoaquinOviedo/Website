@@ -272,7 +272,7 @@ export const copy = {
     additionalTraining: "Additional training",
     dataScienceCourse: [
       "Data Science course",
-      "National Technological University (UTN)",
+      "Universidad Tecnológica Nacional (UTN)",
       "November 2024",
     ],
     credentialLink: "View credential on LinkedIn",

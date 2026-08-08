@@ -382,6 +382,7 @@ test("verified Data Science training is secondary, bilingual, and evidence-linke
   assert.match(copy, /Curso de Data Science/);
   assert.match(copy, /Data Science course/);
   assert.match(copy, /Universidad Tecnológica Nacional \(UTN\)/);
+  assert.doesNotMatch(copy, /National Technological University/);
   assert.match(copy, /Noviembre de 2024/);
   assert.match(copy, /November 2024/);
   assert.match(portfolioComponent, /education-certification/);

@@ -367,24 +367,31 @@ h1 {
 }
 .portrait-note {
   position: absolute;
-  right: -1.2rem;
-  bottom: -2rem;
-  background: var(--accent);
-  color: #fff;
-  padding: 1rem 1.4rem;
-  display: flex;
-  gap: 1.3rem;
-  align-items: flex-start;
+  right: 1rem;
+  bottom: -1.5rem;
+  width: min(19rem, calc(100% - 2rem));
+  padding: .9rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--line));
+  border-left: 4px solid var(--accent);
+  border-radius: .65rem;
+  background: color-mix(in srgb, var(--paper) 94%, var(--accent));
+  color: var(--ink);
+  box-shadow: var(--shadow);
 }
 .portrait-note span {
-  font-size: 0.68rem;
+  display: block;
+  margin-bottom: .35rem;
+  color: var(--accent);
+  font: 800 .63rem/1 monospace;
+  letter-spacing: .1em;
+  text-transform: uppercase;
 }
 .portrait-note p {
   margin: 0;
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 800;
-  line-height: 1.45;
-  letter-spacing: 0.04em;
+  line-height: 1.4;
+  letter-spacing: 0;
 }
 .section-heading {
   display: flex;
@@ -1698,6 +1705,13 @@ details > p {
   font-weight: 750;
   overflow-wrap: anywhere;
 }
+.revealed-email {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .75rem 1rem;
+  margin-top: .9rem;
+}
 .protected-email {
   max-width: 30rem;
   margin-top: 0.9rem;
@@ -2001,7 +2015,17 @@ footer div {
 }
 .prototype-disclosure > summary::-webkit-details-marker { display: none; }
 .prototype-disclosure > summary:hover { background: var(--surface); }
-.prototype-disclosure[open] > summary span { transform: rotate(180deg); }
+.disclosure-chevron {
+  width: .7rem;
+  height: .7rem;
+  flex: 0 0 .7rem;
+  margin-right: .2rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 160ms ease;
+}
+.prototype-disclosure[open] > summary .disclosure-chevron { transform: translateY(2px) rotate(225deg); }
 .prototype-disclosure-content { padding-top: 1rem; }
 @media (max-width: 850px) {
   .site-header nav {
@@ -2120,7 +2144,9 @@ footer div {
     min-height: auto;
   }
   .portrait-note {
-    right: -0.3rem;
+    right: .5rem;
+    bottom: -1.25rem;
+    width: calc(100% - 1rem);
   }
   .education-list article,
   .form-footer,

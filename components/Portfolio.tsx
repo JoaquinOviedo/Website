@@ -180,12 +180,8 @@ export function Portfolio({ locale }: { locale: Locale }) {
               />
             </div>
             <div className="portrait-note">
-              <span>01</span>
-              <p>
-                Power Platform
-                <br />
-                .NET · React · TypeScript
-              </p>
+              <span>{t.portraitNoteLabel}</span>
+              <p>{t.portraitNoteValue}</p>
             </div>
           </div>
         </section>

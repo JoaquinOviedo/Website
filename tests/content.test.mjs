@@ -31,6 +31,9 @@ test("professional content keeps both locales and safe CV state", async () => {
   assert.match(copy, /involucrarme más allá de la implementación/);
   assert.match(copy, /taking ownership beyond the implementation itself/);
   assert.match(copy, /Integro la IA en ese proceso/);
+  assert.match(copy, /Power Platform, \.NET, React y TypeScript/);
+  assert.match(copy, /Power Platform, \.NET, React, and TypeScript/);
+  assert.match(copy, /portraitNoteLabel: "Enfoque actual"/);
   assert.doesNotMatch(copy, /Me interesa especialmente el backend|particularly interested in backend work/);
 });
 
@@ -161,6 +164,7 @@ test("case studies prioritize recruiter scanning and defer interactive depth", a
   assert.match(caseStudy, /\{t\.outcome\}/);
   assert.match(caseStudy, /\{t\.stackAndProcess\}/);
   assert.match(caseStudy, /<details className="prototype-disclosure">/);
+  assert.match(caseStudy, /className="disclosure-chevron"/);
   assert.match(caseStudy, /className="ai-tech"/);
   assert.match(portfolioData, /decidir qué funciones aportaban valor/);
   assert.match(portfolioData, /selecting features, evaluating their usefulness/);

@@ -130,7 +130,7 @@ export function CaseStudy({ locale, slug }: { locale: Locale; slug: GallerySlug 
             <p>{t.prototypeLead}</p>
           </header>
           <details className="prototype-disclosure">
-            <summary>{t.explorePrototype} <span aria-hidden="true">↓</span></summary>
+            <summary>{t.explorePrototype} <span className="disclosure-chevron" aria-hidden="true" /></summary>
             <div className="prototype-disclosure-content">
               <ProjectPrototype slug={slug} locale={locale} />
             </div>

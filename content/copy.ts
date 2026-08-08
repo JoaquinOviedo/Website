@@ -11,9 +11,11 @@ export const copy = {
     ],
     heroEyebrow: "Software Developer · Argentina",
     heroTitle:
-      "Construyo y gestiono soluciones empresariales con Power Platform, .NET y React.",
+      "Construyo y gestiono soluciones empresariales con Power Platform, .NET, React y TypeScript.",
     heroText:
       "Combino desarrollo de software, liderazgo operativo y pensamiento de producto para convertir necesidades complejas en soluciones claras y mantenibles.",
+    portraitNoteLabel: "Enfoque actual",
+    portraitNoteValue: "Desarrollo · producto · coordinación",
     availability: "Actualmente trabajando · abierto a nuevas oportunidades",
     viewExperience: "Ver experiencia",
     contact: "Contactarme",
@@ -172,9 +174,11 @@ export const copy = {
     nav: ["Home", "Experience", "Projects", "About", "Education", "Contact"],
     heroEyebrow: "Software Developer · Argentina",
     heroTitle:
-      "I build and manage enterprise solutions with Power Platform, .NET, and React.",
+      "I build and manage enterprise solutions with Power Platform, .NET, React, and TypeScript.",
     heroText:
       "I combine software development, operational leadership, and product thinking to turn complex needs into clear, maintainable solutions.",
+    portraitNoteLabel: "Current focus",
+    portraitNoteValue: "Development · product · coordination",
     availability: "Currently employed · open to new opportunities",
     viewExperience: "View experience",
     contact: "Contact me",

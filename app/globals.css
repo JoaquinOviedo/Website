@@ -549,8 +549,9 @@ h1 {
   display: inline-flex;
   min-height: 35px;
   align-items: center;
-  gap: .15rem;
-  padding: 2px 3px 2px .55rem;
+  justify-content: center;
+  gap: 0;
+  padding: 2px;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: color-mix(in srgb, var(--surface) 62%, transparent);
@@ -558,7 +559,13 @@ h1 {
   font-size: .68rem;
   font-variant-numeric: tabular-nums;
 }
-.local-context time { min-width: 2.9rem; color: var(--ink); font-weight: 750; }
+.local-context time {
+  min-width: 0;
+  padding: 0 .42rem;
+  color: var(--ink);
+  font-weight: 750;
+  text-align: center;
+}
 .local-context button {
   display: flex;
   min-width: 29px;
@@ -566,7 +573,7 @@ h1 {
   align-items: center;
   justify-content: center;
   gap: .16rem;
-  padding: 0 .42rem 0 .32rem;
+  padding: 0 .38rem;
   border: 0;
   border-radius: 999px;
   background: transparent;
@@ -2213,6 +2220,22 @@ footer div {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Header utility controls share the same compact pill silhouette. */
+.header-actions > a.header-cv,
+.header-actions > a.language {
+  height: 35px;
+  min-height: 35px;
+  overflow: hidden;
+  border-radius: 999px;
+}
+.header-actions > a.header-cv {
+  padding-inline: .72rem;
+}
+.header-actions > a.language {
+  min-width: 35px;
+  padding-inline: .62rem;
 }
 
 /* Balanced type scale: faster scanning without sacrificing supporting detail. */

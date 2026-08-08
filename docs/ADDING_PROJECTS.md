@@ -25,6 +25,7 @@ export const exampleProject = {
   technologies: ["TypeScript"],
   image: "/images/projects/example/cover.webp",
   logo: "/images/projects/example/logo.webp", // optional; omit when unavailable
+  logoDark: "/images/projects/example/logo-dark.webp", // optional dark-theme variant
   repositories: [{ label: "GitHub", url: "https://github.com/…" }],
   status: { es: "Proyecto personal", en: "Personal project" },
   learnings: { es: "…", en: "…" },

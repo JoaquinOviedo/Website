@@ -41,14 +41,15 @@ export function CaseStudy({ locale, slug }: { locale: Locale; slug: GallerySlug 
         <header className="case-hero">
           {project.logo && (
             <span className="case-project-logo">
-              <img src={withBasePath(project.logo)} alt="" width="512" height="437" />
+              <img className="logo-light" src={withBasePath(project.logo)} alt="" width="512" height="437" />
+              {project.logoDark && <img className="logo-dark" src={withBasePath(project.logoDark)} alt="" width="512" height="437" />}
             </span>
           )}
           <p className="eyebrow">
             <span />
             {t.caseStudyLabel} · {project.status[locale]}{project.year ? ` · ${project.year}` : ""}
           </p>
-          <h1>{project.title}</h1>
+          <h1 className={project.logo ? "sr-only" : undefined}>{project.title}</h1>
           <p>{project.summary[locale]}</p>
           <div className="cta-row">
             {project.demo && (

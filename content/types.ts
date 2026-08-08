@@ -23,6 +23,7 @@ export interface Project {
   technologies: string[];
   image?: string;
   logo?: string;
+  logoDark?: string;
   demo?: string;
   repositories?: ProjectLink[];
   status: Localized<string>;

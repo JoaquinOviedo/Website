@@ -23,6 +23,7 @@ These decisions capture the current direction so future changes do not gradually
 - Theme preference is global: the portfolio and every localized case study share the persisted light, system, or dark selection. Case-study navigation must retain an accessible theme control.
 - Contact controls use moderately rounded fields and actions to match the compact header controls without turning the interface into oversized pills.
 - Structural separators use the shared `--line` token in both themes. Reserve accent or high-contrast borders for interactive state, focus, and intentional emphasis rather than section division.
+- A complete project wordmark may replace the visible project heading, but the semantic heading must remain for accessibility and SEO. When a transparent wordmark contains dark text, provide a dedicated dark-theme asset instead of placing it on a permanent light box or applying a filter that distorts brand colors.
 
 - The professional blue palette is the single global accent system.
 - Technology labels use the portfolio system rather than a wall of official brand colors. The two primary technologies per project receive additional emphasis.

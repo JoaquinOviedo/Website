@@ -41,10 +41,11 @@ export function ProjectsSection({ locale }: { locale: Locale }) {
               <div className="project-title-row">
                 {project.logo && (
                   <span className="project-logo">
-                    <img src={withBasePath(project.logo)} alt="" width="512" height="437" loading="lazy" decoding="async" />
+                    <img className="logo-light" src={withBasePath(project.logo)} alt="" width="512" height="437" loading="lazy" decoding="async" />
+                    {project.logoDark && <img className="logo-dark" src={withBasePath(project.logoDark)} alt="" width="512" height="437" loading="lazy" decoding="async" />}
                   </span>
                 )}
-                <h3>{project.title}</h3>
+                <h3 className={project.logo ? "sr-only" : undefined}>{project.title}</h3>
               </div>
               <p>{project.summary[locale]}</p>
               <p className="project-contribution"><strong>{t.contribution}:</strong> {project.role[locale]}</p>

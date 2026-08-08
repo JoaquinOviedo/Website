@@ -22,6 +22,7 @@ export interface Project {
   features: Localized<string[]>;
   technologies: string[];
   image?: string;
+  logo?: string;
   demo?: string;
   repositories?: ProjectLink[];
   status: Localized<string>;
@@ -30,4 +31,3 @@ export interface Project {
   aiAssisted?: boolean;
   aiContribution?: Localized<string>;
 }
-

@@ -38,7 +38,14 @@ export function ProjectsSection({ locale }: { locale: Locale }) {
                 <span>{project.year}</span>
                 {project.aiAssisted && <span className="ai-tag">{t.ai}</span>}
               </div>
-              <h3>{project.title}</h3>
+              <div className="project-title-row">
+                {project.logo && (
+                  <span className="project-logo">
+                    <img src={withBasePath(project.logo)} alt="" width="512" height="437" loading="lazy" decoding="async" />
+                  </span>
+                )}
+                <h3>{project.title}</h3>
+              </div>
               <p>{project.summary[locale]}</p>
               <p className="project-contribution"><strong>{t.contribution}:</strong> {project.role[locale]}</p>
               <ul className="tech-list">

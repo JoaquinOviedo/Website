@@ -30,6 +30,7 @@ export const wirinProject = {
   },
   technologies: [".NET 8", "ASP.NET Core Web API", "Angular 17", "Entity Framework Core", "SQL Server", "PostgreSQL", "Azure", "JWT"],
   image: "/images/projects/wirin/dashboard-sanitized.webp",
+  logo: "/images/projects/wirin/logo.webp",
   demo: "https://wirinadapta.vercel.app",
   repositories: [
     { label: "Frontend", url: "https://github.com/lucasdbarrios/WIRIN-FrontEnd" },

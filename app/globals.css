@@ -2396,6 +2396,42 @@ footer a {
   margin: 1rem 0 .7rem;
   font-size: clamp(1.9rem, 2.8vw, 2.75rem);
 }
+.project-title-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.project-title-row h3 {
+  flex: 1;
+}
+.project-logo,
+.case-project-logo {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--line) 72%, #b8c4d6);
+  border-radius: .8rem;
+  background: #f8fafc;
+}
+.project-logo {
+  width: 4rem;
+  height: 3.55rem;
+  padding: .35rem;
+}
+.project-logo img,
+.case-project-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.case-project-logo {
+  width: 6.5rem;
+  height: 5.7rem;
+  margin-bottom: 1.25rem;
+  padding: .55rem;
+}
 .project-copy > p {
   margin-bottom: .8rem;
 }

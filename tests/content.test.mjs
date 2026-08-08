@@ -40,6 +40,7 @@ test("WIRIN records backend ownership and only verified public repositories", as
   assert.match(source, /validación institucional en curso/);
   assert.match(source, /institutional validation in progress/);
   assert.match(source, /biblioteca de la UNLaM/);
+  assert.match(source, /logo: "\/images\/projects\/wirin\/logo\.webp"/);
   assert.doesNotMatch(source, /horas (como )?docente|teaching hours|paid|payment/i);
 });
 
@@ -158,6 +159,7 @@ test("homepage keeps recruiter evidence compact and moves depth into case studie
   ]);
 
   assert.match(portfolio, /className="project-contribution"/);
+  assert.match(portfolio, /className="project-logo"/);
   assert.ok(
     portfolio.indexOf("<ExperienceSection locale={locale} />") < portfolio.indexOf("<ProjectsSection locale={locale} />"),
     "professional experience should appear before project evidence",

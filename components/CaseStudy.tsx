@@ -37,6 +37,11 @@ export function CaseStudy({ locale, slug }: { locale: Locale; slug: GallerySlug 
       </nav>
       <article className={`case-article case-${project.slug}`}>
         <header className="case-hero">
+          {project.logo && (
+            <span className="case-project-logo">
+              <img src={withBasePath(project.logo)} alt="" width="512" height="437" />
+            </span>
+          )}
           <p className="eyebrow">
             <span />
             {t.caseStudyLabel} · {project.status[locale]}{project.year ? ` · ${project.year}` : ""}

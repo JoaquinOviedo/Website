@@ -24,6 +24,7 @@ export const exampleProject = {
   features: { es: ["…"], en: ["…"] },
   technologies: ["TypeScript"],
   image: "/images/projects/example/cover.webp",
+  logo: "/images/projects/example/logo.webp", // optional; omit when unavailable
   repositories: [{ label: "GitHub", url: "https://github.com/…" }],
   status: { es: "Proyecto personal", en: "Personal project" },
   learnings: { es: "…", en: "…" },
@@ -67,4 +68,3 @@ Set `aiAssisted: true` only when assistance was substantial. Add `aiContribution
 - Images are readable on mobile and open at full size.
 - No real or confidential records are visible.
 - `npm run validate` succeeds.
-

@@ -9,6 +9,7 @@ import {
 } from "react";
 import { FrameworkPrototype } from "@/components/FrameworkPrototype";
 import { ProjectPrototype } from "@/components/ProjectPrototype";
+import { ProjectGallery } from "@/components/ProjectGallery";
 import { CustomCursor } from "@/components/CustomCursor";
 import { copy } from "@/content/copy";
 import { profile, projects, type Locale } from "@/content/portfolio";
@@ -272,7 +273,11 @@ export function Portfolio({ locale }: { locale: Locale }) {
             .map((project) => (
               <article className={`project-card project-${project.slug}`} key={project.slug}>
                 <div className={`project-visual visual-${project.slug}`}>
-                  <ProjectPrototype slug={project.slug} locale={locale} />
+                  {project.slug === "wirin" || project.slug === "finanzas-personales" ? (
+                    <ProjectGallery slug={project.slug} locale={locale} />
+                  ) : (
+                    <ProjectPrototype slug={project.slug} locale={locale} />
+                  )}
                   <p>{project.slug === "wirin" ? "ACCESSIBILITY · OCR · COLLABORATION" : "LOCAL FIRST · PRIVATE · AI ASSISTED"}</p>
                 </div>
                 <div className="project-copy">

@@ -84,6 +84,18 @@ test("each featured project renders a bilingual interactive prototype", async ()
   assert.doesNotMatch(prototype, /C:\\Users|Juan Perez|Joaquin/i);
 });
 
+test("WIRIN and finance use accessible sanitized image galleries", async () => {
+  const [portfolio, gallery] = await Promise.all([
+    readFile("components/Portfolio.tsx", "utf8"),
+    readFile("components/ProjectGallery.tsx", "utf8"),
+  ]);
+  assert.match(portfolio, /<ProjectGallery slug=\{project\.slug\}/);
+  assert.match(gallery, /aria-roledescription="carousel"/);
+  assert.match(gallery, /loading="lazy"/);
+  assert.match(gallery, /sanitized\.webp/);
+  assert.doesNotMatch(gallery, /autoplay|setInterval/);
+});
+
 test("custom cursor is progressive and respects input preferences", async () => {
   const [cursor, portfolio, css] = await Promise.all([
     readFile("components/CustomCursor.tsx", "utf8"),

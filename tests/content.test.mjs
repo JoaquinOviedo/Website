@@ -23,8 +23,7 @@ async function readHomepageSources() {
 test("professional content keeps both locales and safe CV state", async () => {
   const [portfolio, copy] = await Promise.all([readFile(new URL("../content/profile.ts", import.meta.url), "utf8"), readFile(new URL("../content/copy.ts", import.meta.url), "utf8")]);
   assert.match(copy, /es:\s*\{/); assert.match(copy, /en:\s*\{/);
-  assert.match(copy, /principles: \["CONSTRUIR", "COMPRENDER", "HABILITAR"\]/);
-  assert.doesNotMatch(portfolio, /<p>BUILD<\/p>/);
+  assert.doesNotMatch(copy, /HABILITAR|ENABLE|principles:/);
   assert.match(portfolio, /cv:\s*\{\s*es:/); assert.match(portfolio, /joaquin-oviedo-en\.pdf/);
   assert.doesNotMatch(portfolio, /\+5411/);
 });

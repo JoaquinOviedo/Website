@@ -88,8 +88,7 @@ export const copy = {
       "Representación conceptual — sin interfaces ni información interna.",
     about: "Sobre mí",
     aboutText:
-      "Soy desarrollador de software con una base tradicional en desarrollo web y experiencia en el entorno low-code empresarial. Me interesa especialmente el backend, sin perder la visión completa del producto. Hoy combino decisiones técnicas con relevamiento, coordinación y acompañamiento de personas para crear soluciones sostenibles y fáciles de usar.",
-    principles: ["CONSTRUIR", "COMPRENDER", "HABILITAR"],
+      "Soy desarrollador de software con experiencia en soluciones empresariales y formación en desarrollo web. Me interesa especialmente el backend y la visión integral de producto: entender la necesidad, construir una solución mantenible y acompañar al equipo para que pueda evolucionarla.",
     education: "Educación",
     educationItems: [
       [
@@ -250,8 +249,7 @@ export const copy = {
       "Conceptual representation — no internal interfaces or information.",
     about: "About me",
     aboutText:
-      "I am a software developer with a traditional web development foundation and experience in enterprise low-code environments. I am particularly interested in backend work without losing sight of the whole product. Today I combine technical decisions with discovery, coordination, and mentoring to build sustainable, usable solutions.",
-    principles: ["BUILD", "UNDERSTAND", "ENABLE"],
+      "I am a software developer with experience in enterprise solutions and a web development background. I am particularly interested in backend work and the complete product perspective: understanding the need, building a maintainable solution, and supporting the team that will evolve it.",
     education: "Education",
     educationItems: [
       [

@@ -318,9 +318,6 @@ export function Portfolio({ locale }: { locale: Locale }) {
           </header>
           <div className="about-grid">
             <p className="about-lead">{t.aboutText}</p>
-            <div className="principles">
-              {t.principles.map((principle) => <p key={principle}>{principle}</p>)}
-            </div>
           </div>
         </section>
 

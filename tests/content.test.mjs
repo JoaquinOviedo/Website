@@ -54,9 +54,8 @@ test("theme selection uses accessible icon buttons and preserves system mode", a
   assert.match(layout, /prefers-color-scheme: dark/);
   assert.match(layout, /\?s:'system'/);
   assert.doesNotMatch(source, /<select[\s\S]*?applyTheme/);
-  assert.match(source, /professional-blue/);
-  assert.match(source, /portfolio-palette/);
-  assert.match(layout, /dataset\.palette/);
+  assert.doesNotMatch(source, /portfolio-palette|palette-control/);
+  assert.doesNotMatch(layout, /dataset\.palette/);
 });
 
 test("language switching preserves the current section and deployment base path", async () => {

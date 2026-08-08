@@ -12,9 +12,7 @@ import { copy } from "@/content/copy";
 import { profile, projects, type Locale } from "@/content/portfolio";
 
 type Theme = "system" | "light" | "dark";
-type Palette = "original" | "fluent" | "professional-blue";
 const DEFAULT_THEME: Theme = "system";
-const DEFAULT_PALETTE: Palette = "original";
 
 function getThemePreference(): Theme {
   if (typeof window === "undefined") return DEFAULT_THEME;
@@ -33,21 +31,6 @@ function subscribeThemePreference(onChange: () => void) {
   };
 }
 
-function getPalettePreference(): Palette {
-  if (typeof window === "undefined") return DEFAULT_PALETTE;
-  const stored = localStorage.getItem("palette");
-  return stored === "fluent" || stored === "professional-blue" ? stored : DEFAULT_PALETTE;
-}
-
-function subscribePalettePreference(onChange: () => void) {
-  window.addEventListener("storage", onChange);
-  window.addEventListener("portfolio-palette", onChange);
-  return () => {
-    window.removeEventListener("storage", onChange);
-    window.removeEventListener("portfolio-palette", onChange);
-  };
-}
-
 function Icon({ name }: { name: "arrow" | "external" | "copy" | "mail" }) {
   const glyph = { arrow: "→", external: "↗", copy: "⎘", mail: "@" }[name];
   return <span aria-hidden="true">{glyph}</span>;
@@ -61,7 +44,6 @@ export function Portfolio({ locale }: { locale: Locale }) {
     getThemePreference,
     () => DEFAULT_THEME,
   );
-  const palette = useSyncExternalStore(subscribePalettePreference, getPalettePreference, () => DEFAULT_PALETTE);
   const [copied, setCopied] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formStatus, setFormStatus] = useState<
@@ -86,18 +68,9 @@ export function Portfolio({ locale }: { locale: Locale }) {
     return () => media.removeEventListener("change", updateDocumentTheme);
   }, [theme]);
 
-  useEffect(() => {
-    document.documentElement.dataset.palette = palette;
-  }, [palette]);
-
   function applyTheme(next: Theme) {
     localStorage.setItem("theme", next);
     window.dispatchEvent(new Event("portfolio-theme"));
-  }
-
-  function applyPalette(next: Palette) {
-    localStorage.setItem("palette", next);
-    window.dispatchEvent(new Event("portfolio-palette"));
   }
 
   function switchLanguage(event: MouseEvent<HTMLAnchorElement>) {
@@ -211,11 +184,6 @@ export function Portfolio({ locale }: { locale: Locale }) {
                 </button>
               );
             })}
-          </div>
-          <div className="palette-control" role="group" aria-label={t.palette} suppressHydrationWarning>
-            {(["original", "fluent", "professional-blue"] as Palette[]).map((option, index) => (
-              <button key={option} type="button" className={`${option} ${palette === option ? "active" : ""}`} aria-label={t.palettes[index]} aria-pressed={palette === option} title={t.palettes[index]} onClick={() => applyPalette(option)}><span aria-hidden="true" /></button>
-            ))}
           </div>
         </div>
       </header>

@@ -29,7 +29,7 @@ export const viewport: Viewport = {
   themeColor: "#10251f",
 };
 
-const themeScript = `(function(){try{var s=localStorage.getItem('theme');var t=s==='light'||s==='dark'||s==='system'?s:'system';var d=t==='dark'||(t==='system'&&matchMedia('(prefers-color-scheme: dark)').matches);var p=localStorage.getItem('palette');document.documentElement.dataset.theme=d?'dark':'light';document.documentElement.dataset.palette=p==='fluent'||p==='professional-blue'?p:'original';document.documentElement.style.colorScheme=d?'dark':'light'}catch(e){}})()`;
+const themeScript = `(function(){try{var s=localStorage.getItem('theme');var t=s==='light'||s==='dark'||s==='system'?s:'system';var d=t==='dark'||(t==='system'&&matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.dataset.theme=d?'dark':'light';document.documentElement.style.colorScheme=d?'dark':'light'}catch(e){}})()`;
 
 export default function RootLayout({
   children,

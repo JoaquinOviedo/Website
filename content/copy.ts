@@ -128,8 +128,6 @@ export const copy = {
     language: "Idioma",
     theme: "Tema",
     themes: ["Sistema", "Claro", "Oscuro"],
-    palette: "Estilo de color",
-    palettes: ["Verde editorial", "Azul Fluent", "Azul profesional"],
     footer:
       "Diseñado y desarrollado con foco en claridad, accesibilidad y mantenimiento.",
     ai: "Desarrollo asistido por IA",
@@ -257,8 +255,6 @@ export const copy = {
     language: "Language",
     theme: "Theme",
     themes: ["System", "Light", "Dark"],
-    palette: "Color style",
-    palettes: ["Editorial green", "Fluent blue", "Professional blue"],
     footer:
       "Designed and developed with clarity, accessibility, and maintainability in mind.",
     ai: "AI-assisted development",

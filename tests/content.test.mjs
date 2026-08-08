@@ -184,6 +184,7 @@ test("homepage keeps recruiter evidence compact and moves depth into case studie
     "professional experience should appear before project evidence",
   );
   assert.match(portfolio, /focus-compact/);
+  assert.match(portfolio, /index === 0 \? "about-intro"/);
   assert.match(portfolio, /index < 2 \? "primary-tech"/);
   assert.match(portfolio, /<details className="framework-disclosure">/);
   assert.doesNotMatch(portfolio, /experience-details|detailsText/);
@@ -196,6 +197,8 @@ test("homepage keeps recruiter evidence compact and moves depth into case studie
   assert.match(copy, /\["Power Apps", "Power Automate", "SharePoint"\]/);
   assert.match(copy, /\["Azure", "Git", "Azure DevOps", "PowerShell"\]/);
   assert.match(css, /\.focus-tech-list/);
+  assert.match(css, /\.about-grid\.about-lead \{[\s\S]*?grid-template-columns: minmax\(0, \.85fr\) minmax\(0, 1\.15fr\)/);
+  assert.match(css, /\.about-lead p:not\(\.about-intro\)[\s\S]*?border-left: 1px solid var\(--line\)/);
   assert.match(css, /\.tech-list li\.primary-tech/);
   assert.match(css, /\.visual-finanzas-personales \{[\s\S]*?#18283d/);
   assert.match(css, /\.task-card-head/);

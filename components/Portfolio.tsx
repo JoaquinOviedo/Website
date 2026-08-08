@@ -206,7 +206,9 @@ export function Portfolio({ locale }: { locale: Locale }) {
             <h2 id="about-title">{t.about}</h2>
           </header>
           <div className="about-grid about-lead">
-            {t.aboutParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            {t.aboutParagraphs.map((paragraph, index) => (
+              <p className={index === 0 ? "about-intro" : undefined} key={paragraph}>{paragraph}</p>
+            ))}
           </div>
         </section>
 

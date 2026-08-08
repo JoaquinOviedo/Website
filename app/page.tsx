@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { BrowserLanguageRedirect } from "@/components/BrowserLanguageRedirect";
 
 export default function Home() {
-  redirect("/es");
+  return <BrowserLanguageRedirect />;
 }

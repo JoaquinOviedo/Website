@@ -131,6 +131,18 @@ test("language switching preserves the current section and deployment base path"
   assert.match(source, /onClick=\{switchLanguage\}/);
 });
 
+test("the first visit follows the browser language and later visits respect the saved preference", async () => {
+  const redirect = await readFile("components/BrowserLanguageRedirect.tsx", "utf8");
+  const home = await readFile("app/page.tsx", "utf8");
+
+  assert.match(redirect, /localStorage\.getItem\("locale"\)/);
+  assert.match(redirect, /navigator\.languages/);
+  assert.match(redirect, /startsWith\("es"\)/);
+  assert.match(redirect, /withBasePath\(`\/\$\{locale\}`\)/);
+  assert.match(redirect, /window\.location\.replace/);
+  assert.match(home, /<BrowserLanguageRedirect\s*\/>/);
+});
+
 test("browser tabs use a concise personal title and an adaptive vector mark", async () => {
   const [spanishPage, englishPage, layout, manifest, lightMark, darkMark] = await Promise.all([
     readFile("app/es/page.tsx", "utf8"),

@@ -332,7 +332,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
           </header>
           <div className="education-list">
             {t.educationItems.map(([degree, school, period]) => (
-              <article key={degree}>
+              <article className="education-formal" key={degree}>
                 <div>
                   <h3>{degree}</h3>
                   <p>{school}</p>

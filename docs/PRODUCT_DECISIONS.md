@@ -9,6 +9,7 @@ These decisions capture the current direction so future changes do not gradually
 - Three strong projects are more useful than many incomplete ones.
 - Experience and contribution evidence matter more than decorative technology logos.
 - The about section uses one concise, human paragraph. Avoid abstract principle lists when the same ideas can be stated concretely.
+- Formal education leads the education hierarchy. Certifications stay compact and secondary; a verified average may remain visible as supporting evidence without becoming a headline.
 - The contribution/technology overview remains a compact band, not a full-height section. It provides technical fit before project evidence without slowing navigation.
 - Experience details stay visible in the summary and contribution bullets; do not add a secondary "more context" disclosure unless it introduces genuinely new evidence.
 

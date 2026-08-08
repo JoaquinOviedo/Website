@@ -303,5 +303,6 @@ test("verified Data Science training is secondary, bilingual, and evidence-linke
   assert.match(copy, /Noviembre de 2024/);
   assert.match(copy, /November 2024/);
   assert.match(portfolioComponent, /education-certification/);
+  assert.match(portfolioComponent, /education-formal/);
   assert.match(portfolioComponent, /details\/certifications\//);
 });

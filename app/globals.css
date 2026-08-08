@@ -1702,6 +1702,8 @@ details > p {
   width: 100%;
   margin-top: 0.8rem;
   overflow: hidden;
+  border: 0;
+  box-shadow: none;
 }
 .community-evidence summary {
   display: flex;
@@ -1714,7 +1716,10 @@ details > p {
   font-weight: 700;
   cursor: pointer;
   list-style: none;
+  border: 0;
+  box-shadow: none;
 }
+.community-evidence[open] summary { border: 0; box-shadow: none; }
 .community-evidence summary::-webkit-details-marker {
   display: none;
 }
@@ -2702,6 +2707,7 @@ footer a {
   transition: border-color var(--transition);
 }
 [data-tech="power-apps"] { --tech-accent: #8b4b9f; }
+[data-tech="dataverse"] { --tech-accent: #742774; }
 [data-tech="power-automate"] { --tech-accent: #1672ec; }
 [data-tech="sharepoint"] { --tech-accent: #038b87; }
 [data-tech="react"] { --tech-accent: #1597b8; }

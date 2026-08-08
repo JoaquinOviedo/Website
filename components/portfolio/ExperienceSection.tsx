@@ -5,8 +5,9 @@ import { technologyKey } from "@/lib/technology";
 
 const experienceTechnologies = [
   "Power Apps",
-  "Power Automate",
+  "Dataverse",
   "SharePoint",
+  "Power Automate",
   "Azure DevOps",
   "Git",
   "PowerShell",

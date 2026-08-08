@@ -73,8 +73,8 @@ export const copy = {
     expBullets: [
       "Relevo pedidos con la persona usuaria cliente y análisis funcional, evalúo viabilidad y anticipo dependencias o riesgos.",
       "Estimo, organizo y delego tareas, acompañando la entrega dentro del equipo.",
-      "Desarrollé un framework UX reutilizable para Power Apps junto al equipo de diseño, mejorando consistencia y reutilización.",
-      "Capacito a ingresantes y delego evoluciones del framework, compartiendo criterios y buenas prácticas.",
+      "Trabajo con roles y permisos en Dataverse, sitios y grupos de SharePoint y grupos de Microsoft Entra ID (AD) para adecuar el acceso a cada perfil.",
+      "Desarrollé un framework UX reutilizable para Power Apps junto al equipo de diseño; actualmente delego evoluciones y capacito a ingresantes en sus criterios y buenas prácticas.",
     ],
     frameworkEyebrow: "Sistema de diseño · Power Apps",
     frameworkTitle: "Una base compartida para construir con consistencia.",
@@ -269,8 +269,8 @@ export const copy = {
     expBullets: [
       "Gather requests with the client user and functional analysis, assess feasibility, and anticipate dependencies or risks.",
       "Estimate, organize, and delegate tasks while supporting the team through delivery.",
-      "Built a reusable Power Apps UX framework with the design team, improving consistency and reuse.",
-      "Train new team members and delegate framework improvements, sharing standards and practices.",
+      "Work with Dataverse security roles, SharePoint site and group permissions, and Microsoft Entra ID (AD) groups to align access with each user profile.",
+      "Built a reusable Power Apps UX framework with the design team; I now delegate improvements and train new team members on its standards and practices.",
     ],
     frameworkEyebrow: "Design system · Power Apps",
     frameworkTitle: "A shared foundation for consistent delivery.",

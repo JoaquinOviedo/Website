@@ -38,6 +38,19 @@ test("professional content keeps both locales and safe CV state", async () => {
   assert.doesNotMatch(copy, /Me interesa especialmente el backend|particularly interested in backend work/);
 });
 
+test("professional experience includes Dataverse and access governance", async () => {
+  const [copy, experience, css] = await Promise.all([
+    readFile("content/copy.ts", "utf8"),
+    readFile("components/portfolio/ExperienceSection.tsx", "utf8"),
+    readFile("app/globals.css", "utf8"),
+  ]);
+  assert.match(experience, /"Dataverse"/);
+  assert.match(copy, /roles y permisos en Dataverse/);
+  assert.match(copy, /Dataverse security roles/);
+  assert.match(copy, /Microsoft Entra ID \(AD\)/);
+  assert.match(css, /data-tech="dataverse"/);
+});
+
 test("WIRIN records backend ownership and only verified public repositories", async () => {
   const source = await readProjectSources();
   assert.match(source, /main contribution was the backend/i);
@@ -127,8 +140,10 @@ test("browser tabs use a concise personal title and an adaptive vector mark", as
   assert.match(spanishPage, /Joaquín Oviedo · Software Developer/);
   assert.match(englishPage, /Joaquín Oviedo · Software Developer/);
   assert.match(layout, /joaquin-oviedo-mark-light\.svg/);
-  assert.match(layout, /dataset\.theme===['"]dark['"]/);
-  assert.match(layout, /MutationObserver/);
+  assert.match(layout, /joaquin-oviedo-mark-dark\.svg/);
+  assert.match(layout, /media="\(prefers-color-scheme: light\)"/);
+  assert.match(layout, /media="\(prefers-color-scheme: dark\)"/);
+  assert.doesNotMatch(layout, /adaptive-favicon|MutationObserver/);
   assert.match(manifest, /joaquin-oviedo-mark-light\.svg/);
   assert.match(lightMark, /aria-label="JO\."/);
   assert.match(darkMark, /aria-label="JO\."/);

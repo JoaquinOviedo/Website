@@ -1642,6 +1642,9 @@ details > p {
 .community-list a:hover {
   text-decoration-thickness: 2px;
 }
+.community-list article > div > a > span {
+  margin-left: 0.3rem;
+}
 .community-evidence {
   max-width: 28rem;
   margin-top: 0.8rem;

@@ -285,7 +285,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
                     ) : null}
                     <a href={href} target="_blank" rel="noreferrer">
                       {t.communityLink}
-                      <span aria-hidden="true"> ↗</span>
+                      <span aria-hidden="true">↗</span>
                     </a>
                   </div>
                 </article>

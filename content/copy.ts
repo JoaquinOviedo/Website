@@ -163,8 +163,6 @@ export const copy = {
     language: "Idioma",
     theme: "Tema",
     themes: ["Sistema", "Claro", "Oscuro"],
-    footer:
-      "Diseñado y desarrollado con foco en claridad, accesibilidad y mantenimiento.",
     ai: "Desarrollo asistido por IA",
   },
   en: {
@@ -325,8 +323,6 @@ export const copy = {
     language: "Language",
     theme: "Theme",
     themes: ["System", "Light", "Dark"],
-    footer:
-      "Designed and developed with clarity, accessibility, and maintainability in mind.",
     ai: "AI-assisted development",
   },
 } as const;

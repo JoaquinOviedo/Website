@@ -407,7 +407,6 @@ export function Portfolio({ locale }: { locale: Locale }) {
         <p>
           © {new Date().getFullYear()} {profile.name}
         </p>
-        <p>{t.footer}</p>
         <div>
           <a href={profile.linkedin} target="_blank" rel="noreferrer"><Icon name="linkedin" /> LinkedIn</a>
           <a href={profile.github} target="_blank" rel="noreferrer"><Icon name="github" /> GitHub</a>

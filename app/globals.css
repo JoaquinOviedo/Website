@@ -1803,7 +1803,7 @@ details > p {
 }
 footer {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr auto;
   gap: 1rem;
   padding: 2rem clamp(1rem, 4vw, 4rem);
   background: var(--ink);
@@ -1812,9 +1812,6 @@ footer {
 }
 footer p {
   margin: 0;
-}
-footer > p:nth-child(2) {
-  text-align: center;
 }
 footer div {
   display: flex;
@@ -2217,10 +2214,6 @@ footer div {
   footer {
     text-align: left;
   }
-  footer > p:nth-child(2) {
-    text-align: left;
-    margin: 0.6rem 0;
-  }
   footer div {
     justify-content: flex-start;
   }
@@ -2261,7 +2254,7 @@ footer div {
   padding-bottom: clamp(2.5rem, 4vw, 4rem);
 }
 footer {
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 1fr auto;
   align-items: center;
   padding: .95rem clamp(1rem, 4vw, 4rem);
   font-size: .7rem;
@@ -2280,9 +2273,6 @@ footer a {
     justify-content: space-between;
     gap: 1rem;
     padding: .9rem 1rem;
-  }
-  footer > p:nth-child(2) {
-    display: none;
   }
   footer div {
     justify-content: flex-end;

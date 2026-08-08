@@ -137,6 +137,7 @@ nav ul a:hover {
   gap: 0.35rem;
   padding: 0.35rem 0.65rem;
   border: 1px solid var(--ink);
+  border-radius: 999px;
   background: var(--ink);
   color: var(--bg);
   font-size: 0.72rem;
@@ -150,11 +151,23 @@ nav ul a:hover {
   color: #fff;
 }
 .language {
+  display: inline-flex;
+  min-height: 35px;
+  align-items: center;
+  justify-content: center;
   font-size: 0.75rem;
   font-weight: 800;
   text-decoration: none;
   border: 1px solid var(--line);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 62%, transparent);
   padding: 0.35rem 0.5rem;
+  transition: background-color 140ms ease, border-color 140ms ease, color 140ms ease;
+}
+.language:hover {
+  border-color: var(--accent);
+  background: var(--surface);
+  color: var(--accent);
 }
 .theme-control {
   display: inline-flex;

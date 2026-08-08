@@ -811,6 +811,7 @@ details > p {
 .framework-dark :is(.screen-tabs button, .initiative-stages, .initiative-panels, .gallery-screen th, .initiative-assessment span) { background: #111b28; color: #c7d6e7; }
 .framework-dark .screen-tabs button[aria-selected="true"], .framework-dark .initiative-panel > button { background: #203c58; color: #8ec9f5; }
 .framework-dark .prototype-tools > button { border-color: #48637f; background: #203047; color: #9dcef5; }
+.framework-dark .initiative-heading > b { border: 1px solid #3f6385; background: #17314a; color: #9dcef5; }
 .framework-dark .framework-toolbar { border-color: #34485f; background: #0d1520; color: #dcecff; }
 .framework-dark .prototype-header { border-color: #34485f; }
 .framework-dark .prototype-back, .framework-dark .prototype-badge { color: #8ec9f5; }
@@ -827,10 +828,12 @@ details > p {
 .framework-dark .standard-form label, .framework-dark .replace-editors label,
 .framework-dark .replace-controls label, .framework-dark .initiative-fields label { color: #cbd9e8; }
 .framework-dark .component-states button.outline, .framework-dark .standard-screen footer button:first-child { border-color: #58a6e7; background: #172333; color: #8ec9f5; }
+.framework-dark .component-states button:not(.outline), .framework-dark .standard-screen footer button.primary, .framework-dark .gallery-screen header button { border-color: #2584d8; background: #1769ad; color: #fff; box-shadow: 0 5px 14px rgb(0 0 0 / .2); }
 .framework-dark .status-pill, .framework-dark .table-status { background: #143f37; color: #79d7b7; }
 .framework-dark .icon-gallery input, .framework-dark .replace-controls input { border-color: #486078; background: #111b28; color: #eaf3ff; }
 .framework-dark .icon-grid button:hover, .framework-dark .icon-grid button.selected { border-color: #58a6e7; background: #203c58; color: #a6d5f7; }
 .framework-dark .icon-variant-picker, .framework-dark .icon-size-picker { border-color: #3b5068; }
+.framework-dark .icon-variant-picker, .framework-dark .icon-size-picker { background: #111b28; }
 .framework-dark .icon-variant-picker legend, .framework-dark .icon-size-picker legend, .framework-dark .icon-pagination span { color: #a9b9cb; }
 .framework-dark .icon-size-picker button, .framework-dark .icon-pagination button, .framework-dark .table-pagination button { border-color: #486078; background: #172333; color: #a6d5f7; }
 .framework-dark .icon-size-picker button[aria-pressed="true"], .framework-dark .table-pagination button[aria-current="page"] { border-color: #58a6e7; background: #24537c; color: #fff; }
@@ -843,6 +846,8 @@ details > p {
 .framework-dark .attachment-drop { border-color: #568bc0; background: #172d42; color: #a6d5f7; }
 .framework-dark .attachment-drop small { color: #a9b9cb; }
 .framework-dark .initiative-approval section { border-color: #34485f; }
+.framework-dark .standard-screen > footer { background: #111b28; color: #eaf3ff; }
+.framework-dark .icon-preview > p, .framework-dark .icon-preview > small { color: #a9b9cb; }
 .prototype-back {
   border: 0;
   background: transparent;
@@ -1085,6 +1090,8 @@ details > p {
   border: 1px solid #dfe4eb;
   border-radius: 12px;
   background: #fff;
+  min-width: 0;
+  overflow: hidden;
 }
 .icon-preview > p {
   color: #667085;
@@ -1111,8 +1118,8 @@ details > p {
 .icon-preview i:nth-child(4) { background: #30343a; }
 .icon-variant-picker, .icon-size-picker { width: 100%; margin: 1rem 0 0; padding: .7rem; border: 1px solid #dfe4eb; border-radius: 8px; }
 .icon-variant-picker legend, .icon-size-picker legend { padding: 0 .35rem; color: #526075; font-size: .58rem; font-weight: 800; }
-.icon-variant-picker > div { display: flex; justify-content: center; gap: .45rem; }
-.icon-variant-picker button { display: grid; width: 32px; height: 32px; padding: 0; place-items: center; border-radius: 8px; cursor: pointer; }
+.icon-variant-picker > div { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .3rem; }
+.icon-variant-picker button { display: grid; width: 100%; max-width: 30px; aspect-ratio: 1; padding: 0; place-items: center; border-radius: 8px; cursor: pointer; }
 .icon-variant-picker button svg { width: 17px; }
 .icon-variant-picker button.selected { box-shadow: 0 0 0 2px #fff, 0 0 0 4px #2899f5; }
 .icon-size-picker { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem; }
@@ -1250,6 +1257,8 @@ details > p {
   gap: 0.6rem;
   padding: 0.8rem 1.2rem;
   border-top: 1px solid #e4e7ed;
+  background: transparent;
+  color: inherit;
 }
 .gallery-screen > header button { cursor: pointer; }
 .prototype-table-wrap { overflow-x: auto; padding: 0.4rem 1rem; }

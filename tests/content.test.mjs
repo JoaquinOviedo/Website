@@ -22,9 +22,10 @@ test("WIRIN records backend ownership and only verified public repositories", as
 });
 
 test("the framework prototype stays bilingual, sanitized, and data-driven", async () => {
-  const [prototype, component] = await Promise.all([
+  const [prototype, component, styles] = await Promise.all([
     readFile(new URL("../content/frameworkPrototype.ts", import.meta.url), "utf8"),
     readFile(new URL("../components/FrameworkPrototype.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
   ]);
   assert.match(prototype, /Interactive conceptual prototype/);
   assert.match(prototype, /Prototipo conceptual interactivo/);
@@ -43,6 +44,8 @@ test("the framework prototype stays bilingual, sanitized, and data-driven", asyn
   assert.match(component, /icon-pagination/);
   assert.match(component, /iconVariants/);
   assert.match(prototype, /Historial y conversación/);
+  assert.match(styles, /framework-dark \.standard-screen > footer \{ background:/);
+  assert.match(styles, /grid-template-columns: repeat\(5, minmax\(0, 1fr\)\)/);
   assert.doesNotMatch(prototype, /YPF|Circo Studio/i);
 });
 

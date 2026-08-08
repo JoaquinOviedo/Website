@@ -278,11 +278,10 @@ export function Portfolio({ locale }: { locale: Locale }) {
           aria-labelledby="contact-title"
         >
           <div className="contact-intro">
-            <p className="eyebrow">
-              <span />
-              06 / CONTACT
-            </p>
-            <h2 id="contact-title">{t.contactTitle}</h2>
+            <header className="section-heading contact-heading">
+              <p>06 /</p>
+              <h2 id="contact-title">{t.contactTitle}</h2>
+            </header>
             <p>
               {t.contactLead}{" "}
               <a href={profile.linkedin} target="_blank" rel="noreferrer">

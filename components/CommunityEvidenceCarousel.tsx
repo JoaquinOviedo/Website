@@ -32,7 +32,6 @@ export function CommunityEvidenceCarousel({ media, locale }: { media: EvidenceMe
           </svg>
         </span>
         <span>{media.label}</span>
-        <span className="evidence-summary-count">{total}</span>
         <span className="evidence-summary-chevron" aria-hidden="true">⌄</span>
       </summary>
       <div className="community-carousel" aria-roledescription="carousel" aria-label={media.label}>

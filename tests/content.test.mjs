@@ -48,7 +48,10 @@ test("professional experience includes Dataverse and access governance", async (
   assert.match(copy, /roles y permisos en Dataverse/);
   assert.match(copy, /Dataverse security roles/);
   assert.match(copy, /Microsoft Entra ID \(AD\)/);
+  assert.match(copy, /casos de uso y recorridos de validación con Test & Feedback/);
+  assert.match(copy, /use cases and validation flows with Test & Feedback/);
   assert.match(css, /data-tech="dataverse"/);
+  assert.match(css, /data-tech="test-feedback"/);
 });
 
 test("WIRIN records backend ownership and only verified public repositories", async () => {
@@ -266,11 +269,13 @@ test("homepage keeps recruiter evidence compact and moves depth into case studie
   assert.doesNotMatch(portfolio, /communityItems\.slice/);
   assert.match(portfolio, /Apps24Regular/);
   assert.match(portfolio, /technologyKey\(technology\)/);
-  assert.match(portfolio, /index < 3 \? "primary-tech"/);
+  assert.match(portfolio, /primaryExperienceTechnologies\.has\(technology\)/);
+  assert.match(portfolio, /className="section-heading contact-heading"/);
+  assert.doesNotMatch(portfolio, /06 \/ CONTACT/);
   assert.match(portfolio, /className="focus-icon" aria-hidden="true"/);
   assert.match(copy, /focus: "Áreas y tecnologías"/);
   assert.match(copy, /focus: "Areas and technologies"/);
-  assert.match(copy, /\["Power Apps", "Power Automate", "SharePoint"\]/);
+  assert.match(copy, /\["Power Apps", "Dataverse", "Power Automate", "SharePoint"\]/);
   assert.match(copy, /\["Azure", "Git", "Azure DevOps", "PowerShell"\]/);
   assert.match(css, /\.focus-tech-list/);
   assert.match(css, /\.about-grid\.about-lead \{[\s\S]*?grid-template-columns: minmax\(0, \.85fr\) minmax\(0, 1\.15fr\)/);

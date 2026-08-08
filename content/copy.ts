@@ -24,7 +24,7 @@ export const copy = {
       [
         "Soluciones empresariales",
         "Power Apps, automatización y aplicaciones corporativas centradas en procesos reales.",
-        ["Power Apps", "Power Automate", "SharePoint"],
+        ["Power Apps", "Dataverse", "Power Automate", "SharePoint"],
       ],
       [
         "Frontend",
@@ -71,7 +71,7 @@ export const copy = {
     expSummary:
       "Participo en soluciones empresariales y actualmente lidero la gestión cotidiana de una aplicación corporativa transversal.",
     expBullets: [
-      "Relevo pedidos con la persona usuaria cliente y análisis funcional, evalúo viabilidad y anticipo dependencias o riesgos.",
+      "Relevo pedidos con la persona usuaria cliente y análisis funcional, evalúo viabilidad y documento casos de uso y recorridos de validación con Test & Feedback.",
       "Estimo, organizo y delego tareas, acompañando la entrega dentro del equipo.",
       "Trabajo con roles y permisos en Dataverse, sitios y grupos de SharePoint y grupos de Microsoft Entra ID (AD) para adecuar el acceso a cada perfil.",
       "Desarrollé un framework UX reutilizable para Power Apps junto al equipo de diseño; actualmente delego evoluciones y capacito a ingresantes en sus criterios y buenas prácticas.",
@@ -219,7 +219,7 @@ export const copy = {
       [
         "Enterprise solutions",
         "Power Apps, automation, and corporate applications grounded in real processes.",
-        ["Power Apps", "Power Automate", "SharePoint"],
+        ["Power Apps", "Dataverse", "Power Automate", "SharePoint"],
       ],
       [
         "Frontend",
@@ -267,7 +267,7 @@ export const copy = {
     expSummary:
       "I contribute to enterprise solutions and currently lead the day-to-day management of a cross-company corporate application.",
     expBullets: [
-      "Gather requests with the client user and functional analysis, assess feasibility, and anticipate dependencies or risks.",
+      "Gather requests with the client user and functional analysis, assess feasibility, and document use cases and validation flows with Test & Feedback.",
       "Estimate, organize, and delegate tasks while supporting the team through delivery.",
       "Work with Dataverse security roles, SharePoint site and group permissions, and Microsoft Entra ID (AD) groups to align access with each user profile.",
       "Built a reusable Power Apps UX framework with the design team; I now delegate improvements and train new team members on its standards and practices.",

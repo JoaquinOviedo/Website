@@ -9,9 +9,10 @@ const experienceTechnologies = [
   "SharePoint",
   "Power Automate",
   "Azure DevOps",
+  "Test & Feedback",
   "Git",
-  "PowerShell",
 ] as const;
+const primaryExperienceTechnologies = new Set(["Power Apps", "Dataverse", "SharePoint"]);
 
 export function ExperienceSection({ locale }: { locale: Locale }) {
   const t = copy[locale];
@@ -35,8 +36,8 @@ export function ExperienceSection({ locale }: { locale: Locale }) {
             {t.expBullets.map((item) => <li key={item}>{item}</li>)}
           </ul>
           <ul className="tech-list">
-            {experienceTechnologies.map((technology, index) => (
-              <li className={index < 3 ? "primary-tech" : undefined} data-tech={technologyKey(technology)} key={technology}>
+            {experienceTechnologies.map((technology) => (
+              <li className={primaryExperienceTechnologies.has(technology) ? "primary-tech" : undefined} data-tech={technologyKey(technology)} key={technology}>
                 {technology}
               </li>
             ))}

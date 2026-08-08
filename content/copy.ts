@@ -99,6 +99,13 @@ export const copy = {
       ],
       ["Técnico en Electrónica", "Instituto San José (A-355)", "2014–2019"],
     ],
+    additionalTraining: "Formación complementaria",
+    dataScienceCourse: [
+      "Curso de Data Science",
+      "Universidad Tecnológica Nacional (UTN)",
+      "Noviembre de 2024",
+    ],
+    credentialLink: "Ver credencial en LinkedIn",
     community: "Charlas y comunidad",
     communityLead:
       "Compartir lo aprendido también forma parte de construir soluciones con impacto.",
@@ -249,6 +256,13 @@ export const copy = {
       ],
       ["Electronics Technician", "Instituto San José (A-355)", "2014–2019"],
     ],
+    additionalTraining: "Additional training",
+    dataScienceCourse: [
+      "Data Science course",
+      "National Technological University (UTN)",
+      "November 2024",
+    ],
+    credentialLink: "View credential on LinkedIn",
     community: "Talks and community",
     communityLead:
       "Sharing what I learn is also part of building solutions with meaningful impact.",

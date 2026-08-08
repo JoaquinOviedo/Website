@@ -223,3 +223,18 @@ test("the localized résumé is downloadable from the sticky header", async () =
   assert.match(portfolioComponent, /aria-label=\{t\.downloadCv\}/);
   assert.match(portfolioComponent, /className="header-cv"[\s\S]*?download/);
 });
+
+test("verified Data Science training is secondary, bilingual, and evidence-linked", async () => {
+  const [copy, portfolioComponent] = await Promise.all([
+    readFile("content/copy.ts", "utf8"),
+    readFile("components/Portfolio.tsx", "utf8"),
+  ]);
+
+  assert.match(copy, /Curso de Data Science/);
+  assert.match(copy, /Data Science course/);
+  assert.match(copy, /Universidad Tecnológica Nacional \(UTN\)/);
+  assert.match(copy, /Noviembre de 2024/);
+  assert.match(copy, /November 2024/);
+  assert.match(portfolioComponent, /education-certification/);
+  assert.match(portfolioComponent, /details\/certifications\//);
+});

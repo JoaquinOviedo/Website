@@ -436,6 +436,21 @@ export function Portfolio({ locale }: { locale: Locale }) {
                 <p>{period}</p>
               </article>
             ))}
+            <article className="education-certification">
+              <div>
+                <p className="education-kicker">{t.additionalTraining}</p>
+                <h3>{t.dataScienceCourse[0]}</h3>
+                <p>{t.dataScienceCourse[1]}</p>
+                <a
+                  href={`${profile.linkedin}details/certifications/`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {t.credentialLink} <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+              <p>{t.dataScienceCourse[2]}</p>
+            </article>
           </div>
           <div className="community-block">
             <div>

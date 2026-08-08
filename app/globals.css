@@ -1604,6 +1604,26 @@ details > p {
   margin: 0;
   color: var(--muted);
 }
+.education-list .education-kicker {
+  margin-bottom: 0.55rem;
+  color: var(--accent);
+  font: 800 0.67rem/1 monospace;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+.education-certification a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.8rem;
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 750;
+  text-underline-offset: 0.24em;
+}
+.education-certification a:hover {
+  color: var(--accent);
+}
 .contact {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;

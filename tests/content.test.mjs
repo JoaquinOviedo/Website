@@ -129,3 +129,24 @@ test("local time and opt-in weather preserve location privacy", async () => {
   assert.match(context, /current=temperature_2m,weather_code/);
   assert.doesNotMatch(context, /localStorage|sessionStorage/);
 });
+
+test("community highlights are bilingual and point to clean public evidence", async () => {
+  const [portfolioComponent, copy] = await Promise.all([
+    readFile("components/Portfolio.tsx", "utf8"),
+    readFile("content/copy.ts", "utf8"),
+  ]);
+
+  for (const postId of [
+    "7454991014303342592",
+    "7446915128865873920",
+    "7399482208429948928",
+    "7368291401576382464",
+  ]) {
+    assert.match(copy, new RegExp(postId));
+  }
+
+  assert.match(copy, /Ver publicación en LinkedIn/);
+  assert.match(copy, /View post on LinkedIn/);
+  assert.doesNotMatch(copy, /utm_(source|medium|campaign)=/);
+  assert.match(portfolioComponent, /target="_blank" rel="noreferrer"/);
+});

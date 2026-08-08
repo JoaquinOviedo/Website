@@ -95,14 +95,27 @@ export const copy = {
     community: "Charlas y comunidad",
     communityLead:
       "Compartir lo aprendido también forma parte de construir soluciones con impacto.",
+    communityLink: "Ver publicación en LinkedIn",
     communityItems: [
       [
         "WIRIN en la 23.ª Jornada sobre la Biblioteca Digital Universitaria",
-        "Presentación académica en equipo · UNLaM · noviembre de 2025",
+        "Presentación académica en equipo sobre accesibilidad bibliográfica y el aprendizaje de resolver una necesidad real en un equipo multidisciplinario · UNLaM · noviembre de 2025",
+        "https://www.linkedin.com/posts/ceditunlam_egresados-del-diit-en-la-23-jbdu-ugcPost-7399482208429948928-Wj7P",
       ],
       [
-        "Charla para estudiantes de nivel secundario desde CEDIT",
-        "Actividad de vinculación y orientación tecnológica",
+        "Charla en la Feria Educativa 2026",
+        "Encuentro con estudiantes de escuelas secundarias para compartir, desde la experiencia personal, los primeros pasos profesionales y el aprendizaje dentro del Programa de Becas Tecnológicas del CEDIT.",
+        "https://www.linkedin.com/posts/ceditunlam_charla-cedit-en-la-feria-educativa-2026-ugcPost-7454991014303342592-tqzs",
+      ],
+      [
+        "Experiencia como becario tecnológico y graduado",
+        "Testimonio sobre el crecimiento profesional, los desafíos y los aprendizajes que exceden lo puramente técnico durante el paso por el programa del CEDIT.",
+        "https://www.linkedin.com/posts/ceditunlam_m%C3%A1s-que-una-beca-la-experiencia-cedit-ugcPost-7446915128865873920-rr0q",
+      ],
+      [
+        "Graduación como Técnico Universitario en Desarrollo Web",
+        "Reconocimiento del CEDIT a quienes completaron su formación universitaria durante el primer semestre de 2025.",
+        "https://www.linkedin.com/posts/ceditunlam_nuestros-graduados-ugcPost-7368291401576382464-GQ0b",
       ],
     ],
     contactTitle: "Conversemos",
@@ -222,14 +235,27 @@ export const copy = {
     community: "Talks and community",
     communityLead:
       "Sharing what I learn is also part of building solutions with meaningful impact.",
+    communityLink: "View post on LinkedIn",
     communityItems: [
       [
         "WIRIN at the 23rd University Digital Library Conference",
-        "Team academic presentation · UNLaM · November 2025",
+        "Team presentation on bibliographic accessibility and the lessons learned from addressing a real need within a multidisciplinary team · UNLaM · November 2025",
+        "https://www.linkedin.com/posts/ceditunlam_egresados-del-diit-en-la-23-jbdu-ugcPost-7399482208429948928-Wj7P",
       ],
       [
-        "Talk for secondary-school students through CEDIT",
-        "Technology outreach and career-guidance activity",
+        "Talk at the 2026 Education Fair",
+        "A conversation with secondary-school students about early professional experience and continuous learning within CEDIT's Technology Scholarship Program.",
+        "https://www.linkedin.com/posts/ceditunlam_charla-cedit-en-la-feria-educativa-2026-ugcPost-7454991014303342592-tqzs",
+      ],
+      [
+        "Technology scholar and graduate experience",
+        "A first-person account of professional growth, challenges, and the lessons that went beyond technical skills during the CEDIT program.",
+        "https://www.linkedin.com/posts/ceditunlam_m%C3%A1s-que-una-beca-la-experiencia-cedit-ugcPost-7446915128865873920-rr0q",
+      ],
+      [
+        "University Degree in Web Development graduation",
+        "CEDIT recognition for scholarship recipients who completed their university education during the first half of 2025.",
+        "https://www.linkedin.com/posts/ceditunlam_nuestros-graduados-ugcPost-7368291401576382464-GQ0b",
       ],
     ],
     contactTitle: "Let's talk",

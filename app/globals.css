@@ -1508,6 +1508,18 @@ details > p {
   color: var(--muted);
   font-size: 0.85rem;
 }
+.community-list a {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.8rem;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-underline-offset: 0.24em;
+}
+.community-list a:hover {
+  text-decoration-thickness: 2px;
+}
 .education-list h3 {
   font-size: 1.25rem;
   margin-bottom: 0.45rem;

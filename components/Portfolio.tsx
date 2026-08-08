@@ -421,10 +421,17 @@ export function Portfolio({ locale }: { locale: Locale }) {
               <p>{t.communityLead}</p>
             </div>
             <div className="community-list">
-              {t.communityItems.map(([title, detail]) => (
+              {t.communityItems.map(([title, detail, href]) => (
                 <article key={title}>
                   <span aria-hidden="true">↗</span>
-                  <div><h4>{title}</h4><p>{detail}</p></div>
+                  <div>
+                    <h4>{title}</h4>
+                    <p>{detail}</p>
+                    <a href={href} target="_blank" rel="noreferrer">
+                      {t.communityLink}
+                      <span aria-hidden="true"> ↗</span>
+                    </a>
+                  </div>
                 </article>
               ))}
             </div>

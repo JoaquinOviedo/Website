@@ -1,6 +1,16 @@
 import { FrameworkPrototype } from "@/components/FrameworkPrototype";
 import { copy } from "@/content/copy";
 import type { Locale } from "@/content/portfolio";
+import { technologyKey } from "@/lib/technology";
+
+const experienceTechnologies = [
+  "Power Apps",
+  "Power Automate",
+  "SharePoint",
+  "Azure DevOps",
+  "Git",
+  "PowerShell",
+] as const;
 
 export function ExperienceSection({ locale }: { locale: Locale }) {
   const t = copy[locale];
@@ -24,12 +34,11 @@ export function ExperienceSection({ locale }: { locale: Locale }) {
             {t.expBullets.map((item) => <li key={item}>{item}</li>)}
           </ul>
           <ul className="tech-list">
-            <li className="primary-tech" data-tech="power-apps">Power Apps</li>
-            <li className="primary-tech" data-tech="power-automate">Power Automate</li>
-            <li className="primary-tech" data-tech="sharepoint">SharePoint</li>
-            <li data-tech="azure-devops">Azure DevOps</li>
-            <li data-tech="git">Git</li>
-            <li data-tech="powershell">PowerShell</li>
+            {experienceTechnologies.map((technology, index) => (
+              <li className={index < 3 ? "primary-tech" : undefined} data-tech={technologyKey(technology)} key={technology}>
+                {technology}
+              </li>
+            ))}
           </ul>
         </div>
       </article>

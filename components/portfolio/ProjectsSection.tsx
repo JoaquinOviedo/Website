@@ -2,6 +2,7 @@ import { Icon } from "./Icon";
 import { copy } from "@/content/copy";
 import { projects, type Locale } from "@/content/portfolio";
 import { withBasePath } from "@/lib/basePath";
+import { technologyKey } from "@/lib/technology";
 
 export function ProjectsSection({ locale }: { locale: Locale }) {
   const t = copy[locale];
@@ -52,7 +53,7 @@ export function ProjectsSection({ locale }: { locale: Locale }) {
               )}
               <ul className="tech-list">
                 {project.technologies.slice(0, 6).map((technology, index) => (
-                  <li className={index < 2 ? "primary-tech" : undefined} key={technology}>{technology}</li>
+                  <li className={index < 2 ? "primary-tech" : undefined} data-tech={technologyKey(technology)} key={technology}>{technology}</li>
                 ))}
               </ul>
               <div className="project-links">

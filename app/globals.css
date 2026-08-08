@@ -1102,6 +1102,12 @@ details > p {
 .framework-dark .component-states button:not(.outline), .framework-dark .standard-screen footer button.primary, .framework-dark .gallery-screen header button { border-color: #2584d8; background: #1769ad; color: #fff; box-shadow: 0 5px 14px rgb(0 0 0 / .2); }
 .framework-dark .status-pill, .framework-dark .table-status { background: #143f37; color: #79d7b7; }
 .framework-dark .icon-gallery input, .framework-dark .replace-controls input { border-color: #486078; background: #111b28; color: #eaf3ff; }
+.framework-dark .prototype-select summary,
+.framework-dark .prototype-select > div { border-color: #486078; background: #111b28; color: #eaf3ff; }
+.framework-dark .prototype-select button { color: #dce9f7; }
+.framework-dark .prototype-select button:hover,
+.framework-dark .prototype-select button:focus-visible,
+.framework-dark .prototype-select button[aria-selected="true"] { background: #203c58; color: #a6d5f7; }
 .framework-dark .icon-grid button:hover, .framework-dark .icon-grid button.selected { border-color: #58a6e7; background: #203c58; color: #a6d5f7; }
 .framework-dark .icon-variant-picker, .framework-dark .icon-size-picker { border-color: #3b5068; }
 .framework-dark .icon-variant-picker, .framework-dark .icon-size-picker { background: #111b28; }
@@ -1505,12 +1511,69 @@ details > p {
   padding: 1.2rem;
 }
 .standard-form label,
+.prototype-select-field,
 .replace-editors label,
 .replace-controls label {
   color: #344054;
   font-size: 0.65rem;
   font-weight: 750;
 }
+.prototype-select {
+  position: relative;
+  margin-top: 0.3rem;
+  font: inherit;
+}
+.prototype-select summary {
+  display: flex;
+  min-height: 36px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.62rem 0.7rem;
+  border: 1px solid #cbd2dc;
+  border-radius: 6px;
+  background: #fff;
+  color: #172235;
+  cursor: pointer;
+  list-style: none;
+}
+.prototype-select summary::-webkit-details-marker { display: none; }
+.prototype-select summary svg { width: 16px; transition: transform 160ms ease; }
+.prototype-select[open] summary { border-color: #0f6cbd; box-shadow: inset 0 0 0 1px #0f6cbd; }
+.prototype-select[open] summary svg { transform: rotate(180deg); }
+.prototype-select > div {
+  position: absolute;
+  z-index: 8;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  padding: 0.25rem;
+  border: 1px solid #d5dce5;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(30, 50, 75, 0.18);
+}
+.prototype-select button {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 18px 1fr;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.55rem 0.5rem;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: #26354a;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.prototype-select button svg,
+.prototype-select button > span { width: 15px; height: 15px; }
+.prototype-select button:hover,
+.prototype-select button:focus-visible { background: #eaf3fc; color: #075a9c; outline: 0; }
+.prototype-select button[aria-selected="true"] { background: #dceefd; color: #075a9c; }
 .standard-form label.wide { grid-column: 1 / 3; }
 .standard-form textarea { resize: vertical; }
 .standard-form aside {
@@ -1639,8 +1702,6 @@ details > p {
   width: 100%;
   margin-top: 0.8rem;
   overflow: hidden;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
 }
 .community-evidence summary {
   display: flex;
@@ -1656,9 +1717,6 @@ details > p {
 }
 .community-evidence summary::-webkit-details-marker {
   display: none;
-}
-.community-evidence[open] summary {
-  border-bottom: 1px solid var(--line);
 }
 .evidence-summary-icon {
   display: inline-grid;
@@ -2639,16 +2697,31 @@ footer a {
   background: var(--accent);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent);
 }
-.timeline .tech-list li[data-tech] {
+.tech-list li[data-tech],
+.focus-tech-list li[data-tech] {
   transition: border-color var(--transition);
 }
-.timeline .tech-list li[data-tech="power-apps"] { --tech-accent: #8b4b9f; }
-.timeline .tech-list li[data-tech="power-automate"] { --tech-accent: #1672ec; }
-.timeline .tech-list li[data-tech="sharepoint"] { --tech-accent: #038b87; }
-.timeline .tech-list li[data-tech="azure-devops"] { --tech-accent: #1686d9; }
-.timeline .tech-list li[data-tech="git"] { --tech-accent: #df573d; }
-.timeline .tech-list li[data-tech="powershell"] { --tech-accent: #3978bd; }
-.timeline .tech-list li[data-tech]:hover {
+[data-tech="power-apps"] { --tech-accent: #8b4b9f; }
+[data-tech="power-automate"] { --tech-accent: #1672ec; }
+[data-tech="sharepoint"] { --tech-accent: #038b87; }
+[data-tech="react"] { --tech-accent: #1597b8; }
+[data-tech="typescript"] { --tech-accent: #3178c6; }
+[data-tech="angular"], [data-tech="angular-17"] { --tech-accent: #dd315c; }
+[data-tech="spfx"] { --tech-accent: #038b87; }
+[data-tech^="dotnet"], [data-tech^="aspnet"] { --tech-accent: #7355d9; }
+[data-tech="entity-framework-core"] { --tech-accent: #7355d9; }
+[data-tech="node-js"], [data-tech="express"] { --tech-accent: #43853d; }
+[data-tech="sql"], [data-tech="sql-server"] { --tech-accent: #b14c55; }
+[data-tech="postgresql"] { --tech-accent: #336791; }
+[data-tech="azure"], [data-tech="azure-devops"] { --tech-accent: #1686d9; }
+[data-tech="git"] { --tech-accent: #df573d; }
+[data-tech="powershell"] { --tech-accent: #3978bd; }
+[data-tech="jwt"] { --tech-accent: #c43ab3; }
+[data-tech="vite"] { --tech-accent: #8067d8; }
+[data-tech="zustand"] { --tech-accent: #9b6b43; }
+[data-tech="tailwind-css"] { --tech-accent: #159eb5; }
+.tech-list li[data-tech]:hover,
+.focus-tech-list li[data-tech]:hover {
   border-color: var(--tech-accent);
 }
 .contributions {

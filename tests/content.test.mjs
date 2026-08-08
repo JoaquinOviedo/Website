@@ -76,6 +76,10 @@ test("the framework prototype stays bilingual, sanitized, and data-driven", asyn
   assert.match(component, /@fluentui\/react-icons/);
   assert.match(component, /icon-pagination/);
   assert.match(component, /iconVariants/);
+  assert.match(component, /function PrototypeSelect/);
+  assert.match(component, /role="listbox"/);
+  assert.match(component, /aria-selected={option === value}/);
+  assert.doesNotMatch(component, /<select defaultValue=/);
   assert.doesNotMatch(component, /<i aria-hidden="true">0\{index \+ 1\}<\/i>/);
   assert.match(prototype, /Historial y conversación/);
   assert.match(styles, /framework-dark \.standard-screen > footer \{ background:/);
@@ -111,17 +115,23 @@ test("language switching preserves the current section and deployment base path"
   assert.match(source, /onClick=\{switchLanguage\}/);
 });
 
-test("browser tabs use a concise personal title and a legible vector mark", async () => {
-  const [spanishPage, englishPage, layout, manifest] = await Promise.all([
+test("browser tabs use a concise personal title and an adaptive vector mark", async () => {
+  const [spanishPage, englishPage, layout, manifest, lightMark, darkMark] = await Promise.all([
     readFile("app/es/page.tsx", "utf8"),
     readFile("app/en/page.tsx", "utf8"),
     readFile("app/layout.tsx", "utf8"),
     readFile("app/manifest.ts", "utf8"),
+    readFile("public/images/joaquin-oviedo-mark-light.svg", "utf8"),
+    readFile("public/images/joaquin-oviedo-mark-dark.svg", "utf8"),
   ]);
   assert.match(spanishPage, /Joaquín Oviedo · Software Developer/);
   assert.match(englishPage, /Joaquín Oviedo · Software Developer/);
-  assert.match(layout, /joaquin-oviedo-mark\.svg/);
-  assert.match(manifest, /joaquin-oviedo-mark\.svg/);
+  assert.match(layout, /joaquin-oviedo-mark-light\.svg/);
+  assert.match(layout, /dataset\.theme===['"]dark['"]/);
+  assert.match(layout, /MutationObserver/);
+  assert.match(manifest, /joaquin-oviedo-mark-light\.svg/);
+  assert.match(lightMark, /aria-label="JO\."/);
+  assert.match(darkMark, /aria-label="JO\."/);
 });
 
 test("each featured case study renders a bilingual interactive prototype", async () => {
@@ -229,8 +239,8 @@ test("homepage keeps recruiter evidence compact and moves depth into case studie
   assert.match(portfolio, /communityItems\.map/);
   assert.doesNotMatch(portfolio, /communityItems\.slice/);
   assert.match(portfolio, /Apps24Regular/);
-  assert.match(portfolio, /data-tech="power-apps"/);
-  assert.match(portfolio, /className="primary-tech" data-tech="sharepoint"/);
+  assert.match(portfolio, /technologyKey\(technology\)/);
+  assert.match(portfolio, /index < 3 \? "primary-tech"/);
   assert.match(portfolio, /className="focus-icon" aria-hidden="true"/);
   assert.match(copy, /focus: "Áreas y tecnologías"/);
   assert.match(copy, /focus: "Areas and technologies"/);
@@ -242,9 +252,9 @@ test("homepage keeps recruiter evidence compact and moves depth into case studie
   assert.match(css, /\.tech-list li\.primary-tech/);
   assert.match(css, /data-tech="power-apps"/);
   assert.match(css, /--tech-accent: #8b4b9f/);
-  assert.match(css, /\.timeline \.tech-list li\[data-tech\]:hover \{\s*border-color: var\(--tech-accent\);\s*\}/);
-  assert.doesNotMatch(css, /\.timeline \.tech-list li\[data-tech\]:hover \{[^}]*background:/);
-  assert.doesNotMatch(css, /\.timeline \.tech-list li\[data-tech\]:hover::before/);
+  assert.match(css, /\.focus-tech-list li\[data-tech\]:hover \{\s*border-color: var\(--tech-accent\);\s*\}/);
+  assert.doesNotMatch(css, /\.tech-list li\[data-tech\]:hover[^}]*background:/);
+  assert.doesNotMatch(css, /\.tech-list li\[data-tech\]:hover::before/);
   assert.match(css, /\.visual-finanzas-personales \{[\s\S]*?#18283d/);
   assert.match(css, /\.task-card-head/);
   assert.doesNotMatch(css, /\.task-card[^\n]*#ff6d70/);
@@ -331,9 +341,9 @@ test("community highlights are bilingual and point to clean public evidence", as
   assert.match(portfolioComponent, /CommunityEvidenceCarousel/);
   assert.match(carousel, /withBasePath\(image\.src\)/);
   assert.match(carousel, /aria-roledescription="carousel"/);
-  assert.match(copy, /Ver evidencia de WIRIN/);
-  assert.match(copy, /View WIRIN evidence/);
-  assert.match(copy, /\/images\/projects\/wirin\/presentation\.webp/);
+  assert.match(copy, /label: "Imágenes"/);
+  assert.match(copy, /label: "Images"/);
+  assert.equal((copy.match(/\/images\/projects\/wirin\/jbdu-0[1-6]\.webp/g) ?? []).length, 12);
   assert.match(portfolioComponent, /aria-label={`\$\{t\.communityLink\}: \$\{title\}`}/);
   assert.doesNotMatch(portfolioComponent, /\{t\.communityLink\}\s*<span aria-hidden="true">↗<\/span>/);
   assert.doesNotMatch(portfolioComponent, /\{t\.contactLinkedin\}\s*<span aria-hidden="true"> ↗<\/span>/);
@@ -359,9 +369,9 @@ test("public assets use the deployment-aware base path helper", async () => {
   assert.match(portfolio, /withBasePath\(profile\.cv\[locale\]!\)/);
   assert.match(gallery, /withBasePath\(slide\.src\)/);
   assert.match(profile, /photo: "\/images\/joaquin-oviedo-profile-v2\.webp"/);
-  assert.match(layout, /absoluteAsset\("\/images\/joaquin-oviedo-mark\.svg"\)/);
+  assert.match(layout, /withBasePath\("\/images\/joaquin-oviedo-mark-light\.svg"\)/);
   assert.match(layout, /apple: absoluteAsset\("\/images\/joaquin-oviedo-icon\.png"\)/);
-  assert.match(manifest, /withBasePath\("\/images\/joaquin-oviedo-mark\.svg"\)/);
+  assert.match(manifest, /withBasePath\("\/images\/joaquin-oviedo-mark-light\.svg"\)/);
   assert.match(workflow, /NEXT_PUBLIC_BASE_PATH: \/Website/g);
   assert.match(exporter, /path\.startsWith\(`\$\{basePath\}\/`\)/);
 });

@@ -6,6 +6,7 @@ import {
 } from "@fluentui/react-icons";
 import { copy } from "@/content/copy";
 import type { Locale } from "@/content/portfolio";
+import { technologyKey } from "@/lib/technology";
 
 const focusIcons = [
   Apps24Regular,
@@ -34,7 +35,7 @@ export function FocusSection({ locale }: { locale: Locale }) {
               <p>{text}</p>
               <ul className="focus-tech-list" aria-label={title}>
                 {technologies.map((technology) => (
-                  <li key={technology}>{technology}</li>
+                  <li data-tech={technologyKey(technology)} key={technology}>{technology}</li>
                 ))}
               </ul>
             </article>

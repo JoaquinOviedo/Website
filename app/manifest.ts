@@ -12,7 +12,7 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#153c32",
     icons: [
       {
-        src: withBasePath("/images/joaquin-oviedo-mark.svg"),
+        src: withBasePath("/images/joaquin-oviedo-mark-light.svg"),
         sizes: "any",
         type: "image/svg+xml",
       },

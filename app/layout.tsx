@@ -15,8 +15,6 @@ export const metadata: Metadata = {
   description:
     "Desarrollador de software especializado en soluciones empresariales, backend y Power Platform.",
   icons: {
-    icon: [{ url: absoluteAsset("/images/joaquin-oviedo-mark.svg"), type: "image/svg+xml" }],
-    shortcut: absoluteAsset("/images/joaquin-oviedo-mark.svg"),
     apple: absoluteAsset("/images/joaquin-oviedo-icon.png"),
   },
   manifest: absoluteAsset("/manifest.webmanifest"),
@@ -34,6 +32,7 @@ export const viewport: Viewport = {
 };
 
 const themeScript = `(function(){try{var s=localStorage.getItem('theme');var t=s==='light'||s==='dark'||s==='system'?s:'system';var d=t==='dark'||(t==='system'&&matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.dataset.theme=d?'dark':'light';document.documentElement.style.colorScheme=d?'dark':'light'}catch(e){}})()`;
+const faviconScript = `(function(){var l=document.getElementById('adaptive-favicon');if(!l)return;var b='${withBasePath("/images/")}';var u=function(){l.href=b+'joaquin-oviedo-mark-'+(document.documentElement.dataset.theme==='dark'?'dark':'light')+'.svg'};u();new MutationObserver(u).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']})})()`;
 
 export default function RootLayout({
   children,
@@ -73,7 +72,14 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <head>
+        <link
+          id="adaptive-favicon"
+          rel="icon"
+          type="image/svg+xml"
+          href={withBasePath("/images/joaquin-oviedo-mark-light.svg")}
+        />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script dangerouslySetInnerHTML={{ __html: faviconScript }} />
       </head>
       <body>
         {children}

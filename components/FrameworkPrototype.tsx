@@ -8,6 +8,7 @@ import {
   Heart24Regular, Home24Regular, Info24Regular, Location24Regular,
   LockClosed24Regular, Mail24Regular, MoreHorizontal24Regular, Person24Regular,
   Search24Regular, Settings24Regular, Star24Regular, Warning24Regular,
+  ChevronDown20Regular,
 } from "@fluentui/react-icons";
 import {
   frameworkIcons,
@@ -45,6 +46,33 @@ const iconVariants = {
   orange: { background: "#ff850d", color: "#ffffff", border: "2px solid #ff850d" },
 } as const;
 
+function PrototypeSelect({ label, value, options, onChange }: {
+  label: string;
+  value: string;
+  options: string[];
+  onChange: (value: string) => void;
+}) {
+  return (
+    <div className="prototype-select-field">
+      <span>{label}</span>
+      <details className="prototype-select">
+        <summary><span>{value}</span><ChevronDown20Regular aria-hidden="true" /></summary>
+        <div role="listbox" aria-label={label}>
+          {options.map((option) => (
+            <button type="button" role="option" aria-selected={option === value} key={option} onClick={(event) => {
+              onChange(option);
+              event.currentTarget.closest("details")?.removeAttribute("open");
+            }}>
+              {option === value ? <Checkmark24Regular aria-hidden="true" /> : <span aria-hidden="true" />}
+              {option}
+            </button>
+          ))}
+        </div>
+      </details>
+    </div>
+  );
+}
+
 export function FrameworkPrototype({ locale }: { locale: Locale }) {
   const t = frameworkPrototypeCopy[locale];
   const [view, setView] = useState<FrameworkView>("home");
@@ -64,6 +92,8 @@ export function FrameworkPrototype({ locale }: { locale: Locale }) {
   const [iconVariant, setIconVariant] = useState<keyof typeof iconVariants>("blue");
   const [iconSize, setIconSize] = useState<"small" | "large">("large");
   const [iconPage, setIconPage] = useState(0);
+  const [selectedArea, setSelectedArea] = useState(t.select);
+  const [selectedPriority, setSelectedPriority] = useState(t.priorityOptions[1]);
 
   const filteredIcons = useMemo(
     () => frameworkIcons.filter(([name]) => name.includes(iconFilter.toLowerCase().trim())),
@@ -281,9 +311,9 @@ export function FrameworkPrototype({ locale }: { locale: Locale }) {
               <header><div><span>{t.step}</span><h4>{t.formTitle}</h4><p>{t.formLead}</p></div><b>{t.draft}</b></header>
               <div className="standard-form">
                 <label>{t.fields[0]}<input defaultValue={locale === "es" ? "Optimizar proceso interno" : "Improve an internal process"} /></label>
-                <label>{t.fields[1]}<select defaultValue=""><option value="">{t.select}</option>{t.areaOptions.map((option) => <option key={option}>{option}</option>)}</select></label>
+                <PrototypeSelect label={t.fields[1]} value={selectedArea} options={[t.select, ...t.areaOptions]} onChange={setSelectedArea} />
                 <label className="wide">{t.fields[2]}<textarea rows={3} defaultValue={locale === "es" ? "Descripción ficticia para mostrar el patrón de captura." : "Fictional description used to demonstrate the capture pattern."} /></label>
-                <label>{t.fields[3]}<select defaultValue={t.priorityOptions[1]}>{t.priorityOptions.map((option) => <option key={option}>{option}</option>)}</select></label>
+                <PrototypeSelect label={t.fields[3]} value={selectedPriority} options={t.priorityOptions} onChange={setSelectedPriority} />
                 <aside><span /><p><b>{t.review}</b><small>{t.discovery}</small></p><span /><p><b>{t.approval}</b><small>{t.pending}</small></p></aside>
               </div>
               <footer><button type="button">{t.cancel}</button><button type="button" className="primary" onClick={showSaved}>{t.save}</button></footer>

@@ -30,7 +30,13 @@ const routes = new Map([
 
 function withBasePath(value) {
   if (!basePath || !value.includes("<")) return value;
-  return value.replace(/(href|src|action)=(['"])\/(?!\/)/g, `$1=$2${basePath}/`);
+  return value.replace(
+    /(href|src|action)=(['"])(\/(?!\/)[^'"]*)/g,
+    (match, attribute, quote, path) =>
+      path === basePath || path.startsWith(`${basePath}/`)
+        ? match
+        : `${attribute}=${quote}${basePath}${path}`,
+  );
 }
 
 for (const [route, destination] of routes) {

@@ -11,6 +11,9 @@ The landing page is an executive index: each featured project shows one clean pr
 
 Screenshot definitions live in `components/ProjectGallery.tsx`. Keep records, amounts, dates, names, paths, and other personal data sanitized. Screenshots must open at full size for detailed inspection. The prototype remains separate from the evidence gallery so it cannot be mistaken for the final product.
 
+## Public asset paths
+Images, CV files, manifest icons, and other files under `public/` must be rendered through `withBasePath` from `lib/basePath.ts`. GitHub Pages is hosted below `/Website`, while local development and a future custom domain use the root path. Keep `NEXT_PUBLIC_BASE_PATH: /Website` in the Pages workflow and never hardcode `/Website` inside content records or components.
+
 ## Replacing CVs
 Place stable PDFs under `public/cv/`, keep the editable DOCX files under `documents/cv/`, then update `profile.cvUpdated`. The generator scripts are `scripts/build_cvs.py` and `scripts/build_cv_pdfs.py`. A missing language must remain `null`; the UI will show a non-clickable pending state instead of a broken link.
 

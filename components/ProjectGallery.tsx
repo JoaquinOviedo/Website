@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { Locale } from "@/content/portfolio";
+import { withBasePath } from "@/lib/basePath";
 
 const galleries = {
   "finanzas-personales": [
@@ -43,8 +44,8 @@ export function ProjectGallery({ slug, locale }: { slug: GallerySlug; locale: Lo
       <div className="project-gallery-frame" aria-live="polite">
         {slides.map((slide, index) => (
           <figure key={slide.src} hidden={index !== current}>
-            <a href={slide.src} target="_blank" rel="noreferrer" aria-label={`${labels.open}: ${slide[locale]}`}>
-              <img src={slide.src} alt={slide[locale]} width="1792" height="1024" loading="lazy" decoding="async" />
+            <a href={withBasePath(slide.src)} target="_blank" rel="noreferrer" aria-label={`${labels.open}: ${slide[locale]}`}>
+              <img src={withBasePath(slide.src)} alt={slide[locale]} width="1792" height="1024" loading="lazy" decoding="async" />
             </a>
             <figcaption>{slide[locale]}</figcaption>
           </figure>

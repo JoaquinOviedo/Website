@@ -27,9 +27,11 @@ jobs:
       - run: npm run validate
         env:
           NEXT_PUBLIC_SITE_URL: https://JoaquinOviedo.github.io/Website
+          NEXT_PUBLIC_BASE_PATH: /Website
       - run: npm run export:pages
         env:
           NEXT_PUBLIC_SITE_URL: https://JoaquinOviedo.github.io/Website
+          NEXT_PUBLIC_BASE_PATH: /Website
           PAGES_BASE_PATH: /Website
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

@@ -12,6 +12,7 @@ import { CustomCursor } from "@/components/CustomCursor";
 import { LocalContext } from "@/components/LocalContext";
 import { copy } from "@/content/copy";
 import { profile, projects, type Locale } from "@/content/portfolio";
+import { withBasePath } from "@/lib/basePath";
 
 type Theme = "system" | "light" | "dark";
 const DEFAULT_THEME: Theme = "system";
@@ -163,7 +164,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
           <LocalContext locale={locale} />
           <a
             className="language"
-            href={`/${otherLocale}`}
+            href={withBasePath(`/${otherLocale}`)}
             hrefLang={otherLocale}
             aria-label={`${t.language}: ${otherLocale.toUpperCase()}`}
             onClick={switchLanguage}
@@ -222,7 +223,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
           <div className="portrait-wrap reveal" aria-label={profile.name}>
             <div className="portrait-frame">
               <img
-                src={profile.photo}
+                src={withBasePath(profile.photo)}
                 alt={`${profile.name}, software developer`}
                 width="460"
                 height="460"
@@ -271,7 +272,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
           {projects
             .filter((p) => p.featured)
             .map((project) => {
-              const projectPath = project.path[locale];
+              const projectPath = withBasePath(project.path[locale]);
               return (
               <article className={`project-card project-${project.slug}`} key={project.slug}>
                 <div className={`project-visual visual-${project.slug}`}>
@@ -280,7 +281,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
                     <div className="project-preview-window">
                       <i aria-hidden="true"><b /><b /><b /></i>
                       {project.image && (
-                        <img src={project.image} alt="" width="1792" height="1024" loading="lazy" decoding="async" />
+                        <img src={withBasePath(project.image)} alt="" width="1792" height="1024" loading="lazy" decoding="async" />
                       )}
                     </div>
                     <strong>{t.caseStudy} <Icon name="arrow" /></strong>
@@ -463,7 +464,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
               {profile.cv[locale] ? (
                 <a
                   className="button primary"
-                  href={profile.cv[locale]!}
+                  href={withBasePath(profile.cv[locale]!)}
                   download
                 >
                   {t.downloadCv} <Icon name="arrow" />

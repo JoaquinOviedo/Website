@@ -10,6 +10,7 @@ This repository is Joaquín Oviedo's bilingual professional portfolio. Optimize 
 - `components/FrameworkPrototype.tsx` and `content/frameworkPrototype.ts`: sanitized interactive representation of the Power Apps design system; never turn it into a reproduction of internal applications.
 - `public/cv/`: replaceable CV files; keep paths synchronized with `content/portfolio.ts`.
 - `public/images/`: real public imagery only.
+- `lib/basePath.ts`: required path helper for every public image, CV, icon, and localized internal route so GitHub Pages and a future root domain both work.
 - `docs/CONTENT_GUIDE.md`: editing workflow and pending facts.
 
 ## Change rules

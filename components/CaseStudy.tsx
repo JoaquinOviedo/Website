@@ -2,6 +2,7 @@ import { copy } from "@/content/copy";
 import { profile, projects, type Locale } from "@/content/portfolio";
 import { ProjectGallery, type GallerySlug } from "@/components/ProjectGallery";
 import { ProjectPrototype } from "@/components/ProjectPrototype";
+import { withBasePath } from "@/lib/basePath";
 
 export function CaseStudy({ locale, slug }: { locale: Locale; slug: GallerySlug }) {
   const t = copy[locale];
@@ -28,10 +29,10 @@ export function CaseStudy({ locale, slug }: { locale: Locale; slug: GallerySlug 
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <nav className="case-nav">
-        <a href={`/${locale}`}>{profile.name}</a>
+        <a href={withBasePath(`/${locale}`)}>{profile.name}</a>
         <div>
-          <a href={project.path[otherLocale]} hrefLang={otherLocale}>{otherLocale.toUpperCase()}</a>
-          <a href={`/${locale}#proyectos`}>← {t.back}</a>
+          <a href={withBasePath(project.path[otherLocale])} hrefLang={otherLocale}>{otherLocale.toUpperCase()}</a>
+          <a href={`${withBasePath(`/${locale}`)}#proyectos`}>← {t.back}</a>
         </div>
       </nav>
       <article className={`case-article case-${project.slug}`}>
@@ -48,7 +49,7 @@ export function CaseStudy({ locale, slug }: { locale: Locale; slug: GallerySlug 
                 {t.demo} ↗
               </a>
             )}
-            <a className="button secondary" href={`/${locale}#contacto`}>
+            <a className="button secondary" href={`${withBasePath(`/${locale}`)}#contacto`}>
               {t.contact} →
             </a>
           </div>

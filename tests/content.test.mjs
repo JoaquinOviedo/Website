@@ -176,3 +176,25 @@ test("community highlights are bilingual and point to clean public evidence", as
   assert.doesNotMatch(copy, /utm_(source|medium|campaign)=/);
   assert.match(portfolioComponent, /target="_blank" rel="noreferrer"/);
 });
+
+test("public assets use the deployment-aware base path helper", async () => {
+  const [helper, portfolio, gallery, layout, manifest, workflow, exporter] = await Promise.all([
+    readFile("lib/basePath.ts", "utf8"),
+    readFile("components/Portfolio.tsx", "utf8"),
+    readFile("components/ProjectGallery.tsx", "utf8"),
+    readFile("app/layout.tsx", "utf8"),
+    readFile("app/manifest.ts", "utf8"),
+    readFile(".github/workflows/deploy-pages.yml", "utf8"),
+    readFile("scripts/export-github-pages.mjs", "utf8"),
+  ]);
+
+  assert.match(helper, /NEXT_PUBLIC_BASE_PATH/);
+  assert.match(portfolio, /withBasePath\(profile\.photo\)/);
+  assert.match(portfolio, /withBasePath\(project\.image\)/);
+  assert.match(portfolio, /withBasePath\(profile\.cv\[locale\]!\)/);
+  assert.match(gallery, /withBasePath\(slide\.src\)/);
+  assert.match(layout, /absoluteAsset\("\/images\/joaquin-oviedo\.png"\)/);
+  assert.match(manifest, /withBasePath\("\/images\/joaquin-oviedo\.png"\)/);
+  assert.match(workflow, /NEXT_PUBLIC_BASE_PATH: \/Website/g);
+  assert.match(exporter, /path\.startsWith\(`\$\{basePath\}\/`\)/);
+});

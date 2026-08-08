@@ -1,7 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { withBasePath } from "@/lib/basePath";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://joaquinoviedo.dev";
+const siteOrigin = new URL(siteUrl).origin;
+const absoluteAsset = (path: string) => new URL(withBasePath(path), siteOrigin).toString();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -12,16 +15,16 @@ export const metadata: Metadata = {
   description:
     "Desarrollador de software especializado en soluciones empresariales, backend y Power Platform.",
   icons: {
-    icon: "/images/joaquin-oviedo.png",
-    apple: "/images/joaquin-oviedo.png",
+    icon: absoluteAsset("/images/joaquin-oviedo.png"),
+    apple: absoluteAsset("/images/joaquin-oviedo.png"),
   },
-  manifest: "/manifest.webmanifest",
+  manifest: absoluteAsset("/manifest.webmanifest"),
   openGraph: {
     type: "website",
     siteName: "Joaquín Oviedo",
-    images: ["/og.png"],
+    images: [absoluteAsset("/og.png")],
   },
-  twitter: { card: "summary_large_image", images: ["/og.png"] },
+  twitter: { card: "summary_large_image", images: [absoluteAsset("/og.png")] },
 };
 
 export const viewport: Viewport = {

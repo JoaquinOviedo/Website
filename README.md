@@ -54,6 +54,10 @@ The implemented fallback is intentionally functional without a backend: it valid
 
 Analytics are disabled by default. If privacy-friendly analytics are added, honor `NEXT_PUBLIC_ANALYTICS_DOMAIN`, document the provider, and restrict events to CV downloads, contact actions, successful submissions, project visits, and outbound professional links. Do not add cross-site tracking or unnecessary cookie banners.
 
+### Local time and weather
+
+The header shows the visitor's device time. Weather is opt-in: only after the visitor activates it does the browser request geolocation permission. Coordinates are rounded to two decimals, sent directly to the [Open-Meteo forecast API](https://open-meteo.com/en/docs) to retrieve current temperature and weather code, and are not persisted by the portfolio.
+
 ## Deployment
 
 The initial target is GitHub Pages through `.github/workflows/deploy-pages.yml`; set `NEXT_PUBLIC_SITE_URL` to the Pages origin before publishing. When a custom `joaquinoviedo.com` or `.com.ar` domain is available, update that variable and the repository Pages configuration. Run `npm run validate` before every release. Do not execute an external deployment without explicit authorization.

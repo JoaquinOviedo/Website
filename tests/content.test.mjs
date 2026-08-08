@@ -115,3 +115,17 @@ test("custom cursor is progressive and respects input preferences", async () => 
   assert.match(css, /@media \(hover: hover\) and \(pointer: fine\) and \(prefers-reduced-motion: no-preference\)/);
   assert.match(css, /pointer-events: none/);
 });
+
+test("local time and opt-in weather preserve location privacy", async () => {
+  const [context, portfolio] = await Promise.all([
+    readFile("components/LocalContext.tsx", "utf8"),
+    readFile("components/Portfolio.tsx", "utf8"),
+  ]);
+  assert.match(portfolio, /<LocalContext locale=\{locale\}/);
+  assert.match(context, /Intl\.DateTimeFormat/);
+  assert.match(context, /navigator\.geolocation\.getCurrentPosition/);
+  assert.match(context, /latitude\.toFixed\(2\)/);
+  assert.match(context, /api\.open-meteo\.com\/v1\/forecast/);
+  assert.match(context, /current=temperature_2m,weather_code/);
+  assert.doesNotMatch(context, /localStorage|sessionStorage/);
+});

@@ -11,6 +11,7 @@ import { FrameworkPrototype } from "@/components/FrameworkPrototype";
 import { ProjectPrototype } from "@/components/ProjectPrototype";
 import { ProjectGallery } from "@/components/ProjectGallery";
 import { CustomCursor } from "@/components/CustomCursor";
+import { LocalContext } from "@/components/LocalContext";
 import { copy } from "@/content/copy";
 import { profile, projects, type Locale } from "@/content/portfolio";
 
@@ -161,6 +162,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
           </ul>
         </nav>
         <div className="header-actions">
+          <LocalContext locale={locale} />
           <a
             className="language"
             href={`/${otherLocale}`}

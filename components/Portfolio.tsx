@@ -205,8 +205,8 @@ export function Portfolio({ locale }: { locale: Locale }) {
             <p>04 /</p>
             <h2 id="about-title">{t.about}</h2>
           </header>
-          <div className="about-grid">
-            <p className="about-lead">{t.aboutText}</p>
+          <div className="about-grid about-lead">
+            {t.aboutParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
           </div>
         </section>
 

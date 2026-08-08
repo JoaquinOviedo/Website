@@ -87,8 +87,11 @@ export const copy = {
     frameworkCaption:
       "Representación conceptual — sin interfaces ni información interna.",
     about: "Sobre mí",
-    aboutText:
-      "Soy desarrollador de software con experiencia en soluciones empresariales y formación en desarrollo web. Me interesa asumir los problemas de punta a punta: comprender la necesidad, definir qué aporta valor y coordinar su evolución. Utilizo la IA como herramienta para explorar, construir y validar soluciones, manteniendo bajo mi responsabilidad las decisiones de producto, la calidad y el resultado.",
+    aboutParagraphs: [
+      "Soy desarrollador de software con formación en desarrollo web y actualmente trabajo construyendo soluciones empresariales tanto en entornos low-code como de desarrollo tradicional.",
+      "Me gusta involucrarme más allá de la implementación: entender el problema, pensar en la experiencia del usuario, construir soluciones reutilizables y buscar continuamente mejores formas de hacer las cosas.",
+      "Soy una persona curiosa por naturaleza y disfruto aprender nuevas tecnologías, experimentar con ideas y convertirlas en soluciones prácticas. Integro la IA en ese proceso para explorar, desarrollar y validar con mayor rapidez, manteniendo bajo mi responsabilidad las decisiones técnicas, la calidad y los resultados.",
+    ],
     education: "Educación",
     educationItems: [
       [
@@ -244,8 +247,11 @@ export const copy = {
     frameworkCaption:
       "Conceptual representation — no internal interfaces or information.",
     about: "About me",
-    aboutText:
-      "I am a software developer with experience in enterprise solutions and a web development background. I am drawn to owning problems end to end: understanding the need, deciding what creates value, and coordinating their evolution. I use AI as a tool to explore, build, and validate solutions while retaining responsibility for product decisions, quality, and outcomes.",
+    aboutParagraphs: [
+      "I’m a software developer with a web development background, currently building enterprise solutions across low-code and traditional development environments.",
+      "I enjoy taking ownership beyond the implementation itself: understanding the problem, thinking through the user experience, building reusable solutions, and continuously improving how things are done.",
+      "I’m naturally curious and enjoy learning new technologies, experimenting with ideas, and turning them into practical solutions. I use AI throughout that process to explore, build, and validate faster, while keeping technical decisions, quality, and outcomes under my responsibility.",
+    ],
     education: "Education",
     educationItems: [
       [

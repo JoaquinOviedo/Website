@@ -1567,6 +1567,12 @@ details > p {
   line-height: 1.4;
   letter-spacing: -0.025em;
 }
+.about-lead p {
+  margin: 0;
+}
+.about-lead p + p {
+  margin-top: 1.15rem;
+}
 .education-list article {
   display: flex;
   justify-content: space-between;
@@ -2572,7 +2578,10 @@ footer a {
   padding-block: 1.2rem;
 }
 .about-lead {
-  font-size: clamp(1.4rem, 2.6vw, 2.2rem);
+  max-width: 840px;
+  font-size: clamp(1.08rem, 1.45vw, 1.3rem);
+  line-height: 1.65;
+  letter-spacing: -.012em;
 }
 .about.section {
   padding-block: clamp(3.25rem, 5vw, 5rem);

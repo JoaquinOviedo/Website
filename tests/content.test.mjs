@@ -107,9 +107,10 @@ test("WIRIN and finance use accessible sanitized image galleries", async () => {
 });
 
 test("all featured projects have localized recruiter-friendly case-study routes", async () => {
-  const [content, sitemap] = await Promise.all([
+  const [content, sitemap, exporter] = await Promise.all([
     readFile("content/portfolio.ts", "utf8"),
     readFile("app/sitemap.ts", "utf8"),
+    readFile("scripts/export-github-pages.mjs", "utf8"),
   ]);
   assert.equal((content.match(/caseStudy:\s*true/g) ?? []).length, 3);
   assert.match(content, /\/es\/proyectos\/finanzas-personales/);
@@ -117,6 +118,14 @@ test("all featured projects have localized recruiter-friendly case-study routes"
   assert.match(content, /\/es\/proyectos\/mi-carrera-tech/);
   assert.match(content, /\/en\/projects\/my-tech-degree/);
   assert.match(sitemap, /projects\.flatMap/);
+  for (const route of [
+    "/es/proyectos/finanzas-personales",
+    "/en/projects/personal-finance",
+    "/es/proyectos/mi-carrera-tech",
+    "/en/projects/my-tech-degree",
+  ]) {
+    assert.match(exporter, new RegExp(route));
+  }
 });
 
 test("custom cursor is progressive and respects input preferences", async () => {

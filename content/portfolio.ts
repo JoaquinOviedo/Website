@@ -8,12 +8,14 @@ export interface ProjectLink {
 
 export interface Project {
   slug: string;
+  path: Record<Locale, string>;
   featured: boolean;
   caseStudy?: boolean;
   type: ProjectType;
   title: string;
   summary: Record<Locale, string>;
   problem: Record<Locale, string>;
+  solution: Record<Locale, string>;
   role: Record<Locale, string>;
   features: Record<Locale, string[]>;
   technologies: string[];
@@ -52,6 +54,7 @@ export const profile = {
 export const projects: Project[] = [
   {
     slug: "wirin",
+    path: { es: "/es/proyectos/wirin", en: "/en/projects/wirin" },
     featured: true,
     caseStudy: true,
     type: "academic",
@@ -64,6 +67,10 @@ export const projects: Project[] = [
     problem: {
       es: "Transformar material bibliográfico en contenidos accesibles requiere coordinar procesamiento, revisión humana y seguimiento.",
       en: "Turning bibliographic material into accessible content requires coordinated processing, human review, and status tracking.",
+    },
+    solution: {
+      es: "Una plataforma web que integra digitalización, OCR, asignación de tareas, seguimiento y administración para coordinar el proceso completo.",
+      en: "A web platform combining digitization, OCR, task assignment, tracking, and administration to coordinate the complete process.",
     },
     role: {
       es: "Trabajo en equipo. Mi contribución principal fue el backend: API, persistencia, autenticación e integración de servicios.",
@@ -93,7 +100,7 @@ export const projects: Project[] = [
       "Azure",
       "JWT",
     ],
-    image: "/images/projects/wirin-landing.jpg",
+    image: "/images/projects/wirin/dashboard-sanitized.webp",
     demo: "https://wirinadapta.vercel.app",
     repositories: [
       {
@@ -113,7 +120,9 @@ export const projects: Project[] = [
   },
   {
     slug: "finanzas-personales",
+    path: { es: "/es/proyectos/finanzas-personales", en: "/en/projects/personal-finance" },
     featured: true,
+    caseStudy: true,
     type: "personal",
     title: "Gestión financiera personal",
     year: "2026",
@@ -124,6 +133,10 @@ export const projects: Project[] = [
     problem: {
       es: "Reunir información financiera personal dispersa sin trasladar los datos completos a un servicio externo.",
       en: "Consolidating scattered personal financial information without moving complete data to an external service.",
+    },
+    solution: {
+      es: "Una herramienta local que reúne presupuesto, fondo de emergencia, inversiones e historial patrimonial en un único flujo, manteniendo el control de los datos en el dispositivo.",
+      en: "A local tool that brings budgets, emergency funds, investments, and net-worth history into one flow while keeping control of the data on the device.",
     },
     role: {
       es: "Proyecto personal de uso local desarrollado con asistencia de IA.",
@@ -144,6 +157,7 @@ export const projects: Project[] = [
       ],
     },
     technologies: ["React", "TypeScript", "Vite", "Zustand", "Tailwind CSS"],
+    image: "/images/projects/finance/budget-sanitized.webp",
     repositories: [
       {
         label: "GitHub",
@@ -163,7 +177,9 @@ export const projects: Project[] = [
   },
   {
     slug: "mi-carrera-tech",
+    path: { es: "/es/proyectos/mi-carrera-tech", en: "/en/projects/my-tech-degree" },
     featured: true,
+    caseStudy: true,
     type: "personal",
     title: "Mi Carrera Tech",
     year: "2026",
@@ -174,6 +190,10 @@ export const projects: Project[] = [
     problem: {
       es: "Visualizar el avance académico y las próximas obligaciones sin depender de una plataforma genérica.",
       en: "Visualizing academic progress and upcoming obligations without relying on a generic platform.",
+    },
+    solution: {
+      es: "Una aplicación local enfocada en visualizar el plan de estudios, el avance, las correlatividades y las próximas evaluaciones desde una estructura propia y editable.",
+      en: "A focused local application for viewing the curriculum, progress, prerequisites, and upcoming assessments through an editable, purpose-built structure.",
     },
     role: {
       es: "Proyecto personal de uso local desarrollado con asistencia de IA.",
@@ -194,6 +214,7 @@ export const projects: Project[] = [
       ],
     },
     technologies: ["React", "TypeScript", "Vite", "Node.js", "Express"],
+    image: "/images/projects/career/dashboard-sanitized.webp",
     repositories: [
       {
         label: "GitHub",

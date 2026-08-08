@@ -414,9 +414,62 @@ h1 {
   height: 100%;
   object-fit: cover;
 }
+.project-preview {
+  display: grid;
+  width: min(100%, 560px);
+  gap: .8rem;
+  color: #f2f7ff;
+}
+.project-preview > span {
+  font: 750 .64rem/1 monospace;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .78;
+}
+.project-preview-window {
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / .18);
+  border-radius: 10px;
+  background: #0e1726;
+  box-shadow: 0 20px 50px rgb(0 0 0 / .24);
+  transition: transform var(--transition), border-color var(--transition);
+}
+.project-preview:hover .project-preview-window {
+  transform: translateY(-4px);
+  border-color: rgb(255 255 255 / .42);
+}
+.project-preview-window > i {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  height: 28px;
+  padding: 0 10px;
+  background: #111d2f;
+}
+.project-preview-window b {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #6f8098;
+}
+.project-preview-window b:first-child { background: #eb7665; }
+.project-preview-window img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: top center;
+}
+.project-preview > strong {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  width: fit-content;
+  font-size: .82rem;
+}
 .visual-wirin {
   position: relative;
-  padding: 0;
+  padding: 1rem;
 }
 .visual-wirin::after {
   display: none;
@@ -444,6 +497,10 @@ h1 {
   position: relative;
   height: 100%;
   margin: 0;
+}
+.project-gallery figure > a {
+  display: block;
+  height: 100%;
 }
 .project-gallery figure[hidden] { display: none; }
 .project-gallery-prototype[hidden] { display: none; }
@@ -1644,11 +1701,19 @@ footer div {
   font-size: 0.8rem;
   font-weight: 800;
 }
+.case-nav > div {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
 .case-hero {
   padding: clamp(5rem, 12vw, 10rem) 0;
 }
 .case-hero h1 {
-  font-size: clamp(6rem, 20vw, 15rem);
+  max-width: 1050px;
+  font-size: clamp(4rem, 12vw, 10rem);
+  line-height: .9;
+  letter-spacing: -.065em;
   margin: 0.2rem 0;
 }
 .case-hero > p:last-of-type {
@@ -1695,6 +1760,69 @@ footer div {
   grid-column: 1/-1;
   border-right: 0;
 }
+.case-ai-note {
+  margin-top: 1.4rem;
+  padding: 1rem;
+  border-left: 3px solid var(--accent);
+  background: var(--surface);
+}
+.case-ai-note strong {
+  color: var(--ink);
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.case-ai-note p {
+  margin: .45rem 0 0;
+  color: var(--muted);
+}
+.case-evidence,
+.case-prototype {
+  padding: clamp(4rem, 9vw, 8rem) 0;
+  border-bottom: 1px solid var(--line);
+}
+.case-evidence > header,
+.case-prototype > header {
+  display: grid;
+  grid-template-columns: .7fr 1.3fr;
+  gap: 2rem;
+  align-items: end;
+  margin-bottom: 2.5rem;
+}
+.case-evidence > header > p:first-child,
+.case-prototype > header p:first-child {
+  color: var(--accent);
+  font: 700 .72rem/1 monospace;
+}
+.case-evidence h2,
+.case-prototype h2 {
+  margin: .65rem 0 0;
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  line-height: .95;
+}
+.case-evidence > header > p:last-child,
+.case-prototype > header > p {
+  max-width: 620px;
+  margin: 0;
+  color: var(--muted);
+}
+.case-evidence .project-gallery {
+  border-color: var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+.case-evidence .project-gallery-frame {
+  aspect-ratio: 16 / 9;
+}
+.case-evidence .project-gallery img {
+  object-fit: contain;
+  background: #0e1726;
+}
+.case-prototype .mini-app {
+  min-height: 620px;
+  border-color: var(--line);
+  box-shadow: var(--shadow);
+}
 @media (max-width: 850px) {
   .site-header nav {
     display: none;
@@ -1722,6 +1850,10 @@ footer div {
   }
   .project-visual {
     min-height: 360px;
+  }
+  .case-evidence > header,
+  .case-prototype > header {
+    grid-template-columns: 1fr;
   }
   .mini-app { min-height: 440px; }
   .timeline {
@@ -1795,7 +1927,12 @@ footer div {
   .local-context { padding-left: .4rem; }
   .local-context time { min-width: 2.65rem; font-size: .62rem; }
   .language { padding-inline: .38rem; }
+  .project-card .project-visual { padding: .85rem; }
+  .project-preview-window img { aspect-ratio: 4 / 3; }
   .project-gallery-frame { aspect-ratio: auto; min-height: 390px; }
+  .case-evidence .project-gallery-frame { aspect-ratio: 16 / 10; min-height: 0; }
+  .case-evidence .project-gallery figcaption { font-size: .52rem; }
+  .case-prototype .mini-app { min-height: 560px; }
   .project-gallery-prototype { padding-top: 78px; }
   .project-gallery-prototype > p { min-height: 78px; align-items: flex-start; flex-direction: column; gap: .25rem; }
   .section {

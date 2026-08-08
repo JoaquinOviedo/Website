@@ -1,18 +1,23 @@
 import { copy } from "@/content/copy";
 import { profile, projects, type Locale } from "@/content/portfolio";
+import { ProjectGallery, type GallerySlug } from "@/components/ProjectGallery";
+import { ProjectPrototype } from "@/components/ProjectPrototype";
 
-export function CaseStudy({ locale }: { locale: Locale }) {
+export function CaseStudy({ locale, slug }: { locale: Locale; slug: GallerySlug }) {
   const t = copy[locale];
-  const project = projects[0];
+  const project = projects.find((item) => item.slug === slug);
+  if (!project) throw new Error(`Unknown project: ${slug}`);
   const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://joaquinoviedo.dev";
+  const localizedPath = project.path[locale];
+  const otherLocale = locale === "es" ? "en" : "es";
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name: project.title,
     description: project.summary[locale],
-    applicationCategory: "AccessibilityApplication",
+    applicationCategory: project.type === "academic" ? "EducationalApplication" : "ProductivityApplication",
     operatingSystem: "Web",
-    url: project.demo,
+    url: project.demo ?? `${base}${localizedPath}`,
     author: { "@type": "Person", name: profile.name, url: base },
     inLanguage: locale,
   };
@@ -24,19 +29,22 @@ export function CaseStudy({ locale }: { locale: Locale }) {
       />
       <nav className="case-nav">
         <a href={`/${locale}`}>{profile.name}</a>
-        <a href={`/${locale}#proyectos`}>← {t.back}</a>
+        <div>
+          <a href={project.path[otherLocale]} hrefLang={otherLocale}>{otherLocale.toUpperCase()}</a>
+          <a href={`/${locale}#proyectos`}>← {t.back}</a>
+        </div>
       </nav>
-      <article>
+      <article className={`case-article case-${project.slug}`}>
         <header className="case-hero">
           <p className="eyebrow">
             <span />
-            {project.status[locale]} · {project.year}
+            {t.caseStudyLabel} · {project.status[locale]}{project.year ? ` · ${project.year}` : ""}
           </p>
           <h1>{project.title}</h1>
           <p>{project.summary[locale]}</p>
           <div className="cta-row">
             {project.demo && (
-              <a className="button primary" href={project.demo}>
+              <a className="button primary" href={project.demo} target="_blank" rel="noreferrer">
                 {t.demo} ↗
               </a>
             )}
@@ -64,16 +72,18 @@ export function CaseStudy({ locale }: { locale: Locale }) {
           <section>
             <p>02 /</p>
             <h2>{t.solution}</h2>
-            <p>
-              {locale === "es"
-                ? "Una plataforma web que integra digitalización, OCR, asignación de tareas, seguimiento y administración para coordinar el proceso completo."
-                : "A web platform combining digitization, OCR, task assignment, tracking, and administration to coordinate the complete process."}
-            </p>
+            <p>{project.solution[locale]}</p>
           </section>
           <section>
             <p>03 /</p>
             <h2>{t.contribution}</h2>
             <p>{project.role[locale]}</p>
+            {project.aiAssisted && project.aiContribution && (
+              <aside className="case-ai-note">
+                <strong>{t.aiTransparency}</strong>
+                <p>{project.aiContribution[locale]}</p>
+              </aside>
+            )}
           </section>
           <section>
             <p>04 /</p>
@@ -95,6 +105,24 @@ export function CaseStudy({ locale }: { locale: Locale }) {
             </ul>
           </section>
         </div>
+        <section className="case-evidence" aria-labelledby="case-evidence-title">
+          <header>
+            <p>06 /</p>
+            <h2 id="case-evidence-title">{t.evidence}</h2>
+            <p>{t.evidenceLead}</p>
+          </header>
+          <ProjectGallery slug={slug} locale={locale} />
+        </section>
+        <section className="case-prototype" aria-labelledby="case-prototype-title">
+          <header>
+            <div>
+              <p>07 /</p>
+              <h2 id="case-prototype-title">{t.prototypeTitle}</h2>
+            </div>
+            <p>{t.prototypeLead}</p>
+          </header>
+          <ProjectPrototype slug={slug} locale={locale} />
+        </section>
       </article>
     </main>
   );

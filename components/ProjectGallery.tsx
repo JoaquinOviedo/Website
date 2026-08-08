@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { ProjectPrototype } from "@/components/ProjectPrototype";
 import type { Locale } from "@/content/portfolio";
 
 const galleries = {
@@ -27,31 +26,29 @@ const galleries = {
   ],
 } as const;
 
-type GallerySlug = keyof typeof galleries;
+export type GallerySlug = keyof typeof galleries;
 
 export function ProjectGallery({ slug, locale }: { slug: GallerySlug; locale: Locale }) {
   const slides = galleries[slug];
-  const slideCount = slides.length + 1;
+  const slideCount = slides.length;
   const [current, setCurrent] = useState(0);
   const previous = () => setCurrent((index) => (index - 1 + slideCount) % slideCount);
   const next = () => setCurrent((index) => (index + 1) % slideCount);
   const labels = locale === "es"
-    ? { previous: "Elemento anterior", next: "Elemento siguiente", gallery: "Galería del proyecto", slide: "Elemento", demo: "Demostración interactiva", prototype: "Prototipo conceptual de ejemplo. No representa la interfaz ni la versión final del proyecto." }
-    : { previous: "Previous item", next: "Next item", gallery: "Project gallery", slide: "Item", demo: "Interactive demonstration", prototype: "Conceptual example prototype. It does not represent the project's final interface or release." };
+    ? { previous: "Captura anterior", next: "Captura siguiente", gallery: "Capturas del proyecto", slide: "Captura", open: "Abrir captura en tamaño completo" }
+    : { previous: "Previous screenshot", next: "Next screenshot", gallery: "Project screenshots", slide: "Screenshot", open: "Open full-size screenshot" };
 
   return (
     <div className="project-gallery" role="region" aria-roledescription="carousel" aria-label={labels.gallery}>
       <div className="project-gallery-frame" aria-live="polite">
         {slides.map((slide, index) => (
           <figure key={slide.src} hidden={index !== current}>
-            <img src={slide.src} alt={slide[locale]} width="1792" height="1024" loading="lazy" decoding="async" />
+            <a href={slide.src} target="_blank" rel="noreferrer" aria-label={`${labels.open}: ${slide[locale]}`}>
+              <img src={slide.src} alt={slide[locale]} width="1792" height="1024" loading="lazy" decoding="async" />
+            </a>
             <figcaption>{slide[locale]}</figcaption>
           </figure>
         ))}
-        <section className="project-gallery-prototype" hidden={current !== slides.length} aria-label={labels.prototype}>
-          <p><strong>{labels.demo}</strong><span>{labels.prototype}</span></p>
-          <ProjectPrototype slug={slug} locale={locale} />
-        </section>
       </div>
       <div className="project-gallery-controls">
         <button type="button" onClick={previous} aria-label={labels.previous}>←</button>

@@ -8,6 +8,15 @@ async function render(path) {
   return worker.fetch(new Request(`http://localhost${path}`, { headers: { accept: "text/html" } }), { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } }, { waitUntil() {}, passThroughOnException() {} });
 }
 
-for (const [path, expected] of [["/es", "Construyo y gestiono"], ["/en", "I build and manage"], ["/es/proyectos/wirin", "Caso de estudio"], ["/en/projects/wirin", "Case study"]]) {
+for (const [path, expected] of [
+  ["/es", "Construyo y gestiono"],
+  ["/en", "I build and manage"],
+  ["/es/proyectos/wirin", "Caso de estudio"],
+  ["/en/projects/wirin", "Case study"],
+  ["/es/proyectos/finanzas-personales", "Gestión financiera personal"],
+  ["/en/projects/personal-finance", "Personal finance"],
+  ["/es/proyectos/mi-carrera-tech", "Mi Carrera Tech"],
+  ["/en/projects/my-tech-degree", "My Tech Degree"],
+]) {
   test(`server renders ${path}`, async () => { const response = await render(path); assert.equal(response.status, 200); const html = await response.text(); assert.match(html, new RegExp(expected, "i")); assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/i); });
 }

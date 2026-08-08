@@ -8,8 +8,6 @@ import {
   type MouseEvent,
 } from "react";
 import { FrameworkPrototype } from "@/components/FrameworkPrototype";
-import { ProjectPrototype } from "@/components/ProjectPrototype";
-import { ProjectGallery } from "@/components/ProjectGallery";
 import { CustomCursor } from "@/components/CustomCursor";
 import { LocalContext } from "@/components/LocalContext";
 import { copy } from "@/content/copy";
@@ -272,15 +270,21 @@ export function Portfolio({ locale }: { locale: Locale }) {
           </header>
           {projects
             .filter((p) => p.featured)
-            .map((project) => (
+            .map((project) => {
+              const projectPath = project.path[locale];
+              return (
               <article className={`project-card project-${project.slug}`} key={project.slug}>
                 <div className={`project-visual visual-${project.slug}`}>
-                  {project.slug === "wirin" || project.slug === "finanzas-personales" || project.slug === "mi-carrera-tech" ? (
-                    <ProjectGallery slug={project.slug} locale={locale} />
-                  ) : (
-                    <ProjectPrototype slug={project.slug} locale={locale} />
-                  )}
-                  <p>{project.slug === "wirin" ? "ACCESSIBILITY · OCR · COLLABORATION" : "LOCAL FIRST · PRIVATE · AI ASSISTED"}</p>
+                  <a className="project-preview" href={projectPath} aria-label={`${t.caseStudy}: ${project.title}`}>
+                    <span>{t.previewCase}</span>
+                    <div className="project-preview-window">
+                      <i aria-hidden="true"><b /><b /><b /></i>
+                      {project.image && (
+                        <img src={project.image} alt="" width="1792" height="1024" loading="lazy" decoding="async" />
+                      )}
+                    </div>
+                    <strong>{t.caseStudy} <Icon name="arrow" /></strong>
+                  </a>
                 </div>
                 <div className="project-copy">
                   <div className="tags">
@@ -299,7 +303,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
                     {project.caseStudy ? (
                       <a
                         className="text-link"
-                        href={`/${locale}/${locale === "es" ? "proyectos" : "projects"}/${project.slug}`}
+                        href={projectPath}
                       >
                         {t.caseStudy} <Icon name="arrow" />
                       </a>
@@ -321,7 +325,8 @@ export function Portfolio({ locale }: { locale: Locale }) {
                   </div>
                 </div>
               </article>
-            ))}
+              );
+            })}
         </section>
 
         <section

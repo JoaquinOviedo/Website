@@ -71,12 +71,12 @@ test("language switching preserves the current section and deployment base path"
   assert.match(source, /onClick=\{switchLanguage\}/);
 });
 
-test("each featured project renders a bilingual interactive prototype", async () => {
-  const [portfolio, prototype] = await Promise.all([
-    readFile("components/Portfolio.tsx", "utf8"),
+test("each featured case study renders a bilingual interactive prototype", async () => {
+  const [caseStudy, prototype] = await Promise.all([
+    readFile("components/CaseStudy.tsx", "utf8"),
     readFile("components/ProjectPrototype.tsx", "utf8"),
   ]);
-  assert.match(portfolio, /ProjectPrototype/);
+  assert.match(caseStudy, /ProjectPrototype/);
   assert.match(prototype, /FinancePrototype/);
   assert.match(prototype, /WirinPrototype/);
   assert.match(prototype, /CareerPrototype/);
@@ -85,21 +85,38 @@ test("each featured project renders a bilingual interactive prototype", async ()
 });
 
 test("WIRIN and finance use accessible sanitized image galleries", async () => {
-  const [portfolio, gallery] = await Promise.all([
+  const [portfolio, gallery, caseStudy] = await Promise.all([
     readFile("components/Portfolio.tsx", "utf8"),
     readFile("components/ProjectGallery.tsx", "utf8"),
+    readFile("components/CaseStudy.tsx", "utf8"),
   ]);
-  assert.match(portfolio, /<ProjectGallery slug=\{project\.slug\}/);
+  assert.match(portfolio, /className="project-preview"/);
+  assert.doesNotMatch(portfolio, /<ProjectGallery/);
   assert.match(gallery, /aria-roledescription="carousel"/);
   assert.match(gallery, /loading="lazy"/);
   assert.match(gallery, /sanitized\.webp/);
-  assert.match(gallery, /Conceptual example prototype/);
-  assert.match(gallery, /<ProjectPrototype slug=\{slug\}/);
-  assert.match(gallery, /slides\.length \+ 1/);
+  assert.match(gallery, /Open full-size screenshot/);
+  assert.doesNotMatch(gallery, /ProjectPrototype/);
+  assert.match(caseStudy, /<ProjectGallery slug=\{slug\}/);
+  assert.match(caseStudy, /<ProjectPrototype slug=\{slug\}/);
+  assert.match(caseStudy, /prototypeLead/);
   assert.match(gallery, /career\/dashboard-sanitized\.webp/);
   assert.match(gallery, /wirin\/bibliographies-sanitized\.webp/);
   assert.match(gallery, /finance\/history-sanitized\.webp/);
   assert.doesNotMatch(gallery, /autoplay|setInterval/);
+});
+
+test("all featured projects have localized recruiter-friendly case-study routes", async () => {
+  const [content, sitemap] = await Promise.all([
+    readFile("content/portfolio.ts", "utf8"),
+    readFile("app/sitemap.ts", "utf8"),
+  ]);
+  assert.equal((content.match(/caseStudy:\s*true/g) ?? []).length, 3);
+  assert.match(content, /\/es\/proyectos\/finanzas-personales/);
+  assert.match(content, /\/en\/projects\/personal-finance/);
+  assert.match(content, /\/es\/proyectos\/mi-carrera-tech/);
+  assert.match(content, /\/en\/projects\/my-tech-degree/);
+  assert.match(sitemap, /projects\.flatMap/);
 });
 
 test("custom cursor is progressive and respects input preferences", async () => {

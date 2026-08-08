@@ -144,8 +144,8 @@ export const projects: Project[] = [
       en: "A local tool that brings budgets, emergency funds, investments, and net-worth history into one flow while keeping control of the data on the device.",
     },
     role: {
-      es: "Proyecto personal de uso local desarrollado con asistencia de IA.",
-      en: "Personal local-use project built with AI assistance.",
+      es: "Definí el problema, el alcance y las funciones necesarias para convertir necesidades financieras reales en una herramienta local de uso cotidiano.",
+      en: "I defined the problem, scope, and necessary features to turn real financial needs into a practical local tool.",
     },
     features: {
       es: [
@@ -176,8 +176,8 @@ export const projects: Project[] = [
     },
     aiAssisted: true,
     aiContribution: {
-      es: "La IA asistió el desarrollo de esta herramienta de uso personal.",
-      en: "AI assisted the development of this personal-use tool.",
+      es: "Usé IA para acelerar la implementación. Mi aporte estuvo en definir el producto, decidir qué funciones aportaban valor, revisar el comportamiento, detectar fallos y guiar iteraciones hasta obtener una aplicación funcional.",
+      en: "I used AI to accelerate implementation. My contribution was defining the product, deciding which features added value, reviewing behavior, finding issues, and guiding iterations toward a functional application.",
     },
   },
   {
@@ -201,8 +201,8 @@ export const projects: Project[] = [
       en: "A focused local application for viewing the curriculum, progress, prerequisites, and upcoming assessments through an editable, purpose-built structure.",
     },
     role: {
-      es: "Proyecto personal de uso local desarrollado con asistencia de IA.",
-      en: "Personal local-use project built with AI assistance.",
+      es: "Definí una herramienta a medida para organizar mi carrera: prioridades, flujos de consulta y funciones útiles para el seguimiento académico cotidiano.",
+      en: "I defined a purpose-built tool for organizing my degree: priorities, information flows, and useful features for everyday academic tracking.",
     },
     features: {
       es: [
@@ -233,8 +233,8 @@ export const projects: Project[] = [
     },
     aiAssisted: true,
     aiContribution: {
-      es: "La IA asistió el desarrollo; la herramienta responde a necesidades reales de seguimiento de la carrera.",
-      en: "AI assisted development; the tool addresses real degree-tracking needs.",
+      es: "Usé IA para acelerar la implementación. Mi aporte estuvo en transformar una necesidad propia en producto, seleccionar funciones, evaluar su utilidad, detectar problemas y dirigir sucesivas mejoras.",
+      en: "I used AI to accelerate implementation. My contribution was turning a personal need into a product, selecting features, evaluating their usefulness, finding problems, and directing successive improvements.",
     },
   },
 ];

@@ -106,6 +106,26 @@ test("WIRIN and finance use accessible sanitized image galleries", async () => {
   assert.doesNotMatch(gallery, /autoplay|setInterval/);
 });
 
+test("case studies prioritize recruiter scanning and defer interactive depth", async () => {
+  const [caseStudy, portfolioData, css] = await Promise.all([
+    readFile("components/CaseStudy.tsx", "utf8"),
+    readFile("content/portfolio.ts", "utf8"),
+    readFile("app/globals.css", "utf8"),
+  ]);
+
+  assert.doesNotMatch(caseStudy, /\{t\.solution\}|\{t\.technical\}/);
+  assert.match(caseStudy, /\{t\.problem\}/);
+  assert.match(caseStudy, /\{t\.contribution\}/);
+  assert.match(caseStudy, /\{t\.outcome\}/);
+  assert.match(caseStudy, /\{t\.stackAndProcess\}/);
+  assert.match(caseStudy, /<details className="prototype-disclosure">/);
+  assert.match(caseStudy, /className="ai-tech"/);
+  assert.match(portfolioData, /decidir qué funciones aportaban valor/);
+  assert.match(portfolioData, /selecting features, evaluating their usefulness/);
+  assert.match(css, /font-size: clamp\(3rem, 7\.5vw, 6\.6rem\)/);
+  assert.match(css, /width: min\(860px, 100%\)/);
+});
+
 test("all featured projects have localized recruiter-friendly case-study routes", async () => {
   const [content, sitemap, exporter] = await Promise.all([
     readFile("content/portfolio.ts", "utf8"),

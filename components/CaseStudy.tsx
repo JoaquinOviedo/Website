@@ -72,13 +72,25 @@ export function CaseStudy({ locale, slug }: { locale: Locale; slug: GallerySlug 
           </section>
           <section>
             <p>02 /</p>
-            <h2>{t.solution}</h2>
-            <p>{project.solution[locale]}</p>
+            <h2>{t.contribution}</h2>
+            <p>{project.role[locale]}</p>
           </section>
           <section>
             <p>03 /</p>
-            <h2>{t.contribution}</h2>
-            <p>{project.role[locale]}</p>
+            <h2>{t.outcome}</h2>
+            <p>{project.learnings[locale]}</p>
+          </section>
+          <section className="wide case-stack">
+            <div>
+              <p>04 /</p>
+              <h2>{t.stackAndProcess}</h2>
+            </div>
+            <ul className="tech-list">
+              {project.technologies.map((tech) => (
+                <li key={tech}>{tech}</li>
+              ))}
+              {project.aiAssisted && <li className="ai-tech">{t.ai}</li>}
+            </ul>
             {project.aiAssisted && project.aiContribution && (
               <aside className="case-ai-note">
                 <strong>{t.aiTransparency}</strong>
@@ -86,29 +98,10 @@ export function CaseStudy({ locale, slug }: { locale: Locale; slug: GallerySlug 
               </aside>
             )}
           </section>
-          <section>
-            <p>04 /</p>
-            <h2>{t.technical}</h2>
-            <ul>
-              {project.features[locale].map((f) => (
-                <li key={f}>{f}</li>
-              ))}
-            </ul>
-          </section>
-          <section className="wide">
-            <p>05 /</p>
-            <h2>{t.outcome}</h2>
-            <p>{project.learnings[locale]}</p>
-            <ul className="tech-list">
-              {project.technologies.map((tech) => (
-                <li key={tech}>{tech}</li>
-              ))}
-            </ul>
-          </section>
         </div>
         <section className="case-evidence" aria-labelledby="case-evidence-title">
           <header>
-            <p>06 /</p>
+            <p>05 /</p>
             <h2 id="case-evidence-title">{t.evidence}</h2>
             <p>{t.evidenceLead}</p>
           </header>
@@ -117,12 +110,17 @@ export function CaseStudy({ locale, slug }: { locale: Locale; slug: GallerySlug 
         <section className="case-prototype" aria-labelledby="case-prototype-title">
           <header>
             <div>
-              <p>07 /</p>
+              <p>06 /</p>
               <h2 id="case-prototype-title">{t.prototypeTitle}</h2>
             </div>
             <p>{t.prototypeLead}</p>
           </header>
-          <ProjectPrototype slug={slug} locale={locale} />
+          <details className="prototype-disclosure">
+            <summary>{t.explorePrototype} <span aria-hidden="true">↓</span></summary>
+            <div className="prototype-disclosure-content">
+              <ProjectPrototype slug={slug} locale={locale} />
+            </div>
+          </details>
         </section>
       </article>
     </main>

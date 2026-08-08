@@ -282,7 +282,14 @@ export function Portfolio({ locale }: { locale: Locale }) {
               06 / CONTACT
             </p>
             <h2 id="contact-title">{t.contactTitle}</h2>
-            <p>{t.contactLead}</p>
+            <p>
+              {t.contactLead}{" "}
+              <a href={profile.linkedin} target="_blank" rel="noreferrer">
+                {t.contactLinkedin}
+                <span aria-hidden="true"> ↗</span>
+              </a>
+              .
+            </p>
             {emailRevealed ? (
               <div className="revealed-email">
                 <a href={`mailto:${getPublicEmail()}`}>{getPublicEmail()}</a>

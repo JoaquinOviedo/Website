@@ -348,6 +348,9 @@ test("contact delivery is provider-ready without exposing implementation details
   ]);
 
   assert.match(portfolio, /deliverContactMessage/);
+  assert.match(portfolio, /href=\{profile\.linkedin\}/);
+  assert.match(portfolio, /\{t\.contactLinkedin\}/);
+  assert.match(copy, /contactLinkedin: "LinkedIn"/);
   assert.match(delivery, /NEXT_PUBLIC_FORM_ENDPOINT/);
   assert.match(delivery, /kind: "mailto"/);
   assert.match(delivery, /getPublicEmail\(\)/);

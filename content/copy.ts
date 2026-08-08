@@ -143,7 +143,8 @@ export const copy = {
     ],
     contactTitle: "Conversemos",
     contactLead:
-      "Si mi perfil encaja con una oportunidad o proyecto, podés escribirme por email o LinkedIn.",
+      "Si mi perfil encaja con una oportunidad o proyecto, podés escribirme por email o",
+    contactLinkedin: "LinkedIn",
     name: "Nombre",
     email: "Email",
     subject: "Asunto",
@@ -303,7 +304,8 @@ export const copy = {
     ],
     contactTitle: "Let's talk",
     contactLead:
-      "If my background fits an opportunity or project, reach out by email or LinkedIn.",
+      "If my background fits an opportunity or project, reach out by email or",
+    contactLinkedin: "LinkedIn",
     name: "Name",
     email: "Email",
     subject: "Subject",

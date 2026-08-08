@@ -1695,6 +1695,14 @@ details > p {
 .contact h2 {
   font-size: clamp(3.5rem, 7vw, 6.5rem);
 }
+.contact-intro > p a {
+  color: var(--accent);
+  font-weight: 700;
+  text-underline-offset: 0.22em;
+}
+.contact-intro > p a:hover {
+  text-decoration-thickness: 2px;
+}
 .revealed-email > a {
   font-weight: 750;
   overflow-wrap: anywhere;

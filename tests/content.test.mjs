@@ -140,6 +140,7 @@ test("WIRIN and finance use accessible sanitized image galleries", async () => {
   assert.match(caseStudy, /prototypeLead/);
   assert.match(media, /career\/dashboard-sanitized\.webp/);
   assert.match(media, /wirin\/bibliographies-sanitized\.webp/);
+  assert.match(media, /wirin\/presentation\.webp/);
   assert.match(media, /finance\/history-sanitized\.webp/);
   assert.doesNotMatch(gallery, /autoplay|setInterval/);
   assert.doesNotMatch(caseStudy, /evidenceLead/);

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, type FormEvent } from "react";
+import { FrameworkPrototype } from "@/components/FrameworkPrototype";
 import { copy } from "@/content/copy";
 import { profile, projects, type Locale } from "@/content/portfolio";
 
@@ -327,38 +328,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
             </div>
           </article>
           <aside className="framework-showcase" aria-label={t.frameworkEyebrow}>
-            <div className="framework-window">
-              <div className="framework-toolbar" aria-hidden="true">
-                <span />
-                <span />
-                <span />
-                <i>{t.frameworkLabel}</i>
-              </div>
-              <div className="framework-layout">
-                <div className="framework-intro">
-                  <p>{t.frameworkEyebrow}</p>
-                  <h3>{t.frameworkTitle}</h3>
-                  <p>{t.frameworkText}</p>
-                  <div className="framework-tokens" aria-hidden="true">
-                    <span />
-                    <span />
-                    <span />
-                    <span />
-                  </div>
-                </div>
-                <div className="framework-cards">
-                  {t.frameworkCards.map((card, index) => (
-                    <div
-                      className={`framework-card card-${index + 1}`}
-                      key={card}
-                    >
-                      <span>{card}</span>
-                      <i aria-hidden="true">0{index + 1}</i>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <FrameworkPrototype locale={locale} />
             <p className="framework-caption">{t.frameworkCaption}</p>
           </aside>
         </section>

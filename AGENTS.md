@@ -7,6 +7,7 @@ This repository is Joaquín Oviedo's bilingual professional portfolio. Optimize 
 - `app/`: localized routes, metadata, sitemap, robots, and manifest.
 - `components/`: presentation and interaction components.
 - `content/`: the only source of professional facts and localized copy.
+- `components/FrameworkPrototype.tsx` and `content/frameworkPrototype.ts`: sanitized interactive representation of the Power Apps design system; never turn it into a reproduction of internal applications.
 - `public/cv/`: replaceable CV files; keep paths synchronized with `content/portfolio.ts`.
 - `public/images/`: real public imagery only.
 - `docs/CONTENT_GUIDE.md`: editing workflow and pending facts.

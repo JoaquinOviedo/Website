@@ -9,6 +9,9 @@ Add one typed `Project` object to `projects`. Complete both languages, use only 
 ## Replacing CVs
 Place stable PDFs under `public/cv/`, keep the editable DOCX files under `documents/cv/`, then update `profile.cvUpdated`. The generator scripts are `scripts/build_cvs.py` and `scripts/build_cv_pdfs.py`. A missing language must remain `null`; the UI will show a non-clickable pending state instead of a broken link.
 
+## Editing the Power Apps prototype
+The public interactive showcase is implemented in `components/FrameworkPrototype.tsx`; its bilingual copy, fictional rows, palette, and icon catalog live in `content/frameworkPrototype.ts`. Preserve the “conceptual prototype” label and use invented generic records only. Do not add YPF branding, internal screenshots, application names, real users, confidential fields, or copied Power Apps source code.
+
 ## Form provider
 The default contact flow validates locally and opens a prefilled email through `mailto:`. To connect Formspree, Resend, or a private API later, implement a server-side or provider-safe submission adapter; never expose a secret key through a `NEXT_PUBLIC_` variable. Keep the mail fallback available.
 

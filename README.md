@@ -29,6 +29,7 @@ Open the local URL shown in the terminal. Main routes are `/es`, `/en`, `/es/pro
 - `components/` contains reusable UI and interaction logic.
 - `content/portfolio.ts` contains typed professional data, projects, links, CV paths, and private development TODOs.
 - `content/copy.ts` contains all visible Spanish and English strings.
+- `content/frameworkPrototype.ts` contains the sanitized, bilingual data used by the interactive Power Apps design-system prototype.
 - `public/` contains the real portrait, social card, and CV assets.
 - `AGENTS.md` protects the product goal during future automated changes.
 - `docs/CONTENT_GUIDE.md` explains safe content maintenance.
@@ -38,6 +39,8 @@ Open the local URL shown in the terminal. Main routes are `/es`, `/en`, `/es/pro
 Edit facts only in `content/portfolio.ts` and translations in `content/copy.ts`. Every visible addition must have natural Spanish and English versions. Incomplete professional data stays out of production and is recorded in `pendingContent` or the maintenance guide.
 
 Projects are typed and data-driven. Add a `Project` object with title, summary, problem, personal role, features, technologies, optional image/demo/repository, status, year, learning, type, and optional AI-assistance disclosure. Components do not need modification.
+
+The interactive design-system showcase lives in `components/FrameworkPrototype.tsx`. Edit its labels, fictional table rows, color tokens, and icon catalog through `content/frameworkPrototype.ts`. Keep it conceptual: never paste internal application names, screenshots, real records, user identities, or proprietary code into the public prototype.
 
 ## CVs
 

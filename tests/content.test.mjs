@@ -18,3 +18,16 @@ test("WIRIN records backend ownership and only verified public repositories", as
   assert.doesNotMatch(source, /thomasloader1\/wirin-api/);
   assert.match(source, /aiAssisted:\s*true/);
 });
+
+test("the framework prototype stays bilingual, sanitized, and data-driven", async () => {
+  const [prototype, component] = await Promise.all([
+    readFile(new URL("../content/frameworkPrototype.ts", import.meta.url), "utf8"),
+    readFile(new URL("../components/FrameworkPrototype.tsx", import.meta.url), "utf8"),
+  ]);
+  assert.match(prototype, /Interactive conceptual prototype/);
+  assert.match(prototype, /Prototipo conceptual interactivo/);
+  assert.match(prototype, /información completamente ficticia/);
+  assert.match(component, /aria-live="polite"/);
+  assert.match(component, /role="tablist"/);
+  assert.doesNotMatch(prototype, /YPF|Circo Studio/i);
+});

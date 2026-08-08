@@ -339,6 +339,17 @@ h1 {
   font-size: 0.82rem;
   font-weight: 750;
 }
+.social-links a,
+footer div a {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+}
+.brand-icon {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 1rem;
+}
 .social-links a:hover,
 .text-link:hover {
   color: var(--accent);

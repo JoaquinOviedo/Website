@@ -162,10 +162,10 @@ export function Portfolio({ locale }: { locale: Locale }) {
             </div>
             <div className="social-links">
               <a href={profile.linkedin} target="_blank" rel="noreferrer">
-                LinkedIn <Icon name="external" />
+                <Icon name="linkedin" /> LinkedIn
               </a>
               <a href={profile.github} target="_blank" rel="noreferrer">
-                GitHub <Icon name="external" />
+                <Icon name="github" /> GitHub
               </a>
             </div>
           </div>
@@ -409,8 +409,8 @@ export function Portfolio({ locale }: { locale: Locale }) {
         </p>
         <p>{t.footer}</p>
         <div>
-          <a href={profile.linkedin}>LinkedIn</a>
-          <a href={profile.github}>GitHub</a>
+          <a href={profile.linkedin} target="_blank" rel="noreferrer"><Icon name="linkedin" /> LinkedIn</a>
+          <a href={profile.github} target="_blank" rel="noreferrer"><Icon name="github" /> GitHub</a>
         </div>
       </footer>
     </>

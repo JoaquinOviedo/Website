@@ -184,6 +184,8 @@ test("homepage keeps recruiter evidence compact and moves depth into case studie
   assert.match(portfolio, /className="project-contribution"/);
   assert.match(portfolio, /className="project-logo"/);
   assert.doesNotMatch(portfolio, /portrait-note/);
+  assert.match(portfolio, /<Icon name="linkedin" \/>/);
+  assert.match(portfolio, /<Icon name="github" \/>/);
   assert.match(portfolio, /className=\{project\.logo \? "sr-only" : undefined\}/);
   assert.match(portfolio, /className="button primary" href="#experiencia"/);
   assert.match(copy, /viewExperience: "Ver experiencia"/);

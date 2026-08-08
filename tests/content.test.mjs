@@ -367,6 +367,7 @@ test("the localized résumé is downloadable from the sticky header", async () =
   assert.match(portfolioComponent, /className="header-cv"/);
   assert.match(portfolioComponent, /href=\{withBasePath\(profile\.cv\[locale\]!\)\}/);
   assert.match(portfolioComponent, /aria-label=\{t\.downloadCv\}/);
+  assert.match(portfolioComponent, /\{t\.downloadCv\} <Icon name="download" \/>/);
   assert.match(portfolioComponent, /className="header-cv"[\s\S]*?download/);
   assert.match(css, /\.header-cv\s*\{[\s\S]*?border-radius: 999px/);
   assert.match(css, /\.language\s*\{[\s\S]*?border-radius: 999px/);

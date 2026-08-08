@@ -1,4 +1,4 @@
-export type PortfolioIconName = "arrow" | "external" | "copy" | "mail" | "linkedin" | "github";
+export type PortfolioIconName = "arrow" | "download" | "external" | "copy" | "mail" | "linkedin" | "github";
 
 export function Icon({ name }: { name: PortfolioIconName }) {
   if (name === "linkedin" || name === "github") {
@@ -15,6 +15,7 @@ export function Icon({ name }: { name: PortfolioIconName }) {
 
   const glyph: Record<Exclude<PortfolioIconName, "linkedin" | "github">, string> = {
     arrow: "→",
+    download: "↓",
     external: "↗",
     copy: "⎘",
     mail: "@",

@@ -315,7 +315,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
                   href={withBasePath(profile.cv[locale]!)}
                   download
                 >
-                  {t.downloadCv} <Icon name="arrow" />
+                  {t.downloadCv} <Icon name="download" />
                 </a>
               ) : (
                 <span className="button disabled" aria-disabled="true">

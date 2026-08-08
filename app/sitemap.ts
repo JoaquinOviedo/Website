@@ -1,0 +1,2 @@
+import type { MetadataRoute } from "next";
+export default function sitemap(): MetadataRoute.Sitemap { const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://joaquinoviedo.dev"; return ["/es", "/en", "/es/proyectos/wirin", "/en/projects/wirin"].map(url => ({ url: `${base}${url}`, lastModified: new Date("2026-08-08"), changeFrequency: "monthly" as const, priority: url.includes("wirin") ? .8 : 1 })); }

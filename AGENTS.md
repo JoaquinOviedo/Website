@@ -1,0 +1,20 @@
+# Portfolio maintenance guide
+
+## Product north star
+This repository is Joaquín Oviedo's bilingual professional portfolio. Optimize every change for recruiter clarity, professional credibility, accessibility, and easy maintenance. Never invent dates, metrics, roles, clients, responsibilities, results, or links. Do not expose confidential YPF or Circo Studio information.
+
+## Architecture map
+- `app/`: localized routes, metadata, sitemap, robots, and manifest.
+- `components/`: presentation and interaction components.
+- `content/`: the only source of professional facts and localized copy.
+- `public/cv/`: replaceable CV files; keep paths synchronized with `content/portfolio.ts`.
+- `public/images/`: real public imagery only.
+- `docs/CONTENT_GUIDE.md`: editing workflow and pending facts.
+
+## Change rules
+1. Update facts in `content/portfolio.ts`; update translated interface copy in `content/copy.ts`.
+2. Keep Spanish and English complete in the same change.
+3. Hide incomplete records rather than rendering TODO text publicly.
+4. Preserve semantic HTML, keyboard behavior, focus visibility, reduced motion, and WCAG AA contrast.
+5. Run `npm run validate` before handoff and inspect `/es`, `/en`, and both WIRIN routes.
+6. Do not deploy, add tracking, publish phone/address, or connect third-party forms without explicit approval.

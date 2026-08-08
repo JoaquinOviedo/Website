@@ -1,0 +1,2 @@
+import type { MetadataRoute } from "next";
+export default function manifest(): MetadataRoute.Manifest { return { name: "Joaquín Oviedo — Software Developer", short_name: "Joaquín Oviedo", description: "Portfolio profesional bilingüe de Joaquín Oviedo.", start_url: "/es", display: "standalone", background_color: "#f3f1ea", theme_color: "#153c32", icons: [{ src: "/images/joaquin-oviedo.png", sizes: "512x512", type: "image/png" }] }; }

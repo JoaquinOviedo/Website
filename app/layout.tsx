@@ -15,7 +15,8 @@ export const metadata: Metadata = {
   description:
     "Desarrollador de software especializado en soluciones empresariales, backend y Power Platform.",
   icons: {
-    icon: absoluteAsset("/images/joaquin-oviedo-icon.png"),
+    icon: [{ url: absoluteAsset("/images/joaquin-oviedo-mark.svg"), type: "image/svg+xml" }],
+    shortcut: absoluteAsset("/images/joaquin-oviedo-mark.svg"),
     apple: absoluteAsset("/images/joaquin-oviedo-icon.png"),
   },
   manifest: absoluteAsset("/manifest.webmanifest"),

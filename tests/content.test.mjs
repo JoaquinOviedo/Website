@@ -105,8 +105,23 @@ test("theme selection uses accessible icon buttons and preserves system mode", a
 test("language switching preserves the current section and deployment base path", async () => {
   const source = await readFile("components/Portfolio.tsx", "utf8");
   assert.match(source, /window\.location\.pathname\.replace/);
+  assert.match(source, /\$\{localizedPath\}\$\{window\.location\.search\}\$\{window\.location\.hash\}/);
   assert.match(source, /window\.location\.hash/);
+  assert.match(source, /window\.location\.assign/);
   assert.match(source, /onClick=\{switchLanguage\}/);
+});
+
+test("browser tabs use a concise personal title and a legible vector mark", async () => {
+  const [spanishPage, englishPage, layout, manifest] = await Promise.all([
+    readFile("app/es/page.tsx", "utf8"),
+    readFile("app/en/page.tsx", "utf8"),
+    readFile("app/layout.tsx", "utf8"),
+    readFile("app/manifest.ts", "utf8"),
+  ]);
+  assert.match(spanishPage, /Joaquín Oviedo · Software Developer/);
+  assert.match(englishPage, /Joaquín Oviedo · Software Developer/);
+  assert.match(layout, /joaquin-oviedo-mark\.svg/);
+  assert.match(manifest, /joaquin-oviedo-mark\.svg/);
 });
 
 test("each featured case study renders a bilingual interactive prototype", async () => {
@@ -335,8 +350,9 @@ test("public assets use the deployment-aware base path helper", async () => {
   assert.match(portfolio, /withBasePath\(profile\.cv\[locale\]!\)/);
   assert.match(gallery, /withBasePath\(slide\.src\)/);
   assert.match(profile, /photo: "\/images\/joaquin-oviedo-profile-v2\.webp"/);
-  assert.match(layout, /absoluteAsset\("\/images\/joaquin-oviedo-icon\.png"\)/);
-  assert.match(manifest, /withBasePath\("\/images\/joaquin-oviedo-icon\.png"\)/);
+  assert.match(layout, /absoluteAsset\("\/images\/joaquin-oviedo-mark\.svg"\)/);
+  assert.match(layout, /apple: absoluteAsset\("\/images\/joaquin-oviedo-icon\.png"\)/);
+  assert.match(manifest, /withBasePath\("\/images\/joaquin-oviedo-mark\.svg"\)/);
   assert.match(workflow, /NEXT_PUBLIC_BASE_PATH: \/Website/g);
   assert.match(exporter, /path\.startsWith\(`\$\{basePath\}\/`\)/);
 });

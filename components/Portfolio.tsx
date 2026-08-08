@@ -269,7 +269,6 @@ export function Portfolio({ locale }: { locale: Locale }) {
                     ) : null}
                     <a href={href} target="_blank" rel="noreferrer">
                       {t.communityLink}
-                      <span aria-hidden="true">↗</span>
                     </a>
                   </div>
                 </article>
@@ -309,7 +308,6 @@ export function Portfolio({ locale }: { locale: Locale }) {
               {t.contactLead}{" "}
               <a href={profile.linkedin} target="_blank" rel="noreferrer">
                 {t.contactLinkedin}
-                <span aria-hidden="true"> ↗</span>
               </a>
               .
             </p>

@@ -453,16 +453,9 @@ footer div a {
   object-fit: cover;
 }
 .project-preview {
-  display: grid;
+  display: block;
   width: min(100%, 560px);
-  gap: .8rem;
   color: #f2f7ff;
-}
-.project-preview > span {
-  font: 750 .64rem/1 monospace;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  opacity: .78;
 }
 .project-preview-window {
   overflow: hidden;
@@ -498,13 +491,6 @@ footer div a {
   aspect-ratio: 16 / 9;
   object-fit: cover;
   object-position: top center;
-}
-.project-preview > strong {
-  display: inline-flex;
-  align-items: center;
-  gap: .35rem;
-  width: fit-content;
-  font-size: .82rem;
 }
 .visual-wirin {
   position: relative;

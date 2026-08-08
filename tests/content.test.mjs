@@ -147,7 +147,8 @@ test("WIRIN and finance use accessible sanitized image galleries", async () => {
   assert.doesNotMatch(caseStudy, /evidenceLead/);
   assert.match(caseStudy, /projectDetailsLabel/);
   assert.match(portfolio, /projectDetails/);
-  assert.match(portfolio, /previewProject/);
+  assert.doesNotMatch(portfolio, /previewProject|previewCase/);
+  assert.doesNotMatch(portfolio, /<strong>\{detailLabel\}/);
 });
 
 test("case studies prioritize recruiter scanning and defer interactive depth", async () => {
@@ -310,6 +311,8 @@ test("community highlights are bilingual and point to clean public evidence", as
   assert.match(copy, /View presentation photo/);
   assert.match(copy, /\/images\/projects\/wirin\/presentation\.webp/);
   assert.match(portfolioComponent, /aria-label={`\$\{t\.communityLink\}: \$\{title\}`}/);
+  assert.doesNotMatch(portfolioComponent, /\{t\.communityLink\}\s*<span aria-hidden="true">↗<\/span>/);
+  assert.doesNotMatch(portfolioComponent, /\{t\.contactLinkedin\}\s*<span aria-hidden="true"> ↗<\/span>/);
   assert.doesNotMatch(copy, /utm_(source|medium|campaign)=/);
   assert.match(portfolioComponent, /target="_blank" rel="noreferrer"/);
 });

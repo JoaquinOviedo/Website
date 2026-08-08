@@ -18,20 +18,17 @@ export function ProjectsSection({ locale }: { locale: Locale }) {
       {projects.filter((project) => project.featured).map((project) => {
         const projectPath = withBasePath(project.path[locale]);
         const detailLabel = project.type === "academic" ? t.caseStudy : t.projectDetails;
-        const previewLabel = project.type === "academic" ? t.previewCase : t.previewProject;
 
         return (
           <article className={`project-card project-${project.slug}`} key={project.slug}>
             <div className={`project-visual visual-${project.slug}`}>
               <a className="project-preview" href={projectPath} aria-label={`${detailLabel}: ${project.title}`}>
-                <span>{previewLabel}</span>
                 <div className="project-preview-window">
                   <i aria-hidden="true"><b /><b /><b /></i>
                   {project.image && (
                     <img src={withBasePath(project.image)} alt="" width="1792" height="1024" loading="lazy" decoding="async" />
                   )}
                 </div>
-                <strong>{detailLabel} <Icon name="arrow" /></strong>
               </a>
             </div>
             <div className="project-copy">

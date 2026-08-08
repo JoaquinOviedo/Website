@@ -46,8 +46,8 @@ test("WIRIN records backend ownership and only verified public repositories", as
   assert.match(source, /wirin-landing/);
   assert.doesNotMatch(source, /thomasloader1\/wirin-api/);
   assert.match(source, /aiAssisted:\s*true/);
-  assert.match(source, /Académico · validación institucional/);
-  assert.match(source, /Academic · institutional validation/);
+  assert.match(source, /Académico · Validación institucional en curso/);
+  assert.match(source, /Academic · Institutional validation in progress/);
   assert.match(source, /biblioteca de la UNLaM/);
   assert.match(source, /logo: "\/images\/projects\/wirin\/logo\.webp"/);
   assert.match(source, /logoDark: "\/images\/projects\/wirin\/logo-dark\.webp"/);
@@ -229,6 +229,8 @@ test("homepage keeps recruiter evidence compact and moves depth into case studie
   assert.match(portfolio, /communityItems\.map/);
   assert.doesNotMatch(portfolio, /communityItems\.slice/);
   assert.match(portfolio, /Apps24Regular/);
+  assert.match(portfolio, /data-tech="power-apps"/);
+  assert.match(portfolio, /className="primary-tech" data-tech="sharepoint"/);
   assert.match(portfolio, /className="focus-icon" aria-hidden="true"/);
   assert.match(copy, /focus: "Áreas y tecnologías"/);
   assert.match(copy, /focus: "Areas and technologies"/);
@@ -238,6 +240,8 @@ test("homepage keeps recruiter evidence compact and moves depth into case studie
   assert.match(css, /\.about-grid\.about-lead \{[\s\S]*?grid-template-columns: minmax\(0, \.85fr\) minmax\(0, 1\.15fr\)/);
   assert.match(css, /\.about-lead p:not\(\.about-intro\)[\s\S]*?border-left: 1px solid var\(--line\)/);
   assert.match(css, /\.tech-list li\.primary-tech/);
+  assert.match(css, /data-tech="power-apps"/);
+  assert.match(css, /--tech-accent: #8b4b9f/);
   assert.match(css, /\.visual-finanzas-personales \{[\s\S]*?#18283d/);
   assert.match(css, /\.task-card-head/);
   assert.doesNotMatch(css, /\.task-card[^\n]*#ff6d70/);
@@ -303,8 +307,9 @@ test("local time and opt-in weather preserve location privacy", async () => {
 });
 
 test("community highlights are bilingual and point to clean public evidence", async () => {
-  const [portfolioComponent, copy] = await Promise.all([
+  const [portfolioComponent, carousel, copy] = await Promise.all([
     readFile("components/Portfolio.tsx", "utf8"),
+    readFile("components/CommunityEvidenceCarousel.tsx", "utf8"),
     readFile("content/copy.ts", "utf8"),
   ]);
 
@@ -320,10 +325,11 @@ test("community highlights are bilingual and point to clean public evidence", as
   assert.match(copy, /Ver en LinkedIn/);
   assert.match(copy, /View on LinkedIn/);
   assert.match(portfolioComponent, /className="community-arrow"/);
-  assert.match(portfolioComponent, /className="community-evidence"/);
-  assert.match(portfolioComponent, /withBasePath\(media\.src\)/);
-  assert.match(copy, /Ver foto de la presentación/);
-  assert.match(copy, /View presentation photo/);
+  assert.match(portfolioComponent, /CommunityEvidenceCarousel/);
+  assert.match(carousel, /withBasePath\(image\.src\)/);
+  assert.match(carousel, /aria-roledescription="carousel"/);
+  assert.match(copy, /Ver evidencia de WIRIN/);
+  assert.match(copy, /View WIRIN evidence/);
   assert.match(copy, /\/images\/projects\/wirin\/presentation\.webp/);
   assert.match(portfolioComponent, /aria-label={`\$\{t\.communityLink\}: \$\{title\}`}/);
   assert.doesNotMatch(portfolioComponent, /\{t\.communityLink\}\s*<span aria-hidden="true">↗<\/span>/);

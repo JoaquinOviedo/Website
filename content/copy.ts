@@ -125,10 +125,29 @@ export const copy = {
         "Presentación académica en equipo sobre accesibilidad bibliográfica y el aprendizaje de resolver una necesidad real en un equipo multidisciplinario · UNLaM · noviembre de 2025",
         "https://www.linkedin.com/posts/ceditunlam_egresados-del-diit-en-la-23-jbdu-ugcPost-7399482208429948928-Wj7P",
         {
-          src: "/images/projects/wirin/presentation.webp",
-          label: "Ver foto de la presentación",
-          alt: "Joaquín Oviedo exponiendo WIRIN durante la 23.ª Jornada sobre la Biblioteca Digital Universitaria.",
-          caption: "Presentación pública de WIRIN y del trabajo colaborativo desarrollado por el equipo.",
+          label: "Ver evidencia de WIRIN",
+          images: [
+            {
+              src: "/images/projects/wirin/presentation.webp",
+              alt: "Joaquín Oviedo exponiendo WIRIN durante la 23.ª Jornada sobre la Biblioteca Digital Universitaria.",
+              caption: "Presentación pública de WIRIN y del trabajo colaborativo desarrollado por el equipo.",
+            },
+            {
+              src: "/images/projects/wirin/dashboard-sanitized.webp",
+              alt: "Panel administrativo sanitizado de WIRIN.",
+              caption: "Panel de seguimiento de tareas y bibliografías.",
+            },
+            {
+              src: "/images/projects/wirin/tasks-sanitized.webp",
+              alt: "Gestión de tareas sanitizada de WIRIN.",
+              caption: "Flujo de asignación y seguimiento del trabajo colaborativo.",
+            },
+            {
+              src: "/images/projects/wirin/bibliographies-sanitized.webp",
+              alt: "Gestión de bibliografías sanitizada de WIRIN.",
+              caption: "Seguimiento del material bibliográfico y su procesamiento.",
+            },
+          ],
         },
       ],
       [
@@ -292,10 +311,29 @@ export const copy = {
         "Team presentation on bibliographic accessibility and the lessons learned from addressing a real need within a multidisciplinary team · UNLaM · November 2025",
         "https://www.linkedin.com/posts/ceditunlam_egresados-del-diit-en-la-23-jbdu-ugcPost-7399482208429948928-Wj7P",
         {
-          src: "/images/projects/wirin/presentation.webp",
-          label: "View presentation photo",
-          alt: "Joaquín Oviedo presenting WIRIN at the 23rd University Digital Library Conference.",
-          caption: "Public presentation of WIRIN and the collaborative work developed by the team.",
+          label: "View WIRIN evidence",
+          images: [
+            {
+              src: "/images/projects/wirin/presentation.webp",
+              alt: "Joaquín Oviedo presenting WIRIN at the 23rd University Digital Library Conference.",
+              caption: "Public presentation of WIRIN and the collaborative work developed by the team.",
+            },
+            {
+              src: "/images/projects/wirin/dashboard-sanitized.webp",
+              alt: "Sanitized WIRIN administration dashboard.",
+              caption: "Dashboard for tracking tasks and bibliographic material.",
+            },
+            {
+              src: "/images/projects/wirin/tasks-sanitized.webp",
+              alt: "Sanitized WIRIN task management view.",
+              caption: "Collaborative task assignment and progress tracking flow.",
+            },
+            {
+              src: "/images/projects/wirin/bibliographies-sanitized.webp",
+              alt: "Sanitized WIRIN bibliography management view.",
+              caption: "Tracking bibliographic material throughout its processing flow.",
+            },
+          ],
         },
       ],
       [

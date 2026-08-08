@@ -7,6 +7,7 @@ import {
   type MouseEvent,
 } from "react";
 import { CustomCursor } from "@/components/CustomCursor";
+import { CommunityEvidenceCarousel } from "@/components/CommunityEvidenceCarousel";
 import { LocalContext } from "@/components/LocalContext";
 import { ExperienceSection } from "@/components/portfolio/ExperienceSection";
 import { FocusSection } from "@/components/portfolio/FocusSection";
@@ -244,32 +245,10 @@ export function Portfolio({ locale }: { locale: Locale }) {
                   <div>
                     <h4>{title}</h4>
                     <p>{detail}</p>
-                    {media ? (
-                      <details className="community-evidence">
-                        <summary>{media.label}</summary>
-                        <figure>
-                          <a
-                            href={withBasePath(media.src)}
-                            target="_blank"
-                            rel="noreferrer"
-                            aria-label={media.alt}
-                          >
-                            <img
-                              src={withBasePath(media.src)}
-                              alt={media.alt}
-                              width="790"
-                              height="1200"
-                              loading="lazy"
-                              decoding="async"
-                            />
-                          </a>
-                          <figcaption>{media.caption}</figcaption>
-                        </figure>
-                      </details>
-                    ) : null}
                     <a href={href} target="_blank" rel="noreferrer">
                       {t.communityLink}
                     </a>
+                    {media ? <CommunityEvidenceCarousel media={media} locale={locale} /> : null}
                   </div>
                 </article>
               ))}

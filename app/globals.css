@@ -1593,6 +1593,10 @@ details > p {
   padding: 1.35rem 0;
   border-top: 1px solid var(--line);
 }
+.community-list article > div {
+  flex: 1;
+  min-width: 0;
+}
 .community-list article > .community-arrow {
   display: inline-grid;
   flex: 0 0 auto;
@@ -1632,42 +1636,116 @@ details > p {
   margin-left: 0.3rem;
 }
 .community-evidence {
-  max-width: 28rem;
+  width: 100%;
   margin-top: 0.8rem;
   overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 0.75rem;
-  background: color-mix(in srgb, var(--soft) 58%, transparent);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 .community-evidence summary {
-  padding: 0.7rem 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 2.8rem;
+  padding: 0.65rem 0.1rem;
   color: var(--text);
   font-size: 0.8rem;
-  font-weight: 750;
+  font-weight: 700;
   cursor: pointer;
+  list-style: none;
+}
+.community-evidence summary::-webkit-details-marker {
+  display: none;
 }
 .community-evidence[open] summary {
   border-bottom: 1px solid var(--line);
 }
-.community-evidence figure {
-  margin: 0;
-  padding: 0.75rem;
+.evidence-summary-icon {
+  display: inline-grid;
+  width: 1.35rem;
+  height: 1.35rem;
+  place-items: center;
+  color: var(--accent);
 }
-.community-evidence figure > a {
+.evidence-summary-icon svg {
+  width: 100%;
+  fill: currentColor;
+}
+.evidence-summary-count {
+  margin-left: auto;
+  color: var(--muted);
+  font: 700 0.68rem/1 monospace;
+}
+.evidence-summary-chevron {
+  font-size: 1rem;
+  transition: transform var(--transition);
+}
+.community-evidence[open] .evidence-summary-chevron {
+  transform: rotate(180deg);
+}
+.community-carousel {
+  padding: 0.75rem 0 0.25rem;
+}
+.community-carousel figure {
+  margin: 0;
+}
+.community-carousel figure > a {
   display: block;
   margin: 0;
+  overflow: hidden;
+  border-radius: 0.55rem;
+  background: var(--soft);
 }
-.community-evidence img {
+.community-carousel img {
   display: block;
   width: 100%;
-  height: auto;
-  border-radius: 0.55rem;
+  height: clamp(13rem, 34vw, 22rem);
+  object-fit: contain;
 }
-.community-evidence figcaption {
+.community-carousel figcaption {
   margin-top: 0.65rem;
   color: var(--muted);
   font-size: 0.76rem;
   line-height: 1.5;
+}
+.community-carousel-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 0.55rem;
+}
+.community-carousel-controls button {
+  display: inline-grid;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+.community-carousel-controls > span {
+  color: var(--muted);
+  font: 700 0.68rem/1 monospace;
+}
+.community-carousel-dots {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  gap: 0.35rem;
+}
+.community-carousel-dots i {
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: var(--line);
+}
+.community-carousel-dots i.active {
+  width: 1rem;
+  border-radius: 1rem;
+  background: var(--accent);
 }
 .education-list h3 {
   font-size: 1.25rem;
@@ -2560,6 +2638,29 @@ footer a {
 .tech-list li.primary-tech::before {
   background: var(--accent);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent);
+}
+.timeline .tech-list li.primary-tech {
+  border-color: color-mix(in srgb, var(--accent) 72%, var(--line));
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+  color: var(--accent);
+}
+.timeline .tech-list li[data-tech] {
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+.timeline .tech-list li[data-tech="power-apps"] { --tech-accent: #8b4b9f; }
+.timeline .tech-list li[data-tech="power-automate"] { --tech-accent: #1672ec; }
+.timeline .tech-list li[data-tech="sharepoint"] { --tech-accent: #038b87; }
+.timeline .tech-list li[data-tech="azure-devops"] { --tech-accent: #1686d9; }
+.timeline .tech-list li[data-tech="git"] { --tech-accent: #df573d; }
+.timeline .tech-list li[data-tech="powershell"] { --tech-accent: #3978bd; }
+.timeline .tech-list li[data-tech]:hover {
+  border-color: var(--tech-accent);
+  background: color-mix(in srgb, var(--tech-accent) 10%, var(--surface));
+  color: var(--tech-accent);
+}
+.timeline .tech-list li[data-tech]:hover::before {
+  background: var(--tech-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--tech-accent) 15%, transparent);
 }
 .contributions {
   margin: 1.4rem 0;

@@ -4,6 +4,7 @@ import { ProjectGallery, type GallerySlug } from "@/components/ProjectGallery";
 import { ProjectPrototype } from "@/components/ProjectPrototype";
 import { ThemeControl } from "@/components/ThemeControl";
 import { withBasePath } from "@/lib/basePath";
+import { technologyKey } from "@/lib/technology";
 
 export function CaseStudy({ locale, slug }: { locale: Locale; slug: GallerySlug }) {
   const t = copy[locale];
@@ -101,17 +102,11 @@ export function CaseStudy({ locale, slug }: { locale: Locale; slug: GallerySlug 
               <h2>{t.stackAndProcess}</h2>
             </div>
             <ul className="tech-list">
-              {project.technologies.map((tech) => (
-                <li key={tech}>{tech}</li>
+              {project.technologies.map((tech, index) => (
+                <li className={index < 2 ? "primary-tech" : undefined} data-tech={technologyKey(tech)} key={tech}>{tech}</li>
               ))}
               {project.aiAssisted && <li className="ai-tech">{t.ai}</li>}
             </ul>
-            {project.aiAssisted && project.aiContribution && (
-              <aside className="case-ai-note">
-                <strong>{t.aiTransparency}</strong>
-                <p>{project.aiContribution[locale]}</p>
-              </aside>
-            )}
           </section>
         </div>
         <section className="case-evidence" aria-labelledby="case-evidence-title">

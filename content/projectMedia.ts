@@ -18,7 +18,6 @@ export const projectMedia = {
     { src: "/images/projects/wirin/statistics-sanitized.webp", es: "Panel estadístico sin métricas ni registros reales.", en: "Statistics dashboard without real metrics or records." },
     { src: "/images/projects/wirin/ranking-sanitized.webp", es: "Ranking de voluntariado con nombres y resultados neutralizados.", en: "Volunteer ranking with neutralized names and results." },
     { src: "/images/projects/wirin/bibliographies-sanitized.webp", es: "Gestión bibliográfica sin títulos, estudiantes ni fechas reales.", en: "Bibliography management without real titles, students, or dates." },
-    { src: "/images/projects/wirin/presentation.webp", es: "Presentación pública del proyecto y del trabajo colaborativo desarrollado en WIRIN.", en: "Public presentation of the project and the collaborative work developed for WIRIN." },
   ],
   "mi-carrera-tech": [
     { src: "/images/projects/career/dashboard-sanitized.webp", es: "Resumen académico con progreso, notas y exámenes neutralizados.", en: "Academic overview with neutralized progress, grades, and exams." },

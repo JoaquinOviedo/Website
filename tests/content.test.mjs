@@ -173,6 +173,7 @@ test("WIRIN and finance use accessible sanitized image galleries", async () => {
   assert.doesNotMatch(portfolio, /<ProjectGallery/);
   assert.match(gallery, /aria-roledescription="carousel"/);
   assert.match(gallery, /loading="lazy"/);
+  assert.doesNotMatch(media, /wirin\/presentation\.webp/);
   assert.match(media, /sanitized\.webp/);
   assert.match(gallery, /Open full-size screenshot/);
   assert.doesNotMatch(gallery, /ProjectPrototype/);
@@ -181,7 +182,6 @@ test("WIRIN and finance use accessible sanitized image galleries", async () => {
   assert.match(caseStudy, /prototypeLead/);
   assert.match(media, /career\/dashboard-sanitized\.webp/);
   assert.match(media, /wirin\/bibliographies-sanitized\.webp/);
-  assert.match(media, /wirin\/presentation\.webp/);
   assert.match(media, /finance\/history-sanitized\.webp/);
   assert.doesNotMatch(gallery, /autoplay|setInterval/);
   assert.doesNotMatch(caseStudy, /evidenceLead/);
@@ -213,6 +213,17 @@ test("case studies prioritize recruiter scanning and defer interactive depth", a
   assert.match(portfolioData, /selecting features, evaluating their usefulness/);
   assert.match(css, /font-size: clamp\(3rem, 7\.5vw, 6\.6rem\)/);
   assert.match(css, /width: min\(860px, 100%\)/);
+});
+
+test("case studies keep AI disclosure compact and use technology border accents", async () => {
+  const [caseStudy, css] = await Promise.all([
+    readFile("components/CaseStudy.tsx", "utf8"),
+    readFile("app/globals.css", "utf8"),
+  ]);
+  assert.match(caseStudy, /data-tech=\{technologyKey\(tech\)\}/);
+  assert.match(caseStudy, /className="ai-tech"/);
+  assert.doesNotMatch(caseStudy, /case-ai-note|aiTransparency/);
+  assert.match(css, /\.tech-list li\[data-tech\]:hover/);
 });
 
 test("homepage keeps recruiter evidence compact and moves depth into case studies", async () => {

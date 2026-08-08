@@ -1700,7 +1700,7 @@ details > p {
 }
 .community-evidence {
   width: 100%;
-  margin-top: 0.8rem;
+  margin-top: 0.35rem;
   overflow: hidden;
   border: 0;
   box-shadow: none;
@@ -1709,8 +1709,8 @@ details > p {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  min-height: 2.8rem;
-  padding: 0.65rem 0.1rem;
+  min-height: 2rem;
+  padding: 0.2rem 0.1rem;
   color: var(--text);
   font-size: 0.8rem;
   font-weight: 700;
@@ -2012,7 +2012,7 @@ footer div {
 .case-nav {
   display: flex;
   justify-content: space-between;
-  padding: 2rem 0;
+  padding: 1.4rem 0;
   border-bottom: 1px solid var(--line);
 }
 .case-nav a {
@@ -2025,7 +2025,7 @@ footer div {
   align-items: center;
 }
 .case-hero {
-  padding: clamp(3.5rem, 7vw, 6.5rem) 0;
+  padding: clamp(2.5rem, 5vw, 4.25rem) 0;
 }
 .case-hero h1 {
   max-width: 900px;
@@ -2061,7 +2061,7 @@ footer div {
   border-top: 1px solid var(--line);
 }
 .case-grid section {
-  padding: 2rem;
+  padding: 1.4rem 1.6rem;
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
@@ -2075,7 +2075,7 @@ footer div {
   border-right: 0;
 }
 .case-grid h2 {
-  margin: .8rem 0 1rem;
+  margin: .6rem 0 .7rem;
   font-size: 1.4rem;
 }
 .case-grid section > p:last-child,
@@ -2118,7 +2118,7 @@ footer div {
 }
 .case-evidence,
 .case-prototype {
-  padding: clamp(3rem, 6vw, 5rem) 0;
+  padding: clamp(2.25rem, 4vw, 3.5rem) 0;
   border-bottom: 1px solid var(--line);
 }
 .case-evidence > header,

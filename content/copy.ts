@@ -15,7 +15,7 @@ export const copy = {
     heroText:
       "Combino desarrollo de software, liderazgo operativo y pensamiento de producto para convertir necesidades complejas en soluciones claras y mantenibles.",
     availability: "Actualmente trabajando · abierto a nuevas oportunidades",
-    viewProjects: "Ver proyectos",
+    viewExperience: "Ver experiencia",
     contact: "Contactarme",
     downloadCv: "Descargar CV",
     cvUnavailable: "CV en inglés pendiente",
@@ -176,7 +176,7 @@ export const copy = {
     heroText:
       "I combine software development, operational leadership, and product thinking to turn complex needs into clear, maintainable solutions.",
     availability: "Currently employed · open to new opportunities",
-    viewProjects: "View projects",
+    viewExperience: "View experience",
     contact: "Contact me",
     downloadCv: "Download résumé",
     cvUnavailable: "English résumé pending",

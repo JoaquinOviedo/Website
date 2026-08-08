@@ -153,8 +153,8 @@ export function Portfolio({ locale }: { locale: Locale }) {
             <p className="hero-lead">{t.heroText}</p>
             <p className="availability"><span aria-hidden="true" />{t.availability}</p>
             <div className="cta-row">
-              <a className="button primary" href="#proyectos">
-                {t.viewProjects} <Icon name="arrow" />
+              <a className="button primary" href="#experiencia">
+                {t.viewExperience} <Icon name="arrow" />
               </a>
               <a className="button secondary" href="#contacto">
                 {t.contact} <Icon name="arrow" />

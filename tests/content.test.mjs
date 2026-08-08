@@ -179,6 +179,10 @@ test("homepage keeps recruiter evidence compact and moves depth into case studie
   assert.match(portfolio, /className="project-contribution"/);
   assert.match(portfolio, /className="project-logo"/);
   assert.match(portfolio, /className=\{project\.logo \? "sr-only" : undefined\}/);
+  assert.match(portfolio, /className="button primary" href="#experiencia"/);
+  assert.match(copy, /viewExperience: "Ver experiencia"/);
+  assert.match(copy, /viewExperience: "View experience"/);
+  assert.doesNotMatch(copy, /viewProjects:/);
   assert.ok(
     portfolio.indexOf("<ExperienceSection locale={locale} />") < portfolio.indexOf("<ProjectsSection locale={locale} />"),
     "professional experience should appear before project evidence",

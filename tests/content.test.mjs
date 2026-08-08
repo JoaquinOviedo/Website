@@ -83,3 +83,17 @@ test("each featured project renders a bilingual interactive prototype", async ()
   assert.match(prototype, /role="tablist"/);
   assert.doesNotMatch(prototype, /C:\\Users|Juan Perez|Joaquin/i);
 });
+
+test("custom cursor is progressive and respects input preferences", async () => {
+  const [cursor, portfolio, css] = await Promise.all([
+    readFile("components/CustomCursor.tsx", "utf8"),
+    readFile("components/Portfolio.tsx", "utf8"),
+    readFile("app/globals.css", "utf8"),
+  ]);
+  assert.match(portfolio, /<CustomCursor \/>/);
+  assert.match(cursor, /\(hover: hover\) and \(pointer: fine\)/);
+  assert.match(cursor, /prefers-reduced-motion: reduce/);
+  assert.match(cursor, /requestAnimationFrame/);
+  assert.match(css, /@media \(hover: hover\) and \(pointer: fine\) and \(prefers-reduced-motion: no-preference\)/);
+  assert.match(css, /pointer-events: none/);
+});

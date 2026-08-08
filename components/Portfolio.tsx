@@ -9,6 +9,7 @@ import {
 } from "react";
 import { FrameworkPrototype } from "@/components/FrameworkPrototype";
 import { ProjectPrototype } from "@/components/ProjectPrototype";
+import { CustomCursor } from "@/components/CustomCursor";
 import { copy } from "@/content/copy";
 import { profile, projects, type Locale } from "@/content/portfolio";
 
@@ -133,6 +134,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
 
   return (
     <>
+      <CustomCursor />
       <a className="skip-link" href="#main">
         {t.skip}
       </a>

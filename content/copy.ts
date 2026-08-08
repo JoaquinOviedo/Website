@@ -19,7 +19,7 @@ export const copy = {
     contact: "Contactarme",
     downloadCv: "Descargar CV",
     cvUnavailable: "CV en inglés pendiente",
-    focus: "En qué aporto",
+    focus: "Áreas y tecnologías",
     focusItems: [
       [
         "Soluciones empresariales",
@@ -175,7 +175,7 @@ export const copy = {
     contact: "Contact me",
     downloadCv: "Download résumé",
     cvUnavailable: "English résumé pending",
-    focus: "How I contribute",
+    focus: "Areas and technologies",
     focusItems: [
       [
         "Enterprise solutions",

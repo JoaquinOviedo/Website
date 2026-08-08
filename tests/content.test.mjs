@@ -157,7 +157,12 @@ test("homepage keeps recruiter evidence compact and moves depth into case studie
   assert.match(portfolio, /index < 2 \? "primary-tech"/);
   assert.match(portfolio, /<details className="framework-disclosure">/);
   assert.doesNotMatch(portfolio, /experience-details|detailsText/);
-  assert.match(portfolio, /communityItems\.slice\(0, 3\)/);
+  assert.match(portfolio, /communityItems\.map/);
+  assert.doesNotMatch(portfolio, /communityItems\.slice/);
+  assert.match(portfolio, /Apps24Regular/);
+  assert.match(portfolio, /className="focus-icon" aria-hidden="true"/);
+  assert.match(copy, /focus: "Áreas y tecnologías"/);
+  assert.match(copy, /focus: "Areas and technologies"/);
   assert.match(copy, /\["Power Apps", "Power Automate", "SharePoint"\]/);
   assert.match(copy, /\["Azure", "Git", "Azure DevOps", "PowerShell"\]/);
   assert.match(css, /\.focus-tech-list/);

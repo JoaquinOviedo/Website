@@ -359,7 +359,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
               <p>{t.communityLead}</p>
             </div>
             <div className="community-list">
-              {t.communityItems.slice(0, 3).map(([title, detail, href]) => (
+              {t.communityItems.map(([title, detail, href]) => (
                 <article key={title}>
                   <span aria-hidden="true">↗</span>
                   <div>

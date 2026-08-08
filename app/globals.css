@@ -2265,8 +2265,14 @@ footer a {
   border-right: 0;
 }
 .focus-compact .focus-grid h3 {
-  margin: 0 0 .45rem;
+  margin: .65rem 0 .45rem;
   font-size: 1.05rem;
+}
+.focus-compact .focus-icon {
+  width: 1.3rem;
+  height: 1.3rem;
+  color: var(--accent);
+  stroke-width: 1.5;
 }
 .focus-compact .focus-grid p {
   font-size: .86rem;

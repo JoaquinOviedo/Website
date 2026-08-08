@@ -12,6 +12,7 @@ These decisions capture the current direction so future changes do not gradually
 - The page ending stays compact: community evidence is preserved, trailing section space is limited, and the footer behaves as a utility strip rather than another content section.
 - Formal education leads the education hierarchy. Certifications stay compact and secondary; a verified average may remain visible as supporting evidence without becoming a headline.
 - The contribution/technology overview remains a compact band, not a full-height section. It provides technical fit before project evidence without slowing navigation.
+- That band is explicitly named “Areas and technologies” and uses one small, monochrome, decorative icon per category. Technology names always remain visible; avoid logo walls and do not add tool icons to professional experience.
 - Experience details stay visible in the summary and contribution bullets; do not add a secondary "more context" disclosure unless it introduces genuinely new evidence.
 
 ## Visual language

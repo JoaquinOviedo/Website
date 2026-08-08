@@ -214,3 +214,12 @@ test("public email is hidden from initial markup and revealed by user action", a
   assert.match(portfolioComponent, /setEmailRevealed\(true\)/);
   assert.match(portfolioComponent, /getPublicEmail\(\)/);
 });
+
+test("the localized résumé is downloadable from the sticky header", async () => {
+  const portfolioComponent = await readFile("components/Portfolio.tsx", "utf8");
+
+  assert.match(portfolioComponent, /className="header-cv"/);
+  assert.match(portfolioComponent, /href=\{withBasePath\(profile\.cv\[locale\]!\)\}/);
+  assert.match(portfolioComponent, /aria-label=\{t\.downloadCv\}/);
+  assert.match(portfolioComponent, /className="header-cv"[\s\S]*?download/);
+});

@@ -168,6 +168,17 @@ export function Portfolio({ locale }: { locale: Locale }) {
         </nav>
         <div className="header-actions">
           <LocalContext locale={locale} />
+          {profile.cv[locale] ? (
+            <a
+              className="header-cv"
+              href={withBasePath(profile.cv[locale]!)}
+              download
+              aria-label={t.downloadCv}
+              title={t.downloadCv}
+            >
+              CV <span aria-hidden="true">↓</span>
+            </a>
+          ) : null}
           <a
             className="language"
             href={withBasePath(`/${otherLocale}`)}

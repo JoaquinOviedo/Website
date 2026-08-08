@@ -130,6 +130,25 @@ nav ul a:hover {
   align-items: center;
   gap: 0.6rem;
 }
+.header-cv {
+  display: inline-flex;
+  min-height: 35px;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--bg);
+  font-size: 0.72rem;
+  font-weight: 850;
+  text-decoration: none;
+  transition: background-color 140ms ease, border-color 140ms ease, color 140ms ease;
+}
+.header-cv:hover {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
 .language {
   font-size: 0.75rem;
   font-weight: 800;
@@ -1950,6 +1969,7 @@ footer div {
 }
 @media (max-width: 560px) {
   .header-actions { gap: .35rem; }
+  .header-cv { min-height: 33px; padding-inline: .5rem; }
   .local-context { padding-left: .4rem; }
   .local-context time { min-width: 2.65rem; font-size: .62rem; }
   .language { padding-inline: .38rem; }

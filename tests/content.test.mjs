@@ -93,5 +93,8 @@ test("WIRIN and finance use accessible sanitized image galleries", async () => {
   assert.match(gallery, /aria-roledescription="carousel"/);
   assert.match(gallery, /loading="lazy"/);
   assert.match(gallery, /sanitized\.webp/);
+  assert.match(gallery, /Conceptual example prototype/);
+  assert.match(gallery, /<ProjectPrototype slug=\{slug\}/);
+  assert.match(gallery, /slides\.length \+ 1/);
   assert.doesNotMatch(gallery, /autoplay|setInterval/);
 });

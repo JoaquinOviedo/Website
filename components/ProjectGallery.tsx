@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ProjectPrototype } from "@/components/ProjectPrototype";
 import type { Locale } from "@/content/portfolio";
 
 const galleries = {
@@ -18,12 +19,13 @@ type GallerySlug = keyof typeof galleries;
 
 export function ProjectGallery({ slug, locale }: { slug: GallerySlug; locale: Locale }) {
   const slides = galleries[slug];
+  const slideCount = slides.length + 1;
   const [current, setCurrent] = useState(0);
-  const previous = () => setCurrent((index) => (index - 1 + slides.length) % slides.length);
-  const next = () => setCurrent((index) => (index + 1) % slides.length);
+  const previous = () => setCurrent((index) => (index - 1 + slideCount) % slideCount);
+  const next = () => setCurrent((index) => (index + 1) % slideCount);
   const labels = locale === "es"
-    ? { previous: "Imagen anterior", next: "Imagen siguiente", gallery: "Galería del proyecto", slide: "Imagen" }
-    : { previous: "Previous image", next: "Next image", gallery: "Project gallery", slide: "Image" };
+    ? { previous: "Elemento anterior", next: "Elemento siguiente", gallery: "Galería del proyecto", slide: "Elemento", demo: "Demostración interactiva", prototype: "Prototipo conceptual de ejemplo. No representa la interfaz ni la versión final del proyecto." }
+    : { previous: "Previous item", next: "Next item", gallery: "Project gallery", slide: "Item", demo: "Interactive demonstration", prototype: "Conceptual example prototype. It does not represent the project's final interface or release." };
 
   return (
     <div className="project-gallery" role="region" aria-roledescription="carousel" aria-label={labels.gallery}>
@@ -34,13 +36,17 @@ export function ProjectGallery({ slug, locale }: { slug: GallerySlug; locale: Lo
             <figcaption>{slide[locale]}</figcaption>
           </figure>
         ))}
+        <section className="project-gallery-prototype" hidden={current !== slides.length} aria-label={labels.prototype}>
+          <p><strong>{labels.demo}</strong><span>{labels.prototype}</span></p>
+          <ProjectPrototype slug={slug} locale={locale} />
+        </section>
       </div>
       <div className="project-gallery-controls">
         <button type="button" onClick={previous} aria-label={labels.previous}>←</button>
-        <span aria-hidden="true">{current + 1} / {slides.length}</span>
+        <span aria-hidden="true">{current + 1} / {slideCount}</span>
         <div className="project-gallery-dots">
-          {slides.map((slide, index) => (
-            <button type="button" key={slide.src} className={index === current ? "active" : ""} aria-label={`${labels.slide} ${index + 1}`} aria-current={index === current ? "true" : undefined} onClick={() => setCurrent(index)} />
+          {Array.from({ length: slideCount }, (_, index) => (
+            <button type="button" key={index} className={index === current ? "active" : ""} aria-label={`${labels.slide} ${index + 1}`} aria-current={index === current ? "true" : undefined} onClick={() => setCurrent(index)} />
           ))}
         </div>
         <button type="button" onClick={next} aria-label={labels.next}>→</button>

@@ -61,6 +61,7 @@ test("the framework prototype stays bilingual, sanitized, and data-driven", asyn
   assert.match(component, /@fluentui\/react-icons/);
   assert.match(component, /icon-pagination/);
   assert.match(component, /iconVariants/);
+  assert.doesNotMatch(component, /<i aria-hidden="true">0\{index \+ 1\}<\/i>/);
   assert.match(prototype, /Historial y conversación/);
   assert.match(styles, /framework-dark \.standard-screen > footer \{ background:/);
   assert.match(styles, /grid-template-columns: repeat\(5, minmax\(0, 1fr\)\)/);

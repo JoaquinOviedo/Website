@@ -1054,16 +1054,6 @@ details > p {
   font-weight: 500;
   line-height: 1.4;
 }
-.framework-card i {
-  display: grid;
-  width: 42px;
-  height: 42px;
-  place-items: center;
-  border: 2px solid rgb(255 255 255 / 0.82);
-  border-radius: 9px;
-  font: 800 0.64rem/1 monospace;
-  font-style: normal;
-}
 .framework-card.card-1 {
   background: #8253ad;
 }

@@ -138,7 +138,6 @@ export function FrameworkPrototype({ locale }: { locale: Locale }) {
                 onClick={() => setView(target)}
               >
                 <span><b>{t.views[target].title}</b><small>{t.views[target].description}</small></span>
-                <i aria-hidden="true">0{index + 1}</i>
               </button>
             ))}
           </div>

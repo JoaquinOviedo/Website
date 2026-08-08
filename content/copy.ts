@@ -5,8 +5,8 @@ export const copy = {
       "Inicio",
       "Experiencia",
       "Proyectos",
-      "Sobre mí",
       "Educación",
+      "Sobre mí",
       "Contacto",
     ],
     heroEyebrow: "Software Developer · Argentina",
@@ -174,7 +174,7 @@ export const copy = {
   },
   en: {
     skip: "Skip to content",
-    nav: ["Home", "Experience", "Projects", "About", "Education", "Contact"],
+    nav: ["Home", "Experience", "Projects", "Education", "About", "Contact"],
     heroEyebrow: "Software Developer · Argentina",
     heroTitle:
       "I build and manage enterprise solutions with Power Platform, .NET, React, and TypeScript.",

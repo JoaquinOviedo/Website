@@ -17,7 +17,7 @@ export const profile = {
   },
   linkedin: "https://www.linkedin.com/in/joaquin-oviedo/",
   github: "https://github.com/JoaquinOviedo",
-  photo: "/images/joaquin-oviedo-profile.webp",
+  photo: "/images/joaquin-oviedo-profile-v2.webp",
   cv: {
     es: "/cv/joaquin-oviedo-es.pdf",
     en: "/cv/joaquin-oviedo-en.pdf",

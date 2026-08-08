@@ -108,7 +108,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
             {t.nav.map((item, index) => (
               <li key={item}>
                 <a
-                  href={`#${["inicio", "experiencia", "proyectos", "sobre-mi", "educacion", "contacto"][index]}`}
+                  href={`#${["inicio", "experiencia", "proyectos", "educacion", "sobre-mi", "contacto"][index]}`}
                 >
                   {item}
                 </a>
@@ -189,28 +189,12 @@ export function Portfolio({ locale }: { locale: Locale }) {
         <ProjectsSection locale={locale} />
 
         <section
-          className="about section"
-          id="sobre-mi"
-          aria-labelledby="about-title"
-        >
-          <header className="section-heading">
-            <p>04 /</p>
-            <h2 id="about-title">{t.about}</h2>
-          </header>
-          <div className="about-grid about-lead">
-            {t.aboutParagraphs.map((paragraph, index) => (
-              <p className={index === 0 ? "about-intro" : undefined} key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-        </section>
-
-        <section
           className="education section"
           id="educacion"
           aria-labelledby="education-title"
         >
           <header className="section-heading">
-            <p>05 /</p>
+            <p>04 /</p>
             <h2 id="education-title">{t.education}</h2>
           </header>
           <div className="education-list">
@@ -241,7 +225,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
           </div>
           <div className="community-block">
             <div>
-              <p>05.B /</p>
+              <p>04.B /</p>
               <h3>{t.community}</h3>
               <p>{t.communityLead}</p>
             </div>
@@ -291,6 +275,22 @@ export function Portfolio({ locale }: { locale: Locale }) {
                 </article>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section
+          className="about section"
+          id="sobre-mi"
+          aria-labelledby="about-title"
+        >
+          <header className="section-heading">
+            <p>05 /</p>
+            <h2 id="about-title">{t.about}</h2>
+          </header>
+          <div className="about-grid about-lead">
+            {t.aboutParagraphs.map((paragraph, index) => (
+              <p className={index === 0 ? "about-intro" : undefined} key={paragraph}>{paragraph}</p>
+            ))}
           </div>
         </section>
 

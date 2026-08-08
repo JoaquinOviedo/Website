@@ -34,7 +34,7 @@ test("professional content keeps both locales and safe CV state", async () => {
   assert.match(copy, /Integro la IA en ese proceso/);
   assert.match(copy, /Power Platform, \.NET, React y TypeScript/);
   assert.match(copy, /Power Platform, \.NET, React, and TypeScript/);
-  assert.match(portfolio, /joaquin-oviedo-profile\.webp/);
+  assert.match(portfolio, /joaquin-oviedo-profile-v2\.webp/);
   assert.doesNotMatch(copy, /Me interesa especialmente el backend|particularly interested in backend work/);
 });
 
@@ -196,6 +196,13 @@ test("homepage keeps recruiter evidence compact and moves depth into case studie
     portfolio.indexOf("<ExperienceSection locale={locale} />") < portfolio.indexOf("<ProjectsSection locale={locale} />"),
     "professional experience should appear before project evidence",
   );
+  assert.ok(
+    portfolio.indexOf('className="education section"') < portfolio.indexOf('className="about section"'),
+    "formal education should appear before personal context",
+  );
+  assert.match(copy, /nav: \[\s*"Inicio",\s*"Experiencia",\s*"Proyectos",\s*"Educación",\s*"Sobre mí",\s*"Contacto",?\s*\]/);
+  assert.match(copy, /nav: \["Home", "Experience", "Projects", "Education", "About", "Contact"\]/);
+  assert.match(portfolio, /\["inicio", "experiencia", "proyectos", "educacion", "sobre-mi", "contacto"\]/);
   assert.match(portfolio, /focus-compact/);
   assert.match(portfolio, /index === 0 \? "about-intro"/);
   assert.match(portfolio, /index < 2 \? "primary-tech"/);
@@ -324,7 +331,7 @@ test("public assets use the deployment-aware base path helper", async () => {
   assert.match(portfolio, /withBasePath\(project\.image\)/);
   assert.match(portfolio, /withBasePath\(profile\.cv\[locale\]!\)/);
   assert.match(gallery, /withBasePath\(slide\.src\)/);
-  assert.match(profile, /photo: "\/images\/joaquin-oviedo-profile\.webp"/);
+  assert.match(profile, /photo: "\/images\/joaquin-oviedo-profile-v2\.webp"/);
   assert.match(layout, /absoluteAsset\("\/images\/joaquin-oviedo-icon\.png"\)/);
   assert.match(manifest, /withBasePath\("\/images\/joaquin-oviedo-icon\.png"\)/);
   assert.match(workflow, /NEXT_PUBLIC_BASE_PATH: \/Website/g);

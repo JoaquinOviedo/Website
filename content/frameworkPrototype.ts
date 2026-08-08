@@ -1,7 +1,7 @@
 import type { Locale } from "./portfolio";
 
 export type FrameworkView = "home" | "components" | "screens" | "icons";
-export type ScreenView = "form" | "gallery" | "replace";
+export type ScreenView = "initiative" | "form" | "gallery" | "replace";
 
 export const frameworkPalette = [
   { variable: "_color.Brand.Primary", hex: "#07539B" },
@@ -75,6 +75,12 @@ export const frameworkPrototypeCopy: Record<Locale, {
   replacement: string;
   emptyReplace: string;
   utility: string;
+  initiative: {
+    title: string; lead: string; stages: string[]; panels: string[];
+    fields: string[]; values: string[]; approvers: string; approved: string;
+    pendingApproval: string; attachments: string; attachmentHelp: string;
+    history: string; historyItems: string[]; nextLevel: string;
+  };
 }> = {
   es: {
     prototype: "Prototipo conceptual interactivo",
@@ -99,7 +105,7 @@ export const frameworkPrototypeCopy: Record<Locale, {
     activeStatus: "Estado · Activo",
     iconSearch: "Filtrar iconos",
     iconPreview: "Icono seleccionado",
-    screenTabs: { form: "Formulario", gallery: "Galería", replace: "Reemplazar código" },
+    screenTabs: { initiative: "Flujo de iniciativa", form: "Formulario", gallery: "Galería", replace: "Reemplazar código" },
     formTitle: "Solicitud de mejora",
     formLead: "Ejemplo de pantalla estándar para relevar y acompañar una iniciativa.",
     fields: ["Título", "Área", "Descripción", "Prioridad"],
@@ -133,6 +139,18 @@ export const frameworkPrototypeCopy: Record<Locale, {
     replacement: "Reemplazar por",
     emptyReplace: "Ingresá un texto de búsqueda para transformar el ejemplo.",
     utility: "UTILIDAD",
+    initiative: {
+      title: "Evolución de una iniciativa",
+      lead: "Prototipo sanitizado de un proceso transversal con formularios, evidencia y aprobaciones por nivel.",
+      stages: ["Explorar", "Dimensionar", "Piloto", "Planificar", "Ejecutar", "Cerrar"],
+      panels: ["Información inicial", "Evaluación y alcance", "Archivos adjuntos", "Planificación y captura"],
+      fields: ["Nombre de la iniciativa", "Área", "Detalle", "Tipo de beneficio"],
+      values: ["Mejora del circuito de solicitudes", "Operaciones", "Propuesta ficticia para demostrar el flujo sin exponer información interna.", "Recurrente"],
+      approvers: "Aprobaciones del nivel", approved: "Aprobado", pendingApproval: "Pendiente de revisión",
+      attachments: "Adjuntar evidencia", attachmentHelp: "Documentos, imágenes o material de soporte",
+      history: "Historial y conversación", historyItems: ["La iniciativa fue enviada a revisión.", "El referente solicitó ampliar el alcance.", "Se actualizó la documentación del nivel."],
+      nextLevel: "Continuar al siguiente nivel",
+    },
   },
   en: {
     prototype: "Interactive conceptual prototype",
@@ -157,7 +175,7 @@ export const frameworkPrototypeCopy: Record<Locale, {
     activeStatus: "Status · Active",
     iconSearch: "Filter icons",
     iconPreview: "Selected icon",
-    screenTabs: { form: "Form", gallery: "Gallery", replace: "Replace code" },
+    screenTabs: { initiative: "Initiative flow", form: "Form", gallery: "Gallery", replace: "Replace code" },
     formTitle: "Improvement request",
     formLead: "A standardized screen example for discovering and supporting an initiative.",
     fields: ["Title", "Area", "Description", "Priority"],
@@ -191,5 +209,17 @@ export const frameworkPrototypeCopy: Record<Locale, {
     replacement: "Replace with",
     emptyReplace: "Enter a search value to transform the example.",
     utility: "UTILITY",
+    initiative: {
+      title: "Initiative progression",
+      lead: "A sanitized prototype of a cross-functional process with forms, evidence, and level-based approvals.",
+      stages: ["Explore", "Assess", "Pilot", "Plan", "Execute", "Close"],
+      panels: ["Initial information", "Assessment and scope", "Attachments", "Planning and capture"],
+      fields: ["Initiative name", "Area", "Details", "Benefit type"],
+      values: ["Improve the request workflow", "Operations", "Fictional proposal used to demonstrate the flow without exposing internal information.", "Recurring"],
+      approvers: "Level approvals", approved: "Approved", pendingApproval: "Pending review",
+      attachments: "Attach evidence", attachmentHelp: "Documents, images, or supporting material",
+      history: "History and conversation", historyItems: ["The initiative was submitted for review.", "The reviewer requested a broader scope.", "The level documentation was updated."],
+      nextLevel: "Continue to the next level",
+    },
   },
 };

@@ -29,6 +29,10 @@ test("the framework prototype stays bilingual, sanitized, and data-driven", asyn
   assert.match(prototype, /información completamente ficticia/);
   assert.match(component, /aria-live="polite"/);
   assert.match(component, /role="tablist"/);
+  assert.match(component, /initiative-stages/);
+  assert.match(component, /aria-current=.*step/);
+  assert.match(component, /aria-expanded=\{expanded\}/);
+  assert.match(prototype, /Historial y conversación/);
   assert.doesNotMatch(prototype, /YPF|Circo Studio/i);
 });
 

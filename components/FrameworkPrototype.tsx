@@ -28,6 +28,8 @@ export function FrameworkPrototype({ locale }: { locale: Locale }) {
   const [source, setSource] = useState(codeExample);
   const [search, setSearch] = useState("Primary");
   const [replacement, setReplacement] = useState("Secondary");
+  const [initiativeStage, setInitiativeStage] = useState(2);
+  const [openInitiativePanel, setOpenInitiativePanel] = useState(0);
 
   const filteredIcons = useMemo(
     () => frameworkIcons.filter(([name]) => name.includes(iconFilter.toLowerCase().trim())),
@@ -175,6 +177,45 @@ export function FrameworkPrototype({ locale }: { locale: Locale }) {
               >{t.screenTabs[item]}</button>
             ))}
           </div>
+
+          {screen === "initiative" && (
+            <section className="initiative-screen" role="tabpanel">
+              <header className="initiative-heading">
+                <div><span>PROCESS / 01</span><h4>{t.initiative.title}</h4><p>{t.initiative.lead}</p></div>
+                <b>{t.prototype}</b>
+              </header>
+              <div className="initiative-stages" aria-label={t.initiative.title}>
+                {t.initiative.stages.map((stage, index) => (
+                  <button key={stage} type="button" className={index === initiativeStage ? "current" : index < initiativeStage ? "done" : ""} aria-current={index === initiativeStage ? "step" : undefined} onClick={() => setInitiativeStage(index)}>
+                    <span>{index < initiativeStage ? "✓" : index + 1}</span>{stage}
+                  </button>
+                ))}
+              </div>
+              <div className="initiative-workspace">
+                <div className="initiative-panels">
+                  {t.initiative.panels.map((panel, index) => {
+                    const expanded = openInitiativePanel === index;
+                    return <section key={panel} className="initiative-panel">
+                      <button type="button" aria-expanded={expanded} onClick={() => setOpenInitiativePanel(expanded ? -1 : index)}><span>{panel}</span><i aria-hidden="true">{expanded ? "−" : "+"}</i></button>
+                      {expanded && <div className="initiative-panel-body">
+                        {index === 0 && <div className="initiative-fields">{t.initiative.fields.map((field, fieldIndex) => <label key={field}>{field}{fieldIndex === 2 ? <textarea rows={3} defaultValue={t.initiative.values[fieldIndex]} /> : <input defaultValue={t.initiative.values[fieldIndex]} />}</label>)}</div>}
+                        {index === 1 && <div className="initiative-assessment"><span><b>01</b>{t.review}</span><span><b>02</b>{t.discovery}</span><span><b>03</b>{t.approval}</span></div>}
+                        {index === 2 && <button className="attachment-drop" type="button"><b>＋ {t.initiative.attachments}</b><small>{t.initiative.attachmentHelp}</small></button>}
+                        {index === 3 && <div className="initiative-plan"><span /><span /><span /><p>{t.initiative.pendingApproval}</p></div>}
+                      </div>}
+                    </section>;
+                  })}
+                </div>
+                <aside className="initiative-approval">
+                  <h5>{t.initiative.approvers}</h5>
+                  <div><span>✓</span><p><b>{t.review}</b><small>{t.initiative.approved}</small></p></div>
+                  <div><span>2</span><p><b>{t.approval}</b><small>{t.initiative.pendingApproval}</small></p></div>
+                  <section><h6>◌ {t.initiative.history}</h6>{t.initiative.historyItems.map((item, index) => <p key={item}><b>{index + 1}</b>{item}</p>)}</section>
+                  <button type="button">{t.initiative.nextLevel} →</button>
+                </aside>
+              </div>
+            </section>
+          )}
 
           {screen === "form" && (
             <section className="standard-screen" role="tabpanel">

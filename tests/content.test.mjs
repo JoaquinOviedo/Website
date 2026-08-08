@@ -42,8 +42,8 @@ test("WIRIN records backend ownership and only verified public repositories", as
   assert.match(source, /wirin-landing/);
   assert.doesNotMatch(source, /thomasloader1\/wirin-api/);
   assert.match(source, /aiAssisted:\s*true/);
-  assert.match(source, /validación institucional en curso/);
-  assert.match(source, /institutional validation in progress/);
+  assert.match(source, /Académico · validación institucional/);
+  assert.match(source, /Academic · institutional validation/);
   assert.match(source, /biblioteca de la UNLaM/);
   assert.match(source, /logo: "\/images\/projects\/wirin\/logo\.webp"/);
   assert.match(source, /logoDark: "\/images\/projects\/wirin\/logo-dark\.webp"/);
@@ -139,6 +139,10 @@ test("WIRIN and finance use accessible sanitized image galleries", async () => {
   assert.match(media, /wirin\/bibliographies-sanitized\.webp/);
   assert.match(media, /finance\/history-sanitized\.webp/);
   assert.doesNotMatch(gallery, /autoplay|setInterval/);
+  assert.doesNotMatch(caseStudy, /evidenceLead/);
+  assert.match(caseStudy, /projectDetailsLabel/);
+  assert.match(portfolio, /projectDetails/);
+  assert.match(portfolio, /previewProject/);
 });
 
 test("case studies prioritize recruiter scanning and defer interactive depth", async () => {
@@ -189,6 +193,9 @@ test("homepage keeps recruiter evidence compact and moves depth into case studie
   assert.match(copy, /\["Azure", "Git", "Azure DevOps", "PowerShell"\]/);
   assert.match(css, /\.focus-tech-list/);
   assert.match(css, /\.tech-list li\.primary-tech/);
+  assert.match(css, /\.visual-finanzas-personales \{[\s\S]*?#18283d/);
+  assert.match(css, /\.task-card-head/);
+  assert.doesNotMatch(css, /\.task-card[^\n]*#ff6d70/);
   assert.match(css, /\.project-visual \{[\s\S]*?min-height: 390px/);
   assert.match(css, /\.education\.section \{[\s\S]*?padding-bottom:/);
   assert.match(css, /footer \{[\s\S]*?padding: \.95rem/);

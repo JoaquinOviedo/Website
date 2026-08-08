@@ -12,6 +12,7 @@ export function CaseStudy({ locale, slug }: { locale: Locale; slug: GallerySlug 
   const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://joaquinoviedo.dev";
   const localizedPath = project.path[locale];
   const otherLocale = locale === "es" ? "en" : "es";
+  const detailLabel = project.type === "academic" ? t.caseStudyLabel : t.projectDetailsLabel;
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -47,7 +48,7 @@ export function CaseStudy({ locale, slug }: { locale: Locale; slug: GallerySlug 
           )}
           <p className="eyebrow">
             <span />
-            {t.caseStudyLabel} · {project.status[locale]}{project.year ? ` · ${project.year}` : ""}
+            {detailLabel} · {project.status[locale]}{project.year ? ` · ${project.year}` : ""}
           </p>
           <h1 className={project.logo ? "sr-only" : undefined}>{project.title}</h1>
           <p>{project.summary[locale]}</p>
@@ -111,7 +112,6 @@ export function CaseStudy({ locale, slug }: { locale: Locale; slug: GallerySlug 
           <header>
             <p>05 /</p>
             <h2 id="case-evidence-title">{t.evidence}</h2>
-            <p>{t.evidenceLead}</p>
           </header>
           <ProjectGallery slug={slug} locale={locale} />
         </section>

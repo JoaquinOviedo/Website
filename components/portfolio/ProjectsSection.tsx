@@ -17,19 +17,21 @@ export function ProjectsSection({ locale }: { locale: Locale }) {
       </header>
       {projects.filter((project) => project.featured).map((project) => {
         const projectPath = withBasePath(project.path[locale]);
+        const detailLabel = project.type === "academic" ? t.caseStudy : t.projectDetails;
+        const previewLabel = project.type === "academic" ? t.previewCase : t.previewProject;
 
         return (
           <article className={`project-card project-${project.slug}`} key={project.slug}>
             <div className={`project-visual visual-${project.slug}`}>
-              <a className="project-preview" href={projectPath} aria-label={`${t.caseStudy}: ${project.title}`}>
-                <span>{t.previewCase}</span>
+              <a className="project-preview" href={projectPath} aria-label={`${detailLabel}: ${project.title}`}>
+                <span>{previewLabel}</span>
                 <div className="project-preview-window">
                   <i aria-hidden="true"><b /><b /><b /></i>
                   {project.image && (
                     <img src={withBasePath(project.image)} alt="" width="1792" height="1024" loading="lazy" decoding="async" />
                   )}
                 </div>
-                <strong>{t.caseStudy} <Icon name="arrow" /></strong>
+                <strong>{detailLabel} <Icon name="arrow" /></strong>
               </a>
             </div>
             <div className="project-copy">
@@ -57,7 +59,7 @@ export function ProjectsSection({ locale }: { locale: Locale }) {
               <div className="project-links">
                 {project.caseStudy ? (
                   <a className="text-link" href={projectPath}>
-                    {t.caseStudy} <Icon name="arrow" />
+                    {detailLabel} <Icon name="arrow" />
                   </a>
                 ) : project.repositories?.[0] ? (
                   <a className="text-link" href={project.repositories[0].url} target="_blank" rel="noreferrer">

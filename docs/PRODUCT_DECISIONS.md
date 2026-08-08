@@ -6,6 +6,8 @@ These decisions capture the current direction so future changes do not gradually
 
 - The first visit should establish role, value, technical fit, evidence, and contact path quickly.
 - The landing page is a summary. Project cards remain compact; galleries, detailed AI transparency, and interactive prototypes live in individual case studies.
+- Reserve “case study” for work with a genuine academic or professional case narrative. Personal tools use “project details”; they may keep the same detailed route without overstating their status.
+- Project preview panels share a restrained navy treatment rather than unrelated project-specific background colors. Sanitized media remains mandatory internally, but repetitive explanatory copy about sanitization is omitted from the public page.
 - Three strong projects are more useful than many incomplete ones.
 - Experience and contribution evidence matter more than decorative technology logos.
 - The landing page places professional experience before projects. Recruiters see verified work responsibilities first, then project evidence that supports the technical narrative.

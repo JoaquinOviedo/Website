@@ -764,8 +764,10 @@ h1 {
 .wirin-main .mini-toolbar input, .wirin-main .mini-toolbar select { border-color: #d2d8e1; background: #fff; color: #344054; }
 .mini-toolbar label { display: flex; align-items: center; gap: .25rem; margin-left: auto; }
 .mini-toolbar button { padding: .45rem .65rem; background: #347cf4; }
-.task-card { position: relative; width: min(100%, 340px); margin-bottom: .45rem; padding: .7rem; border: 1px solid #ff6d70; border-radius: 8px; background: #fff; }
-.task-card > span { position: absolute; top: .4rem; right: .4rem; color: #236ee8; font-weight: 800; }.task-card h5 { margin: .6rem 0 .2rem; }.task-card p { color: #697487; }.task-card button { float: right; padding: .35rem .5rem; background: #347cf4; }
+.task-card { display: grid; width: 100%; gap: .35rem; margin-bottom: .5rem; padding: .7rem; border: 1px solid #dbe3ee; border-radius: 8px; background: #fff; }
+.task-card-head { display: flex; align-items: center; justify-content: space-between; gap: .75rem; }
+.task-card-head span { flex: 0 0 auto; padding: .2rem .4rem; border-radius: 999px; background: #eaf2ff; color: #236ee8; font-weight: 800; }
+.task-card h5 { margin: 0; }.task-card p { margin: 0; color: #697487; }.task-card button { justify-self: end; padding: .35rem .5rem; background: #347cf4; }
 .user-list details { padding: .55rem; border-bottom: 1px solid #dbe1e8; background: #fff; }.user-list summary { cursor: pointer; }.user-list p { margin: .4rem 0 0; color: #697487; }
 .ranking-list { padding: .75rem; border-radius: 8px; background: #fff; }.ranking-list p { display: grid; grid-template-columns: 25px 1fr 1fr auto; align-items: center; gap: .4rem; }.ranking-list p > b { display: grid; width: 22px; height: 22px; place-items: center; border-radius: 50%; background: #f0b700; color: #fff; }.ranking-list i { height: 5px; border-radius: 99px; background: #347cf4; }
 .mini-wirin .mini-table { border-color: #dce1e8; background: #fff; }.mini-wirin .mini-table button { padding: .35rem; background: #4ecf8a; }
@@ -776,10 +778,13 @@ h1 {
 .career-calendar { display: grid; grid-template-columns: 1fr .45fr; gap: .6rem; }.career-calendar > div, .career-calendar > aside, .career-data { border-color: #2a2c32; background: #19191c; }.career-calendar > div { display: grid; grid-template-columns: repeat(7,1fr); gap: .3rem; }.career-calendar h5 { grid-column: 1/-1; text-align: center; }.career-calendar button { aspect-ratio: 1; border: 0; border-radius: 7px; background: transparent; color: #a7abb5; cursor: pointer; }.career-calendar button.selected { background: #118fd0; color: #fff; }.career-calendar aside p { color: #777b87; text-align: center; }
 .career-data p { color: #8a8f9a; }.career-data button { padding: .55rem; background: #118fd0; }.career-data pre { max-height: 170px; overflow: auto; padding: .65rem; border-radius: 7px; background: #08090b; color: #9fdfff; font-size: .5rem; }.mini-notice { position: absolute; right: .7rem; bottom: .7rem; padding: .55rem .7rem; border-radius: 6px; background: #19a979; color: #fff; font-weight: 800; }
 .visual-finanzas-personales {
-  background: #123d35;
+  background: linear-gradient(145deg, #18283d, #203958);
 }
 .visual-mi-carrera-tech {
-  background: #183a63;
+  background: linear-gradient(145deg, #18283d, #203958);
+}
+.visual-wirin {
+  background: linear-gradient(145deg, #18283d, #203958);
 }
 .local-app-visual {
   width: min(72%, 380px);
@@ -2428,6 +2433,7 @@ footer a {
   display: flex;
   align-items: center;
   gap: 1rem;
+  margin: 1rem 0 .8rem;
 }
 .project-title-row h3 {
   flex: 1;
@@ -2440,7 +2446,7 @@ footer a {
   overflow: visible;
 }
 .project-logo {
-  width: 7rem;
+  width: 9rem;
   aspect-ratio: 512 / 437;
 }
 .project-logo img,
@@ -2451,7 +2457,7 @@ footer a {
   object-fit: contain;
 }
 .case-project-logo {
-  width: 10rem;
+  width: 12rem;
   aspect-ratio: 512 / 437;
   margin-bottom: 1.25rem;
 }

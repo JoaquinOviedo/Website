@@ -38,8 +38,8 @@ export const wirinProject = {
     { label: "Landing", url: "https://github.com/thomasloader1/wirin-landing" },
   ],
   status: {
-    es: "Proyecto académico · validación institucional en curso",
-    en: "Academic project · institutional validation in progress",
+    es: "Académico · validación institucional",
+    en: "Academic · institutional validation",
   },
   learnings: {
     es: "Diseño de APIs, integración de OCR y evolución de una solución académica hacia la validación con usuarios institucionales reales.",

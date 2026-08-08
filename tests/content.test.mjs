@@ -484,3 +484,20 @@ test("verified Data Science training is secondary, bilingual, and evidence-linke
   assert.match(portfolioComponent, /education-formal/);
   assert.match(portfolioComponent, /details\/certifications\//);
 });
+
+test("language proficiency is concise, bilingual, and does not claim an unverified certification", async () => {
+  const [copy, portfolio] = await Promise.all([
+    readFile("content/copy.ts", "utf8"),
+    readFile("components/Portfolio.tsx", "utf8"),
+  ]);
+
+  assert.match(copy, /languages: "Idiomas"/);
+  assert.match(copy, /"Español", "Nativo"/);
+  assert.match(copy, /"Inglés", "Intermedio alto · formación orientada a Cambridge First y comunicación laboral funcional"/);
+  assert.match(copy, /"Portugués", "A2 · curso realizado"/);
+  assert.match(copy, /languages: "Languages"/);
+  assert.match(copy, /"English", "Upper-intermediate · coursework oriented toward Cambridge First and functional workplace communication"/);
+  assert.match(copy, /"Portuguese", "A2 · completed course"/);
+  assert.doesNotMatch(copy, /\b(?:B2|C1|fluent)\b/i);
+  assert.match(portfolio, /t\.languageItems\.map/);
+});

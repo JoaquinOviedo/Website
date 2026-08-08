@@ -115,6 +115,12 @@ export const copy = {
       "Noviembre de 2024",
     ],
     credentialLink: "Ver credencial en LinkedIn",
+    languages: "Idiomas",
+    languageItems: [
+      ["Español", "Nativo"],
+      ["Inglés", "Intermedio alto · formación orientada a Cambridge First y comunicación laboral funcional"],
+      ["Portugués", "A2 · curso realizado"],
+    ],
     community: "Charlas y comunidad",
     communityLead:
       "Compartir lo aprendido también forma parte de construir soluciones con impacto.",
@@ -311,6 +317,12 @@ export const copy = {
       "November 2024",
     ],
     credentialLink: "View credential on LinkedIn",
+    languages: "Languages",
+    languageItems: [
+      ["Spanish", "Native"],
+      ["English", "Upper-intermediate · coursework oriented toward Cambridge First and functional workplace communication"],
+      ["Portuguese", "A2 · completed course"],
+    ],
     community: "Talks and community",
     communityLead:
       "Sharing what I learn is also part of building solutions with meaningful impact.",

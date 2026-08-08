@@ -1850,6 +1850,31 @@ details > p {
 .education-certification a:hover {
   color: var(--accent);
 }
+.education-list .education-languages {
+  display: grid;
+  grid-template-columns: minmax(8rem, .35fr) minmax(0, 1fr);
+  align-items: start;
+  padding-block: 1rem;
+}
+.language-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem clamp(1.5rem, 4vw, 3.5rem);
+}
+.language-list p {
+  display: grid;
+  gap: .15rem;
+  margin: 0;
+}
+.language-list strong {
+  color: var(--text);
+  font-size: .9rem;
+}
+.language-list span {
+  max-width: 32rem;
+  color: var(--muted);
+  font-size: .8rem;
+}
 .contact {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
@@ -2846,6 +2871,10 @@ footer a {
   margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
 }
 @media (max-width: 760px) {
+  .education-list .education-languages {
+    grid-template-columns: 1fr;
+    gap: .65rem;
+  }
   .about-grid.about-lead {
     grid-template-columns: 1fr;
     gap: 1rem;

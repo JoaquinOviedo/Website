@@ -223,6 +223,17 @@ export function Portfolio({ locale }: { locale: Locale }) {
               </div>
               <p>{t.dataScienceCourse[2]}</p>
             </article>
+            <article className="education-languages">
+              <p className="education-kicker">{t.languages}</p>
+              <div className="language-list">
+                {t.languageItems.map(([language, level]) => (
+                  <p key={language}>
+                    <strong>{language}</strong>
+                    <span>{level}</span>
+                  </p>
+                ))}
+              </div>
+            </article>
           </div>
           <div className="community-block">
             <div>

@@ -2275,12 +2275,12 @@ footer div {
 footer {
   grid-template-columns: 1fr auto;
   align-items: center;
-  padding: .95rem clamp(1rem, 4vw, 4rem);
+  padding: .7rem clamp(1rem, 4vw, 4rem);
   font-size: .7rem;
   line-height: 1.35;
 }
 footer div {
-  gap: .85rem;
+  gap: .7rem;
 }
 footer a {
   text-underline-offset: .2em;
@@ -2290,8 +2290,8 @@ footer a {
   footer {
     display: flex;
     justify-content: space-between;
-    gap: 1rem;
-    padding: .9rem 1rem;
+    gap: .75rem;
+    padding: .7rem 1rem;
   }
   footer div {
     justify-content: flex-end;

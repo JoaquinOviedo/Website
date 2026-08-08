@@ -163,6 +163,8 @@ test("homepage keeps recruiter evidence compact and moves depth into case studie
   assert.match(css, /\.focus-tech-list/);
   assert.match(css, /\.tech-list li\.primary-tech/);
   assert.match(css, /\.project-visual \{[\s\S]*?min-height: 390px/);
+  assert.match(css, /\.education\.section \{[\s\S]*?padding-bottom:/);
+  assert.match(css, /footer \{[\s\S]*?padding: \.95rem/);
 });
 
 test("all featured projects have localized recruiter-friendly case-study routes", async () => {

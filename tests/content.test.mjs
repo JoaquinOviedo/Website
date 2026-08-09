@@ -136,15 +136,12 @@ test("the first visit follows the browser language and later visits respect the 
   const home = await readFile("app/page.tsx", "utf8");
 
   assert.match(home, /localStorage\.getItem\("locale"\)/);
+  assert.match(home, /storedLocale === "es"/);
+  assert.match(home, /storedLocale === "en"/);
   assert.match(home, /navigator\.languages/);
   assert.match(home, /startsWith\("es"\)/);
+  assert.match(home, /locale = "en"/);
   assert.match(home, /window\.location\.replace/);
-
-  // Locale is used to build /es/ or /en/ dynamically
-  assert.match(home, /"\/" \+ locale \+ "\/"/);
-
-  // Spanish fallback if browser detection fails
-  assert.match(home, /window\.location\.replace\("\/es\/"\)/);
 });
 
 test("browser tabs use a concise personal title and an adaptive vector mark", async () => {

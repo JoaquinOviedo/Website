@@ -17,23 +17,30 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
+
       - run: npm ci
+
       - run: npm run validate
         env:
-          NEXT_PUBLIC_SITE_URL: https://JoaquinOviedo.github.io/Website
-          NEXT_PUBLIC_BASE_PATH: /Website
+          NEXT_PUBLIC_SITE_URL: https://joaquinoviedo.com
+          NEXT_PUBLIC_BASE_PATH: ""
+
       - run: npm run export:pages
         env:
-          NEXT_PUBLIC_SITE_URL: https://JoaquinOviedo.github.io/Website
-          NEXT_PUBLIC_BASE_PATH: /Website
-          PAGES_BASE_PATH: /Website
+          NEXT_PUBLIC_SITE_URL: https://joaquinoviedo.com
+          NEXT_PUBLIC_BASE_PATH: ""
+          PAGES_BASE_PATH: ""
+
       - uses: actions/configure-pages@v5
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: pages-dist
@@ -42,8 +49,10 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
     needs: build
+
     steps:
       - name: Deploy
         id: deployment

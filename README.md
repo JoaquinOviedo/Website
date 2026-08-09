@@ -51,7 +51,19 @@ The interactive design-system showcase lives in `components/FrameworkPrototype.t
 
 ## CVs
 
-The current Spanish and English PDFs live under `public/cv/` at stable URLs. Editable Harvard-style sources live under `documents/cv/`. Rebuild them with `scripts/build_cvs.py` and `scripts/build_cv_pdfs.py`, then update `profile.cvUpdated` in `content/profile.ts`. If a language is unavailable, keep its value `null` so the UI never produces a broken download.
+The bilingual CV content is centralized in `scripts/cv_content.py`; update facts there instead of editing PDF and DOCX generators separately. `scripts/build_cvs.py` produces the editable Harvard/ATS-style sources under `documents/cv/`, while `scripts/build_cv_pdfs.py` writes the public PDFs to their stable URLs under `public/cv/` and mirrors verified copies to `output/pdf/`.
+
+The Spanish version includes the professional portrait intentionally selected for the Argentine market. The English version is text-only and ATS-first. Both remain A4, one-column, one-page documents without tables, sidebars, headers, footers, skill bars, or unverifiable proficiency claims.
+
+Rebuild and verify with the workspace Python runtime:
+
+```powershell
+python scripts/build_cvs.py
+python scripts/build_cv_pdfs.py
+python scripts/verify_cvs.py
+```
+
+After replacing the public CVs, update `profile.cvUpdated` in `content/profile.ts`. If a language is unavailable, keep its value `null` so the UI never produces a broken download.
 
 ## Contact form
 

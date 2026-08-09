@@ -418,7 +418,7 @@ test("public assets use the deployment-aware base path helper", async () => {
   assert.match(layout, /withBasePath\("\/images\/joaquin-oviedo-mark-light\.svg"\)/);
   assert.match(layout, /apple: absoluteAsset\("\/images\/joaquin-oviedo-icon\.png"\)/);
   assert.match(manifest, /withBasePath\("\/images\/joaquin-oviedo-mark-light\.svg"\)/);
-  assert.match(workflow, /NEXT_PUBLIC_BASE_PATH: \/Website/g);
+  assert.match(workflow, /NEXT_PUBLIC_BASE_PATH: ""/g);
   assert.match(exporter, /path\.startsWith\(`\$\{basePath\}\/`\)/);
 });
 

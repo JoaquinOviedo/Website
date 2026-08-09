@@ -33,6 +33,10 @@ export default function Home() {
     <>
       <script dangerouslySetInnerHTML={{ __html: redirectScript }} />
 
+      <main className="redirect-screen">
+        <span className="redirect-mark">JO.</span>
+      </main>
+
       <noscript>
         <a href="/es/">Abrir portfolio</a>
       </noscript>

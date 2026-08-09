@@ -54,7 +54,91 @@ for (const [route, destination] of routes) {
 await writeFile(join(output, ".nojekyll"), "");
 await writeFile(
   join(output, "index.html"),
-  `<!doctype html><html lang="es"><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=${basePath}/es"><title>Joaquín Oviedo</title><a href="${basePath}/es">Abrir portfolio</a></html>`,
+  `<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Joaquín Oviedo</title>
+
+  <style>
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      background: #fff;
+      color: #111;
+      font-family: Arial, sans-serif;
+    }
+
+    .redirect-screen {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .redirect-mark {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #111;
+        color: #fff;
+      }
+    }
+  </style>
+
+  <script>
+    (function () {
+      try {
+        var storedLocale = localStorage.getItem("locale");
+        var locale;
+
+        if (storedLocale === "es" || storedLocale === "en") {
+          locale = storedLocale;
+        } else {
+          var languages =
+            navigator.languages && navigator.languages.length
+              ? navigator.languages
+              : [navigator.language];
+
+          locale = languages.some(function (language) {
+            return language.toLowerCase().startsWith("es");
+          })
+            ? "es"
+            : "en";
+        }
+
+        window.location.replace(
+          "${basePath}/" + locale + "/" +
+          window.location.search +
+          window.location.hash
+        );
+      } catch (error) {
+        window.location.replace("${basePath}/es/");
+      }
+    })();
+  </script>
+</head>
+
+<body>
+  <main class="redirect-screen">
+    <span class="redirect-mark">JO.</span>
+  </main>
+
+  <noscript>
+    <a href="${basePath}/es/">Abrir portfolio</a>
+  </noscript>
+</body>
+</html>`,
 );
 
 console.log(`GitHub Pages export created at ${output}`);

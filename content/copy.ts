@@ -69,11 +69,12 @@ export const copy = {
     role: "Supervisor de Desarrollo y Desarrollador Power Platform",
     company: "Circo Studio · Proyectos para YPF",
     expSummary:
-      "Participo en soluciones empresariales y actualmente lidero la gestión cotidiana de una aplicación corporativa transversal.",
+      "Lidero la evolución cotidiana de una aplicación corporativa transversal y participo activamente en su desarrollo cuando la solución lo requiere.",
     expBullets: [
-      "Relevo pedidos con la persona usuaria cliente y análisis funcional, evalúo viabilidad y documento casos de uso y recorridos de validación con Test & Feedback.",
-      "Estimo, organizo y delego tareas, acompañando la entrega dentro del equipo.",
-      "Trabajo con roles y permisos en Dataverse, sitios y grupos de SharePoint y grupos de Microsoft Entra ID (AD) para adecuar el acceso a cada perfil.",
+      "Relevo necesidades con la persona usuaria cliente y análisis funcional; evalúo viabilidad, estimo, priorizo y distribuyo el trabajo.",
+      "Documento casos de uso, ejecuto pruebas funcionales y registro evidencia con Azure DevOps Test & Feedback para validar entregas y dar seguimiento a incidencias.",
+      "Configuro soluciones en Dataverse y Power Platform: tablas, columnas, variables de entorno, flujos de Power Automate, ambientes de prueba y pasajes a producción.",
+      "Administro roles y permisos en Dataverse, SharePoint y grupos AD corporativos para adecuar el acceso a cada perfil.",
       "Desarrollé un framework UX reutilizable para Power Apps junto al equipo de diseño. Capacité al equipo de desarrollo y al equipo de YPF para impulsar su adopción; actualmente delego evoluciones y acompaño a nuevos integrantes en sus criterios y buenas prácticas.",
     ],
     frameworkEyebrow: "Sistema de diseño · Power Apps",
@@ -92,7 +93,7 @@ export const copy = {
     aboutParagraphs: [
       "Soy desarrollador de software con formación en desarrollo web y actualmente trabajo construyendo soluciones empresariales tanto en entornos low-code como de desarrollo tradicional.",
       "Me gusta involucrarme más allá de la implementación: entender el problema, pensar en la experiencia del usuario, construir soluciones reutilizables y buscar continuamente mejores formas de hacer las cosas.",
-      "Soy una persona curiosa por naturaleza y disfruto aprender nuevas tecnologías, experimentar con ideas y convertirlas en soluciones prácticas. Integro la IA en ese proceso para explorar, desarrollar y validar con mayor rapidez, manteniendo bajo mi responsabilidad las decisiones técnicas, la calidad y los resultados.",
+      "Soy una persona curiosa por naturaleza y disfruto aprender nuevas tecnologías, experimentar con ideas y convertirlas en soluciones prácticas. Uso IA como herramienta para explorar y validar alternativas con mayor rapidez, manteniendo bajo mi responsabilidad las decisiones técnicas, la calidad y los resultados.",
     ],
     education: "Educación",
     educationItems: [
@@ -271,11 +272,12 @@ export const copy = {
     role: "Development Supervisor & Power Platform Developer",
     company: "Circo Studio · Projects for YPF",
     expSummary:
-      "I contribute to enterprise solutions and currently lead the day-to-day management of a cross-company corporate application.",
+      "I lead the day-to-day evolution of a corporate application used across business areas and contribute directly to development when the solution requires it.",
     expBullets: [
-      "Gather requests with the client user and functional analysis, assess feasibility, and document use cases and validation flows with Test & Feedback.",
-      "Estimate, organize, and delegate tasks while supporting the team through delivery.",
-      "Work with Dataverse security roles, SharePoint site and group permissions, and Microsoft Entra ID (AD) groups to align access with each user profile.",
+      "Gather needs with the client user and functional analyst; assess feasibility, estimate, prioritize, and distribute work.",
+      "Document use cases, perform functional testing, and capture evidence with Azure DevOps Test & Feedback to validate releases and track issues.",
+      "Configure Dataverse and Power Platform solutions: tables, columns, environment variables, Power Automate flows, test environments, and production releases.",
+      "Manage roles and permissions across Dataverse, SharePoint, and corporate AD groups to align access with each user profile.",
       "Built a reusable Power Apps UX framework with the design team. Trained the development team and YPF stakeholders to drive adoption; I now delegate enhancements and support new team members on its standards and practices.",
     ],
     frameworkEyebrow: "Design system · Power Apps",
@@ -294,7 +296,7 @@ export const copy = {
     aboutParagraphs: [
       "I’m a software developer with a web development background, currently building enterprise solutions across low-code and traditional development environments.",
       "I enjoy taking ownership beyond the implementation itself: understanding the problem, thinking through the user experience, building reusable solutions, and continuously improving how things are done.",
-      "I’m naturally curious and enjoy learning new technologies, experimenting with ideas, and turning them into practical solutions. I use AI throughout that process to explore, build, and validate faster, while keeping technical decisions, quality, and outcomes under my responsibility.",
+      "I’m naturally curious and enjoy learning new technologies, experimenting with ideas, and turning them into practical solutions. I use AI as a tool to explore and validate alternatives faster, while remaining accountable for technical decisions, quality, and outcomes.",
     ],
     education: "Education",
     educationItems: [

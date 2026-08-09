@@ -31,25 +31,26 @@ test("professional content keeps both locales and safe CV state", async () => {
   assert.match(copy, /aboutParagraphs: \[/);
   assert.match(copy, /involucrarme más allá de la implementación/);
   assert.match(copy, /taking ownership beyond the implementation itself/);
-  assert.match(copy, /Integro la IA en ese proceso/);
+  assert.match(copy, /Uso IA como herramienta/);
   assert.match(copy, /Power Platform, \.NET, React y TypeScript/);
   assert.match(copy, /Power Platform, \.NET, React, and TypeScript/);
   assert.match(portfolio, /joaquin-oviedo-profile-v2\.webp/);
   assert.doesNotMatch(copy, /Me interesa especialmente el backend|particularly interested in backend work/);
 });
 
-test("professional experience includes Dataverse and access governance", async () => {
+test("professional experience includes Power Platform delivery and access governance", async () => {
   const [copy, experience, css] = await Promise.all([
     readFile("content/copy.ts", "utf8"),
     readFile("components/portfolio/ExperienceSection.tsx", "utf8"),
     readFile("app/globals.css", "utf8"),
   ]);
   assert.match(experience, /"Dataverse"/);
-  assert.match(copy, /roles y permisos en Dataverse/);
-  assert.match(copy, /Dataverse security roles/);
-  assert.match(copy, /Microsoft Entra ID \(AD\)/);
-  assert.match(copy, /casos de uso y recorridos de validación con Test & Feedback/);
-  assert.match(copy, /use cases and validation flows with Test & Feedback/);
+  assert.match(copy, /variables de entorno, flujos de Power Automate/);
+  assert.match(copy, /environment variables, Power Automate flows/);
+  assert.match(copy, /roles y permisos en Dataverse, SharePoint y grupos AD corporativos/);
+  assert.match(copy, /roles and permissions across Dataverse, SharePoint, and corporate AD groups/);
+  assert.match(copy, /registro evidencia con Azure DevOps Test & Feedback/);
+  assert.match(copy, /capture evidence with Azure DevOps Test & Feedback/);
   assert.match(css, /data-tech="dataverse"/);
   assert.match(css, /data-tech="test-feedback"/);
 });

@@ -138,10 +138,16 @@ test("the first visit follows the browser language and later visits respect the 
   assert.match(home, /localStorage\.getItem\("locale"\)/);
   assert.match(home, /storedLocale === "es"/);
   assert.match(home, /storedLocale === "en"/);
+
   assert.match(home, /navigator\.languages/);
   assert.match(home, /startsWith\("es"\)/);
-  assert.match(home, /locale = "en"/);
+
+  // Browser-language selection uses a ternary: Spanish -> "es", otherwise -> "en"
+  assert.match(home, /\? "es"/);
+  assert.match(home, /: "en"/);
+
   assert.match(home, /window\.location\.replace/);
+  assert.match(home, /"\/" \+ locale \+ "\/"/);
 });
 
 test("browser tabs use a concise personal title and an adaptive vector mark", async () => {

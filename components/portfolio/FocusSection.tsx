@@ -1,8 +1,8 @@
 import {
   Apps24Regular,
-  Cloud24Regular,
   Code24Regular,
   Database24Regular,
+  PeopleTeam24Regular,
 } from "@fluentui/react-icons";
 import { copy } from "@/content/copy";
 import type { Locale } from "@/content/portfolio";
@@ -12,7 +12,7 @@ const focusIcons = [
   Apps24Regular,
   Code24Regular,
   Database24Regular,
-  Cloud24Regular,
+  PeopleTeam24Regular,
 ] as const;
 
 export function FocusSection({ locale }: { locale: Locale }) {

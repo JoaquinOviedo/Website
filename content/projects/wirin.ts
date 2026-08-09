@@ -17,8 +17,8 @@ export const wirinProject = {
     en: "Turning bibliographic material into accessible content requires coordinated processing, human review, and status tracking.",
   },
   solution: {
-    es: "Una plataforma web que integra digitalización, OCR, asignación de tareas, seguimiento y administración. El equipo está relevando su utilidad con personal bibliotecario antes de una posible implementación formal.",
-    en: "A web platform combining digitization, OCR, task assignment, tracking, and administration. The team is validating its usefulness with library staff before a potential formal implementation.",
+    es: "Una plataforma web que integra digitalización, OCR, asignación de tareas, seguimiento y administración. El equipo está validando su utilidad con personal bibliotecario como paso previo a su implementación en la biblioteca de la UNLaM.",
+    en: "A web platform combining digitization, OCR, task assignment, tracking, and administration. The team is validating its usefulness with library staff before its implementation at UNLaM's library.",
   },
   role: {
     es: "Trabajo en equipo. Mi contribución principal fue el backend: API, persistencia, autenticación e integración de servicios.",

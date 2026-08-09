@@ -2984,6 +2984,91 @@ footer a {
   line-height: 1.65;
   letter-spacing: normal;
 }
+
+/* Recruiter-first density: preserve readable body copy while reducing oversized headings and gaps. */
+:root {
+  --space: clamp(2.6rem, 4.4vw, 4.35rem);
+}
+h1 {
+  font-size: clamp(2.25rem, 3.6vw, 3.55rem);
+}
+.section-heading {
+  margin-bottom: clamp(1.15rem, 2.1vw, 1.75rem);
+}
+.section-heading h2 {
+  font-size: clamp(1.75rem, 2.75vw, 2.65rem);
+}
+.timeline {
+  padding: 1.6rem 0 1.25rem;
+}
+.timeline h3 {
+  margin: .75rem 0 1rem;
+  font-size: clamp(1.75rem, 3.15vw, 2.75rem);
+}
+.timeline .summary {
+  margin-bottom: 1rem;
+}
+.contributions {
+  margin: 1rem 0 1.15rem;
+}
+.project-copy {
+  padding: clamp(1.5rem, 2.5vw, 2.25rem);
+}
+.project-copy h3,
+.project-card:not(.project-wirin) .project-copy h3 {
+  font-size: clamp(1.7rem, 2.55vw, 2.45rem);
+}
+.framework-disclosure {
+  margin-top: .65rem;
+}
+.framework-disclosure > summary {
+  min-height: 124px;
+  padding: 1.2rem 1.45rem;
+}
+.framework-disclosure > summary strong {
+  font-size: clamp(1.2rem, 1.85vw, 1.55rem);
+}
+.education.section {
+  padding-bottom: clamp(2.15rem, 3.4vw, 3.25rem);
+}
+.community-block {
+  margin-top: 2.25rem;
+  padding-top: 1.75rem;
+}
+.community-block h3 {
+  margin: .7rem 0;
+  font-size: clamp(1.65rem, 2.35vw, 2.25rem);
+}
+.about.section,
+.contact.section {
+  padding-block: clamp(2.4rem, 3.7vw, 3.6rem);
+}
+.about .section-heading {
+  margin-bottom: clamp(1.1rem, 2vw, 1.65rem);
+}
+.contact h2 {
+  font-size: clamp(2.15rem, 3.5vw, 3.35rem);
+}
+.contact-heading {
+  margin-bottom: 1.1rem;
+}
+.education-languages .education-kicker {
+  color: var(--text);
+  font-weight: 850;
+}
+
+@media (max-width: 850px) {
+  .timeline {
+    gap: .75rem;
+    padding-top: 1.25rem;
+  }
+  .timeline h3 {
+    margin-top: .35rem;
+  }
+  .framework-disclosure > summary {
+    padding: 1.1rem 1.2rem;
+  }
+}
 .case-ai-note strong {
   font-size: 0.78rem;
 }

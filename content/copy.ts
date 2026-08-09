@@ -37,9 +37,9 @@ export const copy = {
         [".NET", "ASP.NET Core", "Node.js", "SQL"],
       ],
       [
-        "Plataforma y entrega",
-        "Herramientas para colaborar, automatizar y sostener la evolución de las soluciones.",
-        ["Azure", "Git", "Azure DevOps", "PowerShell"],
+        "Liderazgo y producto",
+        "Relevamiento, priorización, delegación y capacitación para llevar necesidades reales a entregas sostenibles.",
+        ["Relevamiento", "Priorización", "Delegación", "Capacitación"],
       ],
     ],
     projects: "Proyectos",
@@ -74,12 +74,12 @@ export const copy = {
       "Relevo pedidos con la persona usuaria cliente y análisis funcional, evalúo viabilidad y documento casos de uso y recorridos de validación con Test & Feedback.",
       "Estimo, organizo y delego tareas, acompañando la entrega dentro del equipo.",
       "Trabajo con roles y permisos en Dataverse, sitios y grupos de SharePoint y grupos de Microsoft Entra ID (AD) para adecuar el acceso a cada perfil.",
-      "Desarrollé un framework UX reutilizable para Power Apps junto al equipo de diseño; actualmente delego evoluciones y capacito a ingresantes en sus criterios y buenas prácticas.",
+      "Desarrollé un framework UX reutilizable para Power Apps junto al equipo de diseño. Capacité al equipo de desarrollo y al equipo de YPF para impulsar su adopción; actualmente delego evoluciones y acompaño a nuevos integrantes en sus criterios y buenas prácticas.",
     ],
     frameworkEyebrow: "Sistema de diseño · Power Apps",
     frameworkTitle: "Una base compartida para construir con consistencia.",
     frameworkText:
-      "El framework organiza componentes, estilos y pantallas reutilizables. Lo desarrollé junto al equipo de UX y hoy también acompaño su adopción, evolución y transferencia dentro del equipo.",
+      "El framework organiza componentes, estilos y pantallas reutilizables. Lo desarrollé junto al equipo de UX, capacité a los equipos de desarrollo y de YPF para facilitar su adopción y hoy coordino su evolución y transferencia de conocimiento.",
     frameworkCards: [
       "Componentes reutilizables",
       "Pantallas estandarizadas",
@@ -118,8 +118,8 @@ export const copy = {
     languages: "Idiomas",
     languageItems: [
       ["Español", "Nativo"],
-      ["Inglés", "Intermedio alto · formación orientada a Cambridge First y comunicación laboral funcional"],
-      ["Portugués", "A2 · curso realizado"],
+      ["Inglés", "Intermedio alto · comunicación laboral funcional"],
+      ["Portugués", "A2"],
     ],
     community: "Charlas y comunidad",
     communityLead:
@@ -238,9 +238,9 @@ export const copy = {
         [".NET", "ASP.NET Core", "Node.js", "SQL"],
       ],
       [
-        "Platform and delivery",
-        "Tools for collaboration, automation, and sustainable solution delivery.",
-        ["Azure", "Git", "Azure DevOps", "PowerShell"],
+        "Leadership and product",
+        "Discovery, prioritization, delegation, and training to turn real needs into sustainable delivery.",
+        ["Discovery", "Prioritization", "Delegation", "Training"],
       ],
     ],
     projects: "Projects",
@@ -276,12 +276,12 @@ export const copy = {
       "Gather requests with the client user and functional analysis, assess feasibility, and document use cases and validation flows with Test & Feedback.",
       "Estimate, organize, and delegate tasks while supporting the team through delivery.",
       "Work with Dataverse security roles, SharePoint site and group permissions, and Microsoft Entra ID (AD) groups to align access with each user profile.",
-      "Built a reusable Power Apps UX framework with the design team; I now delegate improvements and train new team members on its standards and practices.",
+      "Built a reusable Power Apps UX framework with the design team. Trained the development team and YPF stakeholders to drive adoption; I now delegate enhancements and support new team members on its standards and practices.",
     ],
     frameworkEyebrow: "Design system · Power Apps",
     frameworkTitle: "A shared foundation for consistent delivery.",
     frameworkText:
-      "The framework organizes reusable components, styles, and screens. I built it with the UX team and now also support its adoption, evolution, and knowledge transfer across the team.",
+      "The framework organizes reusable components, styles, and screens. I built it with the UX team, trained the development team and YPF stakeholders to support adoption, and now coordinate its evolution and knowledge transfer.",
     frameworkCards: [
       "Reusable components",
       "Standardized screens",
@@ -320,8 +320,8 @@ export const copy = {
     languages: "Languages",
     languageItems: [
       ["Spanish", "Native"],
-      ["English", "Upper-intermediate · coursework oriented toward Cambridge First and functional workplace communication"],
-      ["Portuguese", "A2 · completed course"],
+      ["English", "Upper-intermediate · functional workplace communication"],
+      ["Portuguese", "A2"],
     ],
     community: "Talks and community",
     communityLead:

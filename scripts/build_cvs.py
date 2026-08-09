@@ -77,11 +77,11 @@ def configure(doc):
     normal = doc.styles["Normal"]
     normal.font.name = FONT; normal.font.size = Pt(10)
     normal._element.rPr.rFonts.set(qn("w:ascii"), FONT); normal._element.rPr.rFonts.set(qn("w:hAnsi"), FONT)
-    normal.paragraph_format.space_after = Pt(2); normal.paragraph_format.line_spacing = 1.02
+    normal.paragraph_format.space_after = Pt(2); normal.paragraph_format.line_spacing = 1.18
     bullet = doc.styles["List Bullet"]
     bullet.font.name = FONT; bullet.font.size = Pt(9.7)
     bullet.paragraph_format.left_indent = Inches(0.20); bullet.paragraph_format.first_line_indent = Inches(-0.14)
-    bullet.paragraph_format.space_after = Pt(1.5); bullet.paragraph_format.line_spacing = 1.0
+    bullet.paragraph_format.space_after = Pt(1.35); bullet.paragraph_format.line_spacing = 1.15
     props = doc.core_properties
     props.title = "Joaquín Nicolás Oviedo - Curriculum Vitae"; props.subject = "Professional resume"
     props.author = ""; props.last_modified_by = ""; props.comments = ""; props.keywords = ""

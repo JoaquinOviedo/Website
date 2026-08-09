@@ -28,7 +28,7 @@ CV = {
             "experience": "EXPERIENCIA PROFESIONAL",
             "projects": "PROYECTOS SELECCIONADOS",
             "education": "EDUCACIÓN",
-            "skills": "HABILIDADES",
+            "skills": "HABILIDADES TÉCNICAS Y DE GESTIÓN",
             "languages": "IDIOMAS Y FORMACIÓN",
         },
         "summary": (
@@ -46,7 +46,7 @@ CV = {
                 "Gestiono la evolución cotidiana de una aplicación corporativa transversal: relevo pedidos con la persona usuaria cliente y análisis funcional, evalúo viabilidad, estimo, priorizo y delego tareas.",
                 "Documento casos de uso y validaciones; ejecuto pruebas funcionales y registro evidencia con Azure DevOps Test & Feedback para acompañar entregas y seguimiento de incidencias.",
                 "Administro roles y permisos en Dataverse, sitios y grupos de SharePoint y grupos de Microsoft Entra ID, alineando accesos con las responsabilidades de cada perfil.",
-                "Desarrollé y evoluciono un framework UX reutilizable para Power Apps junto al equipo de diseño; coordino mejoras, delego tareas y capacito a ingresantes para sostener consistencia y reutilización.",
+                "Desarrollé y evoluciono un framework UX reutilizable para Power Apps junto al equipo de diseño. Lideré su adopción mediante capacitaciones al equipo de desarrollo y al equipo de YPF; actualmente coordino mejoras, delego evoluciones y acompaño a nuevos integrantes.",
             ],
         },
         "projects": [
@@ -55,14 +55,7 @@ CV = {
                 "period": "2025 - Actualidad",
                 "bullets": [
                     "Contribuí principalmente al backend de un sistema de accesibilidad bibliográfica: ASP.NET Core Web API sobre .NET 8, Entity Framework Core, JWT, SQL Server/PostgreSQL e integración de OCR de Azure.",
-                    "El equipo presentó WIRIN en la 23.ª JBDU y actualmente valida el producto con la biblioteca de la UNLaM como paso previo a una posible implementación formal.",
-                ],
-            },
-            {
-                "heading": "Aplicaciones personales locales | Desarrollo asistido por IA",
-                "period": "2026",
-                "bullets": [
-                    "Definí y construí herramientas React y TypeScript para gestión financiera personal y seguimiento académico, priorizando necesidades reales, privacidad y persistencia local.",
+                    "El equipo presentó WIRIN en la 23.ª JBDU y actualmente valida el producto con personal bibliotecario como paso previo a su implementación en la biblioteca de la UNLaM.",
                 ],
             },
         ],
@@ -75,8 +68,9 @@ CV = {
             ("Power Platform", "Power Apps, Power Automate, Dataverse, SharePoint, administración de roles y permisos"),
             ("Desarrollo", ".NET 8, ASP.NET Core Web API, React, TypeScript, Angular, Node.js"),
             ("Datos, Azure y entrega", "Entity Framework Core, SQL Server, PostgreSQL, Azure, Azure DevOps, Git, Test & Feedback"),
+            ("Gestión y producto", "Relevamiento con usuarios, análisis de viabilidad, estimación, priorización, delegación, capacitación y validación funcional"),
         ],
-        "languages": "Español nativo | Inglés intermedio alto: formación orientada a Cambridge First y comunicación laboral funcional | Portugués A2: curso realizado",
+        "languages": "Español: nativo | Inglés: intermedio alto y comunicación laboral funcional | Portugués: A2",
         "training": "Curso de Data Science | Universidad Tecnológica Nacional (UTN) | Noviembre 2024",
     },
     "en": {
@@ -90,7 +84,7 @@ CV = {
             "experience": "PROFESSIONAL EXPERIENCE",
             "projects": "SELECTED PROJECTS",
             "education": "EDUCATION",
-            "skills": "SKILLS",
+            "skills": "TECHNICAL AND LEADERSHIP SKILLS",
             "languages": "LANGUAGES AND TRAINING",
         },
         "summary": (
@@ -108,7 +102,7 @@ CV = {
                 "Manage the day-to-day evolution of a cross-company corporate application: gather requests with the client user and functional analyst, assess feasibility, estimate, prioritize, and delegate work.",
                 "Document use cases and validations; perform functional testing and capture evidence with Azure DevOps Test & Feedback to support releases and issue tracking.",
                 "Manage roles and permissions across Dataverse, SharePoint sites and groups, and Microsoft Entra ID groups, aligning access with each user profile's responsibilities.",
-                "Built and continue to evolve a reusable Power Apps UX framework with the design team; coordinate improvements, delegate tasks, and train new team members to sustain consistency and reuse.",
+                "Built and continue to evolve a reusable Power Apps UX framework with the design team. Led its adoption through training for the development team and YPF stakeholders; currently coordinate improvements, delegate enhancements, and support new team members.",
             ],
         },
         "projects": [
@@ -117,14 +111,7 @@ CV = {
                 "period": "2025 - Present",
                 "bullets": [
                     "Contributed mainly to the backend of a bibliographic accessibility system: ASP.NET Core Web API on .NET 8, Entity Framework Core, JWT, SQL Server/PostgreSQL, and Azure OCR integration.",
-                    "The team presented WIRIN at the 23rd University Digital Library Conference and is validating the product with UNLaM's library before a potential formal implementation.",
-                ],
-            },
-            {
-                "heading": "Local personal applications | AI-assisted development",
-                "period": "2026",
-                "bullets": [
-                    "Defined and built React and TypeScript tools for personal finance management and academic tracking, prioritizing real needs, privacy, and local persistence.",
+                    "The team presented WIRIN at the 23rd University Digital Library Conference and is validating the product with library staff before its implementation at UNLaM's library.",
                 ],
             },
         ],
@@ -137,8 +124,9 @@ CV = {
             ("Power Platform", "Power Apps, Power Automate, Dataverse, SharePoint, role and permission management"),
             ("Development", ".NET 8, ASP.NET Core Web API, React, TypeScript, Angular, Node.js"),
             ("Data, Azure, and delivery", "Entity Framework Core, SQL Server, PostgreSQL, Azure, Azure DevOps, Git, Test & Feedback"),
+            ("Leadership and product", "User discovery, feasibility analysis, estimation, prioritization, delegation, training, and functional validation"),
         ],
-        "languages": "Spanish: native | English: upper-intermediate, Cambridge First-oriented coursework and functional workplace communication | Portuguese: A2 course completed",
+        "languages": "Spanish: native | English: upper-intermediate with functional workplace communication | Portuguese: A2",
         "training": "Data Science course | Universidad Tecnológica Nacional (UTN) | November 2024",
     },
 }

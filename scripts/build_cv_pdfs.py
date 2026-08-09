@@ -39,11 +39,11 @@ def make_styles():
         "title": ParagraphStyle("CVTitle", parent=base, fontName="CVArial-Bold", fontSize=10.1, leading=12, textColor=colors.HexColor("#464646"), alignment=TA_CENTER, spaceAfter=2),
         "contact": ParagraphStyle("CVContact", parent=base, fontName="CVArial", fontSize=8.6, leading=10.4, alignment=TA_CENTER, spaceAfter=1),
         "section": ParagraphStyle("CVSection", parent=base, fontName="CVArial-Bold", fontSize=10.3, leading=12, spaceBefore=4.3, spaceAfter=1),
-        "body": ParagraphStyle("CVBody", parent=base, fontName="CVArial", fontSize=9.7, leading=11.3, spaceAfter=1),
+        "body": ParagraphStyle("CVBody", parent=base, fontName="CVArial", fontSize=9.7, leading=11.55, spaceAfter=1),
         "heading": ParagraphStyle("CVHeading", parent=base, fontName="CVArial-Bold", fontSize=9.8, leading=11.3, spaceBefore=1.5, spaceAfter=0.3),
         "sub": ParagraphStyle("CVSub", parent=base, fontName="CVArial-Italic", fontSize=9.2, leading=10.5, textColor=colors.HexColor("#505050"), spaceAfter=0.4),
-        "bullet": ParagraphStyle("CVBullet", parent=base, fontName="CVArial", fontSize=9.5, leading=10.9, leftIndent=11, firstLineIndent=-8, spaceAfter=0.9),
-        "compact": ParagraphStyle("CVCompact", parent=base, fontName="CVArial", fontSize=9.35, leading=10.7, spaceAfter=0.6),
+        "bullet": ParagraphStyle("CVBullet", parent=base, fontName="CVArial", fontSize=9.5, leading=11.2, leftIndent=11, firstLineIndent=-8, spaceAfter=0.75),
+        "compact": ParagraphStyle("CVCompact", parent=base, fontName="CVArial", fontSize=9.35, leading=11.0, spaceAfter=0.5),
     }
 
 

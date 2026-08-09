@@ -12,7 +12,7 @@ const experienceTechnologies = [
   "Test & Feedback",
   "Git",
 ] as const;
-const primaryExperienceTechnologies = new Set(["Power Apps", "Dataverse", "SharePoint"]);
+const primaryExperienceTechnologies = new Set(["Power Apps", "Dataverse", "SharePoint", "Power Automate"]);
 
 export function ExperienceSection({ locale }: { locale: Locale }) {
   const t = copy[locale];

@@ -282,13 +282,15 @@ test("homepage keeps recruiter evidence compact and moves depth into case studie
   assert.match(portfolio, /Apps24Regular/);
   assert.match(portfolio, /technologyKey\(technology\)/);
   assert.match(portfolio, /primaryExperienceTechnologies\.has\(technology\)/);
+  assert.match(portfolio, /new Set\(\["Power Apps", "Dataverse", "SharePoint", "Power Automate"\]\)/);
   assert.match(portfolio, /className="section-heading contact-heading"/);
   assert.doesNotMatch(portfolio, /06 \/ CONTACT/);
   assert.match(portfolio, /className="focus-icon" aria-hidden="true"/);
   assert.match(copy, /focus: "Áreas y tecnologías"/);
   assert.match(copy, /focus: "Areas and technologies"/);
   assert.match(copy, /\["Power Apps", "Dataverse", "Power Automate", "SharePoint"\]/);
-  assert.match(copy, /\["Azure", "Git", "Azure DevOps", "PowerShell"\]/);
+  assert.match(copy, /\["Relevamiento", "Priorizaci.n", "Delegaci.n", "Capacitaci.n"\]/);
+  assert.match(copy, /\["Discovery", "Prioritization", "Delegation", "Training"\]/);
   assert.match(css, /\.focus-tech-list/);
   assert.match(css, /\.about-grid\.about-lead \{[\s\S]*?grid-template-columns: minmax\(0, \.85fr\) minmax\(0, 1\.15fr\)/);
   assert.match(css, /\.about-lead p:not\(\.about-intro\)[\s\S]*?border-left: 1px solid var\(--line\)/);
@@ -493,11 +495,11 @@ test("language proficiency is concise, bilingual, and does not claim an unverifi
 
   assert.match(copy, /languages: "Idiomas"/);
   assert.match(copy, /"Español", "Nativo"/);
-  assert.match(copy, /"Inglés", "Intermedio alto · formación orientada a Cambridge First y comunicación laboral funcional"/);
-  assert.match(copy, /"Portugués", "A2 · curso realizado"/);
+  assert.match(copy, /"Inglés", "Intermedio alto · comunicación laboral funcional"/);
+  assert.match(copy, /"Portugués", "A2"/);
   assert.match(copy, /languages: "Languages"/);
-  assert.match(copy, /"English", "Upper-intermediate · coursework oriented toward Cambridge First and functional workplace communication"/);
-  assert.match(copy, /"Portuguese", "A2 · completed course"/);
+  assert.match(copy, /"English", "Upper-intermediate · functional workplace communication"/);
+  assert.match(copy, /"Portuguese", "A2"/);
   assert.doesNotMatch(copy, /\b(?:B2|C1|fluent)\b/i);
   assert.match(portfolio, /t\.languageItems\.map/);
 });

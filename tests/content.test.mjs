@@ -139,8 +139,12 @@ test("the first visit follows the browser language and later visits respect the 
   assert.match(home, /navigator\.languages/);
   assert.match(home, /startsWith\("es"\)/);
   assert.match(home, /window\.location\.replace/);
-  assert.match(home, /\/es\//);
-  assert.match(home, /\/en\//);
+
+  // Locale is used to build /es/ or /en/ dynamically
+  assert.match(home, /"\/" \+ locale \+ "\/"/);
+
+  // Spanish fallback if browser detection fails
+  assert.match(home, /window\.location\.replace\("\/es\/"\)/);
 });
 
 test("browser tabs use a concise personal title and an adaptive vector mark", async () => {

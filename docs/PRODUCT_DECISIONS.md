@@ -53,6 +53,6 @@ These decisions capture the current direction so future changes do not gradually
 
 ## Deployment and portability
 
-- GitHub Pages is the current host and `/Website` is a deployment base path, not a permanent product URL.
-- Every public asset must work both below `/Website` and later at a root custom domain.
+- GitHub Pages is the current host and `joaquinoviedo.com` is the canonical production domain.
+- Every public asset must continue to use the shared path helper so local development and the root custom domain behave consistently.
 - Analytics and third-party forms remain optional and disabled until explicitly configured.

@@ -1,6 +1,7 @@
 export const copy = {
   es: {
     skip: "Saltar al contenido",
+    navigation: "Principal",
     nav: [
       "Inicio",
       "Experiencia",
@@ -11,7 +12,7 @@ export const copy = {
     ],
     heroEyebrow: "Software Developer · Argentina",
     heroTitle:
-      "Construyo y gestiono soluciones empresariales con Power Platform, .NET, React y TypeScript.",
+      "Construyo y gestiono soluciones empresariales con Power Platform y .NET.",
     heroText:
       "Combino desarrollo de software, liderazgo operativo y pensamiento de producto para convertir necesidades complejas en soluciones claras y mantenibles.",
     availability: "Actualmente trabajando · abierto a nuevas oportunidades",
@@ -29,7 +30,7 @@ export const copy = {
       [
         "Frontend",
         "Interfaces web y extensiones empresariales con componentes tipados y mantenibles.",
-        ["React", "TypeScript", "Angular", "SPFx"],
+        ["Angular", "SPFx"],
       ],
       [
         "Backend y datos",
@@ -43,7 +44,13 @@ export const copy = {
       ],
     ],
     projects: "Proyectos",
-    projectsLead: "Casos con contexto, decisiones y contribuciones concretas.",
+    projectsLead: "Trabajo académico, simulación y herramientas para resolver necesidades cotidianas.",
+    personalProjects: "Gestión personal con ayuda de IA",
+    personalProjectsLead: "Cuatro herramientas locales para organizar finanzas, estudios, fotos y tiempo. Usé IA como apoyo al desarrollo y revisé los resultados de cada proyecto.",
+    projectFeatures: "Qué incluye",
+    projectAIAssistance: "Cómo usé IA",
+    aiThroughout: "Realizado íntegramente con IA",
+    projectGoal: "Objetivo del proyecto",
     caseStudy: "Ver caso de estudio",
     caseStudyLabel: "Caso de estudio",
     projectDetails: "Ver detalle del proyecto",
@@ -64,23 +71,22 @@ export const copy = {
     back: "Volver al portfolio",
     experience: "Experiencia",
     experienceLead:
-      "De construir aplicaciones a coordinar su evolución junto a usuarios, análisis funcional y desarrollo.",
+      "Trabajo con el cliente, el analista funcional y el equipo de desarrollo.",
     current: "Marzo 2024 — actualidad",
     role: "Supervisor de Desarrollo y Desarrollador Power Platform",
     company: "Circo Studio · Proyectos para YPF",
     expSummary:
-      "Lidero la evolución cotidiana de una aplicación corporativa transversal y participo activamente en su desarrollo cuando la solución lo requiere.",
+      "Coordino y desarrollo mejoras para una aplicación que utilizan varias áreas de la empresa.",
     expBullets: [
-      "Relevo necesidades con la persona usuaria cliente y análisis funcional; evalúo viabilidad, estimo, priorizo y distribuyo el trabajo.",
-      "Documento casos de uso, ejecuto pruebas funcionales y registro evidencia con Azure DevOps Test & Feedback para validar entregas y dar seguimiento a incidencias.",
-      "Configuro soluciones en Dataverse y Power Platform: tablas, columnas, variables de entorno, flujos de Power Automate, ambientes de prueba y pasajes a producción.",
+      "Relevo necesidades con el cliente y el analista funcional. Evalúo su viabilidad, estimo el esfuerzo y distribuyo las tareas según su prioridad.",
+      "Configuro datos en Dataverse y automatizo procesos con Power Automate. Valido los cambios antes de pasarlos a producción.",
       "Administro roles y permisos en Dataverse, SharePoint y grupos AD corporativos para adecuar el acceso a cada perfil.",
       "Desarrollé un framework UX reutilizable para Power Apps junto al equipo de diseño. Capacité al equipo de desarrollo y al equipo de YPF para impulsar su adopción; actualmente delego evoluciones y acompaño a nuevos integrantes en sus criterios y buenas prácticas.",
     ],
     frameworkEyebrow: "Sistema de diseño · Power Apps",
     frameworkTitle: "Una base compartida para construir con consistencia.",
     frameworkText:
-      "El framework organiza componentes, estilos y pantallas reutilizables. Lo desarrollé junto al equipo de UX, capacité a los equipos de desarrollo y de YPF para facilitar su adopción y hoy coordino su evolución y transferencia de conocimiento.",
+      "Explorá los componentes, estilos y pantallas del sistema en un prototipo con datos ficticios.",
     frameworkCards: [
       "Componentes reutilizables",
       "Pantallas estandarizadas",
@@ -209,11 +215,12 @@ export const copy = {
     ai: "Desarrollo asistido por IA",
   },
   en: {
+    navigation: "Main",
     skip: "Skip to content",
     nav: ["Home", "Experience", "Projects", "Education", "About", "Contact"],
     heroEyebrow: "Software Developer · Argentina",
     heroTitle:
-      "I build and manage enterprise solutions with Power Platform, .NET, React, and TypeScript.",
+      "I build and manage enterprise solutions with Power Platform and .NET.",
     heroText:
       "I combine software development, operational leadership, and product thinking to turn complex needs into clear, maintainable solutions.",
     availability: "Currently employed · open to new opportunities",
@@ -231,7 +238,7 @@ export const copy = {
       [
         "Frontend",
         "Web interfaces and enterprise extensions built with typed, maintainable components.",
-        ["React", "TypeScript", "Angular", "SPFx"],
+        ["Angular", "SPFx"],
       ],
       [
         "Backend and data",
@@ -246,7 +253,13 @@ export const copy = {
     ],
     projects: "Projects",
     projectsLead:
-      "Case studies with context, decisions, and concrete contributions.",
+      "Academic work, simulation, and tools for everyday needs.",
+    personalProjects: "Personal tools built with AI assistance",
+    personalProjectsLead: "Four local tools for managing finances, studies, photos, and time. I used AI to support development and reviewed the results of each project.",
+    projectFeatures: "What it includes",
+    projectAIAssistance: "How I used AI",
+    aiThroughout: "Built entirely with AI",
+    projectGoal: "Project goal",
     caseStudy: "View case study",
     caseStudyLabel: "Case study",
     projectDetails: "View project details",
@@ -267,23 +280,22 @@ export const copy = {
     back: "Back to portfolio",
     experience: "Experience",
     experienceLead:
-      "From building applications to coordinating their evolution with users, functional analysis, and development.",
+      "I work with the client, the functional analyst, and the development team.",
     current: "March 2024 — present",
     role: "Development Supervisor & Power Platform Developer",
     company: "Circo Studio · Projects for YPF",
     expSummary:
-      "I lead the day-to-day evolution of a corporate application used across business areas and contribute directly to development when the solution requires it.",
+      "I coordinate and develop improvements to an application used across several business areas.",
     expBullets: [
-      "Gather needs with the client user and functional analyst; assess feasibility, estimate, prioritize, and distribute work.",
-      "Document use cases, perform functional testing, and capture evidence with Azure DevOps Test & Feedback to validate releases and track issues.",
-      "Configure Dataverse and Power Platform solutions: tables, columns, environment variables, Power Automate flows, test environments, and production releases.",
-      "Manage roles and permissions across Dataverse, SharePoint, and corporate AD groups to align access with each user profile.",
-      "Built a reusable Power Apps UX framework with the design team. Trained the development team and YPF stakeholders to drive adoption; I now delegate enhancements and support new team members on its standards and practices.",
+      "I gather requirements with the client and the functional analyst, assess feasibility, estimate effort, and assign work according to priority.",
+      "I configure data in Dataverse and automate workflows with Power Automate. I test changes before releasing them to production.",
+      "I manage roles and permissions across Dataverse, SharePoint, and corporate AD groups to align access with each user profile.",
+      "I built a reusable Power Apps UX framework with the design team. I trained the development team and YPF stakeholders to drive adoption; I now delegate enhancements and support new team members on its standards and practices.",
     ],
     frameworkEyebrow: "Design system · Power Apps",
     frameworkTitle: "A shared foundation for consistent delivery.",
     frameworkText:
-      "The framework organizes reusable components, styles, and screens. I built it with the UX team, trained the development team and YPF stakeholders to support adoption, and now coordinate its evolution and knowledge transfer.",
+      "Explore the system’s components, styles, and screens in a prototype that uses fictional data.",
     frameworkCards: [
       "Reusable components",
       "Standardized screens",

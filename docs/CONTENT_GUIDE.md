@@ -12,7 +12,7 @@ The landing page is an executive index: each featured project shows one clean pr
 Screenshot definitions live in `content/projectMedia.ts`; `components/ProjectGallery.tsx` only renders them. Keep records, amounts, dates, names, paths, and other personal data sanitized. Screenshots must open at full size for detailed inspection. The prototype remains separate from the evidence gallery so it cannot be mistaken for the final product.
 
 ## Public asset paths
-Images, CV files, manifest icons, and other files under `public/` must be rendered through `withBasePath` from `lib/basePath.ts`. GitHub Pages is hosted below `/Website`, while local development and a future custom domain use the root path. Keep `NEXT_PUBLIC_BASE_PATH: /Website` in the Pages workflow and never hardcode `/Website` inside content records or components.
+Images, CV files, manifest icons, and other files under `public/` must be rendered through `withBasePath` from `lib/basePath.ts`. GitHub Pages is published at the root of `joaquinoviedo.com`; keep the Pages workflow base path empty and never hardcode the former `/Website` path inside content records or components.
 
 ## Replacing CVs
 Place stable PDFs under `public/cv/`, keep the editable DOCX files under `documents/cv/`, then update `profile.cvUpdated` in `content/profile.ts`. The generator scripts are `scripts/build_cvs.py` and `scripts/build_cv_pdfs.py`. A missing language must remain `null`; the UI will show a non-clickable pending state instead of a broken link.
@@ -29,7 +29,7 @@ The contact form delegates delivery to `lib/contactDelivery.ts`. It currently us
 ## Known pending content
 - Confirm whether the formal job title differs from “Supervisor de Desarrollo y Desarrollador Power Platform”.
 - Confirm or publish the WIRIN API repository; the supplied URL is not publicly accessible.
-- Configure the future `joaquinoviedo.com` or `.com.ar` domain when acquired.
+- Keep the verified `joaquinoviedo.com` custom-domain configuration synchronized with the Pages workflow.
 
 ## Pre-release checklist
 Review facts and confidentiality, validate both locales and themes, test keyboard navigation and form errors, check all external/CV links, run the validation suite, and verify responsive layouts at narrow mobile, tablet, and desktop widths.

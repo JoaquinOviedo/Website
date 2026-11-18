@@ -22,5 +22,5 @@ export const profile = {
     es: "/cv/joaquin-oviedo-es.pdf",
     en: "/cv/joaquin-oviedo-en.pdf",
   },
-  cvUpdated: { es: "2026-08-08", en: "2026-08-08" },
+  cvUpdated: { es: "2026-11-18", en: "2026-11-18" },
 } as const;

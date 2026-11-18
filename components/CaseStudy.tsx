@@ -1,20 +1,23 @@
 import { copy } from "@/content/copy";
 import { profile, projects, type Locale } from "@/content/portfolio";
 import { ProjectGallery, type GallerySlug } from "@/components/ProjectGallery";
+import { projectMedia } from "@/content/projectMedia";
 import { ProjectPrototype } from "@/components/ProjectPrototype";
 import { ThemeControl } from "@/components/ThemeControl";
 import { withBasePath } from "@/lib/basePath";
 import { technologyKey } from "@/lib/technology";
 
-export function CaseStudy({ locale, slug }: { locale: Locale; slug: GallerySlug }) {
+export function CaseStudy({ locale, slug }: { locale: Locale; slug: string }) {
   const t = copy[locale];
   const project = projects.find((item) => item.slug === slug);
   if (!project) throw new Error(`Unknown project: ${slug}`);
-  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://joaquinoviedo.dev";
+  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://joaquinoviedo.com";
   const localizedPath = project.path[locale];
   const otherLocale = locale === "es" ? "en" : "es";
   const detailLabel = project.type === "academic" ? t.caseStudyLabel : t.projectDetailsLabel;
   const hasContribution = project.type !== "personal";
+  const hasGallery = Object.hasOwn(projectMedia, slug);
+  const isSimulator = project.group === "simulator";
   const sectionNumbers = hasContribution
     ? { outcome: "03", stack: "04", evidence: "05", prototype: "06" }
     : { outcome: "02", stack: "03", evidence: "04", prototype: "05" };
@@ -23,8 +26,8 @@ export function CaseStudy({ locale, slug }: { locale: Locale; slug: GallerySlug 
     "@type": "SoftwareApplication",
     name: project.title,
     description: project.summary[locale],
-    applicationCategory: project.type === "academic" ? "EducationalApplication" : "ProductivityApplication",
-    operatingSystem: "Web",
+    applicationCategory: isSimulator ? "GameApplication" : project.type === "academic" ? "EducationalApplication" : "ProductivityApplication",
+    ...(isSimulator || project.slug === "mi-espacio" ? { operatingSystem: "Windows" } : {}),
     url: project.demo ?? `${base}${localizedPath}`,
     author: { "@type": "Person", name: profile.name, url: base },
     inLanguage: locale,
@@ -78,10 +81,19 @@ export function CaseStudy({ locale, slug }: { locale: Locale; slug: GallerySlug 
             </div>
           )}
         </header>
+        {project.image && project.imageDescription && (
+          <figure className="case-project-figure">
+            <img src={withBasePath(project.image)} alt={project.imageDescription[locale]} width="1200" height="720" />
+            <figcaption>
+              {project.imageDescription[locale]}
+              {project.imageCredit && <> <a href={project.imageCredit.url}>{project.imageCredit.label}</a></>}
+            </figcaption>
+          </figure>
+        )}
         <div className={`case-grid${hasContribution ? "" : " personal-project"}`}>
           <section>
             <p>01 /</p>
-            <h2>{t.problem}</h2>
+            <h2>{isSimulator ? t.projectGoal : t.problem}</h2>
             <p>{project.problem[locale]}</p>
           </section>
           {hasContribution && (
@@ -105,18 +117,35 @@ export function CaseStudy({ locale, slug }: { locale: Locale; slug: GallerySlug 
               {project.technologies.map((tech, index) => (
                 <li className={index < 2 ? "primary-tech" : undefined} data-tech={technologyKey(tech)} key={tech}>{tech}</li>
               ))}
-              {project.aiAssisted && <li className="ai-tech">{t.ai}</li>}
+              {project.aiAssisted && (
+                <li className="ai-tech">{project.aiAssisted === "throughout" ? t.aiThroughout : t.ai}</li>
+              )}
             </ul>
           </section>
         </div>
-        <section className="case-evidence" aria-labelledby="case-evidence-title">
+        {project.group && (
+          <section className="case-feature-list" aria-labelledby="case-features-title">
+            <h2 id="case-features-title">{t.projectFeatures}</h2>
+            <p>{project.solution[locale]}</p>
+            <ul>
+              {project.features[locale].map((feature) => <li key={feature}>{feature}</li>)}
+            </ul>
+            {project.aiAssisted && project.aiContribution && (
+              <div className="case-ai-note">
+                <h3>{t.projectAIAssistance}</h3>
+                <p>{project.aiContribution[locale]}</p>
+              </div>
+            )}
+          </section>
+        )}
+        {hasGallery && <section className="case-evidence" aria-labelledby="case-evidence-title">
           <header>
             <p>{sectionNumbers.evidence} /</p>
             <h2 id="case-evidence-title">{t.evidence}</h2>
           </header>
-          <ProjectGallery slug={slug} locale={locale} />
-        </section>
-        <section className="case-prototype" aria-labelledby="case-prototype-title">
+          <ProjectGallery slug={slug as GallerySlug} locale={locale} />
+        </section>}
+        {project.prototype && <section className="case-prototype" aria-labelledby="case-prototype-title">
           <header>
             <div>
               <p>{sectionNumbers.prototype} /</p>
@@ -130,7 +159,7 @@ export function CaseStudy({ locale, slug }: { locale: Locale; slug: GallerySlug 
               <ProjectPrototype slug={slug} locale={locale} />
             </div>
           </details>
-        </section>
+        </section>}
       </article>
     </main>
   );

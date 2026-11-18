@@ -13,7 +13,9 @@ export interface Project {
   path: Localized<string>;
   featured: boolean;
   caseStudy?: boolean;
+  prototype?: boolean;
   type: ProjectType;
+  group?: "personal-management" | "simulator";
   title: string;
   summary: Localized<string>;
   problem: Localized<string>;
@@ -22,6 +24,8 @@ export interface Project {
   features: Localized<string[]>;
   technologies: string[];
   image?: string;
+  imageDescription?: Localized<string>;
+  imageCredit?: ProjectLink;
   logo?: string;
   logoDark?: string;
   demo?: string;
@@ -29,6 +33,6 @@ export interface Project {
   status: Localized<string>;
   year?: string;
   learnings: Localized<string>;
-  aiAssisted?: boolean;
+  aiAssisted?: boolean | "throughout";
   aiContribution?: Localized<string>;
 }

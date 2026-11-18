@@ -13,7 +13,7 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import HRFlowable, Image as RLImage, KeepTogether, Paragraph, SimpleDocTemplate, Spacer
 
-from cv_content import CONTACT, CV, PROFILE_IMAGE, ROOT
+from cv_content import CONTACT, CV, CV_VARIANTS, PROFILE_IMAGE, ROOT
 
 PUBLIC = ROOT / "public" / "cv"; OUTPUT = ROOT / "output" / "pdf"; TMP = ROOT / "tmp" / "cv-build"
 for folder in (PUBLIC, OUTPUT, TMP): folder.mkdir(parents=True, exist_ok=True)
@@ -52,8 +52,11 @@ def section(story, style, title):
     story.append(HRFlowable(width="100%", thickness=0.45, color=colors.HexColor("#777777"), spaceBefore=0, spaceAfter=1.2))
 
 
-def heading(story, style, title, period, subtitle=None):
-    block = [Paragraph(f"{escape(title)} <font color='#505050'>| {escape(period)}</font>", style["heading"])]
+def heading(story, style, title, period=None, subtitle=None):
+    label = escape(title)
+    if period:
+        label += f" <font color='#505050'>| {escape(period)}</font>"
+    block = [Paragraph(label, style["heading"])]
     if subtitle: block.append(Paragraph(escape(subtitle), style["sub"]))
     story.append(KeepTogether(block))
 
@@ -62,8 +65,8 @@ def bullet(story, style, text):
     story.append(Paragraph(f"- {escape(text)}", style["bullet"]))
 
 
-def build(locale, target):
-    data = CV[locale]; style = make_styles(); story = []
+def build(locale, target, data=None):
+    data = data or CV[locale]; style = make_styles(); story = []
     if data["photo"]:
         photo = RLImage(str(crop_photo()), width=27*mm, height=27*mm); photo.hAlign = "CENTER"
         story.extend([photo, Spacer(1, 2)])
@@ -84,7 +87,7 @@ def build(locale, target):
     for text in exp["bullets"]: bullet(story, style, text)
     section(story, style, data["sections"]["projects"])
     for project in data["projects"]:
-        heading(story, style, project["heading"], project["period"])
+        heading(story, style, project["heading"], project.get("period"))
         for text in project["bullets"]: bullet(story, style, text)
     section(story, style, data["sections"]["education"])
     for title, period in data["education"]: heading(story, style, title, period)
@@ -103,3 +106,11 @@ if __name__ == "__main__":
         data = CV[locale]; target = PUBLIC / data["pdf_filename"]
         build(locale, target); (OUTPUT / data["pdf_filename"]).write_bytes(target.read_bytes())
         print(target)
+    variant_public = PUBLIC / "variants"; variant_output = OUTPUT / "variants"
+    variant_public.mkdir(parents=True, exist_ok=True); variant_output.mkdir(parents=True, exist_ok=True)
+    for localized in CV_VARIANTS.values():
+        for locale, data in localized.items():
+            target = variant_public / data["pdf_filename"]
+            build(locale, target, data)
+            (variant_output / data["pdf_filename"]).write_bytes(target.read_bytes())
+            print(target)

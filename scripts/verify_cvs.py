@@ -9,7 +9,7 @@ import pdfplumber
 from docx import Document
 from pypdf import PdfReader
 
-from cv_content import CONTACT, CV, ROOT
+from cv_content import CONTACT, CV, CV_VARIANTS, ROOT
 
 MAX_BYTES = 2_500_000
 REQUIRED = [CONTACT["name"], CONTACT["email"], CONTACT["portfolio_label"], "Circo Studio", "WIRIN"]
@@ -77,4 +77,13 @@ if __name__ == "__main__":
         copy = ROOT / "output" / "pdf" / data["pdf_filename"]
         if public.read_bytes() != copy.read_bytes():
             fail(f"Verified copy differs from public PDF: {copy}")
+    for localized in CV_VARIANTS.values():
+        for locale, data in localized.items():
+            pdf = ROOT / "public" / "cv" / "variants" / data["pdf_filename"]
+            docx = ROOT / "documents" / "cv" / "variants" / data["filename"]
+            verify_pdf(locale, pdf)
+            verify_docx(locale, docx)
+            copy = ROOT / "output" / "pdf" / "variants" / data["pdf_filename"]
+            if pdf.read_bytes() != copy.read_bytes():
+                fail(f"Verified copy differs from public PDF: {copy}")
     print("All CV checks passed.")

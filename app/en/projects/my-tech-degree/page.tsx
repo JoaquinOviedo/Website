@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { CaseStudy } from "@/components/CaseStudy";
 
 export const metadata: Metadata = {
-  title: "My Tech Degree — Case study",
+  title: "My Tech Degree",
   description: "A local tool for tracking university courses, exams, grades, and prerequisites.",
   alternates: {
     canonical: "/en/projects/my-tech-degree",

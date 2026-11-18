@@ -104,7 +104,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
         >
           JO<span>.</span>
         </a>
-        <nav aria-label="Principal">
+        <nav aria-label={t.navigation}>
           <ul>
             {t.nav.map((item, index) => (
               <li key={item}>
@@ -372,9 +372,10 @@ export function Portfolio({ locale }: { locale: Locale }) {
                 id="subject"
                 name="subject"
                 aria-invalid={!!errors.subject}
+                aria-describedby={errors.subject ? "subject-error" : undefined}
               />
               {errors.subject && (
-                <span className="error">{errors.subject}</span>
+                <span id="subject-error" className="error">{errors.subject}</span>
               )}
             </div>
             <div className="field full">
@@ -384,9 +385,10 @@ export function Portfolio({ locale }: { locale: Locale }) {
                 name="message"
                 rows={5}
                 aria-invalid={!!errors.message}
+                aria-describedby={errors.message ? "message-error" : undefined}
               />
               {errors.message && (
-                <span className="error">{errors.message}</span>
+                <span id="message-error" className="error">{errors.message}</span>
               )}
             </div>
             <div className="honeypot" aria-hidden="true">

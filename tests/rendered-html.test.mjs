@@ -17,6 +17,12 @@ for (const [path, expected] of [
   ["/en/projects/personal-finance", "Personal finance"],
   ["/es/proyectos/mi-carrera-tech", "Mi Carrera Tech"],
   ["/en/projects/my-tech-degree", "My Tech Degree"],
+  ["/es/proyectos/photo-swipper-filter", "Photo Swipper Filter"],
+  ["/en/projects/photo-swipper-filter", "Photo Swipper Filter"],
+  ["/es/proyectos/mi-espacio", "Mi espacio"],
+  ["/en/projects/mi-espacio", "Mi espacio"],
+  ["/es/proyectos/balcarce-racing-simulator", "Balcarce Racing Simulator"],
+  ["/en/projects/balcarce-racing-simulator", "Balcarce Racing Simulator"],
 ]) {
   test(`server renders ${path}`, async () => { const response = await render(path); assert.equal(response.status, 200); const html = await response.text(); assert.match(html, new RegExp(expected, "i")); assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/i); });
 }

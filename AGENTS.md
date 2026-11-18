@@ -19,6 +19,7 @@ This repository is Joaquín Oviedo's bilingual professional portfolio. Optimize 
 - `content/pending.ts`: private reminders only; never render it.
 - `components/FrameworkPrototype.tsx` and `content/frameworkPrototype.ts`: sanitized interactive representation of the Power Apps design system; never turn it into a reproduction of internal applications.
 - `public/cv/`: replaceable CV files; keep paths synchronized with `content/profile.ts`.
+- `scripts/cv_content.py`: single factual source for the general CVs and role-specific variants. See `docs/CV_VARIANTS.md`; never edit generated files as the source of truth.
 - `public/images/`: real public imagery only.
 - `lib/basePath.ts`: required path helper for every public image, CV, icon, and localized internal route so GitHub Pages and a future root domain both work.
 - `docs/CONTENT_GUIDE.md`: editing workflow and pending facts.

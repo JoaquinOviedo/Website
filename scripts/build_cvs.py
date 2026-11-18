@@ -10,7 +10,7 @@ from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.shared import Inches, Mm, Pt, RGBColor
 
-from cv_content import CONTACT, CV, PROFILE_IMAGE, ROOT
+from cv_content import CONTACT, CV, CV_VARIANTS, PROFILE_IMAGE, ROOT
 
 OUT = ROOT / "documents" / "cv"
 TMP = ROOT / "tmp" / "cv-build"
@@ -94,11 +94,12 @@ def section_title(doc, text):
     bottom_rule(p)
 
 
-def item_heading(doc, title, period, subtitle=None):
+def item_heading(doc, title, period=None, subtitle=None):
     p = doc.add_paragraph()
     p.paragraph_format.space_before = Pt(2); p.paragraph_format.space_after = Pt(0.5)
     set_font(p.add_run(title), 9.9, bold=True)
-    set_font(p.add_run(f" | {period}"), 9.4, bold=True, color=MUTED)
+    if period:
+        set_font(p.add_run(f" | {period}"), 9.4, bold=True, color=MUTED)
     if subtitle:
         p = doc.add_paragraph(); p.paragraph_format.space_after = Pt(0.5)
         set_font(p.add_run(subtitle), 9.4, italic=True, color=MUTED)
@@ -112,7 +113,8 @@ def add_bullet(doc, text):
 def add_header(doc, data):
     if data["photo"]:
         p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER; p.paragraph_format.space_after = Pt(2)
-        p.add_run().add_picture(str(crop_photo()), width=Mm(27), height=Mm(27))
+        picture = p.add_run().add_picture(str(crop_photo()), width=Mm(27), height=Mm(27))
+        picture._inline.docPr.set("descr", "Retrato profesional de Joaquín Nicolás Oviedo")
     p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER; p.paragraph_format.space_after = Pt(0)
     set_font(p.add_run(CONTACT["name"]), 17.5, bold=True)
     p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER; p.paragraph_format.space_after = Pt(1.5)
@@ -127,8 +129,8 @@ def add_header(doc, data):
     bottom_rule(p)
 
 
-def build(locale):
-    data = CV[locale]
+def build(locale, data=None, out_dir=OUT):
+    data = data or CV[locale]
     doc = Document(); configure(doc); add_header(doc, data)
     section_title(doc, data["sections"]["summary"])
     p = doc.add_paragraph(); p.paragraph_format.space_after = Pt(1)
@@ -139,7 +141,7 @@ def build(locale):
     for text in exp["bullets"]: add_bullet(doc, text)
     section_title(doc, data["sections"]["projects"])
     for project in data["projects"]:
-        item_heading(doc, project["heading"], project["period"])
+        item_heading(doc, project["heading"], project.get("period"))
         for text in project["bullets"]: add_bullet(doc, text)
     section_title(doc, data["sections"]["education"])
     for title, period in data["education"]: item_heading(doc, title, period)
@@ -151,7 +153,8 @@ def build(locale):
     p = doc.add_paragraph(); p.paragraph_format.space_after = Pt(1)
     set_font(p.add_run(data["languages"]), 9.4)
     p = doc.add_paragraph(); set_font(p.add_run(data["training"]), 9.4)
-    target = OUT / data["filename"]
+    out_dir.mkdir(parents=True, exist_ok=True)
+    target = out_dir / data["filename"]
     doc.save(target)
     return target
 
@@ -159,3 +162,7 @@ def build(locale):
 if __name__ == "__main__":
     for locale in ("es", "en"):
         print(build(locale))
+    variant_out = OUT / "variants"
+    for localized in CV_VARIANTS.values():
+        for locale, data in localized.items():
+            print(build(locale, data, variant_out))

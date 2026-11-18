@@ -6,6 +6,9 @@ const projectFiles = [
   "../content/projects/wirin.ts",
   "../content/projects/personalFinance.ts",
   "../content/projects/myTechDegree.ts",
+  "../content/projects/photoSwipperFilter.ts",
+  "../content/projects/miEspacio.ts",
+  "../content/projects/balcarce.ts",
 ];
 
 async function readProjectSources() {
@@ -32,8 +35,8 @@ test("professional content keeps both locales and safe CV state", async () => {
   assert.match(copy, /involucrarme más allá de la implementación/);
   assert.match(copy, /taking ownership beyond the implementation itself/);
   assert.match(copy, /Uso IA como herramienta/);
-  assert.match(copy, /Power Platform, \.NET, React y TypeScript/);
-  assert.match(copy, /Power Platform, \.NET, React, and TypeScript/);
+  assert.match(copy, /Power Platform y \.NET/);
+  assert.match(copy, /Power Platform and \.NET/);
   assert.match(portfolio, /joaquin-oviedo-profile-v2\.webp/);
   assert.doesNotMatch(copy, /Me interesa especialmente el backend|particularly interested in backend work/);
 });
@@ -45,19 +48,21 @@ test("professional experience includes Power Platform delivery and access govern
     readFile("app/globals.css", "utf8"),
   ]);
   assert.match(experience, /"Dataverse"/);
-  assert.match(copy, /variables de entorno, flujos de Power Automate/);
-  assert.match(copy, /environment variables, Power Automate flows/);
+  assert.match(copy, /automatizo procesos con Power Automate/);
+  assert.match(copy, /automate workflows with Power Automate/);
   assert.match(copy, /roles y permisos en Dataverse, SharePoint y grupos AD corporativos/);
   assert.match(copy, /roles and permissions across Dataverse, SharePoint, and corporate AD groups/);
-  assert.match(copy, /registro evidencia con Azure DevOps Test & Feedback/);
-  assert.match(copy, /capture evidence with Azure DevOps Test & Feedback/);
+  assert.match(copy, /Valido los cambios antes de pasarlos a producción/);
+  assert.match(copy, /test changes before releasing them to production/);
   assert.match(css, /data-tech="dataverse"/);
   assert.match(css, /data-tech="test-feedback"/);
 });
 
 test("WIRIN records backend ownership and only verified public repositories", async () => {
   const source = await readProjectSources();
-  assert.match(source, /main contribution was the backend/i);
+  assert.match(source, /main contribution to the team was the backend/i);
+  assert.match(source, /me encargué del despliegue en Azure/);
+  assert.match(source, /handled deployment on Azure/);
   assert.match(source, /wirinadapta\.vercel\.app/);
   assert.match(source, /WIRIN-FrontEnd/);
   assert.match(source, /wirin-landing/);
@@ -171,12 +176,13 @@ test("browser tabs use a concise personal title and an adaptive vector mark", as
   assert.match(darkMark, /aria-label="JO\."/);
 });
 
-test("each featured case study renders a bilingual interactive prototype", async () => {
+test("case studies render their bilingual interactive prototype when enabled", async () => {
   const [caseStudy, prototype] = await Promise.all([
     readFile("components/CaseStudy.tsx", "utf8"),
     readFile("components/ProjectPrototype.tsx", "utf8"),
   ]);
   assert.match(caseStudy, /ProjectPrototype/);
+  assert.match(caseStudy, /project\.prototype &&/);
   assert.match(prototype, /FinancePrototype/);
   assert.match(prototype, /WirinPrototype/);
   assert.match(prototype, /CareerPrototype/);
@@ -199,7 +205,7 @@ test("WIRIN and finance use accessible sanitized image galleries", async () => {
   assert.match(media, /sanitized\.webp/);
   assert.match(gallery, /Open full-size screenshot/);
   assert.doesNotMatch(gallery, /ProjectPrototype/);
-  assert.match(caseStudy, /<ProjectGallery slug=\{slug\}/);
+  assert.match(caseStudy, /<ProjectGallery slug=\{slug as GallerySlug\}/);
   assert.match(caseStudy, /<ProjectPrototype slug=\{slug\}/);
   assert.match(caseStudy, /prototypeLead/);
   assert.match(media, /career\/dashboard-sanitized\.webp/);
@@ -221,7 +227,7 @@ test("case studies prioritize recruiter scanning and defer interactive depth", a
   ]);
 
   assert.doesNotMatch(caseStudy, /\{t\.solution\}|\{t\.technical\}/);
-  assert.match(caseStudy, /\{t\.problem\}/);
+  assert.match(caseStudy, /isSimulator \? t\.projectGoal : t\.problem/);
   assert.match(caseStudy, /\{t\.contribution\}/);
   assert.match(caseStudy, /hasContribution/);
   assert.match(caseStudy, /personal-project/);
@@ -231,8 +237,8 @@ test("case studies prioritize recruiter scanning and defer interactive depth", a
   assert.match(caseStudy, /<details className="prototype-disclosure">/);
   assert.match(caseStudy, /className="disclosure-chevron"/);
   assert.match(caseStudy, /className="ai-tech"/);
-  assert.match(portfolioData, /decidir qué funciones aportaban valor/);
-  assert.match(portfolioData, /selecting features, evaluating their usefulness/);
+  assert.match(portfolioData, /Definí los flujos y sus reglas, revisé los cálculos/);
+  assert.match(portfolioData, /I defined the academic tracking rules/);
   assert.match(css, /font-size: clamp\(3rem, 7\.5vw, 6\.6rem\)/);
   assert.match(css, /width: min\(860px, 100%\)/);
 });
@@ -244,7 +250,7 @@ test("case studies keep AI disclosure compact and use technology border accents"
   ]);
   assert.match(caseStudy, /data-tech=\{technologyKey\(tech\)\}/);
   assert.match(caseStudy, /className="ai-tech"/);
-  assert.doesNotMatch(caseStudy, /case-ai-note|aiTransparency/);
+  assert.match(caseStudy, /project\.aiContribution\[locale\]/);
   assert.match(css, /\.tech-list li\[data-tech\]:hover/);
 });
 
@@ -324,7 +330,7 @@ test("all featured projects have localized recruiter-friendly case-study routes"
     readFile("app/sitemap.ts", "utf8"),
     readFile("scripts/export-github-pages.mjs", "utf8"),
   ]);
-  assert.equal((content.match(/caseStudy:\s*true/g) ?? []).length, 3);
+  assert.equal((content.match(/caseStudy:\s*true/g) ?? []).length, 6);
   assert.match(content, /\/es\/proyectos\/finanzas-personales/);
   assert.match(content, /\/en\/projects\/personal-finance/);
   assert.match(content, /\/es\/proyectos\/mi-carrera-tech/);
@@ -335,6 +341,12 @@ test("all featured projects have localized recruiter-friendly case-study routes"
     "/en/projects/personal-finance",
     "/es/proyectos/mi-carrera-tech",
     "/en/projects/my-tech-degree",
+    "/es/proyectos/photo-swipper-filter",
+    "/en/projects/photo-swipper-filter",
+    "/es/proyectos/mi-espacio",
+    "/en/projects/mi-espacio",
+    "/es/proyectos/balcarce-racing-simulator",
+    "/en/projects/balcarce-racing-simulator",
   ]) {
     assert.match(exporter, new RegExp(route));
   }

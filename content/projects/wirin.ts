@@ -5,6 +5,7 @@ export const wirinProject = {
   path: { es: "/es/proyectos/wirin", en: "/en/projects/wirin" },
   featured: true,
   caseStudy: true,
+  prototype: true,
   type: "academic",
   title: "WIRIN",
   year: "2025",
@@ -17,18 +18,18 @@ export const wirinProject = {
     en: "Turning bibliographic material into accessible content requires coordinated processing, human review, and status tracking.",
   },
   solution: {
-    es: "Una plataforma web que integra digitalización, OCR, asignación de tareas, seguimiento y administración. El equipo está validando su utilidad con personal bibliotecario como paso previo a su implementación en la biblioteca de la UNLaM.",
-    en: "A web platform combining digitization, OCR, task assignment, tracking, and administration. The team is validating its usefulness with library staff before its implementation at UNLaM's library.",
+    es: "Una plataforma web que organiza la asignación de tareas, el seguimiento y la administración del proceso de accesibilidad bibliográfica. El equipo está validando su utilidad con personal bibliotecario como paso previo a su implementación en la biblioteca de la UNLaM.",
+    en: "A web platform for assigning tasks, tracking progress, and managing the bibliographic accessibility workflow. The team is validating its usefulness with library staff before its implementation at UNLaM's library.",
   },
   role: {
-    es: "Trabajo en equipo. Mi contribución principal fue el backend: API, persistencia, autenticación e integración de servicios.",
-    en: "Team project. My main contribution was the backend: API, persistence, authentication, and service integration.",
+    es: "En el equipo, mi aporte principal fue el backend. Desarrollé la API, trabajé en la persistencia de datos y me encargué del despliegue en Azure.",
+    en: "My main contribution to the team was the backend. I developed the API, worked on data persistence, and handled deployment on Azure.",
   },
   features: {
-    es: ["Procesamiento OCR", "Asignación de tareas a voluntarios", "Seguimiento de estados", "Administración de usuarios"],
-    en: ["OCR processing", "Volunteer task assignment", "Status tracking", "User administration"],
+    es: ["Asignación de tareas a voluntarios", "Seguimiento de estados", "Administración de usuarios"],
+    en: ["Volunteer task assignment", "Status tracking", "User administration"],
   },
-  technologies: [".NET 8", "ASP.NET Core Web API", "Angular 17", "Entity Framework Core", "SQL Server", "PostgreSQL", "Azure", "JWT"],
+  technologies: [".NET 8", "ASP.NET Core Web API", "Angular 17", "Entity Framework Core", "SQL Server", "PostgreSQL", "Azure"],
   image: "/images/projects/wirin/dashboard-sanitized.webp",
   logo: "/images/projects/wirin/logo.webp",
   logoDark: "/images/projects/wirin/logo-dark.webp",
@@ -42,7 +43,7 @@ export const wirinProject = {
     en: "Academic · Institutional validation in progress",
   },
   learnings: {
-    es: "Diseño de APIs, integración de OCR y evolución de una solución académica hacia la validación con usuarios institucionales reales.",
-    en: "API design, OCR integration, and evolving an academic solution toward validation with real institutional users.",
+    es: "Diseño de APIs, despliegue en Azure y validación de una solución académica con personal de biblioteca.",
+    en: "API design, deployment on Azure, and validation of an academic project with library staff.",
   },
 } satisfies Project;

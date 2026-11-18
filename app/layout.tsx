@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { withBasePath } from "@/lib/basePath";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://joaquinoviedo.dev";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://joaquinoviedo.com";
 const siteOrigin = new URL(siteUrl).origin;
 const absoluteAsset = (path: string) => new URL(withBasePath(path), siteOrigin).toString();
 
@@ -32,6 +32,7 @@ export const viewport: Viewport = {
 };
 
 const themeScript = `(function(){try{var s=localStorage.getItem('theme');var t=s==='light'||s==='dark'||s==='system'?s:'system';var d=t==='dark'||(t==='system'&&matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.dataset.theme=d?'dark':'light';document.documentElement.style.colorScheme=d?'dark':'light'}catch(e){}})()`;
+const languageScript = `(function(){var m=location.pathname.match(new RegExp('^/(es|en)(?:/|$)'));if(m)document.documentElement.lang=m[1]})()`;
 
 export default function RootLayout({
   children,
@@ -53,8 +54,6 @@ export default function RootLayout({
           "Power Platform",
           "Backend development",
           ".NET",
-          "React",
-          "TypeScript",
           "Enterprise software",
         ],
       },
@@ -74,6 +73,7 @@ export default function RootLayout({
         <link rel="icon" type="image/svg+xml" href={withBasePath("/images/joaquin-oviedo-mark-light.svg")} media="(prefers-color-scheme: light)" />
         <link rel="icon" type="image/svg+xml" href={withBasePath("/images/joaquin-oviedo-mark-dark.svg")} media="(prefers-color-scheme: dark)" />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script dangerouslySetInnerHTML={{ __html: languageScript }} />
       </head>
       <body>
         {children}

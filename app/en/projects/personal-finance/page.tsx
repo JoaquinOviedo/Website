@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { CaseStudy } from "@/components/CaseStudy";
 
 export const metadata: Metadata = {
-  title: "Personal finance management — Case study",
+  title: "Personal finance management",
   description: "A local tool for budgeting, emergency funds, investments, and net-worth evolution.",
   alternates: {
     canonical: "/en/projects/personal-finance",

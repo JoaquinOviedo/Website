@@ -4,7 +4,7 @@ import { pathToFileURL } from "node:url";
 
 const root = process.cwd();
 const output = join(root, "pages-dist");
-const basePath = (process.env.PAGES_BASE_PATH ?? "/Website").replace(/\/$/, "");
+const basePath = (process.env.PAGES_BASE_PATH ?? "").replace(/\/$/, "");
 
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
@@ -23,6 +23,12 @@ const routes = new Map([
   ["/en/projects/personal-finance", "en/projects/personal-finance/index.html"],
   ["/es/proyectos/mi-carrera-tech", "es/proyectos/mi-carrera-tech/index.html"],
   ["/en/projects/my-tech-degree", "en/projects/my-tech-degree/index.html"],
+  ["/es/proyectos/mi-espacio", "es/proyectos/mi-espacio/index.html"],
+  ["/en/projects/mi-espacio", "en/projects/mi-espacio/index.html"],
+  ["/es/proyectos/photo-swipper-filter", "es/proyectos/photo-swipper-filter/index.html"],
+  ["/en/projects/photo-swipper-filter", "en/projects/photo-swipper-filter/index.html"],
+  ["/es/proyectos/balcarce-racing-simulator", "es/proyectos/balcarce-racing-simulator/index.html"],
+  ["/en/projects/balcarce-racing-simulator", "en/projects/balcarce-racing-simulator/index.html"],
   ["/robots.txt", "robots.txt"],
   ["/sitemap.xml", "sitemap.xml"],
   ["/manifest.webmanifest", "manifest.webmanifest"],
@@ -39,6 +45,11 @@ function withBasePath(value) {
   );
 }
 
+function withDocumentLanguage(value, route) {
+  if (!route.startsWith("/en") || !value.includes("<html")) return value;
+  return value.replace(/<html lang="es"/, '<html lang="en"');
+}
+
 for (const [route, destination] of routes) {
   const response = await worker.fetch(
     new Request(`http://localhost${route}`, { headers: { accept: route.endsWith(".html") || !route.includes(".") ? "text/html" : "*/*" } }),
@@ -48,7 +59,10 @@ for (const [route, destination] of routes) {
   if (!response.ok) throw new Error(`Could not export ${route}: HTTP ${response.status}`);
   const target = join(output, destination);
   await mkdir(dirname(target), { recursive: true });
-  await writeFile(target, withBasePath(await response.text()));
+  await writeFile(
+    target,
+    withDocumentLanguage(withBasePath(await response.text()), route),
+  );
 }
 
 await writeFile(join(output, ".nojekyll"), "");

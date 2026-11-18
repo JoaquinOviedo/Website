@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { projects } from "@/content/portfolio";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://joaquinoviedo.dev";
+  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://joaquinoviedo.com";
   const homePages = ["/es", "/en"].map((url) => ({
     url: `${base}${url}`,
     lastModified: new Date("2026-08-08"),
